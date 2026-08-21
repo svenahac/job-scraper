@@ -46,19 +46,21 @@ All three are published by the site itself at
 reads them from that config at runtime rather than hardcoding them, so a
 rotation on their side does not break the scraper.
 
-With those headers, `GET /job-ads` returns `200 {"data":{"items":[],"total":0}}`
-— correct host and authentication, wrong endpoint or parameter names. The
-exact search route is resolved during implementation by capturing the request
-the SPA issues for the target filter URL.
+The search route is `GET /job-ads-search`, paginated with `pageSize` and
+`startFrom`. With the filters below it returns `{"data":{"items":[…],"total":90}}`.
+Search items carry only `adSummary`, roughly a hundred characters, so
+classification additionally requires `GET /job-ads/{uuid}`, whose response
+supplies `jobDescription` and `weExpect` as HTML. Both must be concatenated:
+the years-of-experience requirement almost always sits in `weExpect`.
 
 Target filters, as selected in the maintainer's browser:
 `jobCategoryIds=64f003ff-6d8b-4be0-b58c-4580e4eeeb8a` (programiranje) and
 `regionIds=d1dce9b1-9fa4-438b-b582-10d371d442e6` (osrednjeslovenska).
 
-**Contingency:** if the JSON endpoint cannot be resolved, this adapter falls
-back to Playwright driving the filtered search URL and reading the rendered
-DOM. The JSON path is strongly preferred — it is faster, stabler, and adds no
-browser dependency to CI.
+The endpoint was verified against the live API before implementation, so the
+Playwright fallback contemplated earlier is not needed. If the API contract
+changes later, driving the filtered search URL with Playwright and reading the
+rendered DOM remains the fallback.
 
 ### LinkedIn
 
