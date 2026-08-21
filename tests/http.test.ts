@@ -21,6 +21,14 @@ describe('stripHtml', () => {
   it('returns an empty string for empty input', () => {
     expect(stripHtml('')).toBe('');
   });
+
+  it('inserts a space between adjacent table cells', () => {
+    expect(stripHtml('<tr><td>C++</td><td>ekspert</td></tr>')).toBe('C++ ekspert');
+  });
+
+  it('inserts a space between adjacent definition-list items', () => {
+    expect(stripHtml('<dl><dt>Znanje</dt><dd>napredno</dd></dl>')).toBe('Znanje napredno');
+  });
 });
 
 describe('sleep', () => {

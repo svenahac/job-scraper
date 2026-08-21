@@ -44,7 +44,7 @@ export function stripHtml(html: string): string {
   // Pad block-closing tags first. cheerio's .text() concatenates adjacent
   // blocks with no separator, so "<p>Zahtevamo</p><p>3+ let</p>" would other-
   // wise collapse to "Zahtevamo3+ let" and break keyword matching.
-  const spaced = html.replace(/<\/(?:p|li|div|tr|h[1-6])>|<br\s*\/?>/gi, ' $& ');
+  const spaced = html.replace(/<\/(?:p|li|div|tr|td|th|dd|dt|h[1-6])>|<br\s*\/?>/gi, ' $& ');
   const $ = cheerio.load(`<div id="__root">${spaced}</div>`);
   return $('#__root').text().replace(/\s+/g, ' ').trim();
 }
