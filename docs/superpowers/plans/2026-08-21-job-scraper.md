@@ -1034,8 +1034,10 @@ export function stripHtml(html: string): string {
   if (!html) return '';
   // Pad block-closing tags first. cheerio's .text() concatenates adjacent
   // blocks with no separator, so "<p>Zahtevamo</p><p>3+ let</p>" would other-
-  // wise collapse to "Zahtevamo3+ let" and break keyword matching.
-  const spaced = html.replace(/<\/(?:p|li|div|tr|h[1-6])>|<br\s*\/?>/gi, ' $& ');
+  // wise collapse to "Zahtevamo3+ let" and break keyword matching. Table cells
+  // matter as much as paragraphs here: slo-tech is a table-based layout, and an
+  // unpadded skills table yields "C!#ekspert.NETekspertGITnapredno znanje".
+  const spaced = html.replace(/<\/(?:p|li|div|tr|td|th|dd|dt|h[1-6])>|<br\s*\/?>/gi, ' $& ');
   const $ = cheerio.load(`<div id="__root">${spaced}</div>`);
   return $('#__root').text().replace(/\s+/g, ' ').trim();
 }
