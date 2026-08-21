@@ -1014,9 +1014,12 @@ export async function fetchJson<T>(url: string, headers: Record<string, string> 
 /** HTML fragment to plain text, entities decoded, whitespace collapsed. */
 export function stripHtml(html: string): string {
   if (!html) return '';
-  const $ = cheerio.load(`<div id="__root">${html}</div>`);
-  const text = $('#__root').text().replace(/\s+/g, ' ').trim();
-  return text;
+  // Pad block-closing tags first. cheerio's .text() concatenates adjacent
+  // blocks with no separator, so "<p>Zahtevamo</p><p>3+ let</p>" would other-
+  // wise collapse to "Zahtevamo3+ let" and break keyword matching.
+  const spaced = html.replace(/<\/(?:p|li|div|tr|h[1-6])>|<br\s*\/?>/gi, ' $& ');
+  const $ = cheerio.load(`<div id="__root">${spaced}</div>`);
+  return $('#__root').text().replace(/\s+/g, ' ').trim();
 }
 ```
 
@@ -1024,8 +1027,6 @@ export function stripHtml(html: string): string {
 
 Run: `npx vitest run tests/http.test.ts`
 Expected: PASS.
-
-If "inserts a space between adjacent blocks" fails, cheerio's `.text()` concatenated the blocks without a separator. Fix by inserting a space before extracting: replace `</p>`, `</li>`, `</div>`, and `<br>` with the tag plus a space before loading.
 
 - [ ] **Step 5: Commit**
 
