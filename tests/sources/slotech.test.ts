@@ -33,8 +33,11 @@ describe('parseListing', () => {
     expect(rows.some((r) => r.tags.length > 0)).toBe(true);
   });
 
-  it('does not treat tag-cloud links as job rows', () => {
-    expect(rows.every((r) => !r.sourceId.includes('tagi'))).toBe(true);
+  it('extracts only numeric posting ids, filtering out tag and company links', () => {
+    expect(rows.length).toBeGreaterThan(0);
+    for (const r of rows) expect(r.sourceId).toMatch(/^\d+$/);
+    const allDeloLinks = (listing.match(/href="\/delo\//g) ?? []).length;
+    expect(rows.length).toBeLessThan(allDeloLinks);
   });
 });
 
@@ -50,6 +53,10 @@ describe('parseDetail', () => {
   });
 
   it('extracts the posted date as an ISO date', () => {
-    expect(parsed.postedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(parsed.postedAt).toBe('2026-08-18');
+  });
+
+  it('extracts the location', () => {
+    expect(parsed.location).toBe('Ljubljana');
   });
 });

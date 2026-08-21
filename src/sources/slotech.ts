@@ -43,8 +43,14 @@ const MONTHS: Record<string, string> = {
   jul: '07', avg: '08', sep: '09', okt: '10', nov: '11', dec: '12',
 };
 
-export function parseDetail(html: string): { description: string; postedAt: string | null } {
+export function parseDetail(html: string): {
+  description: string;
+  postedAt: string | null;
+  location: string | null;
+} {
   const $ = cheerio.load(html);
+  const location = $('a[href^="/delo/mesto/"]').first().text().trim() || null;
+
   // Remove page chrome so the body text is the advert, not the login form.
   // noscript is included because htmlparser2 treats its contents as raw
   // text (like script/style), so a tracking-pixel snippet inside it would
@@ -60,7 +66,7 @@ export function parseDetail(html: string): { description: string; postedAt: stri
     if (month) postedAt = `${m[3]}-${month}-${m[1]!.padStart(2, '0')}`;
   }
 
-  return { description, postedAt };
+  return { description, postedAt, location };
 }
 
 export const sloTechSource: Source = {
@@ -74,14 +80,14 @@ export const sloTechSource: Source = {
       await sleep(REQUEST_DELAY_MS);
       const url = `${BASE}/delo/${row.sourceId}`;
       const detail = await fetchText(url, { encoding: ENCODING });
-      const { description, postedAt } = parseDetail(detail);
+      const { description, postedAt, location } = parseDetail(detail);
       jobs.push({
         source: 'slotech',
         sourceId: row.sourceId,
         url,
         title: row.title,
         company: row.company,
-        location: null, // slo-tech does not expose a structured location
+        location,
         postedAt,
         description,
         tags: row.tags,
