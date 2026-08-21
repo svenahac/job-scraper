@@ -41,7 +41,7 @@ const MID_MARKERS = [
  * Group 1 is the first number, group 2 the upper bound of a range.
  * Matches: "5+ let", "vsaj 3 leta", "1-2 leti", "1 leto", "4 years".
  */
-const YEARS_RE = /(\d{1,2})\s*(?:[-–—]\s*(\d{1,2}))?\s*\+?\s*(?:let(?:o|a|i)?|year)/gi;
+const YEARS_RE = /(\d{1,2})\s*(?:[-–—]\s*(\d{1,2}))?\s*\+?\s*(?:let(?:o|a|i)?|years?)(?![a-zščž])/gi;
 
 const norm = (s: string): string => s.toLowerCase();
 

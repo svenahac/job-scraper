@@ -91,6 +91,22 @@ describe('matchSeniority', () => {
     expect(matchSeniority('Developer', [], 'At least 4 years of experience.')).toBe('mid');
   });
 
+  it('does not read "letters" as a years requirement', () => {
+    expect(matchSeniority('Razvijalec', [], '5 letters of code review needed.')).toBe('unknown');
+  });
+
+  it('does not read the Slovenian word "letalo" as a years requirement', () => {
+    expect(matchSeniority('Razvijalec', [], 'Upravljamo 20 letalo.')).toBe('unknown');
+  });
+
+  it('does not read "letakov" as a years requirement', () => {
+    expect(matchSeniority('Razvijalec', [], 'Izdelali smo 12 letakov.')).toBe('unknown');
+  });
+
+  it('still reads the English plural "years"', () => {
+    expect(matchSeniority('Razvijalec', [], 'At least 4 years of experience.')).toBe('mid');
+  });
+
   it('returns unknown when there is no signal at all', () => {
     expect(matchSeniority('Razvijalec programske opreme (m/ž)', [], 'Zanimivo delo.'))
       .toBe('unknown');
