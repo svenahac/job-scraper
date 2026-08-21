@@ -39,6 +39,20 @@ describe('parseListing', () => {
     const allDeloLinks = (listing.match(/href="\/delo\//g) ?? []).length;
     expect(rows.length).toBeLessThan(allDeloLinks);
   });
+
+  it('rejects a non-numeric /delo/ link even inside a job-row cell', () => {
+    const html = `<table>
+      <tr>
+        <td class="name"><h3><a href="/delo/tagi/react">react</a></h3></td>
+        <td class="company"><a href="/delo/podjetje/Acme">Acme</a></td>
+      </tr>
+      <tr>
+        <td class="name"><h3><a href="/delo/8052">Real Job</a></h3></td>
+        <td class="company"><a href="/delo/podjetje/Acme">Acme</a></td>
+      </tr>
+    </table>`;
+    expect(parseListing(html).map((r) => r.sourceId)).toEqual(['8052']);
+  });
 });
 
 describe('parseDetail', () => {
