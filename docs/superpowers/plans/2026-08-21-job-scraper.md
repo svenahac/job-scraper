@@ -327,6 +327,22 @@ describe('matchSeniority', () => {
       .toBe('unknown');
   });
 
+  it('does not read "letters" as a years requirement', () => {
+    expect(matchSeniority('Razvijalec', [], '5 letters of code review needed.')).toBe('unknown');
+  });
+
+  it('does not read the Slovenian word "letalo" as a years requirement', () => {
+    expect(matchSeniority('Razvijalec', [], 'Upravljamo 20 letalo.')).toBe('unknown');
+  });
+
+  it('does not read "letakov" as a years requirement', () => {
+    expect(matchSeniority('Razvijalec', [], 'Izdelali smo 12 letakov.')).toBe('unknown');
+  });
+
+  it('still reads the English plural "years"', () => {
+    expect(matchSeniority('Razvijalec', [], 'At least 4 years of experience.')).toBe('mid');
+  });
+
   it('lets an explicit title marker win over a body years figure', () => {
     expect(matchSeniority('Junior Developer', [], 'Ekipa ima 10 let izkušenj.')).toBe('junior');
   });
@@ -414,8 +430,10 @@ const MID_MARKERS = [
  * Years of experience, Slovenian and English.
  * Group 1 is the first number, group 2 the upper bound of a range.
  * Matches: "5+ let", "vsaj 3 leta", "1-2 leti", "1 leto", "4 years".
+ * The trailing lookahead is load-bearing: without it "20 letalo" (20 airplanes)
+ * and "5 letters" parse as year counts and wrongly exclude a job as senior.
  */
-const YEARS_RE = /(\d{1,2})\s*(?:[-–—]\s*(\d{1,2}))?\s*\+?\s*(?:let(?:o|a|i)?|year)/gi;
+const YEARS_RE = /(\d{1,2})\s*(?:[-–—]\s*(\d{1,2}))?\s*\+?\s*(?:let(?:o|a|i)?|years?)(?![a-zščž])/gi;
 
 const norm = (s: string): string => s.toLowerCase();
 
