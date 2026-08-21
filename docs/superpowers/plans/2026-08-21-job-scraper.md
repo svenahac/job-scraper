@@ -1066,7 +1066,7 @@ git commit -m "feat: add HTTP helper with encoding support and HTML stripping"
 - Consumes: `RawJob`, `Source` from `../types.js`; `fetchText`, `sleep`, `stripHtml`, `REQUEST_DELAY_MS` from `../http.js`
 - Produces:
   - `parseListing(html: string): Array<{ sourceId: string; title: string; company: string | null; tags: string[] }>`
-  - `parseDetail(html: string): { description: string; postedAt: string | null }`
+  - `parseDetail(html: string): { description: string; postedAt: string | null; location: string | null }`
   - `sloTechSource: Source`
 
 **Reference — verified page structure:**
@@ -1124,8 +1124,28 @@ describe('parseListing', () => {
     expect(rows.some((r) => r.tags.length > 0)).toBe(true);
   });
 
-  it('does not treat tag-cloud links as job rows', () => {
-    expect(rows.every((r) => !r.sourceId.includes('tagi'))).toBe(true);
+  it('extracts only numeric posting ids, filtering out tag and company links', () => {
+    expect(rows.length).toBeGreaterThan(0);
+    for (const r of rows) expect(r.sourceId).toMatch(/^\d+$/);
+    const allDeloLinks = (listing.match(/href="\/delo\//g) ?? []).length;
+    expect(rows.length).toBeLessThan(allDeloLinks);
+  });
+
+  // Synthetic rather than fixture-based on purpose: this isolates our guard.
+  // The live fixture happens to contain only numeric ids inside td.name, so a
+  // fixture-based assertion passes even with the guard deleted.
+  it('rejects a non-numeric /delo/ link even inside a job-row cell', () => {
+    const html = `<table>
+      <tr>
+        <td class="name"><h3><a href="/delo/tagi/react">react</a></h3></td>
+        <td class="company"><a href="/delo/podjetje/Acme">Acme</a></td>
+      </tr>
+      <tr>
+        <td class="name"><h3><a href="/delo/8052">Real Job</a></h3></td>
+        <td class="company"><a href="/delo/podjetje/Acme">Acme</a></td>
+      </tr>
+    </table>`;
+    expect(parseListing(html).map((r) => r.sourceId)).toEqual(['8052']);
   });
 });
 
@@ -1141,7 +1161,11 @@ describe('parseDetail', () => {
   });
 
   it('extracts the posted date as an ISO date', () => {
-    expect(parsed.postedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(parsed.postedAt).toBe('2026-08-18');
+  });
+
+  it('extracts the location', () => {
+    expect(parsed.location).toBe('Ljubljana');
   });
 });
 ```
@@ -1199,10 +1223,16 @@ const MONTHS: Record<string, string> = {
   jul: '07', avg: '08', sep: '09', okt: '10', nov: '11', dec: '12',
 };
 
-export function parseDetail(html: string): { description: string; postedAt: string | null } {
+export function parseDetail(html: string): {
+  description: string;
+  postedAt: string | null;
+  location: string | null;
+} {
   const $ = cheerio.load(html);
   // Remove page chrome so the body text is the advert, not the login form.
-  $('script, style, form, nav, header, footer').remove();
+  // noscript is essential: htmlparser2 treats its contents as raw text, so the
+  // page's Piwik tracking snippet leaks literal markup into the description.
+  $('script, style, form, nav, header, footer, noscript').remove();
   const description = stripHtml($.root().html() ?? '');
 
   // "objavljeno :: 18. avg 2026 ob 10:14:43"
@@ -1213,7 +1243,10 @@ export function parseDetail(html: string): { description: string; postedAt: stri
     if (month) postedAt = `${m[3]}-${month}-${m[1]!.padStart(2, '0')}`;
   }
 
-  return { description, postedAt };
+  // slo-tech exposes a structured location as the sole /delo/mesto/ link.
+  const location = $('a[href^="/delo/mesto/"]').first().text().trim() || null;
+
+  return { description, postedAt, location };
 }
 
 export const sloTechSource: Source = {
@@ -1227,14 +1260,14 @@ export const sloTechSource: Source = {
       await sleep(REQUEST_DELAY_MS);
       const url = `${BASE}/delo/${row.sourceId}`;
       const detail = await fetchText(url, { encoding: ENCODING });
-      const { description, postedAt } = parseDetail(detail);
+      const { description, postedAt, location } = parseDetail(detail);
       jobs.push({
         source: 'slotech',
         sourceId: row.sourceId,
         url,
         title: row.title,
         company: row.company,
-        location: null, // slo-tech does not expose a structured location
+        location,
         postedAt,
         description,
         tags: row.tags,
