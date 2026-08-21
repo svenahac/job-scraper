@@ -33,11 +33,6 @@ describe('parseGuestCards', () => {
     for (const c of cards) expect(c.location).toMatch(/\S/);
   });
 
-  it('deduplicates cards repeated within one response', () => {
-    const ids = cards.map((c) => c.sourceId);
-    expect(new Set(ids).size).toBe(ids.length);
-  });
-
   it('keeps the first occurrence when a card id repeats', () => {
     const card = (id: string, title: string, company: string) => `
       <div class="base-card">
