@@ -131,21 +131,25 @@ tuning happens in one place.
 
 ### Role gate
 
-A posting must match at least one web keyword. Keywords are split into two
-tiers, because where a keyword appears changes what it means:
+A posting must match at least one web keyword across its title, tags, or
+body:
 
 - **Role keywords** — `frontend`, `front-end`, `fullstack`, `full-stack`,
-  `spletni razvijalec`, `spletne aplikacije`, `web developer`. These match
-  anywhere: title, tags, or body. A posting that says "spletne aplikacije" in
-  its body is a web job regardless of how the title is worded.
+  `spletni razvijalec`, `spletne aplikacije`, `web developer`.
 - **Technology keywords** — `react`, `vue`, `angular`, `next.js`, `svelte`,
-  `javascript`, `typescript`. These match **only in the title or tags**, never
-  in the body.
+  `javascript`, `typescript`.
 
-The tier split exists to stop false positives. Slovenian ads routinely list
-"poznavanje JavaScripta je prednost" in the nice-to-haves of a Java or C++
-role; matching technology keywords in body text would pull those in. In a
-title or a tag, the same word is a genuine signal.
+Both tiers match anywhere in the posting, body included. This is a deliberate
+bias toward recall over precision: Slovenian ads often bury the actual stack
+in the requirements list while the title says only "Razvijalec (m/ž)", and
+missing one of those costs more than skimming a few false positives.
+
+The known cost is that ads listing "poznavanje JavaScripta je prednost" among
+the nice-to-haves of a Java or C++ role will match. The `role_match` column
+records which keywords fired, so a posting that got in on a single incidental
+technology mention is visible at a glance in the CSV. If that noise becomes
+annoying in practice, restricting technology keywords to title and tags is a
+one-line change in `classify.ts`.
 
 This gate matters because slo-tech's board is general IT — its listings are
 dominated by C++, embedded, and robotics roles that must not reach the CSV.
@@ -158,7 +162,11 @@ Evaluated in order; the first match wins:
    `vodja`, `arhitekt`, `principal`, `staff`, `head of`.
 2. **Explicit junior markers** → `junior`: `junior`, `mlajši`, `pripravnik`,
    `praktikant`, `brez izkušenj`.
-3. **Years-of-experience regex** over the body, matching both Slovenian and
+3. **Explicit mid markers** → `mid`: `medior`, `mid-level`, `mid level`,
+   `midlevel`, `intermediate`. Junior is checked first, so an ad advertising
+   "junior/medior" classifies as `junior` — both are wanted, and the more
+   inclusive label is the safer default.
+4. **Years-of-experience regex** over the body, matching both Slovenian and
    English phrasings (`5+ let`, `vsaj 3 leta`, `1-2 leti`, `3 years`).
 
    Every match yields a single number: for a range (`1-2 leti`) take the
@@ -168,7 +176,7 @@ Evaluated in order; the first match wins:
    - `>= 5` → `senior` (excluded)
    - `3` or `4` → `mid`
    - `<= 2` → `junior`
-4. **No signal** → `unknown`.
+5. **No signal** → `unknown`.
 
 `unknown` postings are kept and flagged. Slovenian ads frequently omit
 seniority entirely, and a missed junior role costs the maintainer far more
