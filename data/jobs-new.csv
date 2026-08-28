@@ -1,4 +1,3 @@
 source,title,company,location,seniority,role_match,tags,posted_at,first_seen_at,url
-mojedelo,Cyber Security Tester (m/ž/d),SIQ Ljubljana,Ljubljana,unknown,spletnih aplikacij,,2026-08-25,2026-08-26T18:46:29.040Z,https://www.mojedelo.com/job-ad/cyber-security-tester-m-z-d/7c662f2e-3060-495a-96a5-43fb991571f2
-mojedelo,Full Stack Razvijalec/Programer  (intermediate),IPROS inženiring procesne opreme in sistemov d.o.o.,Vrhnika,mid,"full stack,spletnih aplikacij,vue,javascript,typescript",,2026-08-25,2026-08-26T18:46:29.040Z,https://www.mojedelo.com/job-ad/full-stack-razvijalec-programer-intermediate/edb8162b-1b74-46d2-9539-2e5560ec9b85
-mojedelo,Python/Django Developer – Išče se junior programer!,Informa Studio d.o.o. - Internet Marketing Company,Ljubljana,junior,javascript,,2026-08-25,2026-08-26T18:46:29.040Z,https://www.mojedelo.com/job-ad/python-django-developer-isce-se-junior-programer/e6a61000-489a-4c0d-ab99-b129af3e0048
+slotech,Backend Developer,Blocksi SAS-Podružnica Maribor,Maribor,unknown,"front-end,javascript,typescript",Node.js MongoDB,,2026-08-28T01:11:32.804Z,https://slo-tech.com/delo/8073
+slotech,Full Stack Developer,Blocksi SAS-Podružnica Maribor,Maribor,unknown,"full stack,vue",Node.js MongoDB,,2026-08-28T01:11:32.804Z,https://slo-tech.com/delo/8072
