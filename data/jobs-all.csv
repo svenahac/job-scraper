@@ -1,4 +1,5 @@
 source,title,company,location,seniority,role_match,tags,posted_at,first_seen_at,url
+slotech,Inženir za implementacijo in integracije (m/ž),VIAR d.o.o.,Celje,unknown,"spletnih aplikacij,spletne aplikacije","Angleščina Administracija Linux strežnikov Omrežja (požarne pregrade, VPN, DNS) Spletne aplikacije in HTTP API-ji Podatkovne baze (varnostne kopije, obnovitve)",,2026-09-01T19:40:09.698Z,https://slo-tech.com/delo/8088
 slotech,Backend Developer,Blocksi SAS-Podružnica Maribor,Maribor,unknown,"front-end,javascript,typescript",Node.js MongoDB,2026-08-27,2026-08-28T01:11:32.804Z,https://slo-tech.com/delo/8073
 slotech,Full Stack Developer,Blocksi SAS-Podružnica Maribor,Maribor,unknown,"full stack,vue",Node.js MongoDB,2026-08-27,2026-08-28T01:11:32.804Z,https://slo-tech.com/delo/8072
 mojedelo,Cyber Security Tester (m/ž/d),SIQ Ljubljana,Ljubljana,unknown,spletnih aplikacij,,2026-08-25,2026-08-26T18:46:29.040Z,https://www.mojedelo.com/job-ad/cyber-security-tester-m-z-d/7c662f2e-3060-495a-96a5-43fb991571f2
@@ -25,6 +26,6 @@ mojedelo,Razvijalec AI rešitev in avtomatizacije – medior (m/ž),Sanolabor d.
 slotech,Software Developer Intern,Celtra d.o.o.,LJUBLJANA,unknown,"frontend,vue,javascript,typescript","Javascript, TypeScript at least one backend language",2026-08-17,2026-08-21T08:59:25.887Z,https://slo-tech.com/delo/8046
 linkedin,"Software engineer, frontend",Soniox,"Ljubljana, Ljubljana, Slovenia",unknown,frontend,,2026-07-29,2026-08-21T08:59:25.887Z,https://si.linkedin.com/jobs/view/software-engineer-frontend-at-soniox-4444128012
 linkedin,"Software engineer, fullstack",Soniox,"Ljubljana, Ljubljana, Slovenia",unknown,fullstack,,2026-07-29,2026-08-21T08:59:25.887Z,https://si.linkedin.com/jobs/view/software-engineer-fullstack-at-soniox-4444115699
-linkedin,Web Developer,Tasty Dose,"Ljubljana, Slovenia",unknown,web developer,,2026-08-18,2026-08-21T08:59:25.887Z,https://si.linkedin.com/jobs/view/web-developer-at-tasty-dose-4455728200
+linkedin,Web Developer,Tasty Dose,"Ljubljana, Slovenia",unknown,web developer,,2026-09-01,2026-08-21T08:59:25.887Z,https://si.linkedin.com/jobs/view/web-developer-at-tasty-dose-4455728200
 mojedelo,Web Developer (m/ž),Kaching d.o.o.,Ljubljana,unknown,"frontend,full-stack,spletnih aplikacij,spletne aplikacije,web developer",,2026-08-18,2026-08-21T08:59:25.887Z,https://www.mojedelo.com/job-ad/web-developer-m-z/940c3498-c451-4aa0-ae9d-181a3b0f1414
 mojedelo,Web Developer — Shopify & razvoj internih in e-commerce aplikacij,VG Group d.o.o.,Ljubljana,unknown,"web developer,react,next.js,typescript",,2026-08-17,2026-08-21T08:59:25.887Z,https://www.mojedelo.com/job-ad/web-developer-shopify-razvoj-internih-in-e-commerce-aplikacij/79622e9f-8622-4626-a1b1-b91ff2dcfeed
