@@ -18,8 +18,11 @@
 - Nothing is ever filtered on years of experience. `seniority` is computed and stored but must not affect `isWanted`.
 - `CONTRACT_REJECT` is matched against the title and the source's raw employment field ONLY — never the body.
 - Every task ends with `npm test` and `npm run typecheck` both green before the commit.
-- Commit messages use Conventional Commits. Do NOT add any Co-Authored-By or
-  other attribution trailer.
+- Commit messages use Conventional Commits, and **every** commit message ends
+  with this trailer, separated from the subject/body by a blank line:
+  `Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>`
+  The per-task commit commands below show only the subject line — append the
+  trailer to each of them. This constraint wins over the literal command text.
 
 ---
 
