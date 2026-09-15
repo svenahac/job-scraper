@@ -57,38 +57,38 @@ describe('runScrape', () => {
   });
 
   it('records a failing source and still writes CSVs from the others', async () => {
-    const good = stub('good', [raw({ sourceId: '1', title: 'Junior Frontend Developer' })]);
+    const good = stub('good', [raw({ sourceId: '1', title: 'Specialist za razvoj kadrov (m/ž)' })]);
     const r = await runScrape({ sources: [exploding('bad'), good], now: 'T1', ...paths() });
     expect(r.succeeded).toEqual(['good']);
     expect(r.failed[0]!.source).toBe('bad');
     expect(r.kept).toBe(1);
-    expect(readFileSync(paths().allCsvPath, 'utf8')).toContain('Junior Frontend Developer');
+    expect(readFileSync(paths().allCsvPath, 'utf8')).toContain('Specialist za razvoj kadrov (m/ž)');
   });
 
   it('reports a job as new only on the run that first saw it', async () => {
-    const src = stub('a', [raw({ sourceId: '1', title: 'Junior Frontend Developer' })]);
+    const src = stub('a', [raw({ sourceId: '1', title: 'Specialist za razvoj kadrov (m/ž)' })]);
     const first = await runScrape({ sources: [src], now: 'T1', ...paths() });
     expect(first.newCount).toBe(1);
-    expect(readFileSync(paths().newCsvPath, 'utf8')).toContain('Junior Frontend Developer');
+    expect(readFileSync(paths().newCsvPath, 'utf8')).toContain('Specialist za razvoj kadrov (m/ž)');
 
     const second = await runScrape({ sources: [src], now: 'T2', ...paths() });
     expect(second.newCount).toBe(0);
-    expect(readFileSync(paths().newCsvPath, 'utf8')).not.toContain('Junior Frontend Developer');
+    expect(readFileSync(paths().newCsvPath, 'utf8')).not.toContain('Specialist za razvoj kadrov (m/ž)');
     // The job is still in the full CSV.
-    expect(readFileSync(paths().allCsvPath, 'utf8')).toContain('Junior Frontend Developer');
+    expect(readFileSync(paths().allCsvPath, 'utf8')).toContain('Specialist za razvoj kadrov (m/ž)');
   });
 
   it('reports only the genuinely new job on a later run', async () => {
-    const one = stub('a', [raw({ sourceId: '1', title: 'Junior Frontend Developer' })]);
+    const one = stub('a', [raw({ sourceId: '1', title: 'Specialist za razvoj kadrov (m/ž)' })]);
     await runScrape({ sources: [one], now: 'T1', ...paths() });
     const two = stub('a', [
-      raw({ sourceId: '1', title: 'Junior Frontend Developer' }),
-      raw({ sourceId: '2', title: 'Medior Vue Developer' }),
+      raw({ sourceId: '1', title: 'Specialist za razvoj kadrov (m/ž)' }),
+      raw({ sourceId: '2', title: 'Projektni koordinator (m/ž)' }),
     ]);
     const r = await runScrape({ sources: [two], now: 'T2', ...paths() });
     expect(r.newCount).toBe(1);
     const csv = readFileSync(paths().newCsvPath, 'utf8');
-    expect(csv).toContain('Medior Vue Developer');
-    expect(csv).not.toContain('Junior Frontend Developer');
+    expect(csv).toContain('Projektni koordinator (m/ž)');
+    expect(csv).not.toContain('Specialist za razvoj kadrov (m/ž)');
   });
 });
