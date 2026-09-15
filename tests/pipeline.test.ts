@@ -7,7 +7,8 @@ import type { RawJob, Source } from '../src/types.js';
 
 const raw = (over: Partial<RawJob>): RawJob => ({
   source: 'stub', sourceId: '1', url: 'https://x/1', title: '', company: 'Acme',
-  location: 'Ljubljana', postedAt: '2026-08-18', description: '', tags: [], ...over,
+  location: 'Ljubljana', postedAt: '2026-08-18', description: '', tags: [],
+  employmentRaw: null, workTimeRaw: null, occupation: null, ...over,
 });
 
 const stub = (name: string, jobs: RawJob[]): Source => ({
@@ -31,16 +32,22 @@ beforeEach(() => { dir = mkdtempSync(join(tmpdir(), 'scraper-')); });
 afterEach(() => { rmSync(dir, { recursive: true, force: true }); });
 
 describe('runScrape', () => {
-  it('keeps a junior web job and drops a senior one', async () => {
+  it('keeps a matching job and drops one that matches no area', async () => {
     const src = stub('a', [
-      raw({ sourceId: '1', title: 'Junior Frontend Developer' }),
-      raw({ sourceId: '2', title: 'Senior Frontend Developer' }),
+      raw({ sourceId: '1', title: 'Specialist za razvoj kadrov (m/ž)' }),
+      raw({ sourceId: '2', title: 'CNC operater (m/ž)' }),
     ]);
-    const r = await runScrape({ sources: [src], now: 'T1', ...paths() });
-    expect(r.kept).toBe(1);
-    const csv = readFileSync(paths().allCsvPath, 'utf8');
-    expect(csv).toContain('Junior Frontend Developer');
-    expect(csv).not.toContain('Senior Frontend Developer');
+    const result = await runScrape({ sources: [src], now: '2026-08-21T00:00:00.000Z', ...paths() });
+    expect(result.kept).toBe(1);
+  });
+
+  it('keeps a senior job, because seniority never excludes', async () => {
+    const src = stub('a', [raw({
+      sourceId: '1', title: 'Vodja za razvoj kadrov (m/ž)',
+      description: 'Zahtevamo vsaj 8 let izkušenj.',
+    })]);
+    const result = await runScrape({ sources: [src], now: '2026-08-21T00:00:00.000Z', ...paths() });
+    expect(result.kept).toBe(1);
   });
 
   it('drops a non-web job', async () => {
