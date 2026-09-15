@@ -61,4 +61,34 @@ describe('store', () => {
     const fresh = jobsFirstSeenAt(db, run2);
     expect(fresh.map((j) => j.id)).toEqual(['b2']);
   });
+
+  it('round-trips the new classification fields', () => {
+    const db = openDb(':memory:');
+    upsertJobs(db, [job({ area: 'ld', areaRank: 1, areas: 'ld,hr', score: 75,
+      workMode: 'hybrid', employmentType: 'permanent', locationTier: 'ljubljana',
+      flags: 'body:payroll', employmentRaw: 'Nedoločen čas',
+      workTimeRaw: '40 ur/teden', occupation: 'Kadrovnik' })]);
+    const [back] = allJobs(db);
+    expect(back!.area).toBe('ld');
+    expect(back!.areaRank).toBe(1);
+    expect(back!.areas).toBe('ld,hr');
+    expect(back!.score).toBe(75);
+    expect(back!.workMode).toBe('hybrid');
+    expect(back!.employmentType).toBe('permanent');
+    expect(back!.locationTier).toBe('ljubljana');
+    expect(back!.flags).toBe('body:payroll');
+    expect(back!.employmentRaw).toBe('Nedoločen čas');
+    expect(back!.occupation).toBe('Kadrovnik');
+    db.close();
+  });
+
+  it('orders jobs by score descending', () => {
+    const db = openDb(':memory:');
+    upsertJobs(db, [
+      job({ id: 'low', sourceId: 'low', score: 20 }),
+      job({ id: 'high', sourceId: 'high', score: 80 }),
+    ]);
+    expect(allJobs(db).map((j) => j.id)).toEqual(['high', 'low']);
+    db.close();
+  });
 });

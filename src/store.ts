@@ -7,16 +7,19 @@ export type Db = Database.Database;
 
 const SCHEMA = `
 CREATE TABLE IF NOT EXISTS jobs (
-  id            TEXT PRIMARY KEY,
-  source        TEXT NOT NULL,
-  source_id     TEXT NOT NULL,
-  url           TEXT NOT NULL,
-  title         TEXT NOT NULL,
-  company       TEXT,
-  location      TEXT,
-  posted_at     TEXT,
-  description   TEXT NOT NULL,
-  tags          TEXT NOT NULL,
+  id              TEXT PRIMARY KEY,
+  source          TEXT NOT NULL,
+  source_id       TEXT NOT NULL,
+  url             TEXT NOT NULL,
+  title           TEXT NOT NULL,
+  company         TEXT,
+  location        TEXT,
+  posted_at       TEXT,
+  description     TEXT NOT NULL,
+  tags            TEXT NOT NULL,
+  employment_raw  TEXT,
+  work_time_raw   TEXT,
+  occupation      TEXT,
   area            TEXT NOT NULL,
   area_rank       INTEGER NOT NULL,
   areas           TEXT NOT NULL,
@@ -24,12 +27,13 @@ CREATE TABLE IF NOT EXISTS jobs (
   employment_type TEXT NOT NULL,
   location_tier   TEXT NOT NULL,
   flags           TEXT NOT NULL,
-  seniority     TEXT NOT NULL,
+  seniority       TEXT NOT NULL,
   score           INTEGER NOT NULL,
-  first_seen_at TEXT NOT NULL,
-  last_seen_at  TEXT NOT NULL
+  first_seen_at   TEXT NOT NULL,
+  last_seen_at    TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_jobs_first_seen ON jobs(first_seen_at);
+CREATE INDEX IF NOT EXISTS idx_jobs_score ON jobs(score DESC);
 `;
 
 export function openDb(path: string): Db {
@@ -43,6 +47,8 @@ interface Row {
   id: string; source: string; source_id: string; url: string; title: string;
   company: string | null; location: string | null; posted_at: string | null;
   description: string; tags: string;
+  employment_raw: string | null; work_time_raw: string | null;
+  occupation: string | null;
   area: string; area_rank: number; areas: string; work_mode: string;
   employment_type: string; location_tier: string; flags: string;
   seniority: string; score: number;
@@ -53,6 +59,8 @@ const toJobRow = (r: Row): Job => ({
   id: r.id, source: r.source, sourceId: r.source_id, url: r.url, title: r.title,
   company: r.company, location: r.location, postedAt: r.posted_at,
   description: r.description, tags: JSON.parse(r.tags) as string[],
+  employmentRaw: r.employment_raw, workTimeRaw: r.work_time_raw,
+  occupation: r.occupation,
   area: r.area, areaRank: r.area_rank, areas: r.areas,
   workMode: r.work_mode as WorkMode,
   employmentType: r.employment_type as EmploymentType,
@@ -68,11 +76,13 @@ const toJobRow = (r: Row): Job => ({
 export function upsertJobs(db: Db, jobs: Job[]): void {
   const stmt = db.prepare(`
     INSERT INTO jobs (id, source, source_id, url, title, company, location,
-                      posted_at, description, tags, area, area_rank, areas,
+                      posted_at, description, tags, employment_raw,
+                      work_time_raw, occupation, area, area_rank, areas,
                       work_mode, employment_type, location_tier, flags,
                       seniority, score, first_seen_at, last_seen_at)
     VALUES (@id, @source, @sourceId, @url, @title, @company, @location,
-            @postedAt, @description, @tags, @area, @areaRank, @areas,
+            @postedAt, @description, @tags, @employmentRaw,
+            @workTimeRaw, @occupation, @area, @areaRank, @areas,
             @workMode, @employmentType, @locationTier, @flags,
             @seniority, @score, @firstSeenAt, @lastSeenAt)
     ON CONFLICT(id) DO UPDATE SET
@@ -83,6 +93,9 @@ export function upsertJobs(db: Db, jobs: Job[]): void {
       posted_at = excluded.posted_at,
       description = excluded.description,
       tags = excluded.tags,
+      employment_raw = excluded.employment_raw,
+      work_time_raw = excluded.work_time_raw,
+      occupation = excluded.occupation,
       area = excluded.area,
       area_rank = excluded.area_rank,
       areas = excluded.areas,
@@ -95,17 +108,26 @@ export function upsertJobs(db: Db, jobs: Job[]): void {
       last_seen_at = excluded.last_seen_at
   `);
   const run = db.transaction((batch: Job[]) => {
-    for (const j of batch) stmt.run({ ...j, tags: JSON.stringify(j.tags) });
+    for (const j of batch) {
+      stmt.run({
+        ...j,
+        tags: JSON.stringify(j.tags),
+        employmentRaw: j.employmentRaw ?? null,
+        workTimeRaw: j.workTimeRaw ?? null,
+        occupation: j.occupation ?? null,
+      });
+    }
   });
   run(jobs);
 }
 
 export function allJobs(db: Db): Job[] {
-  return (db.prepare('SELECT * FROM jobs ORDER BY first_seen_at DESC, title ASC')
+  return (db.prepare('SELECT * FROM jobs ORDER BY score DESC, title ASC')
     .all() as Row[]).map(toJobRow);
 }
 
 export function jobsFirstSeenAt(db: Db, timestamp: string): Job[] {
-  return (db.prepare('SELECT * FROM jobs WHERE first_seen_at = ? ORDER BY title ASC')
+  return (db.prepare(
+    'SELECT * FROM jobs WHERE first_seen_at = ? ORDER BY score DESC, title ASC')
     .all(timestamp) as Row[]).map(toJobRow);
 }

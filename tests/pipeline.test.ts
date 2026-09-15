@@ -39,6 +39,9 @@ describe('runScrape', () => {
     ]);
     const result = await runScrape({ sources: [src], now: '2026-08-21T00:00:00.000Z', ...paths() });
     expect(result.kept).toBe(1);
+    const csv = readFileSync(paths().allCsvPath, 'utf8');
+    expect(csv).toContain('Specialist za razvoj kadrov (m/ž)');
+    expect(csv).not.toContain('CNC operater (m/ž)');
   });
 
   it('keeps a senior job, because seniority never excludes', async () => {
@@ -48,6 +51,19 @@ describe('runScrape', () => {
     })]);
     const result = await runScrape({ sources: [src], now: '2026-08-21T00:00:00.000Z', ...paths() });
     expect(result.kept).toBe(1);
+    const csv = readFileSync(paths().allCsvPath, 'utf8');
+    expect(csv).toContain('Vodja za razvoj kadrov (m/ž)');
+  });
+
+  it('writes the CSV ordered by score, best fit first', async () => {
+    const src = stub('a', [
+      raw({ sourceId: '1', title: 'Koordinator dogodkov (m/ž)', location: 'Maribor' }),
+      raw({ sourceId: '2', title: 'Specialist za razvoj kadrov (m/ž)', location: 'Ljubljana' }),
+    ]);
+    await runScrape({ sources: [src], now: 'T1', ...paths() });
+    const csv = readFileSync(paths().allCsvPath, 'utf8');
+    const lines = csv.trim().split('\n');
+    expect(lines[1]).toContain('razvoj kadrov');
   });
 
   it('drops a non-web job', async () => {
