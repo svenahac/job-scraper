@@ -158,6 +158,13 @@ export const TITLE_REJECT: readonly string[] = [
   'finančni svetovalec', 'email marketing', 'sales associate', 'podporo strankam',
 ];
 
+/** Trade/engineering qualifiers. Unlike TITLE_REJECT these are NOT overridden
+ *  by an area keyword — "Vodja projektov gradnje" is a construction job. */
+export const DOMAIN_REJECT: readonly string[] = [
+  'gradben', 'gradnj', 'gradbeništv', 'elektrotehni', 'elektronik',
+  'energetik', 'strojništv', 'plc', 'montaž', 'avtomatizacij',
+];
+
 /** Flag only. An L&D role that also mentions payroll is still an L&D role. */
 export const BODY_WARN: readonly string[] = [
   'payroll', 'obračun plač', 'kadrovska administracija', 'kadrovske evidence',

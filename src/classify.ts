@@ -3,7 +3,7 @@ import type {
 } from './types.js';
 import type { AreaKey } from './profile.js';
 import {
-  AREAS, BODY_WARN, CONTRACT_REJECT, HYBRID_MARKERS, PRIMARY_LOCATIONS,
+  AREAS, BODY_WARN, CONTRACT_REJECT, DOMAIN_REJECT, HYBRID_MARKERS, PRIMARY_LOCATIONS,
   REMOTE_MARKERS, TITLE_REJECT,
 } from './profile.js';
 
@@ -85,12 +85,13 @@ const EMPLOYMENT_POINTS: Record<EmploymentType, number> = {
 
 export function scoreFor(p: {
   areaRank: number; locationTier: LocationTier; workMode: WorkMode;
-  employmentType: EmploymentType; flags: string[];
+  employmentType: EmploymentType; flags: string[]; tagOnly?: boolean;
 }): number {
   let score = AREA_POINTS[p.areaRank] ?? 0;
   if (p.locationTier === 'ljubljana' || p.locationTier === 'remote') score += 20;
   else if (p.workMode === 'hybrid') score += 18;
   score += EMPLOYMENT_POINTS[p.employmentType];
+  if (p.tagOnly) score -= 20;
   score -= 8 * p.flags.length;
   return Math.max(0, Math.min(100, score));
 }
@@ -149,11 +150,20 @@ export function classify(job: RawJob): Classification {
   // A title reject loses to an area keyword in the same title: "Vodja
   // projektov prodaje" keeps its project match and carries a warning instead.
   const titleHits = containsAny(title, TITLE_REJECT);
-  const titleAreaHit = matchAreas(job.title, [], '').length > 0;
-  const hardTitleReject = titleHits.length > 0 && !titleAreaHit;
+  const titleAreas = matchAreas(job.title, [], '');
+  const bodyAreas = matchAreas('', [], body);
+  const titleAreaHit = titleAreas.length > 0; // existing override use, unchanged
   if (titleHits.length > 0 && titleAreaHit) {
     flags.push(...titleHits.map((t) => `title-reject:${t}`));
   }
+
+  // A domain reject (construction/electrical/industrial trade qualifiers) is
+  // matched against the title, the occupation and the tags — and, unlike a
+  // title reject, it is NOT rescued by an area keyword in the title.
+  const domainHay = norm([job.title, job.occupation ?? '', job.tags.join(' ')].join(' '));
+  const hardTitleReject =
+    (titleHits.length > 0 && !titleAreaHit) ||
+    containsAny(domainHay, DOMAIN_REJECT).length > 0;
 
   // Contract rejects never read the body: "dobra praksa" is ordinary prose.
   const contractHay = norm([job.title, job.employmentRaw ?? ''].join(' '));
@@ -168,6 +178,13 @@ export function classify(job: RawJob): Classification {
   );
   const areaRank = best?.rank ?? 0;
 
+  // A match that comes only from ZRSZ's own occupation tag, with no
+  // supporting keyword in the title or the advert body, is demoted rather
+  // than dropped: the row still appears, just lower, and carries a flag.
+  const tagOnly = best !== undefined
+    && !titleAreas.includes(best.key) && !bodyAreas.includes(best.key);
+  if (tagOnly) flags.push(`area-from:tag:${best.key}`);
+
   return {
     areas,
     area: best?.key ?? null,
@@ -177,7 +194,9 @@ export function classify(job: RawJob): Classification {
     locationTier,
     flags,
     seniority: matchSeniority(job.title, job.tags, body),
-    score: scoreFor({ areaRank, locationTier, workMode, employmentType, flags }),
+    score: scoreFor({
+      areaRank, locationTier, workMode, employmentType, flags, tagOnly,
+    }),
     rejected: hardTitleReject || contractReject,
   };
 }

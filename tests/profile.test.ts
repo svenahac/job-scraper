@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  AREAS, TITLE_REJECT, BODY_WARN, CONTRACT_REJECT,
+  AREAS, TITLE_REJECT, BODY_WARN, CONTRACT_REJECT, DOMAIN_REJECT,
   REMOTE_MARKERS, HYBRID_MARKERS, PRIMARY_LOCATIONS, leadQueryTerms,
 } from '../src/profile.js';
 
@@ -64,10 +64,21 @@ describe('rejection lists', () => {
   });
 
   it('keeps all list entries lowercase', () => {
-    for (const list of [TITLE_REJECT, BODY_WARN, CONTRACT_REJECT,
+    for (const list of [TITLE_REJECT, BODY_WARN, CONTRACT_REJECT, DOMAIN_REJECT,
                         REMOTE_MARKERS, HYBRID_MARKERS, PRIMARY_LOCATIONS]) {
       for (const e of list) expect(e).toBe(e.toLowerCase());
     }
+  });
+
+  it('never rejects by domain a substring of any area keyword, to keep recall loss near zero', () => {
+    const keywords = AREAS.flatMap((a) => [...a.keywords]);
+    for (const r of DOMAIN_REJECT) {
+      for (const k of keywords) expect(k.includes(r)).toBe(false);
+    }
+  });
+
+  it('keeps every DOMAIN_REJECT entry lowercase', () => {
+    for (const e of DOMAIN_REJECT) expect(e).toBe(e.toLowerCase());
   });
 });
 

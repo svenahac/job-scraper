@@ -28,6 +28,11 @@ Everything lives in `src/profile.ts`:
   the CSV. Keywords match anywhere: title, tags or body.
 - `TITLE_REJECT` — hard drop, title only. Overridden when an area keyword also
   matches the title, so "Vodja projektov prodaje" survives on its project match.
+- `DOMAIN_REJECT` — hard drop for trade/engineering qualifiers (construction,
+  electrical, industrial), matched against the title, the occupation and the
+  tags. Unlike `TITLE_REJECT`, an area keyword does NOT rescue it — "Vodja
+  projektov gradnje" is a construction job even though "vodja projektov" is
+  itself an area keyword.
 - `BODY_WARN` — never drops anything; each hit costs 8 points and shows up in
   the `flags` column.
 - `CONTRACT_REJECT` — hard drop, matched against the title and the source's raw
@@ -43,6 +48,13 @@ information only.
 Area rank 1–8 gives 40 down to 12 points; Ljubljana or remote adds 20, hybrid
 elsewhere adds 18; permanent adds 15, fixed-term 8, part-time 4; each flag
 costs 8. Clamped to 0–100.
+
+A posting whose area match comes only from a source's own occupation tag
+(`poklic`, for ZRSZ), with no supporting keyword in the title or the advert
+body, is demoted rather than dropped: it loses 20 points plus the usual 8 for
+the `area-from:tag:<key>` flag that records it (28 in total), so it still
+appears in the CSV but sinks below postings whose match is backed by the
+actual ad text. Tag matches backed by a title or body hit are unaffected.
 
 Scores are not strictly comparable across sources: a source that supplies no
 description body can never pick up a `flags` penalty, and one that supplies no

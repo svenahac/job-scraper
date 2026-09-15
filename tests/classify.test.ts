@@ -183,6 +183,15 @@ describe('scoreFor', () => {
       employmentType: 'unknown', flags: ['a', 'b', 'c'],
     })).toBe(0);
   });
+
+  it('demotes a tag-only match by 20 plus the standard 8-per-flag penalty for its own flag', () => {
+    // rank-1 (40) + ljubljana (20) + permanent (15) = 75 normally;
+    // tag-only carries one flag (the provenance marker) and loses 20 more.
+    expect(scoreFor({
+      areaRank: 1, locationTier: 'ljubljana', workMode: 'unknown',
+      employmentType: 'permanent', flags: ['area-from:tag:ld'], tagOnly: true,
+    })).toBe(47);
+  });
 });
 
 describe('classify and isWanted', () => {
@@ -249,5 +258,60 @@ describe('classify and isWanted', () => {
     }));
     expect(c.seniority).toBe('senior');
     expect(isWanted(c)).toBe(true);
+  });
+
+  it('demotes a posting whose area keyword appears only in tags, flags it, and scores 47', () => {
+    const c = classify(raw({
+      title: 'Uradnik (m/ž)',
+      tags: ['Strokovnjaki za razvoj kadrov in karierno svetovanje'],
+      description: 'Delo na upravni enoti.',
+      location: 'Ljubljana',
+      employmentRaw: 'Nedoločen čas',
+      workTimeRaw: '40 ur/teden',
+    }));
+    expect(c.flags.some((f) => f.startsWith('area-from:tag:'))).toBe(true);
+    expect(c.score).toBe(47);
+    expect(isWanted(c)).toBe(true); // demoted, never dropped
+  });
+
+  it('does not flag or demote a posting whose area keyword is in the title, scoring 75', () => {
+    const c = classify(raw({
+      title: 'Specialist za razvoj kadrov (m/ž)',
+      tags: ['Strokovnjaki za razvoj kadrov in karierno svetovanje'],
+      location: 'Ljubljana',
+      employmentRaw: 'Nedoločen čas',
+      workTimeRaw: '40 ur/teden',
+    }));
+    expect(c.flags.some((f) => f.startsWith('area-from:tag:'))).toBe(false);
+    expect(c.score).toBe(75);
+  });
+
+  it('does not treat a body-only area match as tag-only: body support counts', () => {
+    const c = classify(raw({
+      title: 'Uradnik (m/ž)',
+      tags: ['Strokovnjaki za razvoj kadrov in karierno svetovanje'],
+      description: 'Skrbel boš za razvoj kadrov v organizaciji.',
+      location: 'Ljubljana',
+      employmentRaw: 'Nedoločen čas',
+      workTimeRaw: '40 ur/teden',
+    }));
+    expect(c.flags.some((f) => f.startsWith('area-from:tag:'))).toBe(false);
+    expect(c.score).toBe(75);
+  });
+
+  it('rejects "Vodja projektov v gradbeništvu" even though "vodja projektov" is an area keyword', () => {
+    expect(isWanted(classify(raw({ title: 'Vodja projektov v gradbeništvu (m/ž)' })))).toBe(false);
+  });
+
+  it('rejects on a domain term found only in the occupation field', () => {
+    const c = classify(raw({
+      title: 'Vodja projektov (m/ž)',
+      occupation: 'Elektrotehniki',
+    }));
+    expect(isWanted(c)).toBe(false);
+  });
+
+  it('keeps a plain "Vodja projektov" with no trade qualifier', () => {
+    expect(isWanted(classify(raw({ title: 'Vodja projektov (m/ž)' })))).toBe(true);
   });
 });
