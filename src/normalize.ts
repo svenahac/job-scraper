@@ -14,8 +14,15 @@ export function toJob(raw: RawJob, c: Classification, now: string): Job {
   return {
     ...raw,
     id: makeId(raw.source, raw.sourceId),
-    roleMatch: c.roleMatch.join(','),
+    area: c.area ?? '',
+    areaRank: c.areaRank,
+    areas: c.areas.join(','),
+    workMode: c.workMode,
+    employmentType: c.employmentType,
+    locationTier: c.locationTier,
+    flags: c.flags.join(','),
     seniority: c.seniority,
+    score: c.score,
     firstSeenAt: now,
     lastSeenAt: now,
   };

@@ -1,4 +1,7 @@
 export type Seniority = 'junior' | 'mid' | 'senior' | 'unknown';
+export type WorkMode = 'remote' | 'hybrid' | 'onsite' | 'unknown';
+export type EmploymentType = 'permanent' | 'fixed-term' | 'part-time' | 'unknown';
+export type LocationTier = 'ljubljana' | 'remote' | 'other';
 
 /** A posting as returned by a source adapter, before classification. */
 export interface RawJob {
@@ -13,16 +16,34 @@ export interface RawJob {
   postedAt: string | null;
   /** Plain text. HTML must already be stripped by the adapter. */
   description: string;
-  /** Technology tags when the source exposes them, else empty. */
+  /** Topic tags when the source exposes them, else empty. */
   tags: string[];
+  /** Contract duration as the source words it, e.g. "Nedoločen čas". */
+  employmentRaw?: string | null;
+  /** Working time as the source words it, e.g. "40 ur/teden". */
+  workTimeRaw?: string | null;
+  /** Occupation title from the source's own taxonomy, when it has one. */
+  occupation?: string | null;
 }
 
 /** A classified posting as stored and exported. */
 export interface Job extends RawJob {
   id: string;
-  /** Comma-joined role/technology keywords that matched. */
-  roleMatch: string;
+  /** Best-ranked matching area key, or '' when none. */
+  area: string;
+  /** Rank of `area`; 0 when none. */
+  areaRank: number;
+  /** Comma-joined keys of every matching area. */
+  areas: string;
+  workMode: WorkMode;
+  employmentType: EmploymentType;
+  locationTier: LocationTier;
+  /** Comma-joined warnings. Informational — never a reason to exclude. */
+  flags: string;
+  /** Informational only. Never filters. */
   seniority: Seniority;
+  /** 0-100, higher is a better fit. The CSV sorts on this. */
+  score: number;
   firstSeenAt: string;
   lastSeenAt: string;
 }

@@ -1,5 +1,7 @@
 import Database from 'better-sqlite3';
-import type { Job, Seniority } from './types.js';
+import type {
+  EmploymentType, Job, LocationTier, Seniority, WorkMode,
+} from './types.js';
 
 export type Db = Database.Database;
 
@@ -15,8 +17,15 @@ CREATE TABLE IF NOT EXISTS jobs (
   posted_at     TEXT,
   description   TEXT NOT NULL,
   tags          TEXT NOT NULL,
-  role_match    TEXT NOT NULL,
+  area            TEXT NOT NULL,
+  area_rank       INTEGER NOT NULL,
+  areas           TEXT NOT NULL,
+  work_mode       TEXT NOT NULL,
+  employment_type TEXT NOT NULL,
+  location_tier   TEXT NOT NULL,
+  flags           TEXT NOT NULL,
   seniority     TEXT NOT NULL,
+  score           INTEGER NOT NULL,
   first_seen_at TEXT NOT NULL,
   last_seen_at  TEXT NOT NULL
 );
@@ -33,7 +42,10 @@ export function openDb(path: string): Db {
 interface Row {
   id: string; source: string; source_id: string; url: string; title: string;
   company: string | null; location: string | null; posted_at: string | null;
-  description: string; tags: string; role_match: string; seniority: string;
+  description: string; tags: string;
+  area: string; area_rank: number; areas: string; work_mode: string;
+  employment_type: string; location_tier: string; flags: string;
+  seniority: string; score: number;
   first_seen_at: string; last_seen_at: string;
 }
 
@@ -41,7 +53,11 @@ const toJobRow = (r: Row): Job => ({
   id: r.id, source: r.source, sourceId: r.source_id, url: r.url, title: r.title,
   company: r.company, location: r.location, postedAt: r.posted_at,
   description: r.description, tags: JSON.parse(r.tags) as string[],
-  roleMatch: r.role_match, seniority: r.seniority as Seniority,
+  area: r.area, areaRank: r.area_rank, areas: r.areas,
+  workMode: r.work_mode as WorkMode,
+  employmentType: r.employment_type as EmploymentType,
+  locationTier: r.location_tier as LocationTier,
+  flags: r.flags, seniority: r.seniority as Seniority, score: r.score,
   firstSeenAt: r.first_seen_at, lastSeenAt: r.last_seen_at,
 });
 
@@ -52,11 +68,13 @@ const toJobRow = (r: Row): Job => ({
 export function upsertJobs(db: Db, jobs: Job[]): void {
   const stmt = db.prepare(`
     INSERT INTO jobs (id, source, source_id, url, title, company, location,
-                      posted_at, description, tags, role_match, seniority,
-                      first_seen_at, last_seen_at)
+                      posted_at, description, tags, area, area_rank, areas,
+                      work_mode, employment_type, location_tier, flags,
+                      seniority, score, first_seen_at, last_seen_at)
     VALUES (@id, @source, @sourceId, @url, @title, @company, @location,
-            @postedAt, @description, @tags, @roleMatch, @seniority,
-            @firstSeenAt, @lastSeenAt)
+            @postedAt, @description, @tags, @area, @areaRank, @areas,
+            @workMode, @employmentType, @locationTier, @flags,
+            @seniority, @score, @firstSeenAt, @lastSeenAt)
     ON CONFLICT(id) DO UPDATE SET
       url = excluded.url,
       title = excluded.title,
@@ -65,8 +83,15 @@ export function upsertJobs(db: Db, jobs: Job[]): void {
       posted_at = excluded.posted_at,
       description = excluded.description,
       tags = excluded.tags,
-      role_match = excluded.role_match,
+      area = excluded.area,
+      area_rank = excluded.area_rank,
+      areas = excluded.areas,
+      work_mode = excluded.work_mode,
+      employment_type = excluded.employment_type,
+      location_tier = excluded.location_tier,
+      flags = excluded.flags,
       seniority = excluded.seniority,
+      score = excluded.score,
       last_seen_at = excluded.last_seen_at
   `);
   const run = db.transaction((batch: Job[]) => {

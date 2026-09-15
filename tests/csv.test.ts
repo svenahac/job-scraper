@@ -6,7 +6,9 @@ const job = (over: Partial<Job> = {}): Job => ({
   source: 'slotech', sourceId: '8052', url: 'https://slo-tech.com/delo/8052',
   title: 'Frontend Developer', company: 'Acme', location: 'Ljubljana',
   postedAt: '2026-08-18', description: 'Dolg opis.', tags: ['React'],
-  id: 'a1', roleMatch: 'frontend', seniority: 'junior',
+  id: 'a1', area: '', areaRank: 0, areas: '', workMode: 'unknown',
+  employmentType: 'unknown', locationTier: 'other', flags: '', score: 0,
+  seniority: 'junior',
   firstSeenAt: '2026-08-21T17:00:00.000Z', lastSeenAt: '2026-08-21T17:00:00.000Z',
   ...over,
 });
