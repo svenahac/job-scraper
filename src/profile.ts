@@ -39,7 +39,7 @@ export const AREAS: readonly Area[] = [
     label: 'Projektno delo / koordinacija projektov',
     keywords: [
       'projektni koordinator', 'projektna koordinatorka', 'koordinator projektov',
-      'project coordinator', 'project assistant', 'project specialist',
+      'koordinator projekta', 'project coordinator', 'project assistant', 'project specialist',
       'junior project manager', 'project manager', 'projektni sodelavec',
       'projektna sodelavka', 'projektni vodja', 'vodja projektov',
       'program coordinator', 'projektno vodenje', 'projektna pisarna',
@@ -147,6 +147,15 @@ export const TITLE_REJECT: readonly string[] = [
   'obračun plač', 'payroll', 'vnos podatkov', 'data entry', 'inkaso',
   'izterjava', 'blagajnik', 'skladiščnik', 'voznik', 'natakar', 'kuhar',
   'čistilka', 'varnostnik', 'revizor',
+  // Each of these was observed being wrongly kept because one of its keyword
+  // hits landed on an accidental substring, not the intended meaning:
+  // "finančni svetovalec" (bank advisor) ads scored top-of-list purely
+  // because "razvoj kadrovskih procesov" contains "razvoj kadrov"; "email
+  // marketing" and "sales associate" ads matched on "onboarding" meaning
+  // customer/partner handoff, not employee onboarding; "podporo strankam"
+  // (customer support) matched on "mobilnost" inside "e-mobilnosti" (EV
+  // mobility), not the Erasmus+/EU "mobilnost" keyword.
+  'finančni svetovalec', 'email marketing', 'sales associate', 'podporo strankam',
 ];
 
 /** Flag only. An L&D role that also mentions payroll is still an L&D role. */
