@@ -48,7 +48,7 @@ describe('toCsv', () => {
 
   it('omits the description column', () => {
     expect(CSV_COLUMNS).not.toContain('description');
-    expect(toCsv([job({})])).not.toContain('Dolg opis');
+    expect(toCsv([job({ description: 'Dolg opis.' })])).not.toContain('Dolg opis');
   });
 
   it('quotes and escapes a field containing a comma and a quote', () => {
