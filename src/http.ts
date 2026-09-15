@@ -38,6 +38,24 @@ export async function fetchJson<T>(url: string, headers: Record<string, string> 
   return (await res.json()) as T;
 }
 
+export async function postJson<T>(
+  url: string, body: unknown, headers: Record<string, string> = {},
+): Promise<T> {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'User-Agent': USER_AGENT,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      ...headers,
+    },
+    body: JSON.stringify(body),
+    redirect: 'follow',
+  });
+  if (!res.ok) throw new Error(`POST ${url} failed: ${res.status} ${res.statusText}`);
+  return (await res.json()) as T;
+}
+
 /** HTML fragment to plain text, entities decoded, whitespace collapsed. */
 export function stripHtml(html: string): string {
   if (!html) return '';
