@@ -18,8 +18,8 @@
 - Nothing is ever filtered on years of experience. `seniority` is computed and stored but must not affect `isWanted`.
 - `CONTRACT_REJECT` is matched against the title and the source's raw employment field ONLY — never the body.
 - Every task ends with `npm test` and `npm run typecheck` both green before the commit.
-- Commit messages use Conventional Commits and end with:
-  `Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>`
+- Commit messages use Conventional Commits. Do NOT add any Co-Authored-By or
+  other attribution trailer.
 
 ---
 
@@ -87,9 +87,7 @@ The fallback, if Step 3 finds nothing, is:
 
 ```bash
 git add tests/fixtures/zrsz-search.json docs/superpowers/plans/2026-09-15-zrsz-findings.md
-git commit -m "test: capture ZRSZ search fixture and record detail-link findings
-
-Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+git commit -m "test: capture ZRSZ search fixture and record detail-link findings"
 ```
 
 ---
@@ -408,9 +406,7 @@ If the "never rejects a title phrase that is also an area keyword" test fails, t
 ```bash
 npm run typecheck
 git add src/profile.ts tests/profile.test.ts
-git commit -m "feat: add the seeker profile with eight ranked areas
-
-Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+git commit -m "feat: add the seeker profile with eight ranked areas"
 ```
 
 ---
@@ -950,9 +946,7 @@ Run: `npm run typecheck`. If `tests/types.test.ts` constructs a `Job` literal, a
 git add src/types.ts src/classify.ts tests/classify.test.ts tests/types.test.ts
 git commit -m "feat: classify postings by ranked area, rejection rules and fit score
 
-Seniority is still computed but no longer excludes anything.
-
-Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+Seniority is still computed but no longer excludes anything."
 ```
 
 ---
@@ -1259,9 +1253,7 @@ Expected: every test passes except `tests/pipeline.test.ts`, which Task 8 update
 ```bash
 npm run typecheck
 git add src/normalize.ts src/store.ts src/csv.ts tests/
-git commit -m "feat: persist and export the new classification signals
-
-Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+git commit -m "feat: persist and export the new classification signals"
 ```
 
 ---
@@ -1589,9 +1581,7 @@ git add src/sources/zrsz.ts src/http.ts tests/sources/zrsz.test.ts
 git commit -m "feat: add the ZRSZ vacancy source
 
 Reads the public gateway host and user_key from the site's own bundle at
-runtime, so a rotation does not break the scraper.
-
-Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+runtime, so a rotation does not break the scraper."
 ```
 
 ---
@@ -1787,9 +1777,7 @@ git add src/sources/mojedelo.ts tests/sources/mojedelo.test.ts
 git commit -m "feat: retarget mojedelo to HR, education and project categories
 
 Drops the API region filter and gates the per-ad detail fetch instead, so a
-remote ad from another region is no longer lost at the API boundary.
-
-Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+remote ad from another region is no longer lost at the API boundary."
 ```
 
 ---
@@ -1942,9 +1930,7 @@ Expected: PASS.
 ```bash
 npm run typecheck && npm test
 git add src/sources/linkedin.ts tests/sources/linkedin.test.ts
-git commit -m "feat: retarget LinkedIn queries to the profile's areas
-
-Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+git commit -m "feat: retarget LinkedIn queries to the profile's areas"
 ```
 
 ---
@@ -2066,9 +2052,7 @@ git add -A src tests data
 git commit -m "feat!: replace slo-tech with ZRSZ and purge the old postings
 
 The stored jobs were all web-developer roles and the schema changed, so the
-database is recreated rather than migrated. Old rows remain in git history.
-
-Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+database is recreated rather than migrated. Old rows remain in git history."
 ```
 
 ---
@@ -2186,9 +2170,7 @@ Expected: `clean`.
 ```bash
 npm test && npm run typecheck
 git add README.md data/
-git commit -m "docs: describe the new target profile and sources
-
-Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+git commit -m "docs: describe the new target profile and sources"
 ```
 
 - [ ] **Step 6: Confirm the nightly workflow still holds**
