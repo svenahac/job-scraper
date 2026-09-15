@@ -1278,6 +1278,109 @@ git commit -m "feat: persist and export the new classification signals"
   - `buildJobUrl(id: string): string`
   - `const zrszSource: Source`
 
+> **CONTROLLER RULING — supersedes parts of this task's text below.**
+> Task 1 found that ZRSZ *does* expose a description endpoint, so the
+> `description: ''` fallback written into this task's code block is no longer
+> what to build. Apply these five changes; everything else in this task stands.
+>
+> 1. **Detail endpoint.** Add alongside `SEARCH_PATH`:
+>    ```typescript
+>    const DETAIL_PATH = '/iskalnik-po-pdm/v1/delovno-mesto/podrobnosti-prosto-delovno-mesto';
+>    ```
+>    Fetch it with `fetchJson` as
+>    `` `${baseUrl}${DETAIL_PATH}?idDelovnoMesto=${id}&user_key=${userKey}` ``.
+>
+> 2. **`parseDetail`.** Add and export:
+>    ```typescript
+>    /** The advert body plus the two free-text condition fields, as plain text. */
+>    export function parseDetail(json: unknown): { description: string } {
+>      const d = (json ?? {}) as Record<string, unknown>;
+>      const parts = [d['opisDelInNalog'], d['drugiPogoji'], d['ostalo'],
+>                     d['delovneIzkusnje']].filter(Boolean).map(String);
+>      return { description: stripHtml(parts.join(' ')) };
+>    }
+>    ```
+>    Import `stripHtml` from `../http.js` alongside the existing imports.
+>
+> 3. **`needsDetail` gate.** ZRSZ returns every vacancy in Slovenia — roughly
+>    4,400. One detail request each at `REQUEST_DELAY_MS` is about 44 minutes,
+>    and `.github/workflows/scrape.yml` sets `timeout-minutes: 30`. So fetch the
+>    body only for ads that already look relevant, exactly as the mojedelo
+>    adapter gates its own detail fetch:
+>    ```typescript
+>    import { matchAreas } from '../classify.js';
+>
+>    /**
+>     * The list response has no body, and one detail request per vacancy would
+>     * outrun the nightly job's 30-minute timeout. The body is worth fetching
+>     * for ads whose title or occupation already matches an area — there it adds
+>     * work mode, warnings and contract detail. Everything else keeps ''.
+>     */
+>    export function needsDetail(item: ZrszItem): boolean {
+>      const tags = item.occupation ? [item.occupation] : [];
+>      return matchAreas(item.title, tags, '').length > 0;
+>    }
+>    ```
+>
+> 4. **`buildJobUrl`.** Use the template Task 1 verified in the browser against
+>    two live cards — note the `?idp=` query segment before the fragment:
+>    ```typescript
+>    export function buildJobUrl(id: string): string {
+>      return `${SITE}/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=${id}/#/pdm/${id}`;
+>    }
+>    ```
+>
+> 5. **`fetchJobs` mapping.** Replace the final `.map(...)` with a loop that
+>    fetches the body for gated items only, sleeping `REQUEST_DELAY_MS` before
+>    each detail request, and sets `description` to `''` for the rest. Keep every
+>    other field mapping exactly as written below.
+>
+> Also add, before Step 1, a fixture capture and the tests for the two new
+> functions:
+>
+> ```bash
+> curl -s "https://apigateway-prod-www-prod.apps.ess.gov.si/iskalnik-po-pdm/v1/delovno-mesto/podrobnosti-prosto-delovno-mesto?idDelovnoMesto=3479420&user_key=9b7dcbe8ec1855d14f0b2ec4f6335a91" \
+>   > tests/fixtures/zrsz-detail.json
+> ```
+>
+> ```typescript
+> describe('parseDetail', () => {
+>   const detail = JSON.parse(readFileSync('tests/fixtures/zrsz-detail.json', 'utf8'));
+>
+>   it('extracts the advert body as plain text', () => {
+>     const { description } = parseDetail(detail);
+>     expect(description.length).toBeGreaterThan(20);
+>     expect(description).not.toContain('<');
+>   });
+>
+>   it('returns an empty description for an empty payload', () => {
+>     expect(parseDetail({}).description).toBe('');
+>   });
+> });
+>
+> describe('needsDetail', () => {
+>   const item = (over: Partial<ZrszItem>): ZrszItem => ({
+>     sourceId: '1', title: 'HIŠNIK IV - M/Ž', company: 'OŠ', location: 'LJUBLJANA',
+>     postedAt: null, employmentRaw: null, workTimeRaw: null, occupation: null, ...over,
+>   });
+>
+>   it('fetches the body when the title matches an area', () => {
+>     expect(needsDetail(item({ title: 'KOORDINATOR IZOBRAŽEVANJ - M/Ž' }))).toBe(true);
+>   });
+>
+>   it('fetches the body when the occupation matches an area', () => {
+>     expect(needsDetail(item({ occupation: 'Andragog' }))).toBe(true);
+>   });
+>
+>   it('skips an unrelated ad, whatever its location', () => {
+>     expect(needsDetail(item({ title: 'HIŠNIK IV - M/Ž', location: 'LJUBLJANA' }))).toBe(false);
+>   });
+> });
+> ```
+>
+> Import `parseDetail` and `needsDetail`, and `import type { ZrszItem }`, in the
+> test file's import list.
+
 - [ ] **Step 1: Write the failing test**
 
 Create `tests/sources/zrsz.test.ts`:
