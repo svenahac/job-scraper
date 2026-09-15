@@ -3,7 +3,7 @@ import { openDb, upsertJobs, allJobs, jobsFirstSeenAt } from '../src/store.js';
 import type { Job } from '../src/types.js';
 
 const job = (over: Partial<Job> = {}): Job => ({
-  source: 'slotech', sourceId: '8052', url: 'https://slo-tech.com/delo/8052',
+  source: 'zrsz', sourceId: '8052', url: 'https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=8052/#/pdm/8052',
   title: 'Frontend Developer', company: 'Acme', location: 'Ljubljana',
   postedAt: '2026-08-18', description: 'Delo.', tags: ['React'],
   id: 'aaaa000000000001', area: '', areaRank: 0, areas: '', workMode: 'unknown',

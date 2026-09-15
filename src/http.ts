@@ -28,7 +28,8 @@ async function request(url: string, headers: Record<string, string>): Promise<Re
 export async function fetchText(url: string, opts: FetchTextOptions = {}): Promise<string> {
   const res = await request(url, opts.headers ?? {});
   if (!opts.encoding) return res.text();
-  // slo-tech serves iso-8859-2; decoding it as UTF-8 destroys every diacritic.
+  // Some Slovenian sites still serve legacy single-byte encodings (e.g.
+  // iso-8859-2); decoding those as UTF-8 destroys every diacritic.
   const buf = Buffer.from(await res.arrayBuffer());
   return iconv.decode(buf, opts.encoding);
 }

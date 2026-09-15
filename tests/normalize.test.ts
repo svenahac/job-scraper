@@ -4,7 +4,7 @@ import type { RawJob } from '../src/types.js';
 import type { Classification } from '../src/classify.js';
 
 const raw: RawJob = {
-  source: 'slotech', sourceId: '8052', url: 'https://slo-tech.com/delo/8052',
+  source: 'zrsz', sourceId: '8052', url: 'https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=8052/#/pdm/8052',
   title: 'Frontend Developer', company: 'Acme', location: 'Ljubljana',
   postedAt: '2026-08-18', description: 'Delo.', tags: ['React'],
 };
@@ -17,15 +17,15 @@ const classification = (over: Partial<Classification> = {}): Classification => (
 
 describe('makeId', () => {
   it('is stable across calls', () => {
-    expect(makeId('slotech', '8052')).toBe(makeId('slotech', '8052'));
+    expect(makeId('zrsz', '8052')).toBe(makeId('zrsz', '8052'));
   });
 
   it('differs between sources sharing an id', () => {
-    expect(makeId('slotech', '8052')).not.toBe(makeId('mojedelo', '8052'));
+    expect(makeId('zrsz', '8052')).not.toBe(makeId('mojedelo', '8052'));
   });
 
   it('is 16 hex characters', () => {
-    expect(makeId('slotech', '8052')).toMatch(/^[0-9a-f]{16}$/);
+    expect(makeId('zrsz', '8052')).toMatch(/^[0-9a-f]{16}$/);
   });
 });
 
@@ -46,7 +46,7 @@ describe('toJob', () => {
   it('carries the source fields through unchanged', () => {
     const job = toJob(raw, classification({ seniority: 'mid' }), 'T');
     expect(job.title).toBe('Frontend Developer');
-    expect(job.url).toBe('https://slo-tech.com/delo/8052');
+    expect(job.url).toBe('https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=8052/#/pdm/8052');
     expect(job.seniority).toBe('mid');
   });
 });
