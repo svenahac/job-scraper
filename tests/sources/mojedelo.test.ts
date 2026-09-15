@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { parseSearchPage, parseDetail, buildJobUrl } from '../../src/sources/mojedelo.js';
+import { parseSearchPage, parseDetail, buildJobUrl, CATEGORY_IDS, needsDetail } from '../../src/sources/mojedelo.js';
+import type { SearchItem } from '../../src/sources/mojedelo.js';
 
 const search = JSON.parse(readFileSync('tests/fixtures/mojedelo-search.json', 'utf8'));
 const detail = JSON.parse(readFileSync('tests/fixtures/mojedelo-detail.json', 'utf8'));
@@ -54,5 +55,41 @@ describe('buildJobUrl', () => {
   it('slugifies the title into the public URL', () => {
     expect(buildJobUrl('Software Engineer (m/ž)', 'abc-123'))
       .toBe('https://www.mojedelo.com/job-ad/software-engineer-m-z/abc-123');
+  });
+});
+
+describe('CATEGORY_IDS', () => {
+  it('targets HR, education and project-shaped categories, not IT', () => {
+    expect(CATEGORY_IDS).toContain('e917f193-c49f-4e28-85ab-5c0746f1df19'); // Kadri, HR
+    expect(CATEGORY_IDS).toContain('5022c5c2-029d-4949-a69a-9e156f82747d'); // Izobraževanje
+    expect(CATEGORY_IDS).not.toContain('64f003ff-6d8b-4be0-b58c-4580e4eeeb8a'); // IT
+  });
+
+  it('lists every id once', () => {
+    expect(new Set(CATEGORY_IDS).size).toBe(CATEGORY_IDS.length);
+  });
+});
+
+describe('needsDetail', () => {
+  const item = (over: Partial<SearchItem>): SearchItem => ({
+    id: 'x', title: 'Sodelavec (m/ž)', company: 'Acme',
+    location: 'Maribor', postedAt: null, ...over,
+  });
+
+  it('fetches the body for an Osrednjeslovenska ad whatever its title', () => {
+    expect(needsDetail(item({ location: 'Ljubljana' }))).toBe(true);
+    expect(needsDetail(item({ location: 'Domžale' }))).toBe(true);
+  });
+
+  it('fetches the body for an out-of-region ad whose title already matches an area', () => {
+    expect(needsDetail(item({ location: 'Maribor', title: 'HR Specialist' }))).toBe(true);
+  });
+
+  it('skips an out-of-region ad with an unrelated title', () => {
+    expect(needsDetail(item({ location: 'Maribor', title: 'Viličarist (m/ž)' }))).toBe(false);
+  });
+
+  it('treats a missing location as out of region', () => {
+    expect(needsDetail(item({ location: null, title: 'Viličarist (m/ž)' }))).toBe(false);
   });
 });

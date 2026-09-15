@@ -1,14 +1,25 @@
 import type { RawJob, Source } from '../types.js';
 import { fetchJson, fetchText, sleep, stripHtml, REQUEST_DELAY_MS } from '../http.js';
+import { matchAreas } from '../classify.js';
+import { PRIMARY_LOCATIONS } from '../profile.js';
 
 const API = 'https://api.mojedelo.com';
 const CONFIG_URL = `${API}/uploaded-files/config/www.mojedelo.com/jb.globals.js`;
 const SITE = 'https://www.mojedelo.com';
 
-/** Programiranje / IT. */
-const JOB_CATEGORY_ID = '64f003ff-6d8b-4be0-b58c-4580e4eeeb8a';
-/** Osrednjeslovenska. */
-const REGION_ID = 'd1dce9b1-9fa4-438b-b582-10d371d442e6';
+/**
+ * The categories where L&D, HR, project-coordination, adult-education and
+ * communications roles are actually filed. IT is deliberately gone.
+ */
+export const CATEGORY_IDS: readonly string[] = [
+  'e917f193-c49f-4e28-85ab-5c0746f1df19', // Kadri, HR
+  '5022c5c2-029d-4949-a69a-9e156f82747d', // Izobraževanje, Prevajanje, Coaching
+  '26bed8a9-3863-40a2-a38f-ee74d2097d72', // Upravljanje, Svetovanje, Vodenje
+  '307d6e8a-29c6-4950-a13d-8d1a3078a2d9', // Javni sektor, NVO, Kultura
+  'c5af8f46-57bb-45e9-9e66-9cd0ebd562a0', // Marketing, Kreativa, PR, Mediji
+  'c9749e1f-8619-40e6-85dd-1a091ef54730', // Administracija
+  'd25129f2-66b9-4a57-a7e1-3b7c956a2ba9', // Znanost, Raziskave, Razvoj
+];
 
 const PAGE_SIZE = 50;
 
@@ -85,34 +96,48 @@ export function totalFrom(json: unknown): number {
   return (json as RawSearchResponse)?.data?.total ?? 0;
 }
 
+/**
+ * Search pages are cheap; the per-ad detail fetch is not. The body is worth
+ * fetching for anything in the Ljubljana region, and for out-of-region ads
+ * whose title already looks relevant — which is where a remote posting shows
+ * itself. Everything else is skipped.
+ */
+export function needsDetail(item: SearchItem): boolean {
+  const loc = (item.location ?? '').toLowerCase();
+  if (loc && PRIMARY_LOCATIONS.some((t) => loc.includes(t))) return true;
+  return matchAreas(item.title, [], '').length > 0;
+}
+
 export const mojeDeloSource: Source = {
   name: 'mojedelo',
   async fetchJobs(): Promise<RawJob[]> {
     const headers = await loadApiHeaders();
-    const query = `jobCategoryIds=${JOB_CATEGORY_ID}&regionIds=${REGION_ID}`;
 
-    const items: SearchItem[] = [];
-    let startFrom = 0;
-    let total = Infinity;
+    // No region filter: the location policy is applied locally, so a remote
+    // ad posted from another region is not lost at the API boundary.
+    const byId = new Map<string, SearchItem>();
+    for (const categoryId of CATEGORY_IDS) {
+      let startFrom = 0;
+      let total = Infinity;
 
-    while (startFrom < total) {
-      const page = await fetchJson<unknown>(
-        `${API}/job-ads-search?${query}&pageSize=${PAGE_SIZE}&startFrom=${startFrom}`,
-        headers,
-      );
-      total = totalFrom(page);
-      const batch = parseSearchPage(page);
-      if (batch.length === 0) break;
-      items.push(...batch);
-      startFrom += batch.length;
-      await sleep(REQUEST_DELAY_MS);
+      while (startFrom < total) {
+        const page = await fetchJson<unknown>(
+          `${API}/job-ads-search?jobCategoryIds=${categoryId}` +
+          `&pageSize=${PAGE_SIZE}&startFrom=${startFrom}`,
+          headers,
+        );
+        total = totalFrom(page);
+        const batch = parseSearchPage(page);
+        if (batch.length === 0) break;
+        for (const item of batch) if (!byId.has(item.id)) byId.set(item.id, item);
+        startFrom += batch.length;
+        await sleep(REQUEST_DELAY_MS);
+      }
     }
 
     const jobs: RawJob[] = [];
-    for (const item of items) {
-      await sleep(REQUEST_DELAY_MS);
-      const detail = await fetchJson<unknown>(`${API}/job-ads/${item.id}`, headers);
-      jobs.push({
+    for (const item of byId.values()) {
+      const base = {
         source: 'mojedelo',
         sourceId: item.id,
         url: buildJobUrl(item.title, item.id),
@@ -120,9 +145,20 @@ export const mojeDeloSource: Source = {
         company: item.company,
         location: item.location,
         postedAt: item.postedAt,
-        description: parseDetail(detail).description,
-        tags: [],
-      });
+        tags: [] as string[],
+        employmentRaw: null,
+        workTimeRaw: null,
+        occupation: null,
+      };
+
+      if (!needsDetail(item)) {
+        jobs.push({ ...base, description: '' });
+        continue;
+      }
+
+      await sleep(REQUEST_DELAY_MS);
+      const detail = await fetchJson<unknown>(`${API}/job-ads/${item.id}`, headers);
+      jobs.push({ ...base, description: parseDetail(detail).description });
     }
 
     return jobs;
