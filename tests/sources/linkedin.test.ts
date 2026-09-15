@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { parseGuestCards } from '../../src/sources/linkedin.js';
+import { parseGuestCards, buildQueries, buildQueryUrl } from '../../src/sources/linkedin.js';
 
 const html = readFileSync('tests/fixtures/linkedin-guest.html', 'utf8');
 
@@ -56,5 +56,49 @@ describe('parseGuestCards', () => {
 
   it('returns an empty array for an empty response body', () => {
     expect(parseGuestCards('')).toEqual([]);
+  });
+});
+
+describe('buildQueries', () => {
+  const queries = buildQueries();
+
+  it('stays at twelve queries, to limit rate-limiting from CI', () => {
+    expect(queries).toHaveLength(12);
+  });
+
+  it('asks Ljubljana for all eight areas', () => {
+    const ljubljana = queries.filter((q) => q.location === 'Ljubljana, Slovenia');
+    expect(ljubljana).toHaveLength(8);
+    expect(ljubljana.every((q) => q.remote === false)).toBe(true);
+  });
+
+  it('asks the whole country only for the top four areas, and only remote', () => {
+    const national = queries.filter((q) => q.location === 'Slovenia');
+    expect(national).toHaveLength(4);
+    expect(national.every((q) => q.remote)).toBe(true);
+  });
+
+  it('no longer searches for developer roles', () => {
+    for (const q of queries) {
+      expect(q.keywords.toLowerCase()).not.toContain('developer');
+    }
+  });
+
+  it('leads with the highest-ranked area', () => {
+    expect(queries[0]!.keywords).toBe('razvoj kadrov');
+  });
+});
+
+describe('buildQueryUrl', () => {
+  it('encodes keywords and location', () => {
+    const url = buildQueryUrl({ keywords: 'razvoj kadrov', location: 'Slovenia', remote: false });
+    expect(url).toContain('keywords=razvoj%20kadrov');
+    expect(url).toContain('location=Slovenia');
+    expect(url).not.toContain('f_WT');
+  });
+
+  it('adds the remote filter only for a remote query', () => {
+    const url = buildQueryUrl({ keywords: 'x', location: 'Slovenia', remote: true });
+    expect(url).toContain('f_WT=2');
   });
 });

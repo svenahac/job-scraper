@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio';
 import type { RawJob, Source } from '../types.js';
 import { fetchText, sleep, REQUEST_DELAY_MS } from '../http.js';
+import { leadQueryTerms } from '../profile.js';
 
 const GUEST_API =
   'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search';
@@ -10,13 +11,31 @@ const BROWSER_UA =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
   '(KHTML, like Gecko) Chrome/126.0 Safari/537.36';
 
-const QUERIES: Array<{ keywords: string; location: string }> = [
-  { keywords: 'frontend developer', location: 'Ljubljana, Slovenia' },
-  { keywords: 'fullstack developer', location: 'Ljubljana, Slovenia' },
-  { keywords: 'web developer', location: 'Ljubljana, Slovenia' },
-  { keywords: 'frontend developer', location: 'Slovenia' },
-  { keywords: 'fullstack developer', location: 'Slovenia' },
-];
+export interface GuestQuery {
+  keywords: string;
+  location: string;
+  /** Adds the guest endpoint's remote filter. */
+  remote: boolean;
+}
+
+/**
+ * Every area against Ljubljana, plus the top four against the whole country
+ * with the remote filter on. Twelve requests: LinkedIn rate-limits datacenter
+ * IPs hard, so this is deliberately not one query per keyword.
+ */
+export function buildQueries(): GuestQuery[] {
+  const terms = leadQueryTerms();
+  return [
+    ...terms.map((keywords) => ({ keywords, location: 'Ljubljana, Slovenia', remote: false })),
+    ...terms.slice(0, 4).map((keywords) => ({ keywords, location: 'Slovenia', remote: true })),
+  ];
+}
+
+export function buildQueryUrl(q: GuestQuery): string {
+  const params = `keywords=${encodeURIComponent(q.keywords)}` +
+    `&location=${encodeURIComponent(q.location)}&start=0`;
+  return `${GUEST_API}?${params}${q.remote ? '&f_WT=2' : ''}`;
+}
 
 export interface GuestCard {
   sourceId: string;
@@ -68,10 +87,9 @@ export const linkedInSource: Source = {
   async fetchJobs(): Promise<RawJob[]> {
     const byId = new Map<string, GuestCard>();
 
-    for (const q of QUERIES) {
+    for (const q of buildQueries()) {
       await sleep(REQUEST_DELAY_MS);
-      const url = `${GUEST_API}?keywords=${encodeURIComponent(q.keywords)}` +
-        `&location=${encodeURIComponent(q.location)}&start=0`;
+      const url = buildQueryUrl(q);
       // A non-2xx here throws, which is correct: the orchestrator records
       // this source as failed rather than reporting zero jobs found.
       const html = await fetchText(url, { headers: { 'User-Agent': BROWSER_UA } });
@@ -80,9 +98,9 @@ export const linkedInSource: Source = {
       }
     }
 
-    // The guest card carries no body text, and the detail page is behind an
-    // auth wall for datacenter IPs. Title plus company is what classification
-    // gets; such jobs usually land as seniority 'unknown', which is kept.
+    // The guest card carries no body text, so classification gets the title,
+    // the company and the location string — which is where LinkedIn states
+    // remote.
     return [...byId.values()].map((c) => ({
       source: 'linkedin',
       sourceId: c.sourceId,
@@ -93,6 +111,9 @@ export const linkedInSource: Source = {
       postedAt: c.postedAt,
       description: '',
       tags: [],
+      employmentRaw: null,
+      workTimeRaw: null,
+      occupation: null,
     }));
   },
 };
