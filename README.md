@@ -1,12 +1,13 @@
 # Job Scraper
 
-Scrapes junior and mid-level frontend/fullstack developer jobs in Slovenia from
-slo-tech, mojedelo, and LinkedIn. Runs nightly via GitHub Actions and commits
-its results back to this repository.
+Finds learning & development, HR, project-coordination, adult-education, EU-project,
+employer-branding, communications and event-coordination jobs in Slovenia from
+ZRSZ, mojedelo and LinkedIn. Runs nightly via GitHub Actions and commits its
+results back to this repository.
 
 ## Output
 
-- `data/jobs-all.csv` — every job ever seen
+- `data/jobs-all.csv` — every job ever seen, best fit first
 - `data/jobs-new.csv` — jobs first seen in the most recent run
 - `data/jobs.db` — SQLite source of truth
 
@@ -21,25 +22,34 @@ npm run scrape
 
 ## Tuning what gets matched
 
-All filtering lives in `src/classify.ts`:
+Everything lives in `src/profile.ts`:
 
-- `ROLE_KEYWORDS` / `TECH_KEYWORDS` — what counts as a web job. Both match
-  anywhere in the title, tags, or body.
-- `SENIOR_MARKERS` / `JUNIOR_MARKERS` / `MID_MARKERS` — matched against the
-  title and tags only, never the body, so an ad mentioning a senior colleague
-  is not wrongly excluded.
-- `YEARS_RE` — years-of-experience parsing over the body. 5 or more is senior
-  and excluded; 3-4 is mid; 2 or fewer is junior.
+- `AREAS` — eight ranked areas. Rank 1 scores highest and sorts to the top of
+  the CSV. Keywords match anywhere: title, tags or body.
+- `TITLE_REJECT` — hard drop, title only. Overridden when an area keyword also
+  matches the title, so "Vodja projektov prodaje" survives on its project match.
+- `BODY_WARN` — never drops anything; each hit costs 8 points and shows up in
+  the `flags` column.
+- `CONTRACT_REJECT` — hard drop, matched against the title and the source's raw
+  employment field only. Never the body, because "praksa" is ordinary prose.
+- `REMOTE_MARKERS`, `HYBRID_MARKERS`, `PRIMARY_LOCATIONS` — drive `work_mode`
+  and `location_tier`.
 
-Only `senior` is ever excluded. Ads with no seniority signal are kept and
-flagged `unknown`.
+Years of experience never exclude anything. `seniority` is recorded for
+information only.
+
+### Score
+
+Area rank 1–8 gives 40 down to 12 points; Ljubljana or remote adds 20, hybrid
+elsewhere adds 18; permanent adds 15, fixed-term 8, part-time 4; each flag
+costs 8. Clamped to 0–100.
 
 ## Sources
 
 | Source | Method | Reliability |
 |---|---|---|
-| slo-tech | HTML scrape, ISO-8859-2 | Reliable |
-| mojedelo | JSON API (`/job-ads-search`) | Reliable |
+| ZRSZ | JSON API (`prosta-delovna-mesta-filtri`), key read from the site bundle | Reliable; no description body |
+| mojedelo | JSON API (`/job-ads-search`) | Reliable; full description |
 | LinkedIn | Public guest endpoint | Frequently rate-limited from CI |
 
 LinkedIn blocks datacenter IPs, so it fails on many scheduled runs. That is
