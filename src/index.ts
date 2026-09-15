@@ -4,7 +4,7 @@ import { classify, isWanted } from './classify.js';
 import { toJob } from './normalize.js';
 import { openDb, upsertJobs, allJobs, jobsFirstSeenAt } from './store.js';
 import { writeCsv } from './csv.js';
-import { sloTechSource } from './sources/slotech.js';
+import { zrszSource } from './sources/zrsz.js';
 import { mojeDeloSource } from './sources/mojedelo.js';
 import { linkedInSource } from './sources/linkedin.js';
 
@@ -63,7 +63,7 @@ export async function runScrape(opts: RunOptions): Promise<RunResult> {
 
 async function main(): Promise<void> {
   const dataDir = join(process.cwd(), 'data');
-  const sources = [sloTechSource, mojeDeloSource, linkedInSource];
+  const sources = [zrszSource, mojeDeloSource, linkedInSource];
 
   const result = await runScrape({
     sources,
