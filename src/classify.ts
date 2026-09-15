@@ -38,6 +38,8 @@ export function detectWorkMode(
   // Hybrid wins: an ad naming both is almost always hybrid.
   if (containsAny(all, HYBRID_MARKERS).length > 0) return 'hybrid';
   if (containsAny(all, REMOTE_MARKERS).length > 0) return 'remote';
+  // A fixed workplace with neither marker present is an onsite role.
+  if (location && location.trim().length > 0) return 'onsite';
   return 'unknown';
 }
 
@@ -50,8 +52,9 @@ export function detectLocationTier(
   return 'other';
 }
 
-/** "20 ur/teden", "30 hours/week". Below 35 is part-time. */
-const HOURS_RE = /(\d{1,2})\s*(?:ur|hours?|h)\b/i;
+/** "20 ur/teden", "30 hours/week". Below 35 is part-time. Anchored to a
+ *  weekly figure so body prose like "8 ur dnevno" is not misread as hours. */
+const HOURS_RE = /(\d{1,2})\s*(?:ur|hours?)\s*\/\s*(?:teden|week)\b/i;
 
 export function detectEmploymentType(
   employmentRaw: string | null, workTimeRaw: string | null,

@@ -69,8 +69,20 @@ describe('detectWorkMode', () => {
     expect(detectWorkMode('HR Specialist', 'Slovenia (Remote)', '')).toBe('remote');
   });
 
-  it('is unknown when nothing says', () => {
-    expect(detectWorkMode('HR Specialist', 'Ljubljana', '')).toBe('unknown');
+  it('is onsite when a location is given and neither marker appears', () => {
+    expect(detectWorkMode('HR Specialist', 'Ljubljana', '')).toBe('onsite');
+  });
+
+  it('is unknown when there is no location and no marker', () => {
+    expect(detectWorkMode('HR Specialist', null, '')).toBe('unknown');
+  });
+
+  it('prefers remote over a present location', () => {
+    expect(detectWorkMode('HR Specialist', 'Ljubljana', 'Delo od doma.')).toBe('remote');
+  });
+
+  it('prefers hybrid over a present location', () => {
+    expect(detectWorkMode('HR Specialist', 'Ljubljana', 'Hibridno delo.')).toBe('hybrid');
   });
 });
 
@@ -121,6 +133,18 @@ describe('detectEmploymentType', () => {
 
   it('is unknown when nothing says', () => {
     expect(detectEmploymentType(null, null, 'HR Specialist', '')).toBe('unknown');
+  });
+
+  it('reads part-time from "20 ur/teden" in the body', () => {
+    expect(detectEmploymentType(null, null, '', 'Zaposlitev za 20 ur/teden.')).toBe('part-time');
+  });
+
+  it('does NOT read part-time from "8 ur dnevno" prose in the body', () => {
+    expect(detectEmploymentType(null, null, '', 'Delovni čas: 8 ur dnevno.')).not.toBe('part-time');
+  });
+
+  it('does NOT read part-time from "40 ur/teden"', () => {
+    expect(detectEmploymentType('Nedoločen čas', '40 ur/teden', '', '')).not.toBe('part-time');
   });
 });
 

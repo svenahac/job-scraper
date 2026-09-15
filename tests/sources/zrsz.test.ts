@@ -79,10 +79,11 @@ describe('totalFrom', () => {
 });
 
 describe('buildJobUrl', () => {
-  it('builds an absolute ess.gov.si link containing the id', () => {
+  it('builds the exact verified ess.gov.si template for a known id', () => {
     const url = buildJobUrl('3471197');
-    expect(url.startsWith('https://www.ess.gov.si/')).toBe(true);
-    expect(url).toContain('3471197');
+    expect(url).toBe(
+      'https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3471197/#/pdm/3471197',
+    );
   });
 });
 

@@ -44,6 +44,14 @@ Area rank 1–8 gives 40 down to 12 points; Ljubljana or remote adds 20, hybrid
 elsewhere adds 18; permanent adds 15, fixed-term 8, part-time 4; each flag
 costs 8. Clamped to 0–100.
 
+Scores are not strictly comparable across sources: a source that supplies no
+description body can never pick up a `flags` penalty, and one that supplies no
+contract field can never earn the permanent-employment points, so a thin
+listing can outscore a richer one for the same job. There is also no
+cross-source de-duplication — a job advertised on both ZRSZ and mojedelo
+appears as two rows, since each id is derived from the source plus that
+source's own id.
+
 ## Sources
 
 | Source | Method | Reliability |
