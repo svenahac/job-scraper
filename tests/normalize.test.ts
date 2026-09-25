@@ -11,7 +11,7 @@ const raw: RawJob = {
 
 const classification = (over: Partial<Classification> = {}): Classification => ({
   areas: [], area: null, areaRank: 0, workMode: 'unknown', employmentType: 'unknown',
-  locationTier: 'other', flags: [], seniority: 'junior', score: 0, rejected: false,
+  flags: [], seniority: 'junior', score: 0, rejected: false,
   ...over,
 });
 

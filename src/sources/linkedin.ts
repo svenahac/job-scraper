@@ -14,27 +14,21 @@ const BROWSER_UA =
 export interface GuestQuery {
   keywords: string;
   location: string;
-  /** Adds the guest endpoint's remote filter. */
-  remote: boolean;
 }
 
 /**
- * Every area against Ljubljana, plus the top four against the whole country
- * with the remote filter on. Twelve requests: LinkedIn rate-limits datacenter
- * IPs hard, so this is deliberately not one query per keyword.
+ * Every area against Ljubljana, whose search radius takes in the surrounding
+ * towns. Eight requests: LinkedIn rate-limits datacenter IPs hard, so this is
+ * deliberately not one query per keyword.
  */
 export function buildQueries(): GuestQuery[] {
-  const terms = leadQueryTerms();
-  return [
-    ...terms.map((keywords) => ({ keywords, location: 'Ljubljana, Slovenia', remote: false })),
-    ...terms.slice(0, 4).map((keywords) => ({ keywords, location: 'Slovenia', remote: true })),
-  ];
+  return leadQueryTerms().map((keywords) => ({ keywords, location: 'Ljubljana, Slovenia' }));
 }
 
 export function buildQueryUrl(q: GuestQuery): string {
   const params = `keywords=${encodeURIComponent(q.keywords)}` +
     `&location=${encodeURIComponent(q.location)}&start=0`;
-  return `${GUEST_API}?${params}${q.remote ? '&f_WT=2' : ''}`;
+  return `${GUEST_API}?${params}`;
 }
 
 export interface GuestCard {

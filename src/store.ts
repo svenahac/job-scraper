@@ -1,6 +1,6 @@
 import Database from 'better-sqlite3';
 import type {
-  EmploymentType, Job, LocationTier, Seniority, WorkMode,
+  EmploymentType, Job, Seniority, WorkMode,
 } from './types.js';
 
 export type Db = Database.Database;
@@ -25,7 +25,6 @@ CREATE TABLE IF NOT EXISTS jobs (
   areas           TEXT NOT NULL,
   work_mode       TEXT NOT NULL,
   employment_type TEXT NOT NULL,
-  location_tier   TEXT NOT NULL,
   flags           TEXT NOT NULL,
   seniority       TEXT NOT NULL,
   score           INTEGER NOT NULL,
@@ -40,6 +39,12 @@ export function openDb(path: string): Db {
   const db = new Database(path);
   db.pragma('journal_mode = WAL');
   db.exec(SCHEMA);
+  // Databases from before the Ljubljana-only filter still carry location_tier,
+  // which is NOT NULL and would reject every insert that omits it.
+  const cols = db.pragma('table_info(jobs)') as Array<{ name: string }>;
+  if (cols.some((c) => c.name === 'location_tier')) {
+    db.exec('ALTER TABLE jobs DROP COLUMN location_tier');
+  }
   return db;
 }
 
@@ -50,7 +55,7 @@ interface Row {
   employment_raw: string | null; work_time_raw: string | null;
   occupation: string | null;
   area: string; area_rank: number; areas: string; work_mode: string;
-  employment_type: string; location_tier: string; flags: string;
+  employment_type: string; flags: string;
   seniority: string; score: number;
   first_seen_at: string; last_seen_at: string;
 }
@@ -64,7 +69,6 @@ const toJobRow = (r: Row): Job => ({
   area: r.area, areaRank: r.area_rank, areas: r.areas,
   workMode: r.work_mode as WorkMode,
   employmentType: r.employment_type as EmploymentType,
-  locationTier: r.location_tier as LocationTier,
   flags: r.flags, seniority: r.seniority as Seniority, score: r.score,
   firstSeenAt: r.first_seen_at, lastSeenAt: r.last_seen_at,
 });
@@ -78,12 +82,12 @@ export function upsertJobs(db: Db, jobs: Job[]): void {
     INSERT INTO jobs (id, source, source_id, url, title, company, location,
                       posted_at, description, tags, employment_raw,
                       work_time_raw, occupation, area, area_rank, areas,
-                      work_mode, employment_type, location_tier, flags,
+                      work_mode, employment_type, flags,
                       seniority, score, first_seen_at, last_seen_at)
     VALUES (@id, @source, @sourceId, @url, @title, @company, @location,
             @postedAt, @description, @tags, @employmentRaw,
             @workTimeRaw, @occupation, @area, @areaRank, @areas,
-            @workMode, @employmentType, @locationTier, @flags,
+            @workMode, @employmentType, @flags,
             @seniority, @score, @firstSeenAt, @lastSeenAt)
     ON CONFLICT(id) DO UPDATE SET
       url = excluded.url,
@@ -101,7 +105,6 @@ export function upsertJobs(db: Db, jobs: Job[]): void {
       areas = excluded.areas,
       work_mode = excluded.work_mode,
       employment_type = excluded.employment_type,
-      location_tier = excluded.location_tier,
       flags = excluded.flags,
       seniority = excluded.seniority,
       score = excluded.score,
@@ -130,4 +133,11 @@ export function jobsFirstSeenAt(db: Db, timestamp: string): Job[] {
   return (db.prepare(
     'SELECT * FROM jobs WHERE first_seen_at = ? ORDER BY score DESC, title ASC')
     .all(timestamp) as Row[]).map(toJobRow);
+}
+
+export function deleteJobs(db: Db, ids: string[]): void {
+  const stmt = db.prepare('DELETE FROM jobs WHERE id = ?');
+  db.transaction((batch: string[]) => {
+    for (const id of batch) stmt.run(id);
+  })(ids);
 }

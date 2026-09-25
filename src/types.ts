@@ -1,7 +1,6 @@
 export type Seniority = 'junior' | 'mid' | 'senior' | 'unknown';
 export type WorkMode = 'remote' | 'hybrid' | 'onsite' | 'unknown';
 export type EmploymentType = 'permanent' | 'fixed-term' | 'part-time' | 'unknown';
-export type LocationTier = 'ljubljana' | 'remote' | 'other';
 
 /** A posting as returned by a source adapter, before classification. */
 export interface RawJob {
@@ -37,7 +36,6 @@ export interface Job extends RawJob {
   areas: string;
   workMode: WorkMode;
   employmentType: EmploymentType;
-  locationTier: LocationTier;
   /** Comma-joined warnings. Informational — never a reason to exclude. */
   flags: string;
   /** Informational only. Never filters. */

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   AREAS, TITLE_REJECT, BODY_WARN, CONTRACT_REJECT, DOMAIN_REJECT,
-  REMOTE_MARKERS, HYBRID_MARKERS, PRIMARY_LOCATIONS, leadQueryTerms,
+  REMOTE_MARKERS, HYBRID_MARKERS, LJUBLJANA_AREA, leadQueryTerms,
 } from '../src/profile.js';
 
 describe('AREAS', () => {
@@ -65,7 +65,7 @@ describe('rejection lists', () => {
 
   it('keeps all list entries lowercase', () => {
     for (const list of [TITLE_REJECT, BODY_WARN, CONTRACT_REJECT, DOMAIN_REJECT,
-                        REMOTE_MARKERS, HYBRID_MARKERS, PRIMARY_LOCATIONS]) {
+                        REMOTE_MARKERS, HYBRID_MARKERS, LJUBLJANA_AREA]) {
       for (const e of list) expect(e).toBe(e.toLowerCase());
     }
   });

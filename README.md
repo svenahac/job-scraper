@@ -1,8 +1,8 @@
 # Job Scraper
 
 Finds learning & development, HR, project-coordination, adult-education, EU-project,
-employer-branding, communications and event-coordination jobs in Slovenia from
-ZRSZ, mojedelo and LinkedIn. Runs nightly via GitHub Actions and commits its
+employer-branding, communications and event-coordination jobs in Ljubljana and
+its surroundings from ZRSZ, mojedelo and LinkedIn. Runs nightly via GitHub Actions and commits its
 results back to this repository.
 
 ## Output
@@ -33,21 +33,25 @@ Everything lives in `src/profile.ts`:
   tags. Unlike `TITLE_REJECT`, an area keyword does NOT rescue it — "Vodja
   projektov gradnje" is a construction job even though "vodja projektov" is
   itself an area keyword.
-- `BODY_WARN` — never drops anything; each hit costs 8 points and shows up in
-  the `flags` column.
+- `BODY_WARN` — never drops anything; each hit costs 8 points. The hits are
+  kept in the database's `flags` column, not in the CSV.
 - `CONTRACT_REJECT` — hard drop, matched against the title and the source's raw
   employment field only. Never the body, because "praksa" is ordinary prose.
-- `REMOTE_MARKERS`, `HYBRID_MARKERS`, `PRIMARY_LOCATIONS` — drive `work_mode`
-  and `location_tier`.
+- `LJUBLJANA_AREA` — hard drop for any posting whose location names none of
+  these places: Ljubljana plus the municipalities of the Osrednjeslovenska
+  region. Remote ads are dropped too unless their location is in the area.
+  Matched as whole words, with or without diacritics.
+- `REMOTE_MARKERS`, `HYBRID_MARKERS` — drive `work_mode`.
 
 Years of experience never exclude anything. `seniority` is recorded for
 information only.
 
 ### Score
 
-Area rank 1–8 gives 40 down to 12 points; Ljubljana or remote adds 20, hybrid
-elsewhere adds 18; permanent adds 15, fixed-term 8, part-time 4; each flag
-costs 8. Clamped to 0–100.
+Area rank 1–8 gives 40 down to 12 points; permanent adds 15, fixed-term 8,
+part-time 4; each flag costs 8. Clamped to 0–100, so the best possible score
+is 55. Location adds nothing, because every posting that is kept is already in
+the Ljubljana area.
 
 A posting whose area match comes only from a source's own occupation tag
 (`poklic`, for ZRSZ), with no supporting keyword in the title or the advert
