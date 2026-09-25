@@ -35,7 +35,6 @@ describe('types', () => {
       areas: '',
       workMode: 'unknown',
       employmentType: 'unknown',
-      locationTier: 'other',
       flags: '',
       score: 0,
       seniority,

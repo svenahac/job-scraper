@@ -1,8 +1,8 @@
 import { join } from 'node:path';
 import type { Job, RawJob, Source } from './types.js';
-import { classify, isWanted } from './classify.js';
+import { classify, inLjubljanaArea, isWanted } from './classify.js';
 import { toJob } from './normalize.js';
-import { openDb, upsertJobs, allJobs, jobsFirstSeenAt } from './store.js';
+import { openDb, upsertJobs, allJobs, jobsFirstSeenAt, deleteJobs } from './store.js';
 import { writeCsv } from './csv.js';
 import { zrszSource } from './sources/zrsz.js';
 import { mojeDeloSource } from './sources/mojedelo.js';
@@ -51,6 +51,9 @@ export async function runScrape(opts: RunOptions): Promise<RunResult> {
   const db = openDb(opts.dbPath);
   try {
     upsertJobs(db, kept);
+    // Rows stored before the Ljubljana-only filter, or before a town left
+    // LJUBLJANA_AREA, would otherwise stay in jobs-all.csv forever.
+    deleteJobs(db, allJobs(db).filter((j) => !inLjubljanaArea(j.location)).map((j) => j.id));
     const fresh = jobsFirstSeenAt(db, opts.now);
     writeCsv(opts.allCsvPath, allJobs(db));
     writeCsv(opts.newCsvPath, fresh);

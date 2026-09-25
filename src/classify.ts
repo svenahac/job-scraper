@@ -1,9 +1,9 @@
 import type {
-  EmploymentType, LocationTier, RawJob, Seniority, WorkMode,
+  EmploymentType, RawJob, Seniority, WorkMode,
 } from './types.js';
 import type { AreaKey } from './profile.js';
 import {
-  AREAS, BODY_WARN, CONTRACT_REJECT, DOMAIN_REJECT, HYBRID_MARKERS, PRIMARY_LOCATIONS,
+  AREAS, BODY_WARN, CONTRACT_REJECT, DOMAIN_REJECT, HYBRID_MARKERS, LJUBLJANA_AREA,
   REMOTE_MARKERS, TITLE_REJECT,
 } from './profile.js';
 
@@ -13,7 +13,6 @@ export interface Classification {
   areaRank: number;
   workMode: WorkMode;
   employmentType: EmploymentType;
-  locationTier: LocationTier;
   flags: string[];
   seniority: Seniority;
   score: number;
@@ -43,13 +42,20 @@ export function detectWorkMode(
   return 'unknown';
 }
 
-export function detectLocationTier(
-  location: string | null, workMode: WorkMode,
-): LocationTier {
-  const loc = norm(location ?? '');
-  if (loc && containsAny(loc, PRIMARY_LOCATIONS).length > 0) return 'ljubljana';
-  if (workMode === 'remote') return 'remote';
-  return 'other';
+/** Lowercase with diacritics dropped, so "Domzale" matches "domžale". */
+const fold = (s: string): string => s.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '');
+
+const escapeRe = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/** Whole-word match on any LJUBLJANA_AREA place, so "ig" never hits "Rigonce". */
+const LJUBLJANA_AREA_RE = new RegExp(
+  `(?<!\\p{L})(?:${LJUBLJANA_AREA.map((p) => escapeRe(fold(p))).join('|')})(?!\\p{L})`,
+  'u',
+);
+
+/** Whether a posting's location lies in Ljubljana or its surroundings. */
+export function inLjubljanaArea(location: string | null): boolean {
+  return location !== null && LJUBLJANA_AREA_RE.test(fold(location));
 }
 
 /** "20 ur/teden", "30 hours/week". Below 35 is part-time. Anchored to a
@@ -83,13 +89,12 @@ const EMPLOYMENT_POINTS: Record<EmploymentType, number> = {
   permanent: 15, 'fixed-term': 8, 'part-time': 4, unknown: 0,
 };
 
+/** Location earns nothing: every posting that reaches scoring is already in
+ *  the Ljubljana area. */
 export function scoreFor(p: {
-  areaRank: number; locationTier: LocationTier; workMode: WorkMode;
-  employmentType: EmploymentType; flags: string[]; tagOnly?: boolean;
+  areaRank: number; employmentType: EmploymentType; flags: string[]; tagOnly?: boolean;
 }): number {
   let score = AREA_POINTS[p.areaRank] ?? 0;
-  if (p.locationTier === 'ljubljana' || p.locationTier === 'remote') score += 20;
-  else if (p.workMode === 'hybrid') score += 18;
   score += EMPLOYMENT_POINTS[p.employmentType];
   if (p.tagOnly) score -= 20;
   score -= 8 * p.flags.length;
@@ -172,7 +177,6 @@ export function classify(job: RawJob): Classification {
   flags.push(...containsAny(norm(body), BODY_WARN).map((w) => `body:${w}`));
 
   const workMode = detectWorkMode(job.title, job.location, body);
-  const locationTier = detectLocationTier(job.location, workMode);
   const employmentType = detectEmploymentType(
     job.employmentRaw ?? null, job.workTimeRaw ?? null, job.title, body,
   );
@@ -191,13 +195,10 @@ export function classify(job: RawJob): Classification {
     areaRank,
     workMode,
     employmentType,
-    locationTier,
     flags,
     seniority: matchSeniority(job.title, job.tags, body),
-    score: scoreFor({
-      areaRank, locationTier, workMode, employmentType, flags, tagOnly,
-    }),
-    rejected: hardTitleReject || contractReject,
+    score: scoreFor({ areaRank, employmentType, flags, tagOnly }),
+    rejected: hardTitleReject || contractReject || !inLjubljanaArea(job.location),
   };
 }
 

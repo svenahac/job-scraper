@@ -115,6 +115,12 @@ describe('needsDetail', () => {
     expect(needsDetail(item({ occupation: 'Andragog' }))).toBe(true);
   });
 
+  it('skips an out-of-area ad even when its title matches an area', () => {
+    expect(needsDetail(item({
+      title: 'KOORDINATOR IZOBRAŽEVANJ - M/Ž', location: 'MARIBOR',
+    }))).toBe(false);
+  });
+
   it('skips an unrelated ad, whatever its location', () => {
     expect(needsDetail(item({ title: 'HIŠNIK IV - M/Ž', location: 'LJUBLJANA' }))).toBe(false);
   });

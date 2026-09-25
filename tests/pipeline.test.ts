@@ -3,6 +3,9 @@ import { mkdtempSync, rmSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { runScrape } from '../src/index.js';
+import { classify } from '../src/classify.js';
+import { toJob } from '../src/normalize.js';
+import { openDb, upsertJobs } from '../src/store.js';
 import type { RawJob, Source } from '../src/types.js';
 
 const raw = (over: Partial<RawJob>): RawJob => ({
@@ -57,13 +60,36 @@ describe('runScrape', () => {
 
   it('writes the CSV ordered by score, best fit first', async () => {
     const src = stub('a', [
-      raw({ sourceId: '1', title: 'Koordinator dogodkov (m/ž)', location: 'Maribor' }),
+      raw({ sourceId: '1', title: 'Koordinator dogodkov (m/ž)', location: 'Domžale' }),
       raw({ sourceId: '2', title: 'Specialist za razvoj kadrov (m/ž)', location: 'Ljubljana' }),
     ]);
     await runScrape({ sources: [src], now: 'T1', ...paths() });
     const csv = readFileSync(paths().allCsvPath, 'utf8');
     const lines = csv.trim().split('\n');
     expect(lines[1]).toContain('razvoj kadrov');
+  });
+
+  it('drops a matching job outside the Ljubljana area', async () => {
+    const src = stub('a', [raw({
+      sourceId: '1', title: 'Specialist za razvoj kadrov (m/ž)', location: 'Maribor',
+    })]);
+    const r = await runScrape({ sources: [src], now: 'T1', ...paths() });
+    expect(r.kept).toBe(0);
+  });
+
+  it('prunes out-of-area rows that an earlier run stored', async () => {
+    const stale = raw({
+      source: 'a', sourceId: '9', title: 'Projektni koordinator (m/ž)', location: 'Maribor',
+    });
+    const db = openDb(paths().dbPath);
+    upsertJobs(db, [toJob(stale, classify(stale), 'T0')]);
+    db.close();
+
+    const src = stub('a', [raw({ sourceId: '1', title: 'Specialist za razvoj kadrov (m/ž)' })]);
+    await runScrape({ sources: [src], now: 'T1', ...paths() });
+    const csv = readFileSync(paths().allCsvPath, 'utf8');
+    expect(csv).toContain('Specialist za razvoj kadrov (m/ž)');
+    expect(csv).not.toContain('Projektni koordinator (m/ž)');
   });
 
   it('drops a non-web job', async () => {

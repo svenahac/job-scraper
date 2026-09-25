@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { openDb, upsertJobs, allJobs, jobsFirstSeenAt } from '../src/store.js';
+import { mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { openDb, upsertJobs, allJobs, jobsFirstSeenAt, deleteJobs } from '../src/store.js';
 import type { Job } from '../src/types.js';
 
 const job = (over: Partial<Job> = {}): Job => ({
@@ -7,7 +10,7 @@ const job = (over: Partial<Job> = {}): Job => ({
   title: 'Frontend Developer', company: 'Acme', location: 'Ljubljana',
   postedAt: '2026-08-18', description: 'Delo.', tags: ['React'],
   id: 'aaaa000000000001', area: '', areaRank: 0, areas: '', workMode: 'unknown',
-  employmentType: 'unknown', locationTier: 'other', flags: '', score: 0,
+  employmentType: 'unknown', flags: '', score: 0,
   seniority: 'junior',
   firstSeenAt: '2026-08-21T17:00:00.000Z', lastSeenAt: '2026-08-21T17:00:00.000Z',
   ...over,
@@ -65,7 +68,7 @@ describe('store', () => {
   it('round-trips the new classification fields', () => {
     const db = openDb(':memory:');
     upsertJobs(db, [job({ area: 'ld', areaRank: 1, areas: 'ld,hr', score: 75,
-      workMode: 'hybrid', employmentType: 'permanent', locationTier: 'ljubljana',
+      workMode: 'hybrid', employmentType: 'permanent',
       flags: 'body:payroll', employmentRaw: 'Nedoločen čas',
       workTimeRaw: '40 ur/teden', occupation: 'Kadrovnik' })]);
     const [back] = allJobs(db);
@@ -75,7 +78,6 @@ describe('store', () => {
     expect(back!.score).toBe(75);
     expect(back!.workMode).toBe('hybrid');
     expect(back!.employmentType).toBe('permanent');
-    expect(back!.locationTier).toBe('ljubljana');
     expect(back!.flags).toBe('body:payroll');
     expect(back!.employmentRaw).toBe('Nedoločen čas');
     expect(back!.occupation).toBe('Kadrovnik');
@@ -90,5 +92,32 @@ describe('store', () => {
     ]);
     expect(allJobs(db).map((j) => j.id)).toEqual(['high', 'low']);
     db.close();
+  });
+
+  it('deletes jobs by id', () => {
+    const db = openDb(':memory:');
+    upsertJobs(db, [job({ id: 'keep', sourceId: 'k' }), job({ id: 'gone', sourceId: 'g' })]);
+    deleteJobs(db, ['gone']);
+    expect(allJobs(db).map((j) => j.id)).toEqual(['keep']);
+    db.close();
+  });
+
+  it('drops location_tier from a database written before the Ljubljana-only filter', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'store-'));
+    try {
+      const path = join(dir, 'jobs.db');
+      const old = openDb(path);
+      old.exec("ALTER TABLE jobs ADD COLUMN location_tier TEXT NOT NULL DEFAULT 'other'");
+      old.close();
+
+      const db = openDb(path);
+      const cols = (db.pragma('table_info(jobs)') as Array<{ name: string }>).map((c) => c.name);
+      expect(cols).not.toContain('location_tier');
+      upsertJobs(db, [job()]);
+      expect(allJobs(db)).toHaveLength(1);
+      db.close();
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 });

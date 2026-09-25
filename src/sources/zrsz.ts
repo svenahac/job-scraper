@@ -2,7 +2,7 @@ import type { RawJob, Source } from '../types.js';
 import {
   fetchText, fetchJson, postJson, sleep, stripHtml, REQUEST_DELAY_MS,
 } from '../http.js';
-import { matchAreas } from '../classify.js';
+import { inLjubljanaArea, matchAreas } from '../classify.js';
 
 const SITE = 'https://www.ess.gov.si';
 const ENTRY = `${SITE}/iskalci-zaposlitve/`;
@@ -98,12 +98,13 @@ export function parseDetail(json: unknown): { description: string } {
 /**
  * The list response has no body, and one detail request per vacancy would
  * outrun the nightly job's 30-minute timeout. The body is worth fetching
- * for ads whose title or occupation already matches an area — there it adds
- * work mode, warnings and contract detail. Everything else keeps ''.
+ * for Ljubljana-area ads whose title or occupation already matches an area —
+ * there it adds work mode, warnings and contract detail. Everything else
+ * keeps '', and classify.ts drops the out-of-area ones.
  */
 export function needsDetail(item: ZrszItem): boolean {
   const tags = item.occupation ? [item.occupation] : [];
-  return matchAreas(item.title, tags, '').length > 0;
+  return inLjubljanaArea(item.location) && matchAreas(item.title, tags, '').length > 0;
 }
 
 export function totalFrom(json: unknown): number {

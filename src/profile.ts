@@ -191,9 +191,20 @@ export const HYBRID_MARKERS: readonly string[] = [
   'hibrid', 'hybrid', 'kombinirano delo', 'delno od doma',
 ];
 
-export const PRIMARY_LOCATIONS: readonly string[] = [
-  'ljubljana', 'osrednjeslovenska', 'vrhnika', 'domžale', 'kamnik',
-  'grosuplje', 'medvode', 'škofljica', 'brezovica', 'logatec', 'trzin',
+/**
+ * Ljubljana and its surroundings: the municipalities of the Osrednjeslovenska
+ * region. A posting whose location names none of these is dropped, remote ads
+ * included. Matched as whole words with diacritics folded, so "ig" does not
+ * fire inside a longer name and "Domzale" still matches "domžale".
+ */
+export const LJUBLJANA_AREA: readonly string[] = [
+  // "pri Ljubljani" covers Brezovica, Dol and every other "X pri Ljubljani".
+  'ljubljana', 'ljubljani', 'ljubljane', 'osrednjeslovenska', 'central slovenia',
+  'borovnica', 'brezovica', 'dobrepolje', 'dobrova', 'polhov gradec', 'domžale',
+  'grosuplje', 'horjul', 'ig', 'ivančna gorica', 'kamnik', 'komenda', 'litija',
+  'logatec', 'log pri brezovici', 'dragomer', 'lukovica', 'medvode', 'mengeš',
+  'moravče', 'šmartno pri litiji', 'škofljica', 'trzin', 'velike lašče',
+  'vodice', 'vrhnika',
 ];
 
 /** One lead term per area, best rank first. Drives keyword-based sources. */

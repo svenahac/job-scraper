@@ -76,20 +76,16 @@ describe('needsDetail', () => {
     location: 'Maribor', postedAt: null, ...over,
   });
 
-  it('fetches the body for an Osrednjeslovenska ad whatever its title', () => {
+  it('fetches the body for a Ljubljana-area ad whatever its title', () => {
     expect(needsDetail(item({ location: 'Ljubljana' }))).toBe(true);
     expect(needsDetail(item({ location: 'Domžale' }))).toBe(true);
   });
 
-  it('fetches the body for an out-of-region ad whose title already matches an area', () => {
-    expect(needsDetail(item({ location: 'Maribor', title: 'HR Specialist' }))).toBe(true);
+  it('skips an out-of-area ad even when its title matches an area', () => {
+    expect(needsDetail(item({ location: 'Maribor', title: 'HR Specialist' }))).toBe(false);
   });
 
-  it('skips an out-of-region ad with an unrelated title', () => {
-    expect(needsDetail(item({ location: 'Maribor', title: 'Viličarist (m/ž)' }))).toBe(false);
-  });
-
-  it('treats a missing location as out of region', () => {
-    expect(needsDetail(item({ location: null, title: 'Viličarist (m/ž)' }))).toBe(false);
+  it('treats a missing location as out of area', () => {
+    expect(needsDetail(item({ location: null, title: 'HR Specialist' }))).toBe(false);
   });
 });

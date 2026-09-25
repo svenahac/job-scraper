@@ -19,7 +19,6 @@ export function toJob(raw: RawJob, c: Classification, now: string): Job {
     areas: c.areas.join(','),
     workMode: c.workMode,
     employmentType: c.employmentType,
-    locationTier: c.locationTier,
     flags: c.flags.join(','),
     seniority: c.seniority,
     score: c.score,

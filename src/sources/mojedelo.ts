@@ -1,7 +1,6 @@
 import type { RawJob, Source } from '../types.js';
 import { fetchJson, fetchText, sleep, stripHtml, REQUEST_DELAY_MS } from '../http.js';
-import { matchAreas } from '../classify.js';
-import { PRIMARY_LOCATIONS } from '../profile.js';
+import { inLjubljanaArea } from '../classify.js';
 
 const API = 'https://api.mojedelo.com';
 const CONFIG_URL = `${API}/uploaded-files/config/www.mojedelo.com/jb.globals.js`;
@@ -98,14 +97,12 @@ export function totalFrom(json: unknown): number {
 
 /**
  * Search pages are cheap; the per-ad detail fetch is not. The body is worth
- * fetching for anything in the Ljubljana region, and for out-of-region ads
- * whose title already looks relevant — which is where a remote posting shows
- * itself. Everything else is skipped.
+ * fetching for anything in the Ljubljana area, whatever its title, since the
+ * area keyword is often only in the body. Out-of-area ads are dropped by
+ * classify.ts, so their body is never needed.
  */
 export function needsDetail(item: SearchItem): boolean {
-  const loc = (item.location ?? '').toLowerCase();
-  if (loc && PRIMARY_LOCATIONS.some((t) => loc.includes(t))) return true;
-  return matchAreas(item.title, [], '').length > 0;
+  return inLjubljanaArea(item.location);
 }
 
 export const mojeDeloSource: Source = {
@@ -113,8 +110,8 @@ export const mojeDeloSource: Source = {
   async fetchJobs(): Promise<RawJob[]> {
     const headers = await loadApiHeaders();
 
-    // No region filter: the location policy is applied locally, so a remote
-    // ad posted from another region is not lost at the API boundary.
+    // No region filter at the API: the location policy lives in classify.ts,
+    // so every source applies the same definition of the Ljubljana area.
     const byId = new Map<string, SearchItem>();
     for (const categoryId of CATEGORY_IDS) {
       let startFrom = 0;

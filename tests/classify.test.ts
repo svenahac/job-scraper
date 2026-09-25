@@ -1,13 +1,13 @@
 import { describe, it, expect } from 'vitest';
 import {
-  matchAreas, detectWorkMode, detectLocationTier, detectEmploymentType,
+  matchAreas, detectWorkMode, inLjubljanaArea, detectEmploymentType,
   scoreFor, classify, isWanted,
 } from '../src/classify.js';
 import type { RawJob } from '../src/types.js';
 
 const raw = (over: Partial<RawJob>): RawJob => ({
   source: 'test', sourceId: '1', url: 'https://x', title: '', company: null,
-  location: null, postedAt: null, description: '', tags: [],
+  location: 'Ljubljana', postedAt: null, description: '', tags: [],
   employmentRaw: null, workTimeRaw: null, occupation: null, ...over,
 });
 
@@ -86,26 +86,45 @@ describe('detectWorkMode', () => {
   });
 });
 
-describe('detectLocationTier', () => {
-  it('tiers a Ljubljana location first', () => {
-    expect(detectLocationTier('Ljubljana', 'unknown')).toBe('ljubljana');
+describe('inLjubljanaArea', () => {
+  it('accepts Ljubljana in every form the sources write it', () => {
+    for (const loc of ['Ljubljana', 'LJUBLJANA', 'Ljubljana, Ljubljana, Slovenia',
+                       'City Municipality of Ljubljana, Slovenia', 'LJUBLJANA-ŠENTVID']) {
+      expect(inLjubljanaArea(loc)).toBe(true);
+    }
   });
 
-  it('tiers an Osrednjeslovenska town as ljubljana', () => {
-    expect(detectLocationTier('DOMŽALE', 'unknown')).toBe('ljubljana');
+  it('accepts the surrounding towns', () => {
+    for (const loc of ['DOMŽALE', 'Grosuplje, Slovenia', 'Ig, Ljubljana', 'Kamnik', 'VRHNIKA']) {
+      expect(inLjubljanaArea(loc)).toBe(true);
+    }
   });
 
-  it('tiers a remote job outside Ljubljana as remote', () => {
-    expect(detectLocationTier('Maribor', 'remote')).toBe('remote');
+  it('accepts an "X pri Ljubljani" settlement', () => {
+    expect(inLjubljanaArea('Brezovica pri Ljubljani')).toBe(true);
+    expect(inLjubljanaArea('DOL PRI LJUBLJANI')).toBe(true);
   });
 
-  it('prefers ljubljana over remote when both apply', () => {
-    expect(detectLocationTier('Ljubljana', 'remote')).toBe('ljubljana');
+  it('matches a town written without diacritics', () => {
+    expect(inLjubljanaArea('Domzale')).toBe(true);
+    expect(inLjubljanaArea('Skofljica')).toBe(true);
   });
 
-  it('tiers everything else as other', () => {
-    expect(detectLocationTier('Murska Sobota', 'unknown')).toBe('other');
-    expect(detectLocationTier(null, 'unknown')).toBe('other');
+  it('rejects towns outside the area', () => {
+    for (const loc of ['Maribor', 'Celje', 'Škofja Loka', 'SEŽANA', 'Novo mesto', 'Kranj']) {
+      expect(inLjubljanaArea(loc)).toBe(false);
+    }
+  });
+
+  it('matches whole words only, so a short name does not fire inside a longer one', () => {
+    expect(inLjubljanaArea('Rigonce')).toBe(false);
+    expect(inLjubljanaArea('Ljubljanska cesta, Celje')).toBe(false);
+  });
+
+  it('rejects a country-wide or missing location', () => {
+    expect(inLjubljanaArea('Slovenia')).toBe(false);
+    expect(inLjubljanaArea('Slovenia (Remote)')).toBe(false);
+    expect(inLjubljanaArea(null)).toBe(false);
   });
 });
 
@@ -149,48 +168,28 @@ describe('detectEmploymentType', () => {
 });
 
 describe('scoreFor', () => {
-  it('scores a rank-1 permanent Ljubljana job highest', () => {
-    expect(scoreFor({
-      areaRank: 1, locationTier: 'ljubljana', workMode: 'unknown',
-      employmentType: 'permanent', flags: [],
-    })).toBe(75);
+  it('scores a rank-1 permanent job highest', () => {
+    expect(scoreFor({ areaRank: 1, employmentType: 'permanent', flags: [] })).toBe(55);
   });
 
   it('scores a rank-8 job with nothing else at its area points only', () => {
-    expect(scoreFor({
-      areaRank: 8, locationTier: 'other', workMode: 'unknown',
-      employmentType: 'unknown', flags: [],
-    })).toBe(12);
-  });
-
-  it('awards hybrid points when the tier is other', () => {
-    expect(scoreFor({
-      areaRank: 1, locationTier: 'other', workMode: 'hybrid',
-      employmentType: 'unknown', flags: [],
-    })).toBe(58);
+    expect(scoreFor({ areaRank: 8, employmentType: 'unknown', flags: [] })).toBe(12);
   });
 
   it('subtracts eight per flag', () => {
-    expect(scoreFor({
-      areaRank: 1, locationTier: 'ljubljana', workMode: 'unknown',
-      employmentType: 'permanent', flags: ['a', 'b'],
-    })).toBe(59);
+    expect(scoreFor({ areaRank: 1, employmentType: 'permanent', flags: ['a', 'b'] })).toBe(39);
   });
 
   it('never goes below zero', () => {
-    expect(scoreFor({
-      areaRank: 8, locationTier: 'other', workMode: 'unknown',
-      employmentType: 'unknown', flags: ['a', 'b', 'c'],
-    })).toBe(0);
+    expect(scoreFor({ areaRank: 8, employmentType: 'unknown', flags: ['a', 'b', 'c'] })).toBe(0);
   });
 
   it('demotes a tag-only match by 20 plus the standard 8-per-flag penalty for its own flag', () => {
-    // rank-1 (40) + ljubljana (20) + permanent (15) = 75 normally;
+    // rank-1 (40) + permanent (15) = 55 normally;
     // tag-only carries one flag (the provenance marker) and loses 20 more.
     expect(scoreFor({
-      areaRank: 1, locationTier: 'ljubljana', workMode: 'unknown',
-      employmentType: 'permanent', flags: ['area-from:tag:ld'], tagOnly: true,
-    })).toBe(47);
+      areaRank: 1, employmentType: 'permanent', flags: ['area-from:tag:ld'], tagOnly: true,
+    })).toBe(27);
   });
 });
 
@@ -205,11 +204,29 @@ describe('classify and isWanted', () => {
     expect(isWanted(c)).toBe(true);
     expect(c.area).toBe('ld');
     expect(c.areaRank).toBe(1);
-    expect(c.score).toBe(75);
+    expect(c.score).toBe(55);
   });
 
   it('drops a job that matches no area', () => {
     expect(isWanted(classify(raw({ title: 'CNC operater (m/ž)' })))).toBe(false);
+  });
+
+  it('keeps a matching job in a town around Ljubljana', () => {
+    expect(isWanted(classify(raw({ title: 'HR Specialist', location: 'DOMŽALE' })))).toBe(true);
+  });
+
+  it('drops a matching job outside the Ljubljana area', () => {
+    expect(isWanted(classify(raw({ title: 'HR Specialist', location: 'Maribor' })))).toBe(false);
+  });
+
+  it('drops a remote job whose location is not in the Ljubljana area', () => {
+    expect(isWanted(classify(raw({
+      title: 'HR Specialist', location: 'Slovenia', description: 'Delo na daljavo.',
+    })))).toBe(false);
+  });
+
+  it('drops a matching job with no location', () => {
+    expect(isWanted(classify(raw({ title: 'HR Specialist', location: null })))).toBe(false);
   });
 
   it('drops a title reject outright', () => {
@@ -260,7 +277,7 @@ describe('classify and isWanted', () => {
     expect(isWanted(c)).toBe(true);
   });
 
-  it('demotes a posting whose area keyword appears only in tags, flags it, and scores 47', () => {
+  it('demotes a posting whose area keyword appears only in tags, flags it, and scores 27', () => {
     const c = classify(raw({
       title: 'Uradnik (m/ž)',
       tags: ['Strokovnjaki za razvoj kadrov in karierno svetovanje'],
@@ -270,11 +287,11 @@ describe('classify and isWanted', () => {
       workTimeRaw: '40 ur/teden',
     }));
     expect(c.flags.some((f) => f.startsWith('area-from:tag:'))).toBe(true);
-    expect(c.score).toBe(47);
+    expect(c.score).toBe(27);
     expect(isWanted(c)).toBe(true); // demoted, never dropped
   });
 
-  it('does not flag or demote a posting whose area keyword is in the title, scoring 75', () => {
+  it('does not flag or demote a posting whose area keyword is in the title, scoring 55', () => {
     const c = classify(raw({
       title: 'Specialist za razvoj kadrov (m/ž)',
       tags: ['Strokovnjaki za razvoj kadrov in karierno svetovanje'],
@@ -283,7 +300,7 @@ describe('classify and isWanted', () => {
       workTimeRaw: '40 ur/teden',
     }));
     expect(c.flags.some((f) => f.startsWith('area-from:tag:'))).toBe(false);
-    expect(c.score).toBe(75);
+    expect(c.score).toBe(55);
   });
 
   it('does not treat a body-only area match as tag-only: body support counts', () => {
@@ -296,7 +313,7 @@ describe('classify and isWanted', () => {
       workTimeRaw: '40 ur/teden',
     }));
     expect(c.flags.some((f) => f.startsWith('area-from:tag:'))).toBe(false);
-    expect(c.score).toBe(75);
+    expect(c.score).toBe(55);
   });
 
   it('rejects "Vodja projektov v gradbeništvu" even though "vodja projektov" is an area keyword', () => {
