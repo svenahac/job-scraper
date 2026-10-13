@@ -124,14 +124,16 @@ export function upsertJobs(db: Db, jobs: Job[]): void {
   run(jobs);
 }
 
+/** Newest posting first, so the CSV opens on what just came in. */
+const ORDER = 'ORDER BY posted_at DESC NULLS LAST, score DESC, title ASC';
+
 export function allJobs(db: Db): Job[] {
-  return (db.prepare('SELECT * FROM jobs ORDER BY score DESC, title ASC')
+  return (db.prepare(`SELECT * FROM jobs ${ORDER}`)
     .all() as Row[]).map(toJobRow);
 }
 
 export function jobsFirstSeenAt(db: Db, timestamp: string): Job[] {
-  return (db.prepare(
-    'SELECT * FROM jobs WHERE first_seen_at = ? ORDER BY score DESC, title ASC')
+  return (db.prepare(`SELECT * FROM jobs WHERE first_seen_at = ? ${ORDER}`)
     .all(timestamp) as Row[]).map(toJobRow);
 }
 

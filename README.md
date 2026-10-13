@@ -7,8 +7,8 @@ results back to this repository.
 
 ## Output
 
-- `data/jobs-all.csv` — every job ever seen, best fit first
-- `data/jobs-new.csv` — jobs first seen in the most recent run
+- `data/jobs-all.csv` — every job ever seen, newest posting first
+- `data/jobs-new.csv` — jobs first seen in the most recent run, newest posting first
 - `data/jobs.db` — SQLite source of truth
 
 Past nights' new-job lists are recoverable from this repo's git history.
@@ -24,8 +24,9 @@ npm run scrape
 
 Everything lives in `src/profile.ts`:
 
-- `AREAS` — eight ranked areas. Rank 1 scores highest and sorts to the top of
-  the CSV. Keywords match anywhere: title, tags or body.
+- `AREAS` — eight ranked areas. Rank 1 scores highest, and among jobs posted
+  the same day sorts to the top of the CSV. Keywords match anywhere: title,
+  tags or body.
 - `TITLE_REJECT` — hard drop, title only. Overridden when an area keyword also
   matches the title, so "Vodja projektov prodaje" survives on its project match.
 - `DOMAIN_REJECT` — hard drop for trade/engineering qualifiers (construction,

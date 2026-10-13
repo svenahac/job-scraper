@@ -84,13 +84,35 @@ describe('store', () => {
     db.close();
   });
 
-  it('orders jobs by score descending', () => {
+  it('orders jobs newest posting first, undated last', () => {
+    const db = openDb(':memory:');
+    upsertJobs(db, [
+      job({ id: 'old', sourceId: 'old', postedAt: '2026-09-01', score: 90 }),
+      job({ id: 'undated', sourceId: 'undated', postedAt: null, score: 99 }),
+      job({ id: 'new', sourceId: 'new', postedAt: '2026-10-01', score: 10 }),
+    ]);
+    expect(allJobs(db).map((j) => j.id)).toEqual(['new', 'old', 'undated']);
+    db.close();
+  });
+
+  it('breaks a same-day tie by score descending', () => {
     const db = openDb(':memory:');
     upsertJobs(db, [
       job({ id: 'low', sourceId: 'low', score: 20 }),
       job({ id: 'high', sourceId: 'high', score: 80 }),
     ]);
     expect(allJobs(db).map((j) => j.id)).toEqual(['high', 'low']);
+    db.close();
+  });
+
+  it('orders the new-this-run jobs newest posting first', () => {
+    const db = openDb(':memory:');
+    const run = '2026-10-01T17:00:00.000Z';
+    upsertJobs(db, [
+      job({ id: 'old', sourceId: 'old', postedAt: '2026-09-01', score: 90, firstSeenAt: run }),
+      job({ id: 'new', sourceId: 'new', postedAt: '2026-10-01', score: 10, firstSeenAt: run }),
+    ]);
+    expect(jobsFirstSeenAt(db, run).map((j) => j.id)).toEqual(['new', 'old']);
     db.close();
   });
 
