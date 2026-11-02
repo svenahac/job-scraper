@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T09:58:29.070Z",
+ "generatedAt": "2026-11-02T10:03:47.196Z",
  "windowDays": 60,
  "sources": [
   {
@@ -7,7 +7,7 @@
    "label": "Zavod RS za zaposlovanje",
    "ok": true,
    "count": 3062,
-   "lastOkAt": "2026-11-02T09:58:29.070Z",
+   "lastOkAt": "2026-11-02T10:03:47.196Z",
    "error": null
   },
   {
@@ -15,7 +15,7 @@
    "label": "MojeDelo",
    "ok": true,
    "count": 423,
-   "lastOkAt": "2026-11-02T09:58:29.070Z",
+   "lastOkAt": "2026-11-02T10:03:47.196Z",
    "error": null
   },
   {
@@ -23,15 +23,15 @@
    "label": "Optius",
    "ok": true,
    "count": 189,
-   "lastOkAt": "2026-11-02T09:58:29.070Z",
+   "lastOkAt": "2026-11-02T10:03:47.196Z",
    "error": null
   },
   {
    "name": "linkedin",
    "label": "LinkedIn",
    "ok": true,
-   "count": 83,
-   "lastOkAt": "2026-11-02T09:58:29.070Z",
+   "count": 117,
+   "lastOkAt": "2026-11-02T10:03:47.196Z",
    "error": null
   },
   {
@@ -39,7 +39,7 @@
    "label": "Himalayas",
    "ok": true,
    "count": 107,
-   "lastOkAt": "2026-11-02T09:58:29.070Z",
+   "lastOkAt": "2026-11-02T10:03:47.196Z",
    "error": null
   },
   {
@@ -47,7 +47,7 @@
    "label": "EU Careers",
    "ok": true,
    "count": 121,
-   "lastOkAt": "2026-11-02T09:58:29.070Z",
+   "lastOkAt": "2026-11-02T10:03:47.196Z",
    "error": null
   },
   {
@@ -55,7 +55,7 @@
    "label": "EuroBrussels",
    "ok": true,
    "count": 53,
-   "lastOkAt": "2026-11-02T09:58:29.070Z",
+   "lastOkAt": "2026-11-02T10:03:47.196Z",
    "error": null
   },
   {
@@ -63,7 +63,7 @@
    "label": "Euractiv Jobs",
    "ok": true,
    "count": 19,
-   "lastOkAt": "2026-11-02T09:58:29.070Z",
+   "lastOkAt": "2026-11-02T10:03:47.196Z",
    "error": null
   },
   {
@@ -71,7 +71,7 @@
    "label": "EURES",
    "ok": true,
    "count": 74,
-   "lastOkAt": "2026-11-02T09:58:29.070Z",
+   "lastOkAt": "2026-11-02T10:03:47.196Z",
    "error": null
   }
  ],
@@ -159,7 +159,7 @@
      "url": "https://himalayas.app/companies/harris/jobs/talent-development-learning-specialist-f-m-d?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "27bf72859c498daa",
@@ -221,7 +221,7 @@
      "url": "https://himalayas.app/companies/airalo/jobs/training-specialist?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "4a41d4e1a88357dc",
@@ -292,7 +292,7 @@
      "url": "https://himalayas.app/companies/able-ventures/jobs/od-learning-solutions-associate?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "d2da734582134ddc",
@@ -346,7 +346,7 @@
      "url": "https://es.linkedin.com/jobs/view/clinical-education-specialist-emea-at-align-technology-4483877628"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "b18537d533de7246",
@@ -400,7 +400,7 @@
      "url": "https://nl.linkedin.com/jobs/view/retail-training-coordinator-europe-at-xpeng-4478536026"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "979e3d915830742c",
@@ -462,7 +462,7 @@
      "url": "https://himalayas.app/companies/canonical/jobs/organisational-development-associate?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "8ab25ee69f301cc0",
@@ -524,7 +524,7 @@
      "url": "https://www.eurobrussels.com/job_display/297459/Course_and_Conference_Officer_EMBL_European_Molecular_Biology_Laboratory_Heidelberg_Germany"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "8c17287a879011e8",
@@ -590,7 +590,7 @@
      "url": "https://www.eurobrussels.com/job_display/298149/EU_Affairs_Manager_CATF_Clean_Air_Task_Force_Brussels_Belgium"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "91b393f4b1fcc18a",
@@ -653,7 +653,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3499916/#/pdm/3499916"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "e51a4fae4cb0e69f",
@@ -711,7 +711,7 @@
      "url": "https://www.mojedelo.com/job-ad/samostojni-skrbnik-za-razvoj-kadrov-m-z/1b97c489-5ebd-4abb-bf97-66dc1ca05ef7"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "52c62b208b68ca9d",
@@ -765,7 +765,7 @@
      "url": "https://himalayas.app/companies/doxim/jobs/project-coordinator?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "7a12a990aa89f70f",
@@ -829,7 +829,7 @@
      "url": "https://si.linkedin.com/jobs/view/pedagog-andragog-vii-2-ii-v-prevzgojnem-domu-rade%C4%8De-%C5%A1ifra-dm-8085-uprava-republike-slovenije-za-izvr%C5%A1evanje-kazenskih-sankcij-ministrstvo-za-pravosodje-at-vlada-republike-slovenije-4482447967"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "dbd968b1fb5a85cc",
@@ -891,7 +891,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3498921/#/pdm/3498921"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "aaae49f2758cb33d",
@@ -949,7 +949,7 @@
      "url": "https://eu-careers.europa.eu/jobs/learning-and-development-officer_en"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "116a3b412d32ada0",
@@ -1007,7 +1007,7 @@
      "url": "https://www.mojedelo.com/job-ad/svetovalec-za-podrocje-podpore-in-koordinacije-projektov-v-uradu-direktorja-m-z/b3c2f8bc-359b-4b9d-a889-a59765b26495"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "05a50ff60b3da74d",
@@ -1057,7 +1057,7 @@
      "url": "https://si.linkedin.com/jobs/view/koordinator-projektov-za-inovacije-in-digitalne-produkte-at-a1-slovenija-d-d-4481903364"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "33ec8f2bff5a876e",
@@ -1111,7 +1111,7 @@
      "url": "https://www.mojedelo.com/job-ad/strokovni-sodelavec-v-projektni-pisarni-m-z/55b4205f-67b7-4e1b-9cdf-0da4c070c85e"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "0966f7f54d158b83",
@@ -1161,7 +1161,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3495690/#/pdm/3495690"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "892d4f4866c50686",
@@ -1215,7 +1215,61 @@
      "url": "https://eu-careers.europa.eu/jobs/programme-officer-1_en"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+  },
+  {
+   "id": "2dd7a82fddcdbbfb",
+   "ids": [
+    "2dd7a82fddcdbbfb"
+   ],
+   "title": "BraveTech EU - Project Officer AI & Emerging Technologies",
+   "company": "European Defence Agency (EDA)",
+   "location": "Brussels, Belgium",
+   "locationClass": "abroad",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": null,
+   "deadline": "2026-11-10",
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": "EU grade AD 7",
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 57,
+   "parts": {
+    "relevance": 30,
+    "experience": 6,
+    "workMode": 4,
+    "level": 10,
+    "location": 2,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "eucareers",
+     "label": "EU Careers",
+     "url": "https://eu-careers.europa.eu/jobs/bravetech-eu-project-officer-ai-emerging-technologies_en"
+    }
+   ],
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "ead8ef286438ba8b",
@@ -1269,61 +1323,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3499255/#/pdm/3499255"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
-  },
-  {
-   "id": "2dd7a82fddcdbbfb",
-   "ids": [
-    "2dd7a82fddcdbbfb"
-   ],
-   "title": "BraveTech EU - Project Officer AI & Emerging Technologies",
-   "company": "European Defence Agency (EDA)",
-   "location": "Brussels, Belgium",
-   "locationClass": "abroad",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": null,
-   "deadline": "2026-11-10",
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": "EU grade AD 7",
-   "area": "projects",
-   "areas": [
-    "projects"
-   ],
-   "score": 54,
-   "parts": {
-    "relevance": 30,
-    "experience": 3,
-    "workMode": 4,
-    "level": 10,
-    "location": 2,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Projekti in koordinacija«"
-    },
-    {
-     "kind": "warn",
-     "text": "Delo v tujini (zahteva selitev)"
-    },
-    {
-     "kind": "fit",
-     "text": "Mednarodna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "eucareers",
-     "label": "EU Careers",
-     "url": "https://eu-careers.europa.eu/jobs/bravetech-eu-project-officer-ai-emerging-technologies_en"
-    }
-   ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "52f0ffef101b575c",
@@ -1377,7 +1377,7 @@
      "url": "https://eu-careers.europa.eu/jobs/project-officer-communication-and-information-systems-cis-support-operations_en"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "b64e9c2e84ad747b",
@@ -1435,7 +1435,7 @@
      "url": "https://jobs.rapporteur.com/jobs/policy-analyst-on-gender-equality-brussels-on-site-foundation-for-european-progressive-studies-feps/"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "681f69189e7f1b51",
@@ -1509,7 +1509,7 @@
      "url": "https://jobs.rapporteur.com/jobs/communication-projects-officer-brussels-hybrid-european-builders-confederation-ebc/"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "3d0980843b50ec43",
@@ -1559,7 +1559,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3497509/#/pdm/3497509"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "5b2692d2c2d4b835",
@@ -1609,7 +1609,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3497955/#/pdm/3497955"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "10606ebbded7fc54",
@@ -1679,7 +1679,7 @@
      "url": "https://jobs.rapporteur.com/jobs/manager-in-advisor-in-european-affairs-w-m-d-brussels-hybrid-zvei/"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "f47ace8aa1bb3e19",
@@ -1745,7 +1745,7 @@
      "url": "https://jobs.rapporteur.com/jobs/manager-eu-agricultural-policy-brussels-hybrid-bayer/"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "1ada541108a1ed39",
@@ -1808,7 +1808,7 @@
      "url": "https://himalayas.app/companies/achieve-test-prep/jobs/trade-licensing-program-manager?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
    "id": "35d58b914106f55a",
@@ -1874,7 +1874,7 @@
      "url": "https://jobs.rapporteur.com/jobs/assistant-project-manager-m-f-d-brussels-on-site-giz-gmbh/"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
   }
  ]
 }
