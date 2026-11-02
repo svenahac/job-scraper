@@ -1,21 +1,21 @@
 {
- "generatedAt": "2026-11-02T10:03:47.196Z",
+ "generatedAt": "2026-11-02T23:43:27.636Z",
  "windowDays": 60,
  "sources": [
   {
    "name": "zrsz",
    "label": "Zavod RS za zaposlovanje",
    "ok": true,
-   "count": 3062,
-   "lastOkAt": "2026-11-02T10:03:47.196Z",
+   "count": 3127,
+   "lastOkAt": "2026-11-02T23:43:27.636Z",
    "error": null
   },
   {
    "name": "mojedelo",
    "label": "MojeDelo",
    "ok": true,
-   "count": 423,
-   "lastOkAt": "2026-11-02T10:03:47.196Z",
+   "count": 408,
+   "lastOkAt": "2026-11-02T23:43:27.636Z",
    "error": null
   },
   {
@@ -23,55 +23,55 @@
    "label": "Optius",
    "ok": true,
    "count": 189,
-   "lastOkAt": "2026-11-02T10:03:47.196Z",
+   "lastOkAt": "2026-11-02T23:43:27.636Z",
    "error": null
   },
   {
    "name": "linkedin",
    "label": "LinkedIn",
    "ok": true,
-   "count": 117,
-   "lastOkAt": "2026-11-02T10:03:47.196Z",
+   "count": 119,
+   "lastOkAt": "2026-11-02T23:43:27.636Z",
    "error": null
   },
   {
    "name": "himalayas",
    "label": "Himalayas",
    "ok": true,
-   "count": 107,
-   "lastOkAt": "2026-11-02T10:03:47.196Z",
+   "count": 106,
+   "lastOkAt": "2026-11-02T23:43:27.636Z",
    "error": null
   },
   {
    "name": "eucareers",
    "label": "EU Careers",
    "ok": true,
-   "count": 121,
-   "lastOkAt": "2026-11-02T10:03:47.196Z",
+   "count": 118,
+   "lastOkAt": "2026-11-02T23:43:27.636Z",
    "error": null
   },
   {
    "name": "eurobrussels",
    "label": "EuroBrussels",
    "ok": true,
-   "count": 53,
-   "lastOkAt": "2026-11-02T10:03:47.196Z",
+   "count": 56,
+   "lastOkAt": "2026-11-02T23:43:27.636Z",
    "error": null
   },
   {
    "name": "euractiv",
    "label": "Euractiv Jobs",
    "ok": true,
-   "count": 19,
-   "lastOkAt": "2026-11-02T10:03:47.196Z",
+   "count": 21,
+   "lastOkAt": "2026-11-02T23:43:27.636Z",
    "error": null
   },
   {
    "name": "eures",
    "label": "EURES",
    "ok": true,
-   "count": 74,
-   "lastOkAt": "2026-11-02T10:03:47.196Z",
+   "count": 80,
+   "lastOkAt": "2026-11-02T23:43:27.636Z",
    "error": null
   }
  ],
@@ -475,8 +475,8 @@
    "locationClass": "abroad",
    "workMode": "hybrid",
    "employmentType": "unknown",
-   "postedAt": "2026-10-08",
-   "deadline": "2026-11-03",
+   "postedAt": "2026-10-09",
+   "deadline": "2026-11-04",
    "experience": "3 - 4 Years Experience",
    "minYears": 3,
    "seniority": "mid",
@@ -537,7 +537,7 @@
    "locationClass": "remote",
    "workMode": "remote",
    "employmentType": "unknown",
-   "postedAt": "2026-10-23",
+   "postedAt": "2026-10-24",
    "deadline": null,
    "experience": "3 - 4 Years Experience, 5 Years+ Experience",
    "minYears": 3,
@@ -602,7 +602,7 @@
    "location": "JESENICE",
    "locationClass": "slovenia",
    "workMode": "onsite",
-   "employmentType": "permanent",
+   "employmentType": "fixed-term",
    "postedAt": "2026-11-02",
    "deadline": "2026-11-05",
    "experience": "2 leti",
@@ -1218,60 +1218,6 @@
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
-   "id": "2dd7a82fddcdbbfb",
-   "ids": [
-    "2dd7a82fddcdbbfb"
-   ],
-   "title": "BraveTech EU - Project Officer AI & Emerging Technologies",
-   "company": "European Defence Agency (EDA)",
-   "location": "Brussels, Belgium",
-   "locationClass": "abroad",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": null,
-   "deadline": "2026-11-10",
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": "EU grade AD 7",
-   "area": "projects",
-   "areas": [
-    "projects"
-   ],
-   "score": 57,
-   "parts": {
-    "relevance": 30,
-    "experience": 6,
-    "workMode": 4,
-    "level": 10,
-    "location": 2,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Projekti in koordinacija«"
-    },
-    {
-     "kind": "warn",
-     "text": "Delo v tujini (zahteva selitev)"
-    },
-    {
-     "kind": "fit",
-     "text": "Mednarodna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "eucareers",
-     "label": "EU Careers",
-     "url": "https://eu-careers.europa.eu/jobs/bravetech-eu-project-officer-ai-emerging-technologies_en"
-    }
-   ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
-  },
-  {
    "id": "ead8ef286438ba8b",
    "ids": [
     "ead8ef286438ba8b"
@@ -1321,6 +1267,60 @@
      "source": "zrsz",
      "label": "Zavod RS za zaposlovanje",
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3499255/#/pdm/3499255"
+    }
+   ],
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+  },
+  {
+   "id": "2dd7a82fddcdbbfb",
+   "ids": [
+    "2dd7a82fddcdbbfb"
+   ],
+   "title": "BraveTech EU - Project Officer AI & Emerging Technologies",
+   "company": "European Defence Agency (EDA)",
+   "location": "Brussels, Belgium",
+   "locationClass": "abroad",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": null,
+   "deadline": "2026-11-10",
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": "EU grade AD 7",
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 54,
+   "parts": {
+    "relevance": 30,
+    "experience": 3,
+    "workMode": 4,
+    "level": 10,
+    "location": 2,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "eucareers",
+     "label": "EU Careers",
+     "url": "https://eu-careers.europa.eu/jobs/bravetech-eu-project-officer-ai-emerging-technologies_en"
     }
    ],
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
