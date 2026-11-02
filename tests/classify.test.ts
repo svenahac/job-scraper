@@ -1,334 +1,275 @@
 import { describe, it, expect } from 'vitest';
 import {
-  matchAreas, detectWorkMode, inLjubljanaArea, detectEmploymentType,
-  scoreFor, classify, isWanted,
+  matchAreas, detectWorkMode, inLjubljanaArea, detectEmploymentType, requiredYears,
+  requiredForeignLanguages, locationClassFor, worthDetail, classify, isWanted,
 } from '../src/classify.js';
 import type { RawJob } from '../src/types.js';
 
 const raw = (over: Partial<RawJob>): RawJob => ({
   source: 'test', sourceId: '1', url: 'https://x', title: '', company: null,
   location: 'Ljubljana', postedAt: null, description: '', tags: [],
-  employmentRaw: null, workTimeRaw: null, occupation: null, ...over,
+  employmentRaw: null, workTimeRaw: null, occupation: null, country: 'SI', ...over,
 });
+
+const kept = (over: Partial<RawJob>): boolean => isWanted(classify(raw(over)));
+const why = (over: Partial<RawJob>) => classify(raw(over)).rejected;
 
 describe('matchAreas', () => {
-  it('matches each area from its title', () => {
-    const cases: Array<[string, string]> = [
-      ['Specialist za izobraževanje in razvoj kadrov (m/ž)', 'ld'],
-      ['Projektni koordinator (m/ž)', 'projects'],
-      ['HR Specialist', 'hr'],
-      ['Andragog (m/ž)', 'adult-education'],
-      ['Koordinator mednarodnih projektov Erasmus+', 'eu-projects'],
-      ['Employer Branding Specialist', 'employer-brand'],
-      ['Community Manager (m/ž)', 'content-comms'],
-      ['Koordinator dogodkov (m/ž)', 'events'],
-    ];
-    for (const [title, key] of cases) {
-      expect(matchAreas(title, [], '')).toContain(key);
-    }
+  const area = (title: string, description = '', company: string | null = null) =>
+    matchAreas({ title, description, tags: [], company }).map((a) => `${a.key}:${a.via}`);
+
+  it("files each of the seeker's role families under its own area", () => {
+    expect(area('Learning & Development Specialist')).toContain('ld:title');
+    expect(area('Koordinatorka izobraževanj (m/ž)')).toContain('ld:title');
+    expect(area('LMS Administrator')).toContain('ld:title');
+    expect(area('EU Project Officer')).toContain('projects:title');
+    expect(area('Projektni sodelavec (m/ž)')).toContain('projects:title');
+    expect(area('Andragog / organizator izobraževanja odraslih')).toContain('education:title');
+    expect(area('Strokovni sodelavec za razvoj izobraževalnih programov')).toContain('education:title');
+    expect(area('Junior Instructional Designer')).toContain('digital:title');
+    expect(area('E-learning Project Coordinator')).toContain('digital:title');
+    expect(area('Knowledge Management Specialist')).toContain('related:title');
   });
 
-  it('matches a keyword buried in the body', () => {
-    expect(matchAreas('Strokovni sodelavec (m/ž)', [], 'Skrbel boš za razvoj zaposlenih.'))
-      .toContain('ld');
+  it('needs an education context before a generic title counts', () => {
+    expect(area('Project Manager')).toEqual([]);
+    expect(area('Project Manager', 'Vodenje projektov Erasmus+ in izobraževanja odraslih ter priprava evropskih projektov.'))
+      .toContain('related:context');
+    expect(area('Research Assistant in Education')).toContain('related:context');
   });
 
-  it('matches a keyword in a tag', () => {
-    expect(matchAreas('Sodelavec (m/ž)', ['Erasmus+'], '')).toContain('eu-projects');
+  it('does not take an education employer alone as context', () => {
+    expect(area('Strokovni sodelavec za tehnične zadeve', '', 'Fakulteta za družbene vede')).toEqual([]);
   });
 
-  it('is case insensitive and keeps diacritics', () => {
-    expect(matchAreas('IZOBRAŽEVANJE ODRASLIH', [], '')).toContain('adult-education');
+  it('takes a role from the body only with several specific phrases', () => {
+    const body = 'Skrbel boš za organizacijo izobraževanj, analizo potreb po izobraževanju in razvoj zaposlenih.';
+    expect(area('Strokovni sodelavec VII/2', body)).toContain('ld:body');
+    expect(area('Strokovni sodelavec VII/2', 'Organizacija izobraževanj.')).toEqual([]);
   });
 
-  it('returns every matching area, not just the first', () => {
-    const areas = matchAreas('Employer Branding & Employee Experience Specialist', [], '');
-    expect(areas).toContain('hr');
-    expect(areas).toContain('employer-brand');
+  it('does not take generic project prose as an EU-project match', () => {
+    const body = 'Vodenje projektov, koordinacija projektov in project management v gradbeništvu.';
+    expect(area('Strokovni sodelavec', body)).toEqual([]);
   });
 
-  it('returns empty for an unrelated role', () => {
-    expect(matchAreas('CNC operater (m/ž)', [], 'Delo na stroju.')).toEqual([]);
+  it('returns nothing for an unrelated role', () => {
+    expect(area('CNC operater')).toEqual([]);
   });
 });
 
-describe('detectWorkMode', () => {
-  it('detects remote from the body', () => {
-    expect(detectWorkMode('HR Specialist', null, 'Možno delo od doma.')).toBe('remote');
+describe('exclusions from the brief', () => {
+  it('drops general and senior HR roles', () => {
+    expect(why({ title: 'HR Business Partner' })).toBe('hr');
+    expect(why({ title: 'HR Manager' })).toBe('hr');
+    expect(why({ title: 'Recruiter (m/ž)' })).toBe('hr');
+    expect(why({ title: 'Talent Acquisition Specialist' })).toBe('hr');
+    expect(why({ title: 'Referent za obračun plač' })).toBe('hr');
+    expect(why({ title: 'Kadrovski referent (m/ž)' })).toBe('hr');
   });
 
-  it('detects hybrid from the body', () => {
-    expect(detectWorkMode('HR Specialist', null, 'Hibridno delo, 2 dni v pisarni.')).toBe('hybrid');
+  it('keeps an HR-titled role whose title names learning', () => {
+    expect(kept({ title: 'HR Specialist – Learning & Development' })).toBe(true);
   });
 
-  it('prefers hybrid when both markers appear', () => {
-    expect(detectWorkMode('HR Specialist', null, 'Hibridno: delo od doma 2 dni.')).toBe('hybrid');
+  it('keeps a generic HR title whose duties are mostly learning, and drops one that is mostly admin', () => {
+    const learning = 'Organizacija izobraževanj, usposabljanja zaposlenih, onboarding, razvoj kompetenc in LMS.';
+    const admin = 'Zaposlovanje, selekcija kandidatov, pogodbe o zaposlitvi, obračun plač in kadrovske evidence.';
+    expect(kept({ title: 'HR Specialist', description: learning })).toBe(true);
+    expect(why({ title: 'HR Specialist', description: admin })).toBe('hr');
   });
 
-  it('detects remote from the location string', () => {
-    expect(detectWorkMode('HR Specialist', 'Slovenia (Remote)', '')).toBe('remote');
+  it('drops clearly senior, managerial and executive roles', () => {
+    expect(why({ title: 'Senior Learning Specialist' })).toBe('senior');
+    expect(why({ title: 'Head of Learning & Development' })).toBe('senior');
+    expect(why({ title: 'Direktor izobraževanja' })).toBe('senior');
+    expect(why({ title: 'L&D Team Lead' })).toBe('senior');
+    expect(why({ title: 'Vodilni strokovni sodelavec za projekte' })).toBe('senior');
   });
 
-  it('is onsite when a location is given and neither marker appears', () => {
-    expect(detectWorkMode('HR Specialist', 'Ljubljana', '')).toBe('onsite');
+  it('keeps a "Vodja projektov" role but marks it down', () => {
+    const c = classify(raw({ title: 'Vodja projektov', description: 'Vodenje Erasmus+ projektov in evropskih projektov s področja izobraževanja.' }));
+    expect(isWanted(c)).toBe(true);
+    expect(c.reasons.some((r) => r.kind === 'warn')).toBe(true);
   });
 
-  it('is unknown when there is no location and no marker', () => {
-    expect(detectWorkMode('HR Specialist', null, '')).toBe('unknown');
+  it('does not mistake a Directorate for a director', () => {
+    expect(kept({ title: 'Programme Officer, Directorate-General for Education', country: 'BE', location: 'Brussels', international: true })).toBe(true);
   });
 
-  it('prefers remote over a present location', () => {
-    expect(detectWorkMode('HR Specialist', 'Ljubljana', 'Delo od doma.')).toBe('remote');
+  it('drops off-target professions unless the title also names a target role', () => {
+    expect(why({ title: 'Bančni svetovalec v poslovalnici' })).not.toBeNull();
+    expect(why({ title: 'Učitelj razrednega pouka' })).not.toBeNull();
+    expect(kept({ title: 'Učitelj v izobraževanju odraslih' })).toBe(true);
   });
 
-  it('prefers hybrid over a present location', () => {
-    expect(detectWorkMode('HR Specialist', 'Ljubljana', 'Hibridno delo.')).toBe('hybrid');
+  it('drops construction and engineering project roles', () => {
+    expect(why({ title: 'Koordinator projektov gradnje' })).toBe('domain');
+  });
+
+  it('drops student work and internships', () => {
+    expect(why({ title: 'Študentsko delo – pomoč pri izobraževanjih' })).toBe('contract');
+    expect(why({ title: 'Training Coordinator', employmentRaw: 'Internship' })).toBe('contract');
+  });
+
+  it('keeps a 3–5 year requirement and drops an 8+ year one', () => {
+    expect(kept({ title: 'Training Coordinator', experienceRaw: '3+ do 5 let' })).toBe(true);
+    expect(why({ title: 'Training Coordinator', description: 'Zahtevamo najmanj 8 let delovnih izkušenj.' }))
+      .toBe('senior-years');
+  });
+});
+
+describe('location', () => {
+  it('places the Ljubljana area, the rest of Slovenia, and remote work', () => {
+    expect(locationClassFor({ location: 'Domžale', country: 'SI' }, 'onsite')).toBe('ljubljana');
+    expect(locationClassFor({ location: 'MARIBOR', country: 'SI' }, 'onsite')).toBe('slovenia');
+    expect(locationClassFor({ location: 'Europe', country: null }, 'remote')).toBe('remote');
+    expect(locationClassFor({ location: '148 countries incl. Slovenia', country: null }, 'remote')).toBe('remote');
+  });
+
+  it('keeps on-site work abroad only from international-organisation boards', () => {
+    expect(locationClassFor({ location: 'Berlin, Germany', country: 'DE' }, 'onsite')).toBeNull();
+    expect(locationClassFor({ location: 'Brussels, Belgium', country: 'BE', international: true }, 'onsite'))
+      .toBe('abroad');
+  });
+
+  it('drops a remote role restricted to another country', () => {
+    expect(locationClassFor({ location: 'USA only', country: 'US' }, 'remote')).toBeNull();
   });
 });
 
 describe('inLjubljanaArea', () => {
-  it('accepts Ljubljana in every form the sources write it', () => {
-    for (const loc of ['Ljubljana', 'LJUBLJANA', 'Ljubljana, Ljubljana, Slovenia',
-                       'City Municipality of Ljubljana, Slovenia', 'LJUBLJANA-ŠENTVID']) {
-      expect(inLjubljanaArea(loc)).toBe(true);
+  it('accepts Ljubljana and the surrounding municipalities, with or without diacritics', () => {
+    for (const l of ['Ljubljana', 'LJUBLJANA', 'Ljubljana, Slovenia', 'Domzale', 'Brezovica pri Ljubljani', 'Vrhnika']) {
+      expect(inLjubljanaArea(l)).toBe(true);
     }
   });
 
-  it('accepts the surrounding towns', () => {
-    for (const loc of ['DOMŽALE', 'Grosuplje, Slovenia', 'Ig, Ljubljana', 'Kamnik', 'VRHNIKA']) {
-      expect(inLjubljanaArea(loc)).toBe(true);
-    }
-  });
-
-  it('accepts an "X pri Ljubljani" settlement', () => {
-    expect(inLjubljanaArea('Brezovica pri Ljubljani')).toBe(true);
-    expect(inLjubljanaArea('DOL PRI LJUBLJANI')).toBe(true);
-  });
-
-  it('matches a town written without diacritics', () => {
-    expect(inLjubljanaArea('Domzale')).toBe(true);
-    expect(inLjubljanaArea('Skofljica')).toBe(true);
-  });
-
-  it('rejects towns outside the area', () => {
-    for (const loc of ['Maribor', 'Celje', 'Škofja Loka', 'SEŽANA', 'Novo mesto', 'Kranj']) {
-      expect(inLjubljanaArea(loc)).toBe(false);
-    }
-  });
-
-  it('matches whole words only, so a short name does not fire inside a longer one', () => {
+  it('rejects other towns, and short names inside longer ones', () => {
+    expect(inLjubljanaArea('Maribor')).toBe(false);
     expect(inLjubljanaArea('Rigonce')).toBe(false);
-    expect(inLjubljanaArea('Ljubljanska cesta, Celje')).toBe(false);
-  });
-
-  it('rejects a country-wide or missing location', () => {
-    expect(inLjubljanaArea('Slovenia')).toBe(false);
-    expect(inLjubljanaArea('Slovenia (Remote)')).toBe(false);
     expect(inLjubljanaArea(null)).toBe(false);
   });
 });
 
+describe('detectWorkMode', () => {
+  it('reads a structured field first', () => {
+    expect(detectWorkMode('Hibridno (delno od doma)', 'X', 'Ljubljana', '')).toBe('hybrid');
+    expect(detectWorkMode('Od doma', 'X', 'Ljubljana', '')).toBe('remote');
+    expect(detectWorkMode('Na delovnem mestu', 'X', 'Ljubljana', 'remote work possible')).toBe('onsite');
+  });
+
+  it('reads clear phrases from the ad body', () => {
+    expect(detectWorkMode(null, 'X', 'Ljubljana', 'Nudimo možnost dela od doma.')).toBe('hybrid');
+    expect(detectWorkMode(null, 'X', 'Ljubljana', 'This is a fully remote position.')).toBe('remote');
+  });
+
+  it('ignores body prose that only sounds remote', () => {
+    expect(detectWorkMode(null, 'X', 'Ljubljana', 'Izvajanje učenja na daljavo za udeležence.')).toBe('onsite');
+    expect(detectWorkMode(null, 'X', 'Ljubljana', 'You will support remote teams.')).toBe('onsite');
+    expect(detectWorkMode(null, 'X', 'Ljubljana', 'Fleksibilen delovni čas.')).toBe('onsite');
+  });
+
+  it('is unknown without a location or marker', () => {
+    expect(detectWorkMode(null, 'X', null, '')).toBe('unknown');
+  });
+});
+
 describe('detectEmploymentType', () => {
-  it('reads permanent from the raw employment field', () => {
-    expect(detectEmploymentType('Nedoločen čas', '40 ur/teden', '', '')).toBe('permanent');
+  it('reads the structured fields', () => {
+    expect(detectEmploymentType('Nedoločen čas', null, '', '')).toBe('permanent');
+    expect(detectEmploymentType('Določen čas', null, '', '')).toBe('fixed-term');
+    expect(detectEmploymentType(null, '20 ur/teden', '', '')).toBe('part-time');
   });
 
-  it('reads fixed-term from the raw employment field', () => {
-    expect(detectEmploymentType('Določen čas (opredeljeno v podrobnostih)', '40 ur/teden', '', ''))
-      .toBe('fixed-term');
-  });
-
-  it('reads part-time from a weekly-hours figure below 35', () => {
-    expect(detectEmploymentType('Nedoločen čas', '20 ur/teden', '', '')).toBe('part-time');
-  });
-
-  it('reads part-time from the phrase', () => {
-    expect(detectEmploymentType(null, null, '', 'Krajši delovni čas.')).toBe('part-time');
-  });
-
-  it('falls back to the body when the raw fields are absent', () => {
-    expect(detectEmploymentType(null, null, '', 'Zaposlitev za nedoločen čas.')).toBe('permanent');
-  });
-
-  it('is unknown when nothing says', () => {
-    expect(detectEmploymentType(null, null, 'HR Specialist', '')).toBe('unknown');
-  });
-
-  it('reads part-time from "20 ur/teden" in the body', () => {
-    expect(detectEmploymentType(null, null, '', 'Zaposlitev za 20 ur/teden.')).toBe('part-time');
-  });
-
-  it('does NOT read part-time from "8 ur dnevno" prose in the body', () => {
-    expect(detectEmploymentType(null, null, '', 'Delovni čas: 8 ur dnevno.')).not.toBe('part-time');
-  });
-
-  it('does NOT read part-time from "40 ur/teden"', () => {
-    expect(detectEmploymentType('Nedoločen čas', '40 ur/teden', '', '')).not.toBe('part-time');
+  it('does not read part-time from daily-hours prose or a full week', () => {
+    expect(detectEmploymentType(null, null, '', 'Delo 8 ur dnevno.')).toBe('unknown');
+    expect(detectEmploymentType(null, '40 ur/teden', '', '')).toBe('unknown');
   });
 });
 
-describe('scoreFor', () => {
-  it('scores a rank-1 permanent job highest', () => {
-    expect(scoreFor({ areaRank: 1, employmentType: 'permanent', flags: [] })).toBe(55);
+describe('requiredYears', () => {
+  it('reads the structured field', () => {
+    expect(requiredYears('3+ do 5 let', '')).toBe(3);
+    expect(requiredYears('1 leto', '')).toBe(1);
+    expect(requiredYears('Ni pomembno', '')).toBe(0);
+    expect(requiredYears('Brez izkušenj', '')).toBe(0);
+    expect(requiredYears('6 mesecev', '')).toBe(0);
   });
 
-  it('scores a rank-8 job with nothing else at its area points only', () => {
-    expect(scoreFor({ areaRank: 8, employmentType: 'unknown', flags: [] })).toBe(12);
+  it('reads experience requirements from prose', () => {
+    expect(requiredYears(null, 'Pričakujemo najmanj 2 leti delovnih izkušenj.')).toBe(2);
+    expect(requiredYears(null, 'At least 3 years of experience in training.')).toBe(3);
+    expect(requiredYears(null, 'Experience: minimum 4 years in L&D.')).toBe(4);
   });
 
-  it('subtracts eight per flag', () => {
-    expect(scoreFor({ areaRank: 1, employmentType: 'permanent', flags: ['a', 'b'] })).toBe(39);
+  it('ignores the employer describing its own experience', () => {
+    expect(requiredYears(null, 'We are a training company with more than 10 years of experience in delivering workshops.')).toBeNull();
+    expect(requiredYears(null, 'Smo podjetje z 20 leti izkušenj na trgu.')).toBeNull();
   });
 
-  it('never goes below zero', () => {
-    expect(scoreFor({ areaRank: 8, employmentType: 'unknown', flags: ['a', 'b', 'c'] })).toBe(0);
-  });
-
-  it('demotes a tag-only match by 20 plus the standard 8-per-flag penalty for its own flag', () => {
-    // rank-1 (40) + permanent (15) = 55 normally;
-    // tag-only carries one flag (the provenance marker) and loses 20 more.
-    expect(scoreFor({
-      areaRank: 1, employmentType: 'permanent', flags: ['area-from:tag:ld'], tagOnly: true,
-    })).toBe(27);
+  it('ignores numbers that are not experience', () => {
+    expect(requiredYears(null, 'Podjetje s 30 leti tradicije išče sodelavca.')).toBeNull();
+    expect(requiredYears(null, '')).toBeNull();
   });
 });
 
-describe('classify and isWanted', () => {
-  it('keeps a matching job and picks its best-ranked area', () => {
-    const c = classify(raw({
-      title: 'Specialist za razvoj kadrov (m/ž)',
-      location: 'Ljubljana',
-      employmentRaw: 'Nedoločen čas',
-      workTimeRaw: '40 ur/teden',
-    }));
-    expect(isWanted(c)).toBe(true);
-    expect(c.area).toBe('ld');
-    expect(c.areaRank).toBe(1);
-    expect(c.score).toBe(55);
+describe('requiredForeignLanguages', () => {
+  it('reports a language the ad requires', () => {
+    expect(requiredForeignLanguages(null, 'Fluent German is required.')).toEqual(['nemščino']);
+    expect(requiredForeignLanguages('nemški jezik: tekoče', '')).toEqual(['nemščino']);
   });
 
-  it('drops a job that matches no area', () => {
-    expect(isWanted(classify(raw({ title: 'CNC operater (m/ž)' })))).toBe(false);
+  it('ignores a language the ad merely welcomes', () => {
+    expect(requiredForeignLanguages(null, 'Knowledge of French is an advantage.')).toEqual([]);
+  });
+});
+
+describe('worthDetail', () => {
+  it('fetches on-topic and generic titles, and skips obvious misses', () => {
+    expect(worthDetail('KOORDINATOR IZOBRAŽEVANJ - M/Ž')).toBe(true);
+    expect(worthDetail('STROKOVNI SODELAVEC VII/2 - M/Ž')).toBe(true);
+    expect(worthDetail('HIŠNIK IV - M/Ž')).toBe(false);
+    expect(worthDetail('SENIOR TRAINING MANAGER')).toBe(false);
+    expect(worthDetail('Sodelavec', 'Natakar')).toBe(false);
+  });
+});
+
+describe('classify scoring', () => {
+  const remoteJunior = raw({
+    title: 'Junior Learning & Development Coordinator', location: 'Europe', country: null,
+    workModeRaw: 'Remote',
+    description: 'Coordinate training programs, administer our LMS (Workday Learning) and support e-learning. Fluent English.',
+  });
+  const genericOnsite = raw({
+    title: 'Strokovni sodelavec VII/2', location: 'Maribor',
+    description: 'Organizacija izobraževanj, izvedba izobraževanj in analiza potreb po izobraževanju. Zahtevamo 5 let delovnih izkušenj.',
   });
 
-  it('keeps a matching job in a town around Ljubljana', () => {
-    expect(isWanted(classify(raw({ title: 'HR Specialist', location: 'DOMŽALE' })))).toBe(true);
+  it('ranks a remote junior L&D role above a generic on-site one', () => {
+    expect(classify(remoteJunior).score).toBeGreaterThan(classify(genericOnsite).score);
   });
 
-  it('drops a matching job outside the Ljubljana area', () => {
-    expect(isWanted(classify(raw({ title: 'HR Specialist', location: 'Maribor' })))).toBe(false);
+  it('keeps every score within 0–100 and sums its parts', () => {
+    for (const r of [remoteJunior, genericOnsite]) {
+      const c = classify(r);
+      const p = c.parts;
+      const sum = p.relevance + p.experience + p.workMode + p.level + p.location + p.organisation + p.penalty;
+      expect(c.score).toBe(Math.max(0, Math.min(100, sum)));
+    }
   });
 
-  it('drops a remote job whose location is not in the Ljubljana area', () => {
-    expect(isWanted(classify(raw({
-      title: 'HR Specialist', location: 'Slovenia', description: 'Delo na daljavo.',
-    })))).toBe(false);
+  it('explains the fit in Slovenian', () => {
+    const c = classify(remoteJunior);
+    expect(c.reasons.map((r) => r.text).join(' | ')).toMatch(/Izobraževanje in razvoj zaposlenih/);
+    expect(c.reasons.some((r) => /LMS|Workday/.test(r.text))).toBe(true);
+    expect(c.reasons.some((r) => r.text === 'Delo na daljavo')).toBe(true);
   });
 
-  it('drops a matching job with no location', () => {
-    expect(isWanted(classify(raw({ title: 'HR Specialist', location: null })))).toBe(false);
-  });
-
-  it('drops a title reject outright', () => {
-    expect(isWanted(classify(raw({
-      title: 'Komercialist (m/ž)',
-      description: 'Projektni koordinator podpira ekipo.',
-    })))).toBe(false);
-  });
-
-  it('keeps a title reject that is overridden by an area keyword in the title, and flags it', () => {
-    const c = classify(raw({ title: 'Vodja projektov - komercialist (m/ž)' }));
-    expect(isWanted(c)).toBe(true);
-    expect(c.flags.some((f) => f.startsWith('title-reject:'))).toBe(true);
-  });
-
-  it('drops student work by title', () => {
-    expect(isWanted(classify(raw({ title: 'HR Specialist - študentsko delo' })))).toBe(false);
-  });
-
-  it('drops an internship named in the raw employment field', () => {
-    expect(isWanted(classify(raw({
-      title: 'HR Specialist', employmentRaw: 'Pripravništvo',
-    })))).toBe(false);
-  });
-
-  it('does NOT drop a job whose body merely says "dobra praksa"', () => {
-    const c = classify(raw({
-      title: 'HR Specialist', description: 'Sledimo dobrim praksam, dobra praksa je vodilo.',
-    }));
-    expect(isWanted(c)).toBe(true);
-  });
-
-  it('flags administrative duties in the body without dropping the job', () => {
-    const c = classify(raw({
-      title: 'HR Specialist (m/ž)',
-      description: 'Skrbel boš tudi za kadrovske evidence in arhiviranje.',
-    }));
-    expect(isWanted(c)).toBe(true);
-    expect(c.flags.length).toBeGreaterThan(0);
-  });
-
-  it('never excludes on seniority', () => {
-    const c = classify(raw({
-      title: 'Vodja za razvoj kadrov (m/ž)',
-      description: 'Zahtevamo vsaj 8 let izkušenj.',
-    }));
-    expect(c.seniority).toBe('senior');
-    expect(isWanted(c)).toBe(true);
-  });
-
-  it('demotes a posting whose area keyword appears only in tags, flags it, and scores 27', () => {
-    const c = classify(raw({
-      title: 'Uradnik (m/ž)',
-      tags: ['Strokovnjaki za razvoj kadrov in karierno svetovanje'],
-      description: 'Delo na upravni enoti.',
-      location: 'Ljubljana',
-      employmentRaw: 'Nedoločen čas',
-      workTimeRaw: '40 ur/teden',
-    }));
-    expect(c.flags.some((f) => f.startsWith('area-from:tag:'))).toBe(true);
-    expect(c.score).toBe(27);
-    expect(isWanted(c)).toBe(true); // demoted, never dropped
-  });
-
-  it('does not flag or demote a posting whose area keyword is in the title, scoring 55', () => {
-    const c = classify(raw({
-      title: 'Specialist za razvoj kadrov (m/ž)',
-      tags: ['Strokovnjaki za razvoj kadrov in karierno svetovanje'],
-      location: 'Ljubljana',
-      employmentRaw: 'Nedoločen čas',
-      workTimeRaw: '40 ur/teden',
-    }));
-    expect(c.flags.some((f) => f.startsWith('area-from:tag:'))).toBe(false);
-    expect(c.score).toBe(55);
-  });
-
-  it('does not treat a body-only area match as tag-only: body support counts', () => {
-    const c = classify(raw({
-      title: 'Uradnik (m/ž)',
-      tags: ['Strokovnjaki za razvoj kadrov in karierno svetovanje'],
-      description: 'Skrbel boš za razvoj kadrov v organizaciji.',
-      location: 'Ljubljana',
-      employmentRaw: 'Nedoločen čas',
-      workTimeRaw: '40 ur/teden',
-    }));
-    expect(c.flags.some((f) => f.startsWith('area-from:tag:'))).toBe(false);
-    expect(c.score).toBe(55);
-  });
-
-  it('rejects "Vodja projektov v gradbeništvu" even though "vodja projektov" is an area keyword', () => {
-    expect(isWanted(classify(raw({ title: 'Vodja projektov v gradbeništvu (m/ž)' })))).toBe(false);
-  });
-
-  it('rejects on a domain term found only in the occupation field', () => {
-    const c = classify(raw({
-      title: 'Vodja projektov (m/ž)',
-      occupation: 'Elektrotehniki',
-    }));
-    expect(isWanted(c)).toBe(false);
-  });
-
-  it('keeps a plain "Vodja projektov" with no trade qualifier', () => {
-    expect(isWanted(classify(raw({ title: 'Vodja projektov (m/ž)' })))).toBe(true);
+  it('marks down a role that needs a language the seeker lacks', () => {
+    const plain = classify(raw({ title: 'Training Coordinator' }));
+    const german = classify(raw({ title: 'Training Coordinator', description: 'Fluent German is required.' }));
+    expect(german.score).toBeLessThan(plain.score);
+    expect(german.reasons.some((r) => r.text === 'Zahteva nemščino')).toBe(true);
   });
 });

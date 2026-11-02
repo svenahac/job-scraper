@@ -1,6 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { parseSearchPage, parseDetail, buildJobUrl, CATEGORY_IDS, needsDetail } from '../../src/sources/mojedelo.js';
+import {
+  parseSearchPage, parseDetail, buildJobUrl, CATEGORY_IDS, needsDetail, workModeLabel, salaryText,
+  toLocalDate,
+} from '../../src/sources/mojedelo.js';
 import type { SearchItem } from '../../src/sources/mojedelo.js';
 
 const search = JSON.parse(readFileSync('tests/fixtures/mojedelo-search.json', 'utf8'));
@@ -72,20 +75,39 @@ describe('CATEGORY_IDS', () => {
 
 describe('needsDetail', () => {
   const item = (over: Partial<SearchItem>): SearchItem => ({
-    id: 'x', title: 'Sodelavec (m/ž)', company: 'Acme',
-    location: 'Maribor', postedAt: null, ...over,
+    id: 'x', title: 'Prodajalec (m/ž)', company: 'Acme', location: 'Maribor', postedAt: null,
+    country: 'SI', workModes: [], ...over,
   });
 
-  it('fetches the body for a Ljubljana-area ad whatever its title', () => {
-    expect(needsDetail(item({ location: 'Ljubljana' }))).toBe(true);
-    expect(needsDetail(item({ location: 'Domžale' }))).toBe(true);
+  it('fetches the body for on-topic and generic titles anywhere in Slovenia', () => {
+    expect(needsDetail(item({ title: 'Koordinator izobraževanj (m/ž)' }))).toBe(true);
+    expect(needsDetail(item({ title: 'Strokovni sodelavec (m/ž)' }))).toBe(true);
   });
 
-  it('skips an out-of-area ad even when its title matches an area', () => {
-    expect(needsDetail(item({ location: 'Maribor', title: 'HR Specialist' }))).toBe(false);
+  it('fetches the body for a remote or hybrid role whatever its title', () => {
+    expect(needsDetail(item({ workModes: ['Hibridno (delno od doma)'] }))).toBe(true);
   });
 
-  it('treats a missing location as out of area', () => {
-    expect(needsDetail(item({ location: null, title: 'HR Specialist' }))).toBe(false);
+  it('skips an off-target title, and anything already stored', () => {
+    expect(needsDetail(item({}))).toBe(false);
+    expect(needsDetail(item({ title: 'Koordinator izobraževanj' }), { hasDetail: () => true })).toBe(false);
+  });
+});
+
+describe('workModeLabel and salaryText', () => {
+  it('reads home plus on-site as hybrid', () => {
+    expect(workModeLabel(['Od doma', 'Na delovnem mestu'])).toBe('Hibridno (delno od doma)');
+    expect(workModeLabel([])).toBeNull();
+  });
+
+  it('treats a negotiable salary as unpublished', () => {
+    expect(salaryText({ translation: 'po dogovoru' })).toBeNull();
+    expect(salaryText({ translation: '1.800 – 2.200 € bruto' })).toBe('1.800 – 2.200 € bruto');
+  });
+});
+
+describe('toLocalDate', () => {
+  it('takes the calendar date in Ljubljana time', () => {
+    expect(toLocalDate('2026-08-20T22:00:00.000Z')).toBe('2026-08-21');
   });
 });

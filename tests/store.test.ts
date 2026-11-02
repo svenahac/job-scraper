@@ -1,145 +1,95 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { openDb, upsertJobs, allJobs, jobsFirstSeenAt, deleteJobs } from '../src/store.js';
+import Database from 'better-sqlite3';
+import {
+  openDb, upsertJobs, allJobs, jobsFirstSeenAt, deleteJobs, checkedIds, markChecked,
+  pruneChecked, recordSourceRun, sourceRuns,
+} from '../src/store.js';
 import type { Job } from '../src/types.js';
 
 const job = (over: Partial<Job> = {}): Job => ({
-  source: 'zrsz', sourceId: '8052', url: 'https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=8052/#/pdm/8052',
-  title: 'Frontend Developer', company: 'Acme', location: 'Ljubljana',
-  postedAt: '2026-08-18', description: 'Delo.', tags: ['React'],
-  id: 'aaaa000000000001', area: '', areaRank: 0, areas: '', workMode: 'unknown',
-  employmentType: 'unknown', flags: '', score: 0,
-  seniority: 'junior',
-  firstSeenAt: '2026-08-21T17:00:00.000Z', lastSeenAt: '2026-08-21T17:00:00.000Z',
+  source: 'zrsz', sourceId: '8052', url: 'https://example.test/8052',
+  title: 'Koordinator izobraževanj', company: 'Acme', location: 'Ljubljana',
+  postedAt: '2026-10-18', description: 'Organizacija izobraževanj.', tags: ['Andragog'],
+  employmentRaw: 'Nedoločen čas', workTimeRaw: '40 ur/teden', occupation: 'Andragog',
+  deadline: '2026-11-20', salary: '2.000 € bruto', experienceRaw: '1 leto',
+  languagesRaw: 'angleški jezik', workModeRaw: 'Hibridno', country: 'SI', international: false,
+  id: 'aaaa000000000001', area: 'ld', areas: 'ld,education', workMode: 'hybrid',
+  employmentType: 'permanent', locationClass: 'ljubljana', flags: '', seniority: 'junior',
+  minYears: 1, score: 72, reasons: '[{"kind":"fit","text":"x"}]', scoreParts: '{"relevance":35}',
+  firstSeenAt: '2026-10-21T17:00:00.000Z', lastSeenAt: '2026-10-21T17:00:00.000Z',
   ...over,
 });
 
-describe('store', () => {
-  it('round-trips a job', () => {
-    const db = openDb(':memory:');
+let dir: string;
+beforeEach(() => { dir = mkdtempSync(join(tmpdir(), 'store-')); });
+afterEach(() => { rmSync(dir, { recursive: true, force: true }); });
+
+describe('jobs', () => {
+  it('round-trips every field', () => {
+    const db = openDb(join(dir, 'jobs.db'));
     upsertJobs(db, [job()]);
-    const rows = allJobs(db);
-    expect(rows).toHaveLength(1);
-    expect(rows[0]!.title).toBe('Frontend Developer');
-    expect(rows[0]!.tags).toEqual(['React']);
+    expect(allJobs(db)).toEqual([job()]);
+    db.close();
   });
 
-  it('does not duplicate a job seen twice', () => {
-    const db = openDb(':memory:');
+  it('never overwrites first_seen_at, and updates the rest', () => {
+    const db = openDb(join(dir, 'jobs.db'));
     upsertJobs(db, [job()]);
-    upsertJobs(db, [job({ lastSeenAt: '2026-08-22T17:00:00.000Z' })]);
+    upsertJobs(db, [job({ firstSeenAt: '2026-10-22T17:00:00.000Z', lastSeenAt: '2026-10-22T17:00:00.000Z', score: 50 })]);
+    const [stored] = allJobs(db);
+    expect(stored!.firstSeenAt).toBe('2026-10-21T17:00:00.000Z');
+    expect(stored!.lastSeenAt).toBe('2026-10-22T17:00:00.000Z');
+    expect(stored!.score).toBe(50);
+    db.close();
+  });
+
+  it('reports jobs first seen at a run, and deletes by id', () => {
+    const db = openDb(join(dir, 'jobs.db'));
+    upsertJobs(db, [job(), job({ id: 'b', sourceId: '2', firstSeenAt: '2026-10-22T17:00:00.000Z' })]);
+    expect(jobsFirstSeenAt(db, '2026-10-22T17:00:00.000Z').map((j) => j.id)).toEqual(['b']);
+    deleteJobs(db, ['b']);
+    expect(allJobs(db).map((j) => j.id)).toEqual(['aaaa000000000001']);
+    db.close();
+  });
+
+  it('drops a table written by the CSV-era scraper', () => {
+    const path = join(dir, 'old.db');
+    const old = new Database(path);
+    old.exec(`CREATE TABLE jobs (id TEXT PRIMARY KEY, area_rank INTEGER NOT NULL)`);
+    old.exec(`INSERT INTO jobs VALUES ('x', 1)`);
+    old.close();
+    const db = openDb(path);
+    expect(allJobs(db)).toEqual([]);
+    upsertJobs(db, [job()]);
     expect(allJobs(db)).toHaveLength(1);
-  });
-
-  it('never overwrites first_seen_at', () => {
-    const db = openDb(':memory:');
-    upsertJobs(db, [job()]);
-    upsertJobs(db, [job({
-      firstSeenAt: '2026-08-22T17:00:00.000Z',
-      lastSeenAt: '2026-08-22T17:00:00.000Z',
-    })]);
-    expect(allJobs(db)[0]!.firstSeenAt).toBe('2026-08-21T17:00:00.000Z');
-  });
-
-  it('updates last_seen_at and mutable fields on re-ingest', () => {
-    const db = openDb(':memory:');
-    upsertJobs(db, [job()]);
-    upsertJobs(db, [job({ title: 'Frontend Developer (m/ž)', lastSeenAt: 'T2' })]);
-    const row = allJobs(db)[0]!;
-    expect(row.title).toBe('Frontend Developer (m/ž)');
-    expect(row.lastSeenAt).toBe('T2');
-  });
-
-  it('reports only jobs first seen at the given run timestamp', () => {
-    const db = openDb(':memory:');
-    const run1 = '2026-08-21T17:00:00.000Z';
-    const run2 = '2026-08-22T17:00:00.000Z';
-    upsertJobs(db, [job({ id: 'a1', firstSeenAt: run1, lastSeenAt: run1 })]);
-    upsertJobs(db, [
-      job({ id: 'a1', firstSeenAt: run2, lastSeenAt: run2 }),
-      job({ id: 'b2', sourceId: '9000', firstSeenAt: run2, lastSeenAt: run2 }),
-    ]);
-    const fresh = jobsFirstSeenAt(db, run2);
-    expect(fresh.map((j) => j.id)).toEqual(['b2']);
-  });
-
-  it('round-trips the new classification fields', () => {
-    const db = openDb(':memory:');
-    upsertJobs(db, [job({ area: 'ld', areaRank: 1, areas: 'ld,hr', score: 75,
-      workMode: 'hybrid', employmentType: 'permanent',
-      flags: 'body:payroll', employmentRaw: 'Nedoločen čas',
-      workTimeRaw: '40 ur/teden', occupation: 'Kadrovnik' })]);
-    const [back] = allJobs(db);
-    expect(back!.area).toBe('ld');
-    expect(back!.areaRank).toBe(1);
-    expect(back!.areas).toBe('ld,hr');
-    expect(back!.score).toBe(75);
-    expect(back!.workMode).toBe('hybrid');
-    expect(back!.employmentType).toBe('permanent');
-    expect(back!.flags).toBe('body:payroll');
-    expect(back!.employmentRaw).toBe('Nedoločen čas');
-    expect(back!.occupation).toBe('Kadrovnik');
     db.close();
   });
+});
 
-  it('orders jobs newest posting first, undated last', () => {
-    const db = openDb(':memory:');
-    upsertJobs(db, [
-      job({ id: 'old', sourceId: 'old', postedAt: '2026-09-01', score: 90 }),
-      job({ id: 'undated', sourceId: 'undated', postedAt: null, score: 99 }),
-      job({ id: 'new', sourceId: 'new', postedAt: '2026-10-01', score: 10 }),
-    ]);
-    expect(allJobs(db).map((j) => j.id)).toEqual(['new', 'old', 'undated']);
+describe('checked', () => {
+  it('remembers a verdict only for the same profile and within its lifetime', () => {
+    const db = openDb(join(dir, 'jobs.db'));
+    markChecked(db, ['a', 'b'], 'p1', '2026-10-20T00:00:00.000Z');
+    expect(checkedIds(db, 'p1', '2026-10-01T00:00:00.000Z')).toEqual(new Set(['a', 'b']));
+    expect(checkedIds(db, 'p2', '2026-10-01T00:00:00.000Z').size).toBe(0);
+    expect(checkedIds(db, 'p1', '2026-10-25T00:00:00.000Z').size).toBe(0);
+    pruneChecked(db, '2026-10-25T00:00:00.000Z');
+    expect(checkedIds(db, 'p1', '2000-01-01T00:00:00.000Z').size).toBe(0);
     db.close();
   });
+});
 
-  it('breaks a same-day tie by score descending', () => {
-    const db = openDb(':memory:');
-    upsertJobs(db, [
-      job({ id: 'low', sourceId: 'low', score: 20 }),
-      job({ id: 'high', sourceId: 'high', score: 80 }),
-    ]);
-    expect(allJobs(db).map((j) => j.id)).toEqual(['high', 'low']);
+describe('source runs', () => {
+  it('keeps the last success through a later failure', () => {
+    const db = openDb(join(dir, 'jobs.db'));
+    recordSourceRun(db, 'linkedin', true, 30, '2026-10-20T17:00:00.000Z');
+    recordSourceRun(db, 'linkedin', false, 0, '2026-10-21T17:00:00.000Z');
+    expect(sourceRuns(db).get('linkedin')).toEqual({
+      name: 'linkedin', lastOkAt: '2026-10-20T17:00:00.000Z', lastCount: 30,
+    });
     db.close();
-  });
-
-  it('orders the new-this-run jobs newest posting first', () => {
-    const db = openDb(':memory:');
-    const run = '2026-10-01T17:00:00.000Z';
-    upsertJobs(db, [
-      job({ id: 'old', sourceId: 'old', postedAt: '2026-09-01', score: 90, firstSeenAt: run }),
-      job({ id: 'new', sourceId: 'new', postedAt: '2026-10-01', score: 10, firstSeenAt: run }),
-    ]);
-    expect(jobsFirstSeenAt(db, run).map((j) => j.id)).toEqual(['new', 'old']);
-    db.close();
-  });
-
-  it('deletes jobs by id', () => {
-    const db = openDb(':memory:');
-    upsertJobs(db, [job({ id: 'keep', sourceId: 'k' }), job({ id: 'gone', sourceId: 'g' })]);
-    deleteJobs(db, ['gone']);
-    expect(allJobs(db).map((j) => j.id)).toEqual(['keep']);
-    db.close();
-  });
-
-  it('drops location_tier from a database written before the Ljubljana-only filter', () => {
-    const dir = mkdtempSync(join(tmpdir(), 'store-'));
-    try {
-      const path = join(dir, 'jobs.db');
-      const old = openDb(path);
-      old.exec("ALTER TABLE jobs ADD COLUMN location_tier TEXT NOT NULL DEFAULT 'other'");
-      old.close();
-
-      const db = openDb(path);
-      const cols = (db.pragma('table_info(jobs)') as Array<{ name: string }>).map((c) => c.name);
-      expect(cols).not.toContain('location_tier');
-      upsertJobs(db, [job()]);
-      expect(allJobs(db)).toHaveLength(1);
-      db.close();
-    } finally {
-      rmSync(dir, { recursive: true, force: true });
-    }
   });
 });

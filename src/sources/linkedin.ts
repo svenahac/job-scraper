@@ -1,7 +1,7 @@
 import * as cheerio from 'cheerio';
 import type { RawJob, Source } from '../types.js';
 import { fetchText, sleep, REQUEST_DELAY_MS } from '../http.js';
-import { leadQueryTerms } from '../profile.js';
+import { SEARCH_TERMS_EN } from '../profile.js';
 
 const GUEST_API =
   'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search';
@@ -14,21 +14,48 @@ const BROWSER_UA =
 export interface GuestQuery {
   keywords: string;
   location: string;
+  /** Ask only for remote roles (LinkedIn's f_WT=2). */
+  remote: boolean;
 }
 
+/** Posted within the last 30 days. */
+const PAST_MONTH = 'r2592000';
+
+/** All of Slovenia: the strongest role terms. */
+export const SLOVENIA_TERMS: readonly string[] = [
+  'learning and development', 'training coordinator', 'learning specialist',
+  'project coordinator', 'project officer', 'education', 'e-learning', 'talent development',
+  'izobraževanje', 'projektni koordinator',
+];
+
+/** Remote roles open to the EU: the terms most specific to the seeker. */
+export const REMOTE_TERMS: readonly string[] = SEARCH_TERMS_EN.filter((t) =>
+  ['learning and development', 'learning specialist', 'LMS administrator', 'instructional designer',
+    'digital learning', 'education programme', 'training coordinator'].includes(t));
+
 /**
- * Every area against Ljubljana, whose search radius takes in the surrounding
- * towns. Eight requests: LinkedIn rate-limits datacenter IPs hard, so this is
- * deliberately not one query per keyword.
+ * Seventeen requests: LinkedIn rate-limits datacenter IPs hard, so this is
+ * deliberately not one query per keyword and location.
  */
 export function buildQueries(): GuestQuery[] {
-  return leadQueryTerms().map((keywords) => ({ keywords, location: 'Ljubljana, Slovenia' }));
+  return [
+    ...SLOVENIA_TERMS.map((keywords) => ({ keywords, location: 'Slovenia', remote: false })),
+    ...REMOTE_TERMS.map((keywords) => ({ keywords, location: 'European Union', remote: true })),
+  ];
 }
 
 export function buildQueryUrl(q: GuestQuery): string {
   const params = `keywords=${encodeURIComponent(q.keywords)}` +
-    `&location=${encodeURIComponent(q.location)}&start=0`;
+    `&location=${encodeURIComponent(q.location)}&f_TPR=${PAST_MONTH}` +
+    `${q.remote ? '&f_WT=2' : ''}&start=0`;
   return `${GUEST_API}?${params}`;
+}
+
+/** ISO country code from a LinkedIn location such as "Ljubljana, Ljubljana, Slovenia". */
+export function countryOf(location: string | null): string | null {
+  if (!location) return null;
+  if (/sloven/i.test(location)) return 'SI';
+  return null;
 }
 
 export interface GuestCard {
@@ -79,18 +106,26 @@ export function parseGuestCards(html: string): GuestCard[] {
 export const linkedInSource: Source = {
   name: 'linkedin',
   async fetchJobs(): Promise<RawJob[]> {
-    const byId = new Map<string, GuestCard>();
+    const byId = new Map<string, GuestCard & { remote: boolean }>();
+    let failures = 0;
+    let lastError: unknown = null;
 
     for (const q of buildQueries()) {
       await sleep(REQUEST_DELAY_MS);
-      const url = buildQueryUrl(q);
-      // A non-2xx here throws, which is correct: the orchestrator records
-      // this source as failed rather than reporting zero jobs found.
-      const html = await fetchText(url, { headers: { 'User-Agent': BROWSER_UA } });
-      for (const card of parseGuestCards(html)) {
-        if (!byId.has(card.sourceId)) byId.set(card.sourceId, card);
+      try {
+        const html = await fetchText(buildQueryUrl(q), { headers: { 'User-Agent': BROWSER_UA } });
+        for (const card of parseGuestCards(html)) {
+          if (!byId.has(card.sourceId)) byId.set(card.sourceId, { ...card, remote: q.remote });
+        }
+      } catch (err) {
+        // A 429 on one query should not throw away the others' results.
+        failures += 1;
+        lastError = err;
+        if (failures >= 3) break;
       }
     }
+    // Only a run with nothing to show counts as a failed source.
+    if (byId.size === 0 && lastError) throw lastError;
 
     // The guest card carries no body text, so classification gets the title,
     // the company and the location string — which is where LinkedIn states
@@ -108,6 +143,8 @@ export const linkedInSource: Source = {
       employmentRaw: null,
       workTimeRaw: null,
       occupation: null,
+      workModeRaw: c.remote ? 'Remote' : null,
+      country: countryOf(c.location),
     }));
   },
 };

@@ -1,0 +1,157 @@
+{
+ "id": "NDU4NTAwIDEwMQ",
+ "reference": "458500",
+ "documentId": "458500",
+ "connectionPointId": 101,
+ "source": "Jobsplus, Public Employment Service, Malta",
+ "creationDate": 1793033100189,
+ "lastModificationDate": 1793555416538,
+ "preferredLanguage": "en",
+ "jvProfiles": {
+  "en": {
+   "languageVersion": "en",
+   "title": "TRAINING CONTINUOUS IMPROVEMENT ASSISTANT",
+   "numberOfPosts": 1,
+   "euresFlag": true,
+   "jobCategoriesCodes": [
+    "http://data.europa.eu/esco/isco/C4322",
+    "http://data.europa.eu/esco/occupation/187f063b-1002-4d46-9b79-c46b2caedbb3"
+   ],
+   "positionOfferingCode": "contracttohire",
+   "positionScheduleCodes": [
+    "fulltime"
+   ],
+   "requiredSkills": [
+    "http://data.europa.eu/esco/skill/020b3c27-bae1-4b85-9d6f-eccee0f5ed99",
+    "http://data.europa.eu/esco/skill/53103efa-a525-4a5b-81e5-282c4331e72c",
+    "http://data.europa.eu/esco/skill/409a7608-20ac-40b6-a022-5cb74d23799d",
+    "http://data.europa.eu/esco/skill/29fb0fb5-dfc4-4098-ac9b-3a712000f48f",
+    "http://data.europa.eu/esco/skill/44f6a65f-6be7-4818-9a66-73908797283f",
+    "http://data.europa.eu/esco/skill/afdb41dd-5dd5-4fbb-bf9e-e041422698b4",
+    "http://data.europa.eu/esco/skill/2a778aeb-f246-4f03-9a96-c60183001037"
+   ],
+   "workingLanguageCodes": [],
+   "description": "To provide administrative, analytical and coordination support in the development of employee training programmes, preparation of operational reports and implementation of continuous improvement initiatives.",
+   "locations": [
+    {
+     "countryCode": "mt",
+     "region": "mt001",
+     "cityName": "HAL LUQA",
+     "postalCode": null,
+     "addressLines": [],
+     "buildingAddress": null
+    }
+   ],
+   "requiredEducationLevelCode": "4",
+   "requiredYearsOfExperience": 1,
+   "requiredExperiences": [
+    {
+     "categoryCodes": [
+      "http://data.europa.eu/esco/isco/C4322",
+      "http://data.europa.eu/esco/occupation/187f063b-1002-4d46-9b79-c46b2caedbb3"
+     ],
+     "measure": {
+      "value": 1.0,
+      "unitCode": "year"
+     },
+     "description": "years of experience"
+    }
+   ],
+   "requiredDrivingLicenses": [],
+   "positionLanguages": [
+    {
+     "requiredSkillLevel": "b1",
+     "desiredSkillLevel": null,
+     "languageCode": "en",
+     "competencies": [
+      {
+       "code": "cef-understanding-listening",
+       "score": "b1"
+      }
+     ],
+     "skillsEscoUri": []
+    },
+    {
+     "requiredSkillLevel": "b1",
+     "desiredSkillLevel": null,
+     "languageCode": "en",
+     "competencies": [
+      {
+       "code": "cef-understanding-reading",
+       "score": "b1"
+      }
+     ],
+     "skillsEscoUri": []
+    },
+    {
+     "requiredSkillLevel": "b1",
+     "desiredSkillLevel": null,
+     "languageCode": "en",
+     "competencies": [
+      {
+       "code": "cef-speaking-interaction",
+       "score": "b1"
+      }
+     ],
+     "skillsEscoUri": []
+    },
+    {
+     "requiredSkillLevel": "b1",
+     "desiredSkillLevel": null,
+     "languageCode": "en",
+     "competencies": [
+      {
+       "code": "cef-writing-production",
+       "score": "b1"
+      }
+     ],
+     "skillsEscoUri": []
+    }
+   ],
+   "employer": {
+    "name": "CONSTRUCT FURNITURE CO LTD",
+    "legalID": "C11786",
+    "organisationSizeCode": null,
+    "organisationOwnershipTypeCode": null,
+    "website": null,
+    "sectorCodes": [
+     "c16.2.3"
+    ],
+    "description": ""
+   },
+   "offeredRemunerationPackage": {
+    "description": "",
+    "remunerationBasisCode": "salaried",
+    "benefitsSummaries": [],
+    "salaries": [
+     {
+      "minimumSalary": 1473.0,
+      "maximumSalary": 1733.33,
+      "referenceSalary": null,
+      "currencyCode": "EUR",
+      "payingIntervalCode": "month",
+      "remunerationTypeCode": "basepay"
+     }
+    ]
+   },
+   "applicationInstructions": [
+    "Submit an APPLICATION LETTER and CV by EMAIL OR apply through the Jobsplus website via the URL: <a href=\"https://jobsplus.gov.mt/vacancy/vacancy-details?id=458500\" target=\"_blank\" rel=\"nofollow\">https://jobsplus.gov.mt/vacancy/vacancy-details?id=458500</a>"
+   ],
+   "personContacts": [
+    {
+     "givenName": "[redacted]",
+     "familyName": null,
+     "communications": null
+    }
+   ],
+   "lastApplicationDate": 1795392000000,
+   "travelPreference": {
+    "willingToTravelIndicator": false,
+    "travelPercentage": null,
+    "description": ""
+   }
+  }
+ },
+ "translationType": "REQUESTED",
+ "translation": null
+}

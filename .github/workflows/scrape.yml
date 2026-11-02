@@ -17,7 +17,7 @@ concurrency:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -31,14 +31,35 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # The SQLite store holds full ad texts, which several portals' terms
+      # forbid republishing, so it lives in the Actions cache rather than in
+      # this public repository. Losing it only costs one slower run.
+      - name: Restore the job store
+        uses: actions/cache/restore@v4
+        with:
+          path: data/jobs.db
+          key: jobs-db-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: jobs-db-
+
       - name: Scrape
         run: npm run scrape
+        env:
+          # Optional. Without it Himalayas is queried on the shared public quota.
+          HIMALAYAS_API_KEY: ${{ secrets.HIMALAYAS_API_KEY }}
 
+      - name: Save the job store
+        if: always() && hashFiles('data/jobs.db') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: data/jobs.db
+          key: jobs-db-${{ github.run_id }}-${{ github.run_attempt }}
+
+      # Each commit of the app's data file triggers a Vercel redeploy.
       - name: Commit results
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/
+          git add data/jobs.json
           if git diff --staged --quiet; then
             echo "no changes to commit"
           else

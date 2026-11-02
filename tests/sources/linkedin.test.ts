@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { parseGuestCards, buildQueries, buildQueryUrl } from '../../src/sources/linkedin.js';
+import { parseGuestCards, buildQueries, buildQueryUrl, countryOf } from '../../src/sources/linkedin.js';
 
 const html = readFileSync('tests/fixtures/linkedin-guest.html', 'utf8');
 
@@ -62,30 +62,34 @@ describe('parseGuestCards', () => {
 describe('buildQueries', () => {
   const queries = buildQueries();
 
-  it('stays at eight queries, to limit rate-limiting from CI', () => {
-    expect(queries).toHaveLength(8);
+  it('stays under twenty requests, to limit rate-limiting from CI', () => {
+    expect(queries.length).toBeLessThanOrEqual(20);
   });
 
-  it('asks Ljubljana for every area, and nothing country-wide', () => {
-    expect(queries.every((q) => q.location === 'Ljubljana, Slovenia')).toBe(true);
+  it('searches all of Slovenia, plus remote roles open to the EU', () => {
+    expect(queries.some((q) => q.location === 'Slovenia' && !q.remote)).toBe(true);
+    expect(queries.some((q) => q.location === 'European Union' && q.remote)).toBe(true);
   });
 
-  it('no longer searches for developer roles', () => {
-    for (const q of queries) {
-      expect(q.keywords.toLowerCase()).not.toContain('developer');
-    }
-  });
-
-  it('leads with the highest-ranked area', () => {
-    expect(queries[0]!.keywords).toBe('razvoj kadrov');
+  it('never searches for developer roles', () => {
+    for (const q of queries) expect(q.keywords.toLowerCase()).not.toContain('developer');
   });
 });
 
 describe('buildQueryUrl', () => {
-  it('encodes keywords and location', () => {
-    const url = buildQueryUrl({ keywords: 'razvoj kadrov', location: 'Ljubljana, Slovenia' });
-    expect(url).toContain('keywords=razvoj%20kadrov');
-    expect(url).toContain('location=Ljubljana%2C%20Slovenia');
-    expect(url).not.toContain('f_WT');
+  it('asks for the last 30 days, and for remote roles only when asked', () => {
+    const onsite = buildQueryUrl({ keywords: 'training coordinator', location: 'Slovenia', remote: false });
+    expect(onsite).toContain('keywords=training%20coordinator');
+    expect(onsite).toContain('location=Slovenia');
+    expect(onsite).toContain('f_TPR=r2592000');
+    expect(onsite).not.toContain('f_WT');
+    expect(buildQueryUrl({ keywords: 'x', location: 'European Union', remote: true })).toContain('f_WT=2');
+  });
+});
+
+describe('countryOf', () => {
+  it('recognises Slovenian locations', () => {
+    expect(countryOf('Ljubljana, Ljubljana, Slovenia')).toBe('SI');
+    expect(countryOf('European Union')).toBeNull();
   });
 });

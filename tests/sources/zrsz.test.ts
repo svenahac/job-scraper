@@ -2,20 +2,25 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import {
   parseBundleUrls, parseApiConfig, parseSearchPage, totalFrom, buildJobUrl,
-  parseDetail, needsDetail,
+  parseDetail, needsDetail, parseSlovenianDate,
 } from '../../src/sources/zrsz.js';
 import type { ZrszItem } from '../../src/sources/zrsz.js';
 
 const search = JSON.parse(readFileSync('tests/fixtures/zrsz-search.json', 'utf8'));
 
 describe('parseBundleUrls', () => {
-  it('finds the compressed TYPO3 bundles in the page', () => {
-    const html = `<html><script src="/typo3temp/assets/compressed/merged-abc.js?123"></script>
-      <script src="/_assets/x/jquery.min.js"></script></html>`;
-    expect(parseBundleUrls(html)).toEqual(['/typo3temp/assets/compressed/merged-abc.js?123']);
+  it('puts the job-search dashboard script first, then TYPO3 bundles, libraries last', () => {
+    const html = `<html><script src="/_assets/x/jquery.min.js"></script>
+      <script src="/typo3temp/assets/compressed/merged-abc.js?123"></script>
+      <script src="https://nad-plo.apps.ess.gov.si/zrsz-iskalnik-dashboard.js?v12"></script></html>`;
+    expect(parseBundleUrls(html)).toEqual([
+      'https://nad-plo.apps.ess.gov.si/zrsz-iskalnik-dashboard.js?v12',
+      '/typo3temp/assets/compressed/merged-abc.js?123',
+      '/_assets/x/jquery.min.js',
+    ]);
   });
 
-  it('returns empty when the page has no bundles', () => {
+  it('returns empty when the page has no scripts', () => {
     expect(parseBundleUrls('<html></html>')).toEqual([]);
   });
 });
@@ -101,27 +106,42 @@ describe('parseDetail', () => {
   });
 });
 
+describe('parseSlovenianDate', () => {
+  it('reads D. M. YYYY', () => {
+    expect(parseSlovenianDate('18. 9. 2026')).toBe('2026-09-18');
+    expect(parseSlovenianDate('')).toBeNull();
+  });
+});
+
 describe('needsDetail', () => {
+  const now = new Date('2026-11-02T12:00:00Z');
   const item = (over: Partial<ZrszItem>): ZrszItem => ({
-    sourceId: '1', title: 'HIŠNIK IV - M/Ž', company: 'OŠ', location: 'LJUBLJANA',
-    postedAt: null, employmentRaw: null, workTimeRaw: null, occupation: null, ...over,
+    sourceId: '1', title: 'HIŠNIK IV - M/Ž', company: 'OŠ', location: 'MARIBOR',
+    postedAt: '2026-10-30', employmentRaw: null, workTimeRaw: null, occupation: null, ...over,
   });
 
-  it('fetches the body when the title matches an area', () => {
-    expect(needsDetail(item({ title: 'KOORDINATOR IZOBRAŽEVANJ - M/Ž' }))).toBe(true);
+  it('fetches recent on-topic and generic titles anywhere in Slovenia', () => {
+    expect(needsDetail(item({ title: 'KOORDINATOR IZOBRAŽEVANJ - M/Ž' }), now)).toBe(true);
+    expect(needsDetail(item({ title: 'STROKOVNI SODELAVEC VII/2 - M/Ž' }), now)).toBe(true);
+    expect(needsDetail(item({ occupation: 'Andragog' }), now)).toBe(true);
   });
 
-  it('fetches the body when the occupation matches an area', () => {
-    expect(needsDetail(item({ occupation: 'Andragog' }))).toBe(true);
+  it('skips unrelated, old, and already-stored postings', () => {
+    expect(needsDetail(item({}), now)).toBe(false);
+    expect(needsDetail(item({ title: 'KOORDINATOR IZOBRAŽEVANJ - M/Ž', postedAt: '2026-08-01' }), now)).toBe(false);
+    expect(needsDetail(item({ title: 'KOORDINATOR IZOBRAŽEVANJ - M/Ž' }), now, { hasDetail: () => true })).toBe(false);
   });
+});
 
-  it('skips an out-of-area ad even when its title matches an area', () => {
-    expect(needsDetail(item({
-      title: 'KOORDINATOR IZOBRAŽEVANJ - M/Ž', location: 'MARIBOR',
-    }))).toBe(false);
-  });
-
-  it('skips an unrelated ad, whatever its location', () => {
-    expect(needsDetail(item({ title: 'HIŠNIK IV - M/Ž', location: 'LJUBLJANA' }))).toBe(false);
+describe('parseDetail extras', () => {
+  it('reads deadline, salary, experience and languages', () => {
+    const d = parseDetail({
+      opisDelInNalog: 'Organizacija izobraževanj', prijavaDo: '20. 11. 2026', okvirnaPlaca: '2.000 EUR',
+      delovneIzkusnje: '1 leto', znanjeJezikov: 'angleški jezik: tekoče',
+    });
+    expect(d).toMatchObject({
+      deadline: '2026-11-20', salary: '2.000 EUR', experienceRaw: '1 leto', languagesRaw: 'angleški jezik: tekoče',
+    });
+    expect(d.description).toContain('Organizacija izobraževanj');
   });
 });

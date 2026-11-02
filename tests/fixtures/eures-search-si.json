@@ -1,0 +1,110 @@
+{
+ "numberRecords": 3566,
+ "jvs": [
+  {
+   "title": "ZAVARIVAČ/ZAVARIVAČICA\t",
+   "description": "Opis poslova: zavarivački poslovi. Mogućnost stalnog zaposlenja. Poslodavac na terenu osigurava smještaj i prijevoz. Radnici se u inozemstvu zapošljavaju kao izaslani radnici.",
+   "id": "MjkyOTIzNCAxOQ",
+   "creationDate": 1793227569000,
+   "lastModificationDate": 1793227569000,
+   "numberOfPosts": 3,
+   "locationMap": {
+    "SI": [
+     null
+    ]
+   },
+   "euresFlag": false,
+   "jobCategoriesCodes": [
+    "http://data.europa.eu/esco/isco/C7212"
+   ],
+   "positionScheduleCodes": [
+    "fulltime"
+   ],
+   "positionOfferingCode": "contract",
+   "employer": {
+    "name": "NXTLVL TECHNIK d.o.o.",
+    "legalID": null,
+    "organisationSizeCode": null,
+    "organisationOwnershipTypeCode": null,
+    "website": null,
+    "sectorCodes": [],
+    "description": null
+   },
+   "availableLanguages": [
+    "hr"
+   ],
+   "score": null,
+   "translationType": "FIRST_LANGUAGE"
+  },
+  {
+   "title": "Prodajalec (z možnostjo napredovanja) za našo trgovino ... (Assistenzzahnarzt/-ärztin)",
+   "description": "O NASPodjetje LEDER &amp; SCHUH AG je s svojima prodajnima znamkama HUMANIC in SHOE4YOU eden največjih trgovcev z obutvijo v Evropi. Podjetje zaposluje približno 2.000 ljudi na približno 200 lokacijah v devetih državah (AT, DE, CZ, SK, HU, SI, HR, RO, BG). Sedež podjetja je v Gradcu. Velik poudarek dajemo vzpostavljanju dolgoročnih delovnih razmerij in spodbujanju kariere v podjetju.HUMANIC uporablja mrežo približno 140 trgovin v devetih državah, od tega jih je pet v Sloveniji, kot pionir v evropskem čevljarstvu. Nenehno spreminjajoče se kolekcije prinašajo mednarodne trende modnih prestolnic takoj v naše trgovine in spletno trgovino. V eni od elegantnih in privlačnih trgovin ali v spletni trgovini - v podjetju HUMANIC doživljamo ljubezen do čevljev. Tako je že od leta 1872.SHOE4YOU je dobra kakovost in poštena cena. Z modno ponudbo za ženske, moške in otroke se je podjetje SHOE4YOU s približno 70 poslovalnicami in lastno spletno trgovino uveljavilo kot nepogrešljiv akter na trgu obutve po vsej Avstriji.VAŠE NALOGE• svetovanje in prodaja blaga strankam po smernicah standardov podjetja• izdajanje računov, sprejemanje denarja, urejanje plačila s karticami in drugo delo na blagajni• opravljanje potrebnih administrativnih del• sodelovanje pri inventuri• razvrščanje in urejanje blaga v trgovini, spreminjanje cen• prevzemanje in odpošiljanje pošiljk• pospravljanje blaga v trgovini in skladišču• skrb za čistočo in urejenost trgovine in skladiščaVAŠ PROFIL• dinamičnost• ciljna in pro",
+   "id": "MTM4ODQtMzMyNzM3LVMgMQ",
+   "creationDate": 1793139853275,
+   "lastModificationDate": 1793139853275,
+   "numberOfPosts": 1,
+   "locationMap": {
+    "SI": [
+     null
+    ]
+   },
+   "euresFlag": false,
+   "jobCategoriesCodes": [
+    "http://data.europa.eu/esco/occupation/e52b5707-7097-4dbc-ac61-054e917da241"
+   ],
+   "positionScheduleCodes": [
+    "fulltime"
+   ],
+   "positionOfferingCode": null,
+   "employer": {
+    "name": "Leather & Shoe International d.o.o.",
+    "legalID": null,
+    "organisationSizeCode": null,
+    "organisationOwnershipTypeCode": null,
+    "website": null,
+    "sectorCodes": [],
+    "description": null
+   },
+   "availableLanguages": [
+    "de"
+   ],
+   "score": null,
+   "translationType": "FIRST_LANGUAGE"
+  },
+  {
+   "title": "E018021 ZDRAVNIK SPECIALIST PPD3 - SPECIALIST MEDICINE DELA,PROMETA IN ŠPORTA - M/Ž",
+   "description": "ZDRAVNIK SPECIALIST MEDICINE DELA, PROMETA IN ŠPORTA, poskusno delo 4 mesece, Nedoločen čas , Polni delovni čas, 40, DIAGNOSTICIRANJE IN VODENJE TERAPIJE PACIENTOV, OBRAVNAVANJEPACIENTOV V OKVIRU REHABILITACIJSKIH PROGRAMOV, UVAJANJE NOVIH METOD DELA, DAJANJEIZVEDENIŠKIH MNENJ, DELO Z OSEBAMI S PSIHIČNO ALI TELESNO PRIZADETOSTJO., , ",
+   "id": "MzQ5MzA2NSAxNA",
+   "creationDate": 1791921600000,
+   "lastModificationDate": 1792411352877,
+   "numberOfPosts": 1,
+   "locationMap": {
+    "SI": [
+     "SI041"
+    ]
+   },
+   "euresFlag": false,
+   "jobCategoriesCodes": [
+    "http://data.europa.eu/esco/occupation/9b889f07-c39c-464d-b9d9-b2daa650f9ac"
+   ],
+   "positionScheduleCodes": [
+    "fulltime"
+   ],
+   "positionOfferingCode": "directhire",
+   "employer": {
+    "name": "Univerzitetni rehabilitacijski inštitut Republike Slovenije Soča, Linhartova cesta 51 , 1000 LJUBLJANA",
+    "legalID": null,
+    "organisationSizeCode": null,
+    "organisationOwnershipTypeCode": null,
+    "website": null,
+    "sectorCodes": [],
+    "description": null
+   },
+   "availableLanguages": [
+    "sl"
+   ],
+   "score": null,
+   "translationType": "FIRST_LANGUAGE"
+  }
+ ]
+}

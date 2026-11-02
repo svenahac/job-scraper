@@ -7,3 +7,11 @@ dist/
 .worktrees/
 data/*.db-wal
 data/*.db-shm
+
+# The job store lives in the GitHub Actions cache (see scrape.yml), never in git.
+data/jobs.db
+web/node_modules/
+web/dist/
+web/public/jobs.json
+.vercel
+.env*

@@ -1,8 +1,8 @@
-import type { RawJob, Source } from '../types.js';
+import type { FetchContext, RawJob, Source } from '../types.js';
 import {
   fetchText, fetchJson, postJson, sleep, stripHtml, REQUEST_DELAY_MS,
 } from '../http.js';
-import { inLjubljanaArea, matchAreas } from '../classify.js';
+import { worthDetail } from '../classify.js';
 
 const SITE = 'https://www.ess.gov.si';
 const ENTRY = `${SITE}/iskalci-zaposlitve/`;
@@ -11,6 +11,9 @@ const DETAIL_PATH = '/iskalnik-po-pdm/v1/delovno-mesto/podrobnosti-prosto-delovn
 
 /** The API accepts 500; all of Slovenia is then about nine requests. */
 const PAGE_SIZE = 500;
+
+/** Only postings this recent get a detail request; older ones are kept as listed. */
+const DETAIL_MAX_AGE_DAYS = 45;
 
 export interface ApiConfig {
   baseUrl: string;
@@ -28,15 +31,31 @@ export interface ZrszItem {
   occupation: string | null;
 }
 
-/** The compressed TYPO3 bundles, in page order. One of them holds the config. */
+export interface ZrszDetail {
+  description: string;
+  deadline: string | null;
+  salary: string | null;
+  experienceRaw: string | null;
+  languagesRaw: string | null;
+}
+
+/**
+ * Every script on the entry page, most likely config carrier first: the job
+ * search dashboard, then TYPO3's compressed bundles, then the rest. The
+ * config moved from a compressed TYPO3 bundle to an absolute-URL dashboard
+ * script in October 2026, so neither location is assumed.
+ */
 export function parseBundleUrls(html: string): string[] {
-  return [...html.matchAll(/src="(\/typo3temp\/assets\/compressed\/[^"]+?\.js[^"]*)"/g)]
-    .map((m) => m[1]!);
+  const urls = [...html.matchAll(/<script[^>]+src="([^"]+?\.js[^"]*)"/g)].map((m) => m[1]!);
+  const rank = (u: string): number =>
+    /iskalnik|dashboard/i.test(u) ? 0 : /typo3temp\/assets\/compressed/.test(u) ? 1
+      : /jquery|bootstrap|cookieconsent|photoswipe|mdb\.min/i.test(u) ? 3 : 2;
+  return [...new Set(urls)].sort((a, b) => rank(a) - rank(b));
 }
 
 /**
  * The gateway host and its public user_key are published in the site's own
- * bundle, so they are read at runtime rather than hardcoded — a rotation on
+ * script, so they are read at runtime rather than hardcoded — a rotation on
  * their side then does not break the scraper.
  */
 export function parseApiConfig(js: string): ApiConfig {
@@ -49,14 +68,14 @@ export function parseApiConfig(js: string): ApiConfig {
 export async function loadApiConfig(): Promise<ApiConfig> {
   const html = await fetchText(ENTRY);
   const bundles = parseBundleUrls(html);
-  if (bundles.length === 0) throw new Error('zrsz: no bundles found on the entry page');
+  if (bundles.length === 0) throw new Error('zrsz: no scripts found on the entry page');
 
-  for (const path of bundles) {
-    const js = await fetchText(`${SITE}${path}`);
+  for (const src of bundles) {
+    const js = await fetchText(new URL(src, SITE).toString());
     if (js.includes('F_dataFor3ScaleApi_keyValue')) return parseApiConfig(js);
     await sleep(REQUEST_DELAY_MS);
   }
-  throw new Error('zrsz: no bundle carried the API config');
+  throw new Error('zrsz: no script carried the API config');
 }
 
 interface RawResponse {
@@ -87,24 +106,47 @@ export function parseSearchPage(json: unknown): ZrszItem[] {
   });
 }
 
-/** The advert body plus the two free-text condition fields, as plain text. */
-export function parseDetail(json: unknown): { description: string } {
-  const d = (json ?? {}) as Record<string, unknown>;
-  const parts = [d['opisDelInNalog'], d['drugiPogoji'], d['ostalo'],
-                 d['delovneIzkusnje']].filter(Boolean).map(String);
-  return { description: stripHtml(parts.join(' ')) };
+/** "18. 9. 2026" → "2026-09-18"; anything else → null. */
+export function parseSlovenianDate(s: string | null | undefined): string | null {
+  const m = /(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})/.exec(s ?? '');
+  if (!m) return null;
+  return `${m[3]}-${m[2]!.padStart(2, '0')}-${m[1]!.padStart(2, '0')}`;
 }
 
+/** The advert body and condition fields as plain text, plus the structured extras. */
+export function parseDetail(json: unknown): ZrszDetail {
+  const d = (json ?? {}) as Record<string, unknown>;
+  const parts = [
+    d['opisDelInNalog'], d['drugiPogoji'], d['ostalo'], d['ostalaPricakovanja'],
+    d['izobrazba'] ? `Izobrazba: ${String(d['izobrazba'])}` : null,
+    d['delovneIzkusnje'] ? `Delovne izkušnje: ${String(d['delovneIzkusnje'])}` : null,
+    d['znanjeJezikov'] ? `Znanje jezikov: ${String(d['znanjeJezikov'])}` : null,
+    d['racunalniskaZnanja'] ? `Računalniška znanja: ${String(d['racunalniskaZnanja'])}` : null,
+    d['urnikDela'] ? `Urnik dela: ${String(d['urnikDela'])}` : null,
+  ].filter(Boolean).map(String);
+  return {
+    description: stripHtml(parts.join(' \n ')),
+    deadline: parseSlovenianDate(text(d['prijavaDo'])),
+    salary: text(d['okvirnaPlaca']),
+    experienceRaw: text(d['delovneIzkusnje']),
+    languagesRaw: text(d['znanjeJezikov']),
+  };
+}
+
+const daysAgo = (days: number, now: Date): string =>
+  new Date(now.getTime() - days * 86_400_000).toISOString().slice(0, 10);
+
 /**
- * The list response has no body, and one detail request per vacancy would
- * outrun the nightly job's 30-minute timeout. The body is worth fetching
- * for Ljubljana-area ads whose title or occupation already matches an area —
- * there it adds work mode, warnings and contract detail. Everything else
- * keeps '', and classify.ts drops the out-of-area ones.
+ * The list response has no body, and one detail request per vacancy in the
+ * country would be ~4,400 requests. The body is fetched for recent postings
+ * whose title is either on-topic or generic enough that the body decides
+ * ("Strokovni sodelavec VII/2"), and only once: postings already stored with
+ * their detail are skipped.
  */
-export function needsDetail(item: ZrszItem): boolean {
-  const tags = item.occupation ? [item.occupation] : [];
-  return inLjubljanaArea(item.location) && matchAreas(item.title, tags, '').length > 0;
+export function needsDetail(item: ZrszItem, now: Date, ctx?: FetchContext): boolean {
+  if (!item.postedAt || item.postedAt < daysAgo(DETAIL_MAX_AGE_DAYS, now)) return false;
+  if (!worthDetail(item.title, item.occupation)) return false;
+  return !ctx?.hasDetail(item.sourceId);
 }
 
 export function totalFrom(json: unknown): number {
@@ -129,12 +171,14 @@ const searchBody = (page: number) => ({
 
 export const zrszSource: Source = {
   name: 'zrsz',
-  async fetchJobs(): Promise<RawJob[]> {
+  complete: true,
+  async fetchJobs(ctx?: FetchContext): Promise<RawJob[]> {
     const { baseUrl, userKey } = await loadApiConfig();
     const url = `${baseUrl}${SEARCH_PATH}?user_key=${userKey}`;
+    const now = new Date();
 
     // Every vacancy in Slovenia is nine requests at this page size, so the
-    // adapter fetches broadly and lets classify.ts apply the location policy.
+    // adapter fetches broadly and lets classify.ts decide what fits.
     const items: ZrszItem[] = [];
     let page = 1;
     let total = Infinity;
@@ -149,18 +193,14 @@ export const zrszSource: Source = {
       await sleep(REQUEST_DELAY_MS);
     }
 
-    // The search API exposes no description body. Fetching a detail page per
-    // vacancy for all ~4,400 postings would outrun the nightly job's timeout,
-    // so the body is only fetched for ads that already look relevant.
     const jobs: RawJob[] = [];
     for (const i of items) {
       if (i.sourceId.length === 0) continue;
-      let description = '';
-      if (needsDetail(i)) {
+      let detail: ZrszDetail | null = null;
+      if (needsDetail(i, now, ctx)) {
         await sleep(REQUEST_DELAY_MS);
         const detailUrl = `${baseUrl}${DETAIL_PATH}?idDelovnoMesto=${i.sourceId}&user_key=${userKey}`;
-        const detail = await fetchJson<unknown>(detailUrl);
-        description = parseDetail(detail).description;
+        detail = parseDetail(await fetchJson<unknown>(detailUrl));
       }
       jobs.push({
         source: 'zrsz',
@@ -170,11 +210,16 @@ export const zrszSource: Source = {
         company: i.company,
         location: i.location,
         postedAt: i.postedAt,
-        description,
+        description: detail?.description ?? '',
         tags: i.occupation ? [i.occupation] : [],
         employmentRaw: i.employmentRaw,
         workTimeRaw: i.workTimeRaw,
         occupation: i.occupation,
+        deadline: detail?.deadline ?? null,
+        salary: detail?.salary ?? null,
+        experienceRaw: detail?.experienceRaw ?? null,
+        languagesRaw: detail?.languagesRaw ?? null,
+        country: 'SI',
       });
     }
 

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>EU Careers | Jobs</title>
+    <link>https://eu-careers.europa.eu/jobs_en</link>
+    <atom:link href="https://eu-careers.europa.eu/node/244/rss_en" rel="self" type="application/rss+xml"/>
+    <description>EU Careers | Jobs</description>
+    <language>en</language>
+    <copyright>© European Union, 1995-2026</copyright>
+          <image>
+        <url>https://eu-careers.europa.eu/themes/contrib/oe_theme/dist/eu/images/logo/standard-version/positive/logo-eu--en.svg</url>
+        <title>European Union logo</title>
+        <link>https://eu-careers.europa.eu/jobs_en</link>
+      </image>
+        
+    <item>
+  <title>SG/COM/2026/1415</title>
+  <atom:id>https://eu-careers.europa.eu/node/651</atom:id>
+  <link>https://eu-careers.europa.eu/jobs/document-management-officer_en</link>
+  <guid>https://eu-careers.europa.eu/jobs/document-management-officer_en</guid>
+  <description>&lt;p&gt;A position as Team Leader – Document Management Officer (DMO)&lt;br&gt;
+We offer an interesting and challenging position  which role aims at ensuring an effective and modern document and archives management inside the Secretariat General. In collaboration with the other members of the team.&lt;/p&gt;
+</description>
+  <pubDate>Sat, 31 Oct 2026 09:11:17 +0100</pubDate>
+<category domain="http://publications.europa.eu/resource/authority/corporate-body">Directorate-General for Human Resources and Security</category>
+<category domain="Career Domain">Information and document management</category>
+<category domain="City">Brussels</category>
+<category domain="Contract type">Temporary staff</category>
+<category domain="Grade">AST 1</category>
+<category domain="Grade">AST 3</category>
+<category domain="Institution / Agency">European Commission</category>
+<category domain="Job title - standard">Document Management Officer</category>
+<category domain="http://data.europa.eu/uxp/det">public administration</category>
+
+</item>
+<item>
+  <title>Europol/2026/TA/AD7/784</title>
+  <atom:id>https://eu-careers.europa.eu/node/650</atom:id>
+  <link>https://eu-careers.europa.eu/jobs/senior-specialist-head-team-247-operational-centre_en</link>
+  <guid>https://eu-careers.europa.eu/jobs/senior-specialist-head-team-247-operational-centre_en</guid>
+  <description>&lt;p&gt;&lt;a href="https://www.europol.europa.eu/work-with-us/careers/open-vacancies/vacancy/1098"&gt;https://www.europol.europa.eu/work-with-us/careers/open-vacancies/vacan…&lt;/a&gt;&lt;/p&gt;
+</description>
+  <pubDate>Fri, 30 Oct 2026 16:39:13 +0100</pubDate>
+<category domain="http://publications.europa.eu/resource/authority/corporate-body">Directorate-General for Human Resources and Security</category>
+<category domain="City">The Hague</category>
+<category domain="Contract type">Temporary staff</category>
+<category domain="Grade">AD 7</category>
+<category domain="Institution / Agency">European Union Agency for Law Enforcement Cooperation (Europol)</category>
+<category domain="Job title - standard">Senior Specialist - Head of Team - 24/7 Operational Centre</category>
+<category domain="http://data.europa.eu/uxp/det">Europol</category>
+
+</item>
+<item>
+  <title>EMA/CA/11428 </title>
+  <atom:id>https://eu-careers.europa.eu/node/645</atom:id>
+  <link>https://eu-careers.europa.eu/jobs/hr-officer_en</link>
+  <guid>https://eu-careers.europa.eu/jobs/hr-officer_en</guid>
+  <description>&lt;p&gt;EMA is looking for an HR Officer (Staff Matters Service) responsible for delivering HR strategic objectives, ensuring the effective execution of projects, and supporting change management initiatives within the relevant areas of expertise.&lt;/p&gt;
+</description>
+  <pubDate>Fri, 30 Oct 2026 12:25:29 +0100</pubDate>
+<category domain="http://publications.europa.eu/resource/authority/corporate-body">Directorate-General for Human Resources and Security</category>
+<category domain="Career Domain">Human Resources</category>
+<category domain="City">Amsterdam</category>
+<category domain="Contract type">Contract staff</category>
+<category domain="Grade">FG IV</category>
+<category domain="Institution / Agency">European Medicines Agency (EMA)</category>
+<category domain="Job title - standard">HR Officer</category>
+<category domain="http://data.europa.eu/uxp/det">personnel administration</category>
+
+</item>
+<item>
+  <title>EC-2026-OIB-529442</title>
+  <atom:id>https://eu-careers.europa.eu/node/624</atom:id>
+  <link>https://eu-careers.europa.eu/jobs/administrative-agent-16_fr</link>
+  <guid>https://eu-careers.europa.eu/jobs/administrative-agent-16_fr</guid>
+  <description>&lt;p&gt;Agent administrative - OIB&lt;/p&gt;
+</description>
+  <pubDate>Wed, 28 Oct 2026 10:11:00 +0100</pubDate>
+<category domain="http://publications.europa.eu/resource/authority/corporate-body">Direction générale des ressources humaines et de la sécurité</category>
+<category domain="Career Domain">Buildings and Supplies</category>
+<category domain="City">Brussels</category>
+<category domain="Contract type">Contract staff</category>
+<category domain="Grade">FG II</category>
+<category domain="Institution / Agency">European Commission</category>
+<category domain="Job title - standard">Administrative Agent</category>
+<category domain="http://data.europa.eu/uxp/det">gestion du matériel</category>
+
+</item>
+  </channel>
+</rss>
