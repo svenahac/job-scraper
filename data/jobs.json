@@ -1,77 +1,77 @@
 {
- "generatedAt": "2026-11-02T23:43:27.636Z",
+ "generatedAt": "2026-11-03T21:33:40.461Z",
  "windowDays": 60,
  "sources": [
   {
    "name": "zrsz",
    "label": "Zavod RS za zaposlovanje",
    "ok": true,
-   "count": 3127,
-   "lastOkAt": "2026-11-02T23:43:27.636Z",
+   "count": 3346,
+   "lastOkAt": "2026-11-03T21:33:40.461Z",
    "error": null
   },
   {
    "name": "mojedelo",
    "label": "MojeDelo",
    "ok": true,
-   "count": 408,
-   "lastOkAt": "2026-11-02T23:43:27.636Z",
+   "count": 420,
+   "lastOkAt": "2026-11-03T21:33:40.461Z",
    "error": null
   },
   {
    "name": "optius",
    "label": "Optius",
    "ok": true,
-   "count": 189,
-   "lastOkAt": "2026-11-02T23:43:27.636Z",
+   "count": 201,
+   "lastOkAt": "2026-11-03T21:33:40.461Z",
    "error": null
   },
   {
    "name": "linkedin",
    "label": "LinkedIn",
    "ok": true,
-   "count": 119,
-   "lastOkAt": "2026-11-02T23:43:27.636Z",
+   "count": 99,
+   "lastOkAt": "2026-11-03T21:33:40.461Z",
    "error": null
   },
   {
    "name": "himalayas",
    "label": "Himalayas",
    "ok": true,
-   "count": 106,
-   "lastOkAt": "2026-11-02T23:43:27.636Z",
+   "count": 109,
+   "lastOkAt": "2026-11-03T21:33:40.461Z",
    "error": null
   },
   {
    "name": "eucareers",
    "label": "EU Careers",
    "ok": true,
-   "count": 118,
-   "lastOkAt": "2026-11-02T23:43:27.636Z",
+   "count": 116,
+   "lastOkAt": "2026-11-03T21:33:40.461Z",
    "error": null
   },
   {
    "name": "eurobrussels",
    "label": "EuroBrussels",
    "ok": true,
-   "count": 56,
-   "lastOkAt": "2026-11-02T23:43:27.636Z",
+   "count": 69,
+   "lastOkAt": "2026-11-03T21:33:40.461Z",
    "error": null
   },
   {
    "name": "euractiv",
    "label": "Euractiv Jobs",
    "ok": true,
-   "count": 21,
-   "lastOkAt": "2026-11-02T23:43:27.636Z",
+   "count": 23,
+   "lastOkAt": "2026-11-03T21:33:40.461Z",
    "error": null
   },
   {
    "name": "eures",
    "label": "EURES",
    "ok": true,
-   "count": 80,
-   "lastOkAt": "2026-11-02T23:43:27.636Z",
+   "count": 88,
+   "lastOkAt": "2026-11-03T21:33:40.461Z",
    "error": null
   }
  ],
@@ -403,6 +403,60 @@
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
+   "id": "b6b87ea0cf231546",
+   "ids": [
+    "b6b87ea0cf231546"
+   ],
+   "title": "Global Technical Instructional Designer",
+   "company": "Hitachi Energy",
+   "location": "Sevlievo, Gabrovo, Bulgaria",
+   "locationClass": "remote",
+   "workMode": "remote",
+   "employmentType": "unknown",
+   "postedAt": "2026-10-10",
+   "deadline": null,
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "digital",
+   "areas": [
+    "digital"
+   ],
+   "score": 75,
+   "parts": {
+    "relevance": 35,
+    "experience": 6,
+    "workMode": 15,
+    "level": 10,
+    "location": 9,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Digitalno izobraževanje in EdTech«"
+    },
+    {
+     "kind": "fit",
+     "text": "Delo na daljavo"
+    },
+    {
+     "kind": "fit",
+     "text": "Odprto za kandidate iz Slovenije"
+    }
+   ],
+   "sources": [
+    {
+     "source": "linkedin",
+     "label": "LinkedIn",
+     "url": "https://bg.linkedin.com/jobs/view/global-technical-instructional-designer-at-hitachi-energy-4460313793"
+    }
+   ],
+   "firstSeenAt": "2026-11-03T21:33:40.461Z"
+  },
+  {
    "id": "979e3d915830742c",
    "ids": [
     "979e3d915830742c"
@@ -475,8 +529,8 @@
    "locationClass": "abroad",
    "workMode": "hybrid",
    "employmentType": "unknown",
-   "postedAt": "2026-10-09",
-   "deadline": "2026-11-04",
+   "postedAt": "2026-10-08",
+   "deadline": "2026-11-03",
    "experience": "3 - 4 Years Experience",
    "minYears": 3,
    "seniority": "mid",
@@ -537,7 +591,7 @@
    "locationClass": "remote",
    "workMode": "remote",
    "employmentType": "unknown",
-   "postedAt": "2026-10-24",
+   "postedAt": "2026-10-23",
    "deadline": null,
    "experience": "3 - 4 Years Experience, 5 Years+ Experience",
    "minYears": 3,
@@ -894,62 +948,62 @@
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
-   "id": "aaae49f2758cb33d",
+   "id": "abb52c6538ec6a6b",
    "ids": [
-    "aaae49f2758cb33d"
+    "abb52c6538ec6a6b"
    ],
-   "title": "Learning and Development Officer",
-   "company": "European Centre for Disease Prevention and Control (ECDC)",
-   "location": "Stockholm, Sweden",
-   "locationClass": "abroad",
+   "title": "Strokovni sodelavec za ekonomsko področje VII/1 (I) (m/ž) SUPAS, področje za ekonomsko in finančno dejavnost",
+   "company": "UNIVERZITETNI KLINIČNI CENTER LJUBLJANA",
+   "location": "Ljubljana",
+   "locationClass": "ljubljana",
    "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": null,
-   "deadline": "2026-11-04",
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": "EU grade AST 4",
-   "area": "ld",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-03",
+   "deadline": "2026-11-13",
+   "experience": "1 - 3 let",
+   "minYears": 1,
+   "seniority": "junior",
+   "salary": null,
+   "area": "related",
    "areas": [
-    "ld"
+    "related"
    ],
-   "score": 62,
+   "score": 63,
    "parts": {
-    "relevance": 35,
-    "experience": 6,
+    "relevance": 24,
+    "experience": 5,
     "workMode": 4,
-    "level": 10,
-    "location": 2,
+    "level": 15,
+    "location": 10,
     "organisation": 5,
     "penalty": 0
    },
    "reasons": [
     {
      "kind": "fit",
-     "text": "Naziv ustreza področju »Izobraževanje in razvoj zaposlenih (L&D)«"
+     "text": "Delo spada na področje »Druge sorodne pozicije«"
     },
     {
      "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: razvoj zaposlenih"
-    },
-    {
-     "kind": "warn",
-     "text": "Delo v tujini (zahteva selitev)"
+     "text": "Zahtevane izkušnje (1 - 3 let) ustrezajo tvojemu profilu"
     },
     {
      "kind": "fit",
-     "text": "Mednarodna organizacija"
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, javna ali nevladna organizacija"
     }
    ],
    "sources": [
     {
-     "source": "eucareers",
-     "label": "EU Careers",
-     "url": "https://eu-careers.europa.eu/jobs/learning-and-development-officer_en"
+     "source": "optius",
+     "label": "Optius",
+     "url": "https://www.optius.com/iskalci/prosta-delovna-mesta/strokovni-sodelavec-za-ekonomsko-podrocje-vii1-i-mz-supas-podrocje-za-ekonomsko-in-financno-dejavnost-965829-965829/"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-03T21:33:40.461Z"
   },
   {
    "id": "116a3b412d32ada0",
@@ -1005,6 +1059,64 @@
      "source": "mojedelo",
      "label": "MojeDelo",
      "url": "https://www.mojedelo.com/job-ad/svetovalec-za-podrocje-podpore-in-koordinacije-projektov-v-uradu-direktorja-m-z/b3c2f8bc-359b-4b9d-a889-a59765b26495"
+    }
+   ],
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+  },
+  {
+   "id": "aaae49f2758cb33d",
+   "ids": [
+    "aaae49f2758cb33d"
+   ],
+   "title": "Learning and Development Officer",
+   "company": "European Centre for Disease Prevention and Control (ECDC)",
+   "location": "Stockholm, Sweden",
+   "locationClass": "abroad",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": null,
+   "deadline": "2026-11-04",
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": "EU grade AST 4",
+   "area": "ld",
+   "areas": [
+    "ld"
+   ],
+   "score": 61,
+   "parts": {
+    "relevance": 35,
+    "experience": 5,
+    "workMode": 4,
+    "level": 10,
+    "location": 2,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Izobraževanje in razvoj zaposlenih (L&D)«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ujema se s tvojimi izkušnjami: razvoj zaposlenih"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "eucareers",
+     "label": "EU Careers",
+     "url": "https://eu-careers.europa.eu/jobs/learning-and-development-officer_en"
     }
    ],
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
@@ -1560,6 +1672,72 @@
     }
    ],
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
+  },
+  {
+   "id": "b5d9f5fb2a69ca40",
+   "ids": [
+    "b5d9f5fb2a69ca40"
+   ],
+   "title": "Policy Officer",
+   "company": "Supergrid Europe",
+   "location": "Brussels, Belgium",
+   "locationClass": "abroad",
+   "workMode": "onsite",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-03",
+   "deadline": "2026-11-30",
+   "experience": "3-5 Years",
+   "minYears": 3,
+   "seniority": "mid",
+   "salary": null,
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 51,
+   "parts": {
+    "relevance": 24,
+    "experience": 5,
+    "workMode": 4,
+    "level": 13,
+    "location": 2,
+    "organisation": 7,
+    "penalty": -4
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Projekti in koordinacija«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (3-5 Years) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: mednarodno okolje"
+    },
+    {
+     "kind": "warn",
+     "text": "Vključuje tudi kadrovsko administracijo"
+    }
+   ],
+   "sources": [
+    {
+     "source": "euractiv",
+     "label": "Euractiv Jobs",
+     "url": "https://jobs.rapporteur.com/jobs/policy-officer-brussels-on-site-supergrid-europe/"
+    }
+   ],
+   "firstSeenAt": "2026-11-03T21:33:40.461Z"
   },
   {
    "id": "5b2692d2c2d4b835",
