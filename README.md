@@ -91,9 +91,13 @@ and cached detail pages, so each night only new ads cost a detail request. It
 lives in the GitHub Actions cache, not in git. If the cache is lost the next
 run simply starts fresh.
 
-The scrape runs nightly at 17:00 UTC; trigger it by hand from the Actions tab
-with "Run workflow". Each run that changes `data/jobs.json` commits it, and
-Vercel redeploys the app from that commit.
+The scrape runs daily at 18:00 Europe/Ljubljana, summer time included.
+GitHub starts scheduled runs hours late, so the workflow is scheduled for
+08:30 UTC and then waits until 18:00 Ljubljana before scraping; if GitHub
+starts it after 18:00 it scrapes at once. Trigger a run by hand from the
+Actions tab with "Run workflow"; manual runs skip the wait. Each run that
+changes `data/jobs.json` commits it, and Vercel redeploys the app from that
+commit.
 
 Optional secret: `HIMALAYAS_API_KEY` (a free key from Himalayas raises its
 rate limit; without one the shared public quota is used).

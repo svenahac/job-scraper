@@ -2,20 +2,54 @@ name: Scrape jobs
 
 on:
   schedule:
-    # 17:00 UTC = 19:00 in Ljubljana during CEST, 18:00 during CET.
-    # GitHub cron has no DST awareness; the one-hour winter drift is accepted.
-    - cron: '0 17 * * *'
+    # GitHub starts scheduled runs late (three to seven hours seen), so the
+    # run is scheduled early and the wait jobs sleep until 18:00
+    # Europe/Ljubljana. 08:30 UTC leaves room for an 8.5-hour delay in winter
+    # and 7.5 hours in summer; a run that starts after 18:00 scrapes at once.
+    - cron: '30 8 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
-concurrency:
-  group: scrape
-  cancel-in-progress: false
-
 jobs:
+  # One job may run for at most six hours, so the wait is two back-to-back
+  # jobs, each sleeping up to 5 h 40 min of the time left. Manual runs skip
+  # the wait and scrape immediately.
+  wait:
+    if: github.event_name == 'schedule'
+    strategy:
+      max-parallel: 1
+      matrix:
+        part: [1, 2]
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - name: Wait until 18:00 Ljubljana
+        run: |
+          # Without zone data, TZ silently falls back to UTC; fail loudly instead.
+          if ! [[ $(TZ=Europe/Ljubljana date +%z) =~ ^\+0[12]00$ ]]; then
+            echo "::error::No Europe/Ljubljana time zone data on this runner"
+            exit 1
+          fi
+          today=$(TZ=Europe/Ljubljana date +%F)
+          target=$(TZ=Europe/Ljubljana date -d "$today 18:00" +%s)
+          left=$(( target - $(date +%s) ))
+          if [ "$left" -le 0 ]; then
+            echo "18:00 Ljubljana has passed; nothing to wait for."
+            exit 0
+          fi
+          nap=$(( left < 20400 ? left : 20400 ))
+          echo "Sleeping $(( nap / 60 )) of the $(( left / 60 )) minutes left until 18:00 Ljubljana."
+          sleep "$nap"
+
   scrape:
+    needs: wait
+    # Run after the wait, or straight away on a manual run (wait skipped).
+    if: ${{ !cancelled() }}
+    concurrency:
+      group: scrape
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
