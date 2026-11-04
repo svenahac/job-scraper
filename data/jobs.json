@@ -1,21 +1,21 @@
 {
- "generatedAt": "2026-11-03T21:33:40.461Z",
+ "generatedAt": "2026-11-04T17:00:22.623Z",
  "windowDays": 60,
  "sources": [
   {
    "name": "zrsz",
    "label": "Zavod RS za zaposlovanje",
    "ok": true,
-   "count": 3346,
-   "lastOkAt": "2026-11-03T21:33:40.461Z",
+   "count": 3702,
+   "lastOkAt": "2026-11-04T17:00:22.623Z",
    "error": null
   },
   {
    "name": "mojedelo",
    "label": "MojeDelo",
    "ok": true,
-   "count": 420,
-   "lastOkAt": "2026-11-03T21:33:40.461Z",
+   "count": 418,
+   "lastOkAt": "2026-11-04T17:00:22.623Z",
    "error": null
   },
   {
@@ -23,55 +23,55 @@
    "label": "Optius",
    "ok": true,
    "count": 201,
-   "lastOkAt": "2026-11-03T21:33:40.461Z",
+   "lastOkAt": "2026-11-04T17:00:22.623Z",
    "error": null
   },
   {
    "name": "linkedin",
    "label": "LinkedIn",
    "ok": true,
-   "count": 99,
-   "lastOkAt": "2026-11-03T21:33:40.461Z",
+   "count": 117,
+   "lastOkAt": "2026-11-04T17:00:22.623Z",
    "error": null
   },
   {
    "name": "himalayas",
    "label": "Himalayas",
    "ok": true,
-   "count": 109,
-   "lastOkAt": "2026-11-03T21:33:40.461Z",
+   "count": 107,
+   "lastOkAt": "2026-11-04T17:00:22.623Z",
    "error": null
   },
   {
    "name": "eucareers",
    "label": "EU Careers",
    "ok": true,
-   "count": 116,
-   "lastOkAt": "2026-11-03T21:33:40.461Z",
+   "count": 121,
+   "lastOkAt": "2026-11-04T17:00:22.623Z",
    "error": null
   },
   {
    "name": "eurobrussels",
    "label": "EuroBrussels",
    "ok": true,
-   "count": 69,
-   "lastOkAt": "2026-11-03T21:33:40.461Z",
+   "count": 74,
+   "lastOkAt": "2026-11-04T17:00:22.623Z",
    "error": null
   },
   {
    "name": "euractiv",
    "label": "Euractiv Jobs",
    "ok": true,
-   "count": 23,
-   "lastOkAt": "2026-11-03T21:33:40.461Z",
+   "count": 25,
+   "lastOkAt": "2026-11-04T17:00:22.623Z",
    "error": null
   },
   {
    "name": "eures",
    "label": "EURES",
    "ok": true,
-   "count": 88,
-   "lastOkAt": "2026-11-03T21:33:40.461Z",
+   "count": 87,
+   "lastOkAt": "2026-11-04T17:00:22.623Z",
    "error": null
   }
  ],
@@ -295,6 +295,60 @@
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
+   "id": "b6b87ea0cf231546",
+   "ids": [
+    "b6b87ea0cf231546"
+   ],
+   "title": "Global Technical Instructional Designer",
+   "company": "Hitachi Energy",
+   "location": "Sevlievo, Gabrovo, Bulgaria",
+   "locationClass": "remote",
+   "workMode": "remote",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-04",
+   "deadline": null,
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "digital",
+   "areas": [
+    "digital"
+   ],
+   "score": 75,
+   "parts": {
+    "relevance": 35,
+    "experience": 6,
+    "workMode": 15,
+    "level": 10,
+    "location": 9,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Digitalno izobraževanje in EdTech«"
+    },
+    {
+     "kind": "fit",
+     "text": "Delo na daljavo"
+    },
+    {
+     "kind": "fit",
+     "text": "Odprto za kandidate iz Slovenije"
+    }
+   ],
+   "sources": [
+    {
+     "source": "linkedin",
+     "label": "LinkedIn",
+     "url": "https://bg.linkedin.com/jobs/view/global-technical-instructional-designer-at-hitachi-energy-4460313793"
+    }
+   ],
+   "firstSeenAt": "2026-11-03T21:33:40.461Z"
+  },
+  {
    "id": "d2da734582134ddc",
    "ids": [
     "d2da734582134ddc"
@@ -401,60 +455,6 @@
     }
    ],
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
-  },
-  {
-   "id": "b6b87ea0cf231546",
-   "ids": [
-    "b6b87ea0cf231546"
-   ],
-   "title": "Global Technical Instructional Designer",
-   "company": "Hitachi Energy",
-   "location": "Sevlievo, Gabrovo, Bulgaria",
-   "locationClass": "remote",
-   "workMode": "remote",
-   "employmentType": "unknown",
-   "postedAt": "2026-10-10",
-   "deadline": null,
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "digital",
-   "areas": [
-    "digital"
-   ],
-   "score": 75,
-   "parts": {
-    "relevance": 35,
-    "experience": 6,
-    "workMode": 15,
-    "level": 10,
-    "location": 9,
-    "organisation": 0,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Digitalno izobraževanje in EdTech«"
-    },
-    {
-     "kind": "fit",
-     "text": "Delo na daljavo"
-    },
-    {
-     "kind": "fit",
-     "text": "Odprto za kandidate iz Slovenije"
-    }
-   ],
-   "sources": [
-    {
-     "source": "linkedin",
-     "label": "LinkedIn",
-     "url": "https://bg.linkedin.com/jobs/view/global-technical-instructional-designer-at-hitachi-energy-4460313793"
-    }
-   ],
-   "firstSeenAt": "2026-11-03T21:33:40.461Z"
   },
   {
    "id": "979e3d915830742c",
@@ -948,6 +948,64 @@
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
   },
   {
+   "id": "ddbd146a0c61bdeb",
+   "ids": [
+    "ddbd146a0c61bdeb"
+   ],
+   "title": "KOORDINATOR VII/2 (E097118) ZA POTREBE OI, ODDELEK ZA RAZISKOVANJE IN IZOBRAŽEVANJE - M/Ž",
+   "company": "ONKOLOŠKI INŠTITUT LJUBLJANA",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-04",
+   "deadline": "2026-11-12",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 63,
+   "parts": {
+    "relevance": 24,
+    "experience": 5,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Projekti in koordinacija«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3500963/#/pdm/3500963"
+    }
+   ],
+   "firstSeenAt": "2026-11-04T17:00:22.623Z"
+  },
+  {
    "id": "abb52c6538ec6a6b",
    "ids": [
     "abb52c6538ec6a6b"
@@ -1132,7 +1190,7 @@
    "locationClass": "ljubljana",
    "workMode": "onsite",
    "employmentType": "unknown",
-   "postedAt": "2026-11-02",
+   "postedAt": "2026-11-04",
    "deadline": null,
    "experience": null,
    "minYears": null,
@@ -1170,6 +1228,60 @@
     }
    ],
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
+  },
+  {
+   "id": "b5d3a778991315b5",
+   "ids": [
+    "b5d3a778991315b5"
+   ],
+   "title": "SAMOSTOJNI STROKOVNI SVETOVALEC PODROČJA V VISOKOŠOLSKI DEJAVNOSTI VII/2-I (PROJEKTNA PISARNA) - M/Ž",
+   "company": "Univerza v Novem mestu",
+   "location": "NOVO MESTO",
+   "locationClass": "slovenia",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-04",
+   "deadline": "2026-11-19",
+   "experience": "5 let",
+   "minYears": 5,
+   "seniority": "mid",
+   "salary": null,
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 58,
+   "parts": {
+    "relevance": 30,
+    "experience": 7,
+    "workMode": 4,
+    "level": 8,
+    "location": 4,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva 5+ let izkušenj"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3501336/#/pdm/3501336"
+    }
+   ],
+   "firstSeenAt": "2026-11-04T17:00:22.623Z"
   },
   {
    "id": "33ec8f2bff5a876e",
@@ -1271,6 +1383,86 @@
      "source": "zrsz",
      "label": "Zavod RS za zaposlovanje",
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3495690/#/pdm/3495690"
+    }
+   ],
+   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+  },
+  {
+   "id": "681f69189e7f1b51",
+   "ids": [
+    "7070d47a22854f09",
+    "681f69189e7f1b51"
+   ],
+   "title": "Communication & Projects Officer",
+   "company": "European Builders Confederation EBC",
+   "location": "Brussels, Belgium",
+   "locationClass": "abroad",
+   "workMode": "hybrid",
+   "employmentType": "unknown",
+   "postedAt": "2026-10-30",
+   "deadline": "2026-11-20",
+   "experience": "1-3 Years",
+   "minYears": 1,
+   "seniority": "junior",
+   "salary": null,
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 57,
+   "parts": {
+    "relevance": 12,
+    "experience": 7,
+    "workMode": 13,
+    "level": 15,
+    "location": 0,
+    "organisation": 10,
+    "penalty": -5
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Vsebina dela se navezuje na področje »Projekti in koordinacija«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ujema se s tvojimi izkušnjami: EU-projekti"
+    },
+    {
+     "kind": "fit",
+     "text": "Hibridno delo (delno od doma)"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (1-3 Years) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva francoščino"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: EU-projekti, razvoj kompetenc, mednarodno okolje"
+    }
+   ],
+   "sources": [
+    {
+     "source": "euractiv",
+     "label": "Euractiv Jobs",
+     "url": "https://jobs.rapporteur.com/jobs/communication-projects-officer-brussels-hybrid-european-builders-confederation-ebc/"
+    },
+    {
+     "source": "eurobrussels",
+     "label": "EuroBrussels",
+     "url": "https://www.eurobrussels.com/job_display/298644/Communication_Projects_Officer_EBC_European_Builders_Confederation_Brussels_Belgium"
     }
    ],
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
@@ -1382,6 +1574,60 @@
     }
    ],
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
+  },
+  {
+   "id": "8068e715523911b1",
+   "ids": [
+    "8068e715523911b1"
+   ],
+   "title": "Project Officer Medical",
+   "company": "European Defence Agency (EDA)",
+   "location": "Brussels, Belgium",
+   "locationClass": "abroad",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-04",
+   "deadline": "2026-11-26",
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": "EU grade AD 8",
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 54,
+   "parts": {
+    "relevance": 30,
+    "experience": 3,
+    "workMode": 4,
+    "level": 10,
+    "location": 2,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "eucareers",
+     "label": "EU Careers",
+     "url": "https://eu-careers.europa.eu/jobs/project-officer-medical_en"
+    }
+   ],
+   "firstSeenAt": "2026-11-04T17:00:22.623Z"
   },
   {
    "id": "2dd7a82fddcdbbfb",
@@ -1545,80 +1791,6 @@
      "source": "euractiv",
      "label": "Euractiv Jobs",
      "url": "https://jobs.rapporteur.com/jobs/policy-analyst-on-gender-equality-brussels-on-site-foundation-for-european-progressive-studies-feps/"
-    }
-   ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
-  },
-  {
-   "id": "681f69189e7f1b51",
-   "ids": [
-    "681f69189e7f1b51"
-   ],
-   "title": "Communication & Projects Officer",
-   "company": "European Builders Confederation EBC",
-   "location": "Brussels, Belgium",
-   "locationClass": "abroad",
-   "workMode": "hybrid",
-   "employmentType": "unknown",
-   "postedAt": "2026-10-30",
-   "deadline": "2026-11-20",
-   "experience": "1-3 Years",
-   "minYears": 1,
-   "seniority": "junior",
-   "salary": null,
-   "area": "projects",
-   "areas": [
-    "projects"
-   ],
-   "score": 52,
-   "parts": {
-    "relevance": 12,
-    "experience": 7,
-    "workMode": 13,
-    "level": 15,
-    "location": 0,
-    "organisation": 10,
-    "penalty": -5
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Vsebina dela se navezuje na področje »Projekti in koordinacija«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: EU-projekti"
-    },
-    {
-     "kind": "fit",
-     "text": "Hibridno delo (delno od doma)"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (1-3 Years) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "warn",
-     "text": "Delo v tujini (zahteva selitev)"
-    },
-    {
-     "kind": "warn",
-     "text": "Zahteva francoščino"
-    },
-    {
-     "kind": "fit",
-     "text": "Mednarodna organizacija"
-    },
-    {
-     "kind": "fit",
-     "text": "Tematika: EU-projekti, razvoj kompetenc, mednarodno okolje"
-    }
-   ],
-   "sources": [
-    {
-     "source": "euractiv",
-     "label": "Euractiv Jobs",
-     "url": "https://jobs.rapporteur.com/jobs/communication-projects-officer-brussels-hybrid-european-builders-confederation-ebc/"
     }
    ],
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
@@ -1858,6 +2030,76 @@
     }
    ],
    "firstSeenAt": "2026-11-02T10:03:47.196Z"
+  },
+  {
+   "id": "c19cc2a2c9e54b47",
+   "ids": [
+    "c19cc2a2c9e54b47"
+   ],
+   "title": "Project Manager (m/f/d)",
+   "company": "GIZ GmbH",
+   "location": "Brussels, Belgium",
+   "locationClass": "abroad",
+   "workMode": "onsite",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-04",
+   "deadline": "2026-11-18",
+   "experience": "5-7 Years",
+   "minYears": 5,
+   "seniority": "mid",
+   "salary": "€40.000-€50.000",
+   "area": "related",
+   "areas": [
+    "related"
+   ],
+   "score": 49,
+   "parts": {
+    "relevance": 24,
+    "experience": 7,
+    "workMode": 4,
+    "level": 3,
+    "location": 2,
+    "organisation": 9,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Druge sorodne pozicije«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ujema se s tvojimi izkušnjami: EU-projekti"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva 5+ let izkušenj"
+    },
+    {
+     "kind": "warn",
+     "text": "Naziv nakazuje vodstveno ali višjo pozicijo"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: EU-projekti, mednarodno okolje"
+    }
+   ],
+   "sources": [
+    {
+     "source": "euractiv",
+     "label": "Euractiv Jobs",
+     "url": "https://jobs.rapporteur.com/jobs/project-manager-m-f-d-brussels-brussels-on-site-giz-gmbh/"
+    }
+   ],
+   "firstSeenAt": "2026-11-04T17:00:22.623Z"
   },
   {
    "id": "f47ace8aa1bb3e19",
