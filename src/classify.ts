@@ -3,12 +3,13 @@ import type {
 } from './types.js';
 import type { AreaKey } from './profile.js';
 import {
-  AREAS, BODY_WARN, CONTEXTUAL, CONTRACT_REJECT, DOMAIN_REJECT, EDUCATION_CONTEXT,
-  EDUCATION_ORGS, EU_TERMS, FOREIGN_LANGUAGES, GENERIC_ROLES, GOOD_ORGS, GOOD_THEMES,
-  HR_ADMIN_SUBSTANCE, HR_GENERIC, HR_REJECT, HYBRID_MARKERS, JUNIOR_MARKERS,
-  LANGUAGE_OPTIONAL, LANGUAGE_REQUIRED, LEARNING_SUBSTANCE, LJUBLJANA_AREA, ONSITE_MARKERS,
-  REMOTE_BODY_MARKERS, REMOTE_ELIGIBLE, REMOTE_MARKERS, SENIOR_PENALTY, SENIOR_REJECT, SKILLS, SLOVENIA_MARKERS,
-  TITLE_REJECT,
+  AREAS, BODY_WARN, COAST_AREA, CONTEXTUAL, CONTRACT_REJECT, DEGREE_REJECT, DEGREE_ROUTE,
+  DIGITAL_BODY, DIGITAL_CONTEXT, DOMAIN_REJECT, EDUCATION_CONTEXT, EDUCATION_ORGS, EU_TERMS, FOREIGN_LANGUAGES, GENERIC_ROLES,
+  GOOD_ORGS, GOOD_THEMES, HR_ADMIN_SUBSTANCE, HR_GENERIC, HR_REJECT, HYBRID_MARKERS,
+  INSTITUTION_ORGS, JUNIOR_MARKERS, LANGUAGE_OPTIONAL, LANGUAGE_REQUIRED, LEARNING_SUBSTANCE,
+  LJUBLJANA_AREA, NONPROFIT_BODY, ONSITE_MARKERS, PROGRAMMING, REMOTE_BODY_MARKERS,
+  REMOTE_ELIGIBLE, REMOTE_MARKERS, SENIOR_EXCEPT, SENIOR_PENALTY, SENIOR_REJECT, SKILLS,
+  SLOVENIA_MARKERS, SOCIAL_BODY, SOCIAL_CONTEXT, TITLE_REJECT,
 } from './profile.js';
 import { fold, hasAny, hits, positions, termRegex } from './match.js';
 
@@ -52,6 +53,8 @@ interface Texts {
   body: string;
   /** Source tags plus the source's occupation title. */
   tags: string;
+  /** The source's occupation title alone ("Projektni sodelavec", "Psiholog"). */
+  occupation: string;
   company: string;
   location: string;
 }
@@ -60,6 +63,7 @@ const textsOf = (job: RawJob): Texts => ({
   title: fold(job.title),
   body: fold(job.description ?? ''),
   tags: fold([...job.tags, job.occupation ?? ''].join(' | ')),
+  occupation: fold(job.occupation ?? ''),
   company: fold(job.company ?? ''),
   location: fold(job.location ?? ''),
 });
@@ -67,11 +71,41 @@ const textsOf = (job: RawJob): Texts => ({
 const AREA_BY_KEY = new Map(AREAS.map((a) => [a.key, a]));
 export const areaLabel = (key: AreaKey): string => AREA_BY_KEY.get(key)?.label ?? key;
 
-/** Specific phrases across the core areas, used to judge a generic title. */
-const CONTEXT_BODY: readonly string[] = [
+/** Specific learning and education phrases from the core areas. */
+const LEARNING_BODY: readonly string[] = [
   ...AREA_BY_KEY.get('ld')!.body, ...AREA_BY_KEY.get('education')!.body,
-  ...AREA_BY_KEY.get('digital')!.body, ...EU_TERMS,
+  ...AREA_BY_KEY.get('digital')!.body,
 ];
+
+/** Specific phrases across the core areas, used to judge a generic title. */
+const CONTEXT_BODY: readonly string[] = [...LEARNING_BODY, ...EU_TERMS];
+
+const SOCIAL_OR_LEARNING_BODY: readonly string[] = [...new Set([...SOCIAL_BODY, ...LEARNING_BODY])];
+
+/** Whether the title names a senior rank ("Sekretar"), not a "poslovni sekretar". */
+const seniorTitle = (folded: string): boolean =>
+  hasAny(folded, SENIOR_REJECT) && !hasAny(folded, SENIOR_EXCEPT);
+
+/** Whether the employer is an NGO, a cultural institution or a university. */
+function atInstitution(t: Texts): boolean {
+  return hasAny(t.company, INSTITUTION_ORGS) || hasAny(t.body, NONPROFIT_BODY);
+}
+
+/**
+ * Whether project work is the kind the seeker wants: in the social sciences,
+ * humanities, culture, education or the social sector, or digital — and in
+ * either case without programming.
+ */
+function projectFit(t: Texts): boolean {
+  if (hasAny(t.title, PROGRAMMING) || hits(t.body, PROGRAMMING).length >= 2) return false;
+  // Title and occupation only: a portal's category ("Javni sektor, Nevladne
+  // organizacije, Kultura") is too broad to say what one project is about.
+  const head = `${t.title} \n ${t.occupation}`;
+  if (hasAny(head, SOCIAL_CONTEXT) || hasAny(head, DIGITAL_CONTEXT)
+    || hasAny(`${t.title} \n ${t.tags}`, EDUCATION_CONTEXT)) return true;
+  if (atInstitution(t) || hasAny(t.company, EDUCATION_ORGS)) return true;
+  return hits(t.body, SOCIAL_OR_LEARNING_BODY).length >= 2 || hits(t.body, DIGITAL_BODY).length >= 2;
+}
 
 /** Distinct body phrases an area needs when nothing in the title matches. */
 export const BODY_MIN = 3;
@@ -90,8 +124,19 @@ function hasEducationContext(t: Texts): boolean {
 function matchAreasIn(t: Texts): AreaMatch[] {
   let ctx: boolean | undefined;
   const context = (): boolean => (ctx ??= hasEducationContext(t));
+  let fit: boolean | undefined;
+  const project = (): boolean => (fit ??= projectFit(t));
   const out: AreaMatch[] = [];
   for (const a of AREAS) {
+    if (a.institutionsOnly) {
+      if (!atInstitution(t)) continue;
+      const terms = [...new Set([...hits(t.title, a.title), ...hits(t.tags, a.title)])];
+      if (terms.length > 0) { out.push({ key: a.key, via: 'context', terms }); continue; }
+      const inBody = hits(t.body, a.body);
+      if (inBody.length >= BODY_MIN) out.push({ key: a.key, via: 'body', terms: inBody });
+      continue;
+    }
+    if (a.key === 'projects' && !project()) continue;
     const inTitle = hits(t.title, a.title);
     const strong = inTitle.filter((h) => !CONTEXTUAL.includes(h));
     if (strong.length > 0) { out.push({ key: a.key, via: 'title', terms: strong }); continue; }
@@ -136,12 +181,22 @@ function primaryArea(areas: AreaMatch[]): AreaMatch | null {
   return core && (best.via !== 'title' || core.via === 'title') ? core : best;
 }
 
-/** Whole-word match on any LJUBLJANA_AREA place, so "ig" never hits "Rigonce". */
-export function inLjubljanaArea(location: string | null): boolean {
+const inPlaces = (location: string | null, places: readonly string[]): boolean => {
   if (!location) return false;
   const loc = fold(location);
-  return LJUBLJANA_AREA.some((p) => termRegex(`${p}$`).test(loc));
-}
+  return places.some((p) => termRegex(`${p}$`).test(loc));
+};
+
+/** Whole-word match on any LJUBLJANA_AREA place, so "ig" never hits "Rigonce". */
+export const inLjubljanaArea = (location: string | null): boolean =>
+  inPlaces(location, LJUBLJANA_AREA);
+
+/** Koper or Izola. */
+export const inCoastArea = (location: string | null): boolean => inPlaces(location, COAST_AREA);
+
+/** A location that names Slovenia but no town ("Slovenia", "Republika Slovenija"). */
+const placeless = (loc: string): boolean =>
+  loc.replace(/republika|republic|slovenij\p{L}*|slovenia|\bof\b/gu, '').replace(/[^\p{L}]/gu, '') === '';
 
 export function detectWorkMode(
   workModeRaw: string | null | undefined, title: string, location: string | null, body: string,
@@ -257,35 +312,48 @@ export function requiredForeignLanguages(languagesRaw: string | null | undefined
   return out;
 }
 
+/**
+ * Where the work is, or null when it is out of reach. The seeker lives in
+ * Ljubljana, would move to Koper or Izola, and will not move anywhere else:
+ * the rest of Slovenia and everything abroad count only when fully remote.
+ */
 export function locationClassFor(
   job: Pick<RawJob, 'location' | 'country' | 'international'> & { title?: string },
   workMode: WorkMode,
 ): LocationClass | null {
   const loc = fold(job.location ?? '');
   const country = job.country ? job.country.toUpperCase() : null;
-  const inLj = inLjubljanaArea(job.location);
-  if (country === 'SI' || inLj) return inLj ? 'ljubljana' : 'slovenia';
-  // A remote role open to "Europe" or "148 countries incl. Slovenia" is a
-  // remote role, not a Slovenian one.
-  // The title counts too: "Project Coordinator (Remote, Europe, ±3h CET)".
-  const title = fold(job.title ?? '');
-  if (workMode === 'remote' && (!loc || hasAny(loc, REMOTE_ELIGIBLE)
-    || hasAny(loc, SLOVENIA_MARKERS) || hasAny(title, REMOTE_ELIGIBLE))) return 'remote';
-  if (hasAny(loc, SLOVENIA_MARKERS) || (country === null && !loc && !job.international)) {
+  const abroad = country !== null && country !== 'SI';
+  if (!abroad && inLjubljanaArea(job.location)) return 'ljubljana';
+  if (!abroad && inCoastArea(job.location)) return 'coast';
+  if (workMode === 'remote') {
+    // Open to "Europe" or "148 countries incl. Slovenia". The title counts
+    // too: "Project Coordinator (Remote, Europe, ±3h CET)".
+    const title = fold(job.title ?? '');
+    const eligible = country === 'SI' || !loc || hasAny(loc, REMOTE_ELIGIBLE)
+      || hasAny(loc, SLOVENIA_MARKERS) || hasAny(title, REMOTE_ELIGIBLE);
+    return eligible ? 'remote' : null;
+  }
+  // On-site or hybrid: only a Slovenian posting that names no town remains,
+  // since it may well be in Ljubljana.
+  if (abroad || job.international) return null;
+  if (!loc || (placeless(loc) && (country === 'SI' || hasAny(loc, SLOVENIA_MARKERS)))) {
     return 'slovenia';
   }
-  if (job.international) return 'abroad';
   return null;
 }
 
 /** Whether a posting with this title is worth a detail-page request. */
 export function worthDetail(title: string, occupation?: string | null): boolean {
   const t = fold(title);
-  if (hasAny(t, SENIOR_REJECT) || hasAny(t, DOMAIN_REJECT) || hasAny(t, CONTRACT_REJECT)) {
+  if (seniorTitle(t) || hasAny(t, DOMAIN_REJECT) || hasAny(t, CONTRACT_REJECT)) {
     return false;
   }
-  const areaHit = AREAS.some((a) => hasAny(t, a.title))
-    || (occupation ? AREAS.some((a) => hasAny(fold(occupation), a.title)) : false);
+  // The employer-bound area's terms are generic roles; GENERIC_ROLES below
+  // covers them, after the off-target professions are ruled out.
+  const titled = AREAS.filter((a) => !a.institutionsOnly);
+  const areaHit = titled.some((a) => hasAny(t, a.title))
+    || (occupation ? titled.some((a) => hasAny(fold(occupation), a.title)) : false);
   if (areaHit) return true;
   if (hasAny(t, TITLE_REJECT)) return false;
   if (occupation && hasAny(fold(occupation), TITLE_REJECT)) return false;
@@ -327,7 +395,7 @@ export function classify(job: RawJob): Classification {
     rejected = 'contract';
   } else if (hasAny(`${t.title} \n ${t.tags}`, DOMAIN_REJECT)) {
     rejected = 'domain';
-  } else if (hasAny(t.title, SENIOR_REJECT)) {
+  } else if (seniorTitle(t.title)) {
     rejected = 'senior';
   } else if (!learningInTitle && hasAny(t.title, HR_REJECT)) {
     rejected = 'hr';
@@ -346,6 +414,10 @@ export function classify(job: RawJob): Classification {
     }
   }
   if (!rejected && hasAny(t.title, TITLE_REJECT) && !areas.some((a) => a.via === 'title')) {
+    rejected = 'off-target';
+  }
+  if (!rejected && hasAny(`${t.title} \n ${t.occupation}`, DEGREE_REJECT)
+    && !hasAny(t.title, DEGREE_ROUTE)) {
     rejected = 'off-target';
   }
 
@@ -399,11 +471,13 @@ export function classify(job: RawJob): Classification {
 
   // --- Location and languages.
   let location = locationClass === 'ljubljana' ? 10
-    : locationClass === 'slovenia' ? (workMode === 'remote' ? 10 : workMode === 'hybrid' ? 6 : 4)
-    : locationClass === 'remote' ? 9 : 2;
+    : locationClass === 'coast' ? 8
+    : locationClass === 'remote' ? (job.country === 'SI' ? 10 : 9)
+    : 4;
   if (locationClass === 'ljubljana') fit('Ljubljana z okolico');
-  if (locationClass === 'remote') fit('Odprto za kandidate iz Slovenije');
-  if (locationClass === 'abroad') warn('Delo v tujini (zahteva selitev)');
+  if (locationClass === 'coast') fit('Koper ali Izola');
+  if (locationClass === 'remote' && job.country !== 'SI') fit('Odprto za kandidate iz Slovenije');
+  if (locationClass === 'slovenia') warn('Kraj dela ni naveden – preveri, ali je v Ljubljani');
   const langs = requiredForeignLanguages(job.languagesRaw, `${job.title} \n ${job.description}`);
   if (langs.length > 0) {
     location = Math.max(0, location - 3 * langs.length);
@@ -417,7 +491,7 @@ export function classify(job: RawJob): Classification {
     .map((th) => th.label);
   const organisation = (goodOrg ? 5 : 0) + Math.min(5, 2 * themes.length);
   if (job.international) fit('Mednarodna organizacija');
-  else if (goodOrg) fit('Izobraževalna, javna ali nevladna organizacija');
+  else if (goodOrg) fit('Izobraževalna, kulturna, javna ali nevladna organizacija');
   if (themes.length > 0) fit(`Tematika: ${themes.slice(0, 3).join(', ')}`);
 
   // --- Deductions.

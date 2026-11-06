@@ -3,14 +3,15 @@ export type WorkMode = 'remote' | 'hybrid' | 'onsite' | 'unknown';
 export type EmploymentType = 'permanent' | 'fixed-term' | 'part-time' | 'unknown';
 
 /**
- * Where a posting sits relative to the seeker, who lives in Ljubljana.
+ * Where a posting sits relative to the seeker, who lives in Ljubljana, would
+ * move to Koper or Izola, and will not move anywhere else.
  * - ljubljana: Ljubljana or a municipality of the Osrednjeslovenska region
- * - slovenia:  elsewhere in Slovenia
- * - remote:    outside Slovenia, but remote work from Slovenia is possible
- * - abroad:    outside Slovenia and on-site (kept only from international-
- *              organisation boards, where relocation is the norm)
+ * - coast:     Koper or Izola
+ * - remote:    fully remote work, from elsewhere in Slovenia or from abroad
+ * - slovenia:  a Slovenian posting that names no town
+ * Anything else, including on-site or hybrid work abroad, is dropped.
  */
-export type LocationClass = 'ljubljana' | 'slovenia' | 'remote' | 'abroad';
+export type LocationClass = 'ljubljana' | 'coast' | 'remote' | 'slovenia';
 
 /** A posting as returned by a source adapter, before classification. */
 export interface RawJob {
@@ -47,7 +48,8 @@ export interface RawJob {
   country?: string | null;
   /**
    * True when the posting comes from an international-organisation board
-   * (EU institutions, UN, EuroBrussels…). On-site abroad is then still in scope.
+   * (EU institutions, UN, EuroBrussels…). Such a posting is kept only when
+   * it is fully remote, like any other abroad.
    */
   international?: boolean;
 }

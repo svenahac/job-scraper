@@ -11,7 +11,8 @@
  * never fires inside "hrvaščina".
  */
 
-export type AreaKey = 'ld' | 'projects' | 'education' | 'digital' | 'related';
+export type AreaKey =
+  | 'ld' | 'projects' | 'education' | 'digital' | 'counselling' | 'institutions' | 'related';
 
 export interface Area {
   key: AreaKey;
@@ -19,8 +20,15 @@ export interface Area {
   label: string;
   /** A hit in the title makes the posting this area outright. */
   title: readonly string[];
-  /** Body phrases. With no title hit, two distinct body hits are needed. */
+  /** Body phrases. With no title hit, BODY_MIN distinct body hits are needed. */
   body: readonly string[];
+  /**
+   * The area counts only at an INSTITUTION_ORGS employer, or one whose ad
+   * calls itself a non-profit (NONPROFIT_BODY). Its title terms are generic
+   * ("Administrator", "Koordinator"), so a hit is context, not a title match:
+   * off-target professions there ("Računovodja v galeriji") are still dropped.
+   */
+  institutionsOnly?: true;
 }
 
 export const AREAS: readonly Area[] = [
@@ -102,6 +110,9 @@ export const AREAS: readonly Area[] = [
       'strokovn* delav* za izobraževanj', 'strokovn* sodelav* za razvoj izobraževaln',
       'strokovn* sodelav* v izobraževanj', 'svetoval* za izobraževanj',
       'svetoval* v izobraževanj', 'svetovaln* središč', 'kurikul', 'didaktik',
+      // Educators at museums and galleries.
+      'kustos* pedagog', 'muzejsk* pedagog', 'galerijsk* pedagog', 'museum educat',
+      'gallery educat',
     ],
     body: [
       'izobraževanj* odrasl', 'andragoš', 'andragog', 'vseživljenjsk* učenj', 'lifelong learning',
@@ -128,6 +139,47 @@ export const AREAS: readonly Area[] = [
       'digitaln* izobraževanj', 'spletn* tečaj', 'online course', 'digital skills',
       'digitaln* kompetenc', 'digitaln* vešč', 'blended learning', 'kombiniran* učenj',
       'learning platform', 'učn* platform', 'izobraževaln* platform', 'learning management system',
+    ],
+  },
+  {
+    // Pedagogical work outside the classroom: school counselling services,
+    // social work, youth work. Teaching itself stays in TITLE_REJECT.
+    key: 'counselling',
+    label: 'Svetovalno in socialno delo',
+    title: [
+      'svetovaln* delav', 'svetovaln* služb', 'socialn* delav', 'socialn* pedagog', 'pedagog$',
+      'pedagoginj', 'kariern* svetoval', 'kariern* orientacij', 'mladinsk* delav', 'delo z mladimi',
+      'koordinator* prostovolj', 'socialn* vključ', 'social worker', 'youth worker', 'case worker',
+      'caseworker', 'counsellor', 'counselor', 'career adviser', 'career advisor', 'career counsel',
+      'social inclusion',
+    ],
+    body: [
+      'socialn* delo', 'socialn* varstv', 'center za socialno delo', 'svetovaln* delo',
+      'svetovaln* služb', 'psihosocialn', 'ranljiv* skupin', 'socialn* vključ', 'socialn* izključ',
+      'mladinsk* delo', 'delo z mladimi', 'karierno svetovanje', 'kariern* orientacij', 'prostovolj',
+      'social work', 'social inclusion', 'vulnerable groups', 'counselling', 'counseling',
+      'youth work', 'skupnostn', 'community work',
+    ],
+  },
+  {
+    // Administrative, organising and programme roles at NGOs, cultural
+    // institutions and universities: the employer makes them a fit.
+    key: 'institutions',
+    label: 'Nevladne, kulturne in univerzitetne ustanove',
+    institutionsOnly: true,
+    title: [
+      'administrator', 'administrativn', 'administrative', 'poslovn* sekretar', 'tajni', 'office',
+      'pisarn', 'referent', 'referat', 'strokovn* sodelav', 'strokovn* delav', 'samostojn* strokovn',
+      'svetoval', 'koordinator', 'organizator', 'coordinator', 'organiser', 'organizer', 'producent',
+      'producer', 'programsk', 'izvajal* program', 'izvajal* delavnic', 'mentor',
+    ],
+    body: [
+      'nevladn* organizacij', 'neprofitn', 'non-profit', 'nonprofit', 'civiln* družb',
+      'civil society', 'kulturn* program', 'kulturn* dediščin', 'cultural heritage', 'muzejsk',
+      'galerijsk', 'razstav', 'exhibition', 'gledališk', 'kulturn* prireditv', 'kulturn* dogodk',
+      'študijsk* proces', 'študijsk* zadev', 'študentsk* zadev', 'visokošolsk', 'higher education',
+      'študijsk* program', 'mednarodn* izmenjav', 'student exchange', 'administrativn* podpor',
+      'administrativn* del', 'administrative support', 'pisarniš* poslovanj',
     ],
   },
   {
@@ -191,13 +243,110 @@ export const EU_TERMS: readonly string[] = [
 ];
 
 /**
+ * NGOs, cultural institutions and universities, matched against the
+ * employer's name. 'univerza$' and its cases, not 'univerz': the University
+ * Medical Centre ("Univerzitetni klinični center") is a hospital.
+ */
+export const INSTITUTION_ORGS: readonly string[] = [
+  // Culture.
+  'muzej', 'museum', 'galerij', 'gallery', 'gledališ', 'theatre', 'theater', 'opera$',
+  'filharmonij', 'orkest', 'knjižnic', 'library', 'kultur', 'cultural', 'kinodvor', 'kinotek',
+  'cankarjev dom', 'sng', 'festival', 'arhiv', 'dediščin', 'umetnost', 'umetnišk', 'kud',
+  'ljubljanski grad', 'mladinsk* center', 'mladinsk* dom',
+  // Non-profits and the social sector.
+  'društv', 'zveza', 'fundacij', 'foundation', 'ustanova', 'nevladn', 'nvo', 'ngo', 'non-profit',
+  'nonprofit', 'neprofitn', 'humanitarn', 'rdeč* križ', 'red cross', 'karitas', 'caritas',
+  'center za socialn* delo', 'andragošk', 'ljudsk* univerz', 'cmepius',
+  // Universities and their members.
+  'univerza$', 'univerze$', 'univerzi$', 'university$', 'fakultet', 'faculty', 'akademija za',
+  'academy of',
+];
+
+/** An ad that says this about its employer is from a non-profit. */
+export const NONPROFIT_BODY: readonly string[] = [
+  'nevladn* organizacij', 'non-governmental organi', 'neprofitn* organizacij', 'neprofitn* zavod',
+  'non-profit organi', 'nonprofit organi', 'not-for-profit', 'civil society organi',
+  'organizacij* civiln* družb', 'humanitarn* organizacij',
+];
+
+/**
+ * Project work counts only when it is social-science or digital (the seeker
+ * does not program). These place it in the social sciences, humanities,
+ * culture or the social sector: one hit in the title or source tags.
+ */
+export const SOCIAL_CONTEXT: readonly string[] = [
+  'družboslov', 'social science', 'humanist', 'humanities', 'sociolog', 'antropolog', 'politolog',
+  'kulturolog', 'komunikolog', 'pedagog', 'andragog', 'kultur', 'culture', 'cultural', 'umetnost',
+  'umetnišk', 'arts$', 'dediščin', 'heritage', 'muzej', 'museum', 'galerij', 'gledališ', 'theatre',
+  'socialn', 'social$', 'skupnost', 'community', 'mladin', 'youth', 'nevladn', 'ngo', 'nvo',
+  'non-profit', 'nonprofit', 'neprofitn', 'civil society', 'civiln* družb', 'human rights',
+  'človekov* pravic', 'enakost', 'equality', 'gender', 'migrant', 'migracij', 'begun', 'refugee',
+  'prostovolj',
+  'volunteer', 'demokra', 'participacij', 'zaposljiv', 'employability', 'inclusion', 'vključevanj',
+  'journalis', 'novinar', 'komunikacij', 'communication', 'policy', 'javn* politik', 'eu affairs',
+  'evropsk* zadev',
+];
+
+/** The same for ad prose: specific phrases, two distinct hits needed. */
+export const SOCIAL_BODY: readonly string[] = [
+  'družboslov', 'social sciences', 'humanistik', 'humanities', 'nevladn* organizacij',
+  'non-governmental', 'neprofitn', 'non-profit', 'nonprofit', 'civil society', 'civiln* družb',
+  'socialn* vključ', 'social inclusion', 'ranljiv* skupin', 'vulnerable groups',
+  'človekov* pravic', 'human rights', 'enakost spolov', 'gender equality', 'migrant', 'begun',
+  'refugee', 'mladinsk* delo', 'youth work', 'mladin', 'youth', 'kulturn* dediščin',
+  'cultural heritage', 'kulturn* program', 'cultural programme', 'umetnost', 'muzej', 'museum',
+  'galerij', 'gledališ', 'prostovolj', 'volunteer', 'skupnostn', 'community development',
+  'lokaln* skupnost', 'local communit', 'participacij', 'demokracij', 'democracy',
+  'javn* politik', 'public policy', 'sociolog', 'antropolog', 'politolog', 'zaposljiv',
+  'employability', 'socialn* podjetn', 'social entrepreneur', 'novinar', 'journalism',
+  // EU programmes for education, youth, culture and social inclusion.
+  'erasmus', 'creative europe', 'kreativna evropa', 'evropsk* socialn* sklad', 'esf$',
+  'europe for citizens', 'cerv$',
+];
+
+/** Digital work in the title or source tags: one hit. */
+export const DIGITAL_CONTEXT: readonly string[] = [
+  'digital', 'digitaln', 'digitaliz', 'e-learning', 'e-učenj', 'e-izobraževanj', 'online',
+  'spletn', 'web', 'internet', 'social media', 'družbenih omrežij', 'družbena omrežja',
+  'družbenih medij', 'multimedij', 'content', 'saas', 'software', 'programsk* oprem', 'aplikacij',
+  'platform', 'ux', 'umetn* inteligenc', 'artificial intelligence', 'ai$', 'ikt', 'ict',
+  'informacijsk* tehnologij', 'information technolog', 'it projekt', 'it project', 'e-commerce',
+  'e-trgovin', 'spletn* trgovin',
+];
+
+/**
+ * Digital work in ad prose: two distinct hits. Narrower than the title list:
+ * "spletna stran" and "online" sit in every ad's application instructions.
+ */
+export const DIGITAL_BODY: readonly string[] = [
+  'digital', 'digitaln', 'digitaliz', 'e-learning', 'e-učenj', 'social media',
+  'družbenih omrežij', 'družbena omrežja', 'družbenih medij', 'multimedij', 'saas', 'software',
+  'programsk* oprem', 'umetn* inteligenc', 'artificial intelligence', 'informacijsk* tehnologij',
+  'information technolog', 'ikt', 'ict', 'e-commerce', 'e-trgovin', 'spletn* trgovin',
+  'spletn* vsebin', 'web content', 'website', 'ux', 'online platform', 'spletn* platform',
+  'digital tools', 'digitaln* orodj',
+];
+
+/**
+ * Programming as part of the job: a project role naming it in the title, or
+ * twice in the ad, is not the digital work the seeker means.
+ */
+export const PROGRAMMING: readonly string[] = [
+  'programiranj', 'programming', 'programsk* jezik', 'coding', 'kodiranj', 'javascript',
+  'typescript', 'python', 'java$', 'php$', 'sql$', 'html', 'css$', 'backend', 'back-end',
+  'frontend', 'front-end', 'full-stack', 'fullstack', 'software development', 'software engineer',
+  'razvoj programsk* oprem', 'razvijalec', 'razvijalk', 'developer', 'devops', 'git$', 'api$',
+];
+
+/**
  * Role words generic enough that the ad body decides. Sources use these to
  * pick which postings are worth a detail-page request.
  */
 export const GENERIC_ROLES: readonly string[] = [
   'strokovn* sodelav', 'strokovn* delav', 'svetoval', 'koordinator', 'referent', 'organizator',
   'asistent', 'specialist', 'sodelav', 'skrbni', 'officer', 'coordinator', 'assistant',
-  'associate', 'advisor', 'adviser', 'consultant', 'administrator',
+  'associate', 'advisor', 'adviser', 'consultant', 'administrator', 'administrativn', 'tajni',
+  'poslovn* sekretar', 'pisarn', 'office', 'producent', 'mentor',
 ];
 
 /** Words that place a stated language among the requirements. */
@@ -221,7 +370,8 @@ export const HR_REJECT: readonly string[] = [
   'hr head', 'chief people', 'people partner', 'people business partner', 'hr generalist',
   'hr administrator', 'hr admin', 'hr assistant', 'hr operations', 'people operations',
   'recruiter', 'recruitment', 'recruiting', 'talent acquisition', 'talent sourcer', 'sourcer',
-  'headhunter', 'rekruter', 'kadrovanj', 'zaposlovanj', 'payroll', 'obračun* plač', 'plač',
+  'headhunter', 'rekruter', 'kadrovanj', 'zaposlovanj', 'selekcij', 'iskanj* kad', 'payroll',
+  'obračun* plač', 'plač',
   'compensation', 'benefits', 'total rewards', 'employee relations', 'personnel administration',
   'kadrovsk* referent', 'kadrovsk* administr', 'kadrovik', 'kadrovičk',
   'vodja kadrov', 'direktor* kadrov', 'kadrovsk* služb', 'kadrovsk* zadev', 'kadrovsk* področj',
@@ -266,6 +416,16 @@ export const SENIOR_REJECT: readonly string[] = [
   'lead$', 'leader', 'team lead', 'vodiln', 'z doktoratom', 'phd', 'postdoc', 'doktor znanosti',
   'sekretar$', 'sekretarka$', 'vodja sektorja', 'vodja službe', 'vodja oddelka', 'vodja enote',
   'vodja področja', 'vodja divizije', 'executive director', 'managing director', 'višj* vodja',
+  // The head of a faculty's administration, not a secretary.
+  'tajni* fakultet', 'tajni* univerz', 'tajni* članic', 'tajni* akademij',
+];
+
+/**
+ * Exceptions to 'sekretar$' above: in the civil service "Sekretar" is a
+ * senior rank, but a "poslovni sekretar" is an administrative assistant.
+ */
+export const SENIOR_EXCEPT: readonly string[] = [
+  'poslovn* sekretar', 'administrativn* sekretar',
 ];
 
 /** Titles that cost experience points but are not dropped. */
@@ -290,8 +450,11 @@ export const TITLE_REJECT: readonly string[] = [
   'varnostnik', 'revizor', 'auditor', 'finančn* svetoval', 'bančn* svetoval', 'zavarovaln',
   'email marketing', 'podporo strankam', 'customer support', 'customer service',
   'učitelj', 'vzgojitelj', 'profesor', 'predavatelj', 'docent', 'zdravnik', 'medicinsk* sestr',
-  'negoval', 'farmacevt', 'fizioterapevt', 'psiholog', 'logoped', 'socialn* delav',
+  'negoval', 'farmacevt', 'fizioterapevt', 'psiholog', 'logoped',
   'programer', 'razvijalec', 'developer', 'software', 'devops', 'inženir', 'engineer', 'tehnik',
+  'tehničn', 'laborant', 'laborator', 'javn* naročil', 'finančn', 'ekonomsk', 'pravn',
+  'sistemsk* administr', 'system administr', 'omrežn* administr', 'network administr',
+  'administrator* baz', 'database administr', 'tehnolog',
   'mehanik', 'električar', 'serviser', 'hišnik', 'vzdrževal', 'operater', 'proizvodn',
   'osebn* asistent', 'zobozdrav', 'zdravstvenik', 'sanitarn', 'strežb', 'na pošti', 'poštn',
   'evidentičar', 'kontrolor', 'varuh', 'oskrbovalec', 'negovalk',
@@ -299,9 +462,18 @@ export const TITLE_REJECT: readonly string[] = [
   'marketing manager', 'seo', 'graphic designer', 'grafičn* oblikoval', 'controller',
   'kontroling', 'finance', 'financial', 'accountant', 'analitik podatk', 'data analyst',
   'data scientist', 'teacher', 'teaching', 'tutor', 'lecturer', 'udeleženec', 'udeleženk',
-  'informatik', 'tehničn* zadev', 'oskrbovaln', 'it podpor', 'it support', 'računalničar',
+  'informatik', 'oskrbovaln', 'it podpor', 'it support', 'računalničar',
   'izredn* dogod', 'product manager', 'product owner',
 ];
+
+/**
+ * Posts for a profession the seeker is not trained in, even under a
+ * counselling title ("Svetovalni delavec – psiholog"). Read from the title and
+ * the source's occupation code; kept when the title also lets a DEGREE_ROUTE
+ * profession apply ("pedagog ali psiholog").
+ */
+export const DEGREE_REJECT: readonly string[] = ['psiholog', 'logoped'];
+export const DEGREE_ROUTE: readonly string[] = ['pedagog', 'andragog', 'socialn* delav'];
 
 /** Trade/engineering qualifiers in title, occupation or tags. Never rescued. */
 export const DOMAIN_REJECT: readonly string[] = [
@@ -309,6 +481,9 @@ export const DOMAIN_REJECT: readonly string[] = [
   'montaž', 'avtomatizacij', 'construction', 'mechanical', 'electrical',
   // Product roles at EdTech companies: the "EdTech" does not make them L&D.
   'product manager', 'product designer', 'product owner', 'head of product',
+  // Special-needs teaching needs its own degree; 'pedagog$' would let it in.
+  'specialn* pedagog', 'specialn* in rehabilitacijsk', 'rehabilitacijsk* pedagog',
+  'inkluzivn* pedagog',
 ];
 
 /** Contract kinds out of scope for an experienced graduate. Title and contract field only. */
@@ -362,7 +537,9 @@ export const GOOD_ORGS: readonly string[] = [
   'commission', 'agency', 'agencij', 'united nations', 'unesco', 'unicef', 'undp', 'oecd',
   'council of europe', 'svet evrope', 'world bank', 'akademij', 'academy', 'school', 'šol',
   'edtech', 'learning', 'education', 'izobraževaln', 'ministrstvo za vzgojo',
-  'ministrstvo za izobraževanje',
+  'ministrstvo za izobraževanje', 'muzej', 'museum', 'galerij', 'gallery', 'gledališ', 'theatre',
+  'knjižnic', 'kultur', 'cultural', 'nevladn', 'neprofitn', 'non-profit', 'nonprofit',
+  'center za socialn* delo', 'mladinsk',
 ];
 
 /** Content themes the seeker named as particularly interesting. */
@@ -372,6 +549,8 @@ export const GOOD_THEMES: ReadonlyArray<{ label: string; terms: readonly string[
   { label: 'digitalizacija izobraževanja', terms: ['digitaln* izobraževanj', 'digital learning', 'digital education', 'e-learning', 'edtech', 'digitalizacij'] },
   { label: 'razvoj kompetenc', terms: ['razvoj kompetenc', 'competence development', 'competency development', 'digitaln* kompetenc', 'digital skills', 'upskilling', 'reskilling'] },
   { label: 'mednarodno okolje', terms: ['mednarodn* okolj', 'international environment', 'international organisation', 'international organization', 'multicultural', 'večkulturn'] },
+  { label: 'kultura in dediščina', terms: ['kulturn* program', 'kulturn* dediščin', 'cultural heritage', 'muzejsk', 'galerijsk', 'gledališk'] },
+  { label: 'socialno vključevanje', terms: ['socialn* vključ', 'social inclusion', 'ranljiv* skupin', 'vulnerable groups', 'nevladn* organizacij', 'civil society'] },
 ];
 
 /**
@@ -425,6 +604,14 @@ export const LJUBLJANA_AREA: readonly string[] = [
   'logatec', 'log pri brezovici', 'dragomer', 'lukovica', 'medvode', 'mengeš',
   'moravče', 'šmartno pri litiji', 'škofljica', 'trzin', 'velike lašče',
   'vodice', 'vrhnika',
+];
+
+/**
+ * Koper and Izola, where the seeker would move; elsewhere in Slovenia only
+ * fully remote work counts. Whole words, with the locative forms.
+ */
+export const COAST_AREA: readonly string[] = [
+  'koper', 'kopru', 'kopra', 'izola', 'izoli', 'izole',
 ];
 
 /** Words in a location string that place it in Slovenia. */

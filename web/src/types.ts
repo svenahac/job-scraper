@@ -2,7 +2,7 @@
 // its own; the data file is the only contract between the two.
 
 export type WorkMode = 'remote' | 'hybrid' | 'onsite' | 'unknown';
-export type LocationClass = 'ljubljana' | 'slovenia' | 'remote' | 'abroad';
+export type LocationClass = 'ljubljana' | 'coast' | 'remote' | 'slovenia';
 export type EmploymentType = 'permanent' | 'fixed-term' | 'part-time' | 'unknown';
 
 export interface Reason {

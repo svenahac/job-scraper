@@ -30,7 +30,7 @@ const DAY_OPTIONS = [
   { value: 60, label: '60 dni' },
 ];
 
-const LOCATIONS: LocationClass[] = ['ljubljana', 'slovenia', 'remote', 'abroad'];
+const LOCATIONS: LocationClass[] = ['ljubljana', 'coast', 'remote', 'slovenia'];
 const MODES: WorkMode[] = ['remote', 'hybrid', 'onsite', 'unknown'];
 
 // --- Per-viewer storage. Every access may throw (private mode, blocked
@@ -97,7 +97,11 @@ const postedOf = (j: Job): string => (j.postedAt ?? j.firstSeenAt).slice(0, 10);
 export function App() {
   const [data, setData] = useState<DataFile | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [filters, setFilters] = useState<Filters>(() => load('kompas:filters', DEFAULT_FILTERS));
+  const [filters, setFilters] = useState<Filters>(() => {
+    const f = load('kompas:filters', DEFAULT_FILTERS);
+    // A saved filter may name a location class that no longer exists ('abroad').
+    return { ...f, locs: f.locs.filter((l) => LOCATIONS.includes(l as LocationClass)) };
+  });
   const [sort, setSort] = useState<Sort>(() => load('kompas:view', { sort: 'score' as Sort }).sort);
   const [view, setView] = useState<View>('all');
   const [saved, setSaved] = useState<string[]>(() => loadList('kompas:saved'));

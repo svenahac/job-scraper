@@ -19,8 +19,10 @@ const lists = Object.entries(profile).flatMap(([name, value]): Array<[string, st
 });
 
 describe('profile', () => {
-  it('has the five role families from the brief', () => {
-    expect(AREAS.map((a) => a.key)).toEqual(['ld', 'projects', 'education', 'digital', 'related']);
+  it('has the role families from the brief', () => {
+    expect(AREAS.map((a) => a.key)).toEqual([
+      'ld', 'projects', 'education', 'digital', 'counselling', 'institutions', 'related',
+    ]);
     for (const a of AREAS) {
       expect(a.label.length).toBeGreaterThan(3);
       expect(a.title.length).toBeGreaterThan(5);

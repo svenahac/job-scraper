@@ -54,19 +54,32 @@ sources were reached and when each last succeeded.
 
 Everything tunable lives in `src/profile.ts`; `src/classify.ts` applies it.
 
-- **Areas** — the five role families from the brief: L&D, projects &
+- **Areas** — the role families from the brief: L&D, projects &
   coordination, adult education & education programmes, digital learning &
-  EdTech, and related roles. A specific term in the title files a posting
-  outright. Generic titles ("Strokovni sodelavec", "Project Manager",
+  EdTech, counselling & social work, NGOs / cultural institutions /
+  universities, and related roles. A specific term in the title files a
+  posting outright. Generic titles ("Strokovni sodelavec", "Project Manager",
   "Research Assistant") count only with an education context. With nothing in
   the title, at least three specific phrases in the ad body are needed.
+- **Project work** counts only when it is social-science (humanities,
+  culture, education, the social sector, an NGO or university employer) or
+  digital, and never when the ad asks for programming.
+- **NGOs, museums, galleries, theatres and universities** — administrative,
+  organising and programme roles ("Administrator", "Poslovni sekretar",
+  "Strokovni sodelavec v referatu") count at these employers, or where the ad
+  calls its employer a non-profit; the same titles elsewhere do not.
+- **Counselling, not teaching** — school counselling services, social work
+  and youth work are in; classroom teaching stays out.
+- **Location** — Ljubljana and its surroundings, or Koper and Izola. The rest
+  of Slovenia and everything abroad count only when fully remote; hybrid or
+  on-site work abroad is dropped, international-organisation boards included.
+  A Slovenian ad that names no town is kept with a warning.
 - **Dropped** — general HR (business partners, HR managers, recruiters,
   payroll, HR admin) unless the title or the duties are about learning;
   clearly senior, managerial or executive titles; roles requiring 8+ years;
-  student work and internships; off-target professions and
-  construction/engineering projects; on-site work abroad, except from
-  international-organisation boards; remote work abroad that is not open to
-  Slovenia.
+  student work and internships; off-target professions (including finance,
+  legal, technical, lab and IT-administration roles) and
+  construction/engineering projects.
 - **Score** (0–100) — relevance to learning/education/projects (35), overlap
   with the seeker's experience and tools such as LMS, Workday, SAP and
   SharePoint (15), remote or hybrid work (15), required experience level (15),

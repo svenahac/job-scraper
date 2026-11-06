@@ -128,7 +128,7 @@ describe('buildExport', () => {
       job({ id: 'high', title: 'High one', score: 80 }),
     ], [], '2026-11-02T17:00:00.000Z');
     expect(file.jobs.map((j) => j.id)).toEqual(['high', 'low']);
-    expect(file.areas.length).toBe(5);
+    expect(file.areas.length).toBe(7);
   });
 
   it('publishes no ad text, only metadata and our own notes', () => {

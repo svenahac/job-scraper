@@ -9,9 +9,9 @@ export const WORK_MODE_LABEL: Record<WorkMode, string> = {
 
 export const LOCATION_LABEL: Record<LocationClass, string> = {
   ljubljana: 'Ljubljana z okolico',
-  slovenia: 'Drugje v Sloveniji',
-  remote: 'Na daljavo iz tujine',
-  abroad: 'Tujina (mednarodne org.)',
+  coast: 'Koper ali Izola',
+  remote: 'Na daljavo',
+  slovenia: 'Slovenija, kraj ni naveden',
 };
 
 export const EMPLOYMENT_LABEL: Record<EmploymentType, string | null> = {

@@ -21,7 +21,7 @@ import { euCareersSource } from './sources/eucareers.js';
 import { euresSource } from './sources/eures.js';
 
 /** Bump when classify.ts changes meaning, so cached "not a fit" verdicts expire. */
-const CLASSIFIER_VERSION = 3;
+const CLASSIFIER_VERSION = 4;
 
 /** A cached "not a fit" verdict is trusted this long before the detail is refetched. */
 const CHECKED_TTL_DAYS = 30;
