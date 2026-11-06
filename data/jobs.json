@@ -1,69 +1,69 @@
 {
- "generatedAt": "2026-11-04T17:00:22.623Z",
+ "generatedAt": "2026-11-06T07:29:20.305Z",
  "windowDays": 60,
  "sources": [
   {
    "name": "zrsz",
    "label": "Zavod RS za zaposlovanje",
    "ok": true,
-   "count": 3702,
-   "lastOkAt": "2026-11-04T17:00:22.623Z",
+   "count": 3614,
+   "lastOkAt": "2026-11-06T07:29:20.305Z",
    "error": null
   },
   {
    "name": "mojedelo",
    "label": "MojeDelo",
    "ok": true,
-   "count": 418,
-   "lastOkAt": "2026-11-04T17:00:22.623Z",
+   "count": 397,
+   "lastOkAt": "2026-11-06T07:29:20.305Z",
    "error": null
   },
   {
    "name": "optius",
    "label": "Optius",
    "ok": true,
-   "count": 201,
-   "lastOkAt": "2026-11-04T17:00:22.623Z",
+   "count": 182,
+   "lastOkAt": "2026-11-06T07:29:20.305Z",
    "error": null
   },
   {
    "name": "linkedin",
    "label": "LinkedIn",
    "ok": true,
-   "count": 117,
-   "lastOkAt": "2026-11-04T17:00:22.623Z",
+   "count": 118,
+   "lastOkAt": "2026-11-06T07:29:20.305Z",
    "error": null
   },
   {
    "name": "himalayas",
    "label": "Himalayas",
    "ok": true,
-   "count": 107,
-   "lastOkAt": "2026-11-04T17:00:22.623Z",
+   "count": 104,
+   "lastOkAt": "2026-11-06T07:29:20.305Z",
    "error": null
   },
   {
    "name": "eucareers",
    "label": "EU Careers",
    "ok": true,
-   "count": 121,
-   "lastOkAt": "2026-11-04T17:00:22.623Z",
+   "count": 125,
+   "lastOkAt": "2026-11-06T07:29:20.305Z",
    "error": null
   },
   {
    "name": "eurobrussels",
    "label": "EuroBrussels",
    "ok": true,
-   "count": 74,
-   "lastOkAt": "2026-11-04T17:00:22.623Z",
+   "count": 84,
+   "lastOkAt": "2026-11-06T07:29:20.305Z",
    "error": null
   },
   {
    "name": "euractiv",
    "label": "Euractiv Jobs",
    "ok": true,
-   "count": 25,
-   "lastOkAt": "2026-11-04T17:00:22.623Z",
+   "count": 26,
+   "lastOkAt": "2026-11-06T07:29:20.305Z",
    "error": null
   },
   {
@@ -71,7 +71,7 @@
    "label": "EURES",
    "ok": true,
    "count": 87,
-   "lastOkAt": "2026-11-04T17:00:22.623Z",
+   "lastOkAt": "2026-11-06T07:29:20.305Z",
    "error": null
   }
  ],
@@ -159,7 +159,7 @@
      "url": "https://himalayas.app/companies/harris/jobs/talent-development-learning-specialist-f-m-d?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "27bf72859c498daa",
@@ -221,7 +221,7 @@
      "url": "https://himalayas.app/companies/airalo/jobs/training-specialist?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "4a41d4e1a88357dc",
@@ -292,35 +292,35 @@
      "url": "https://himalayas.app/companies/able-ventures/jobs/od-learning-solutions-associate?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
-   "id": "b6b87ea0cf231546",
+   "id": "e6454a7ee6025423",
    "ids": [
-    "b6b87ea0cf231546"
+    "e6454a7ee6025423"
    ],
-   "title": "Global Technical Instructional Designer",
-   "company": "Hitachi Energy",
-   "location": "Sevlievo, Gabrovo, Bulgaria",
+   "title": "Program Coordinator, AI Initiative",
+   "company": "Pulitzer Center",
+   "location": "Worldwide",
    "locationClass": "remote",
    "workMode": "remote",
    "employmentType": "unknown",
-   "postedAt": "2026-11-04",
+   "postedAt": "2026-11-05",
    "deadline": null,
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "digital",
+   "experience": "Mid-level",
+   "minYears": 5,
+   "seniority": "mid",
+   "salary": "54,500–62,000 USD/year",
+   "area": "projects",
    "areas": [
-    "digital"
+    "projects"
    ],
-   "score": 75,
+   "score": 76,
    "parts": {
     "relevance": 35,
-    "experience": 6,
+    "experience": 9,
     "workMode": 15,
-    "level": 10,
+    "level": 8,
     "location": 9,
     "organisation": 0,
     "penalty": 0
@@ -328,11 +328,19 @@
    "reasons": [
     {
      "kind": "fit",
-     "text": "Naziv ustreza področju »Digitalno izobraževanje in EdTech«"
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ujema se s tvojimi izkušnjami: organizacija izobraževanj, španščina"
     },
     {
      "kind": "fit",
      "text": "Delo na daljavo"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva 5+ let izkušenj"
     },
     {
      "kind": "fit",
@@ -341,12 +349,76 @@
    ],
    "sources": [
     {
-     "source": "linkedin",
-     "label": "LinkedIn",
-     "url": "https://bg.linkedin.com/jobs/view/global-technical-instructional-designer-at-hitachi-energy-4460313793"
+     "source": "himalayas",
+     "label": "Himalayas",
+     "url": "https://himalayas.app/companies/pulitzer-center/jobs/program-coordinator-ai-initiative?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-03T21:33:40.461Z"
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
+  },
+  {
+   "id": "e9ef6fbb317c0f80",
+   "ids": [
+    "e9ef6fbb317c0f80",
+    "ed0991524a06b0be"
+   ],
+   "title": "Creative Marketing Project Coordinator",
+   "company": "CapsLock",
+   "location": "Slovenia",
+   "locationClass": "slovenia",
+   "workMode": "remote",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-04",
+   "deadline": null,
+   "experience": "Mid-level",
+   "minYears": 2,
+   "seniority": "junior",
+   "salary": null,
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 75,
+   "parts": {
+    "relevance": 30,
+    "experience": 7,
+    "workMode": 15,
+    "level": 13,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ujema se s tvojimi izkušnjami: koordinacija projektov"
+    },
+    {
+     "kind": "fit",
+     "text": "Delo na daljavo"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (Mid-level) ustrezajo tvojemu profilu"
+    }
+   ],
+   "sources": [
+    {
+     "source": "himalayas",
+     "label": "Himalayas",
+     "url": "https://himalayas.app/companies/capslock/jobs/creative-marketing-project-coordinator-3540695164?utm_source=api"
+    },
+    {
+     "source": "linkedin",
+     "label": "LinkedIn",
+     "url": "https://si.linkedin.com/jobs/view/creative-marketing-project-coordinator-at-capslock-4487503914"
+    }
+   ],
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
   },
   {
    "id": "d2da734582134ddc",
@@ -400,7 +472,7 @@
      "url": "https://es.linkedin.com/jobs/view/clinical-education-specialist-emea-at-align-technology-4483877628"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "b18537d533de7246",
@@ -454,7 +526,7 @@
      "url": "https://nl.linkedin.com/jobs/view/retail-training-coordinator-europe-at-xpeng-4478536026"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "979e3d915830742c",
@@ -516,7 +588,7 @@
      "url": "https://himalayas.app/companies/canonical/jobs/organisational-development-associate?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "8ab25ee69f301cc0",
@@ -578,7 +650,73 @@
      "url": "https://www.eurobrussels.com/job_display/297459/Course_and_Conference_Officer_EMBL_European_Molecular_Biology_Laboratory_Heidelberg_Germany"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+  },
+  {
+   "id": "73d0f31a0cf98283",
+   "ids": [
+    "73d0f31a0cf98283"
+   ],
+   "title": "Programme Officer - Cooling and Heating",
+   "company": "ECOS - Environmental Coalition on Standards",
+   "location": "Brussels, Belgium",
+   "locationClass": "abroad",
+   "workMode": "hybrid",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-05",
+   "deadline": "2026-11-22",
+   "experience": "0 - 2 Years Experience, 3 - 4 Years Experience",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": "€ 3,345 - € 3,687 per month",
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 72,
+   "parts": {
+    "relevance": 30,
+    "experience": 5,
+    "workMode": 13,
+    "level": 15,
+    "location": 2,
+    "organisation": 7,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "fit",
+     "text": "Hibridno delo (delno od doma)"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (0 - 2 Years Experience, 3 - 4 Years Experience) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: mednarodno okolje"
+    }
+   ],
+   "sources": [
+    {
+     "source": "eurobrussels",
+     "label": "EuroBrussels",
+     "url": "https://www.eurobrussels.com/job_display/298678/Programme_Officer_Cooling_and_Heating_ECOS_Environmental_Coalition_on_Standards_Brussels_Belgium"
+    }
+   ],
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
   },
   {
    "id": "8c17287a879011e8",
@@ -644,70 +782,7 @@
      "url": "https://www.eurobrussels.com/job_display/298149/EU_Affairs_Manager_CATF_Clean_Air_Task_Force_Brussels_Belgium"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
-  },
-  {
-   "id": "91b393f4b1fcc18a",
-   "ids": [
-    "91b393f4b1fcc18a"
-   ],
-   "title": "ORGANIZATOR IZOBRAŽEVANJA ODRASLIH - M/Ž",
-   "company": "LJUDSKA UNIVERZA JESENICE",
-   "location": "JESENICE",
-   "locationClass": "slovenia",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-11-02",
-   "deadline": "2026-11-05",
-   "experience": "2 leti",
-   "minYears": 2,
-   "seniority": "junior",
-   "salary": null,
-   "area": "ld",
-   "areas": [
-    "ld",
-    "education"
-   ],
-   "score": 70,
-   "parts": {
-    "relevance": 35,
-    "experience": 7,
-    "workMode": 4,
-    "level": 13,
-    "location": 4,
-    "organisation": 7,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Izobraževanje in razvoj zaposlenih (L&D)«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: andragogika"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (2 leti) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, javna ali nevladna organizacija"
-    },
-    {
-     "kind": "fit",
-     "text": "Tematika: vseživljenjsko učenje"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3499916/#/pdm/3499916"
-    }
-   ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "e51a4fae4cb0e69f",
@@ -765,7 +840,7 @@
      "url": "https://www.mojedelo.com/job-ad/samostojni-skrbnik-za-razvoj-kadrov-m-z/1b97c489-5ebd-4abb-bf97-66dc1ca05ef7"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "52c62b208b68ca9d",
@@ -819,7 +894,7 @@
      "url": "https://himalayas.app/companies/doxim/jobs/project-coordinator?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "7a12a990aa89f70f",
@@ -883,7 +958,7 @@
      "url": "https://si.linkedin.com/jobs/view/pedagog-andragog-vii-2-ii-v-prevzgojnem-domu-rade%C4%8De-%C5%A1ifra-dm-8085-uprava-republike-slovenije-za-izvr%C5%A1evanje-kazenskih-sankcij-ministrstvo-za-pravosodje-at-vlada-republike-slovenije-4482447967"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "dbd968b1fb5a85cc",
@@ -945,7 +1020,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3498921/#/pdm/3498921"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "ddbd146a0c61bdeb",
@@ -1003,7 +1078,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3500963/#/pdm/3500963"
     }
    ],
-   "firstSeenAt": "2026-11-04T17:00:22.623Z"
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
   },
   {
    "id": "abb52c6538ec6a6b",
@@ -1061,7 +1136,65 @@
      "url": "https://www.optius.com/iskalci/prosta-delovna-mesta/strokovni-sodelavec-za-ekonomsko-podrocje-vii1-i-mz-supas-podrocje-za-ekonomsko-in-financno-dejavnost-965829-965829/"
     }
    ],
-   "firstSeenAt": "2026-11-03T21:33:40.461Z"
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
+  },
+  {
+   "id": "aaae49f2758cb33d",
+   "ids": [
+    "aaae49f2758cb33d"
+   ],
+   "title": "Learning and Development Officer",
+   "company": "European Centre for Disease Prevention and Control (ECDC)",
+   "location": "Stockholm, Sweden",
+   "locationClass": "abroad",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": null,
+   "deadline": "2026-11-04",
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": "EU grade AST 4",
+   "area": "ld",
+   "areas": [
+    "ld"
+   ],
+   "score": 62,
+   "parts": {
+    "relevance": 35,
+    "experience": 6,
+    "workMode": 4,
+    "level": 10,
+    "location": 2,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Izobraževanje in razvoj zaposlenih (L&D)«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ujema se s tvojimi izkušnjami: razvoj zaposlenih"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "eucareers",
+     "label": "EU Careers",
+     "url": "https://eu-careers.europa.eu/jobs/learning-and-development-officer_en"
+    }
+   ],
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "116a3b412d32ada0",
@@ -1119,65 +1252,7 @@
      "url": "https://www.mojedelo.com/job-ad/svetovalec-za-podrocje-podpore-in-koordinacije-projektov-v-uradu-direktorja-m-z/b3c2f8bc-359b-4b9d-a889-a59765b26495"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
-  },
-  {
-   "id": "aaae49f2758cb33d",
-   "ids": [
-    "aaae49f2758cb33d"
-   ],
-   "title": "Learning and Development Officer",
-   "company": "European Centre for Disease Prevention and Control (ECDC)",
-   "location": "Stockholm, Sweden",
-   "locationClass": "abroad",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": null,
-   "deadline": "2026-11-04",
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": "EU grade AST 4",
-   "area": "ld",
-   "areas": [
-    "ld"
-   ],
-   "score": 61,
-   "parts": {
-    "relevance": 35,
-    "experience": 5,
-    "workMode": 4,
-    "level": 10,
-    "location": 2,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Izobraževanje in razvoj zaposlenih (L&D)«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: razvoj zaposlenih"
-    },
-    {
-     "kind": "warn",
-     "text": "Delo v tujini (zahteva selitev)"
-    },
-    {
-     "kind": "fit",
-     "text": "Mednarodna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "eucareers",
-     "label": "EU Careers",
-     "url": "https://eu-careers.europa.eu/jobs/learning-and-development-officer_en"
-    }
-   ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "05a50ff60b3da74d",
@@ -1227,7 +1302,7 @@
      "url": "https://si.linkedin.com/jobs/view/koordinator-projektov-za-inovacije-in-digitalne-produkte-at-a1-slovenija-d-d-4481903364"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "b5d3a778991315b5",
@@ -1281,7 +1356,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3501336/#/pdm/3501336"
     }
    ],
-   "firstSeenAt": "2026-11-04T17:00:22.623Z"
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
   },
   {
    "id": "33ec8f2bff5a876e",
@@ -1335,57 +1410,73 @@
      "url": "https://www.mojedelo.com/job-ad/strokovni-sodelavec-v-projektni-pisarni-m-z/55b4205f-67b7-4e1b-9cdf-0da4c070c85e"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
-   "id": "0966f7f54d158b83",
+   "id": "a9c7811ead597162",
    "ids": [
-    "0966f7f54d158b83"
+    "a9c7811ead597162"
    ],
-   "title": "JUNIOR SODELAVEC/KA ZA DELO NA RAZVOJNIH PROJEKTIH (M/Ž) - M/Ž",
-   "company": "BETI Tekstilna industrija d.o.o.",
-   "location": "METLIKA",
-   "locationClass": "slovenia",
+   "title": "E097170 STROKOVNI SODELAVEC VII/2 (I) - ODDELEK ZA DRŽAVNI PRESEJALNI PROGRAM ZA RAKA MATERNIČNEGA VRATU ZORA - M/Ž",
+   "company": "ONKOLOŠKI INŠTITUT LJUBLJANA",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
    "workMode": "onsite",
    "employmentType": "fixed-term",
-   "postedAt": "2026-10-21",
-   "deadline": "2026-11-05",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
+   "postedAt": "2026-11-05",
+   "deadline": "2026-11-13",
+   "experience": "6 let",
+   "minYears": 6,
+   "seniority": "senior",
+   "salary": "2.576,02 EUR bruto mesečno",
    "area": "projects",
    "areas": [
     "projects"
    ],
-   "score": 58,
+   "score": 57,
    "parts": {
-    "relevance": 30,
-    "experience": 5,
+    "relevance": 24,
+    "experience": 9,
     "workMode": 4,
-    "level": 15,
-    "location": 4,
-    "organisation": 0,
+    "level": 3,
+    "location": 10,
+    "organisation": 7,
     "penalty": 0
    },
    "reasons": [
     {
      "kind": "fit",
-     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+     "text": "Delo spada na področje »Projekti in koordinacija«"
     },
     {
      "kind": "fit",
-     "text": "Začetna / junior pozicija"
+     "text": "Ujema se s tvojimi izkušnjami: EU-projekti"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva 6+ let izkušenj"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, javna ali nevladna organizacija"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: EU-projekti"
     }
    ],
    "sources": [
     {
      "source": "zrsz",
      "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3495690/#/pdm/3495690"
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3501714/#/pdm/3501714"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
   },
   {
    "id": "681f69189e7f1b51",
@@ -1465,7 +1556,7 @@
      "url": "https://www.eurobrussels.com/job_display/298644/Communication_Projects_Officer_EBC_European_Builders_Confederation_Brussels_Belgium"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "892d4f4866c50686",
@@ -1519,7 +1610,7 @@
      "url": "https://eu-careers.europa.eu/jobs/programme-officer-1_en"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "ead8ef286438ba8b",
@@ -1573,7 +1664,281 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3499255/#/pdm/3499255"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+  },
+  {
+   "id": "72bc32f27a8188bf",
+   "ids": [
+    "72bc32f27a8188bf"
+   ],
+   "title": "Project Officer Land Capabilities",
+   "company": "EDA - European Defence Agency",
+   "location": "Brussels, Belgium",
+   "locationClass": "abroad",
+   "workMode": "onsite",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-05",
+   "deadline": "2026-11-26",
+   "experience": "5 Years+ Experience",
+   "minYears": 5,
+   "seniority": "mid",
+   "salary": "€ 8.911,48 per month gross",
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 55,
+   "parts": {
+    "relevance": 30,
+    "experience": 6,
+    "workMode": 4,
+    "level": 8,
+    "location": 2,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva 5+ let izkušenj"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "eurobrussels",
+     "label": "EuroBrussels",
+     "url": "https://www.eurobrussels.com/job_display/298694/Project_Officer_Land_Capabilities_EDA_European_Defence_Agency_Brussels_Belgium"
+    }
+   ],
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
+  },
+  {
+   "id": "2e48316133c9ec83",
+   "ids": [
+    "2e48316133c9ec83"
+   ],
+   "title": "Project Officer Critical Infrastructure Protection and Energy Security (CIPES)",
+   "company": "European Defence Agency (EDA)",
+   "location": "Brussels, Belgium",
+   "locationClass": "abroad",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-05",
+   "deadline": "2026-11-26",
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": "EU grade AD 8",
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 54,
+   "parts": {
+    "relevance": 30,
+    "experience": 3,
+    "workMode": 4,
+    "level": 10,
+    "location": 2,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "eucareers",
+     "label": "EU Careers",
+     "url": "https://eu-careers.europa.eu/jobs/project-officer-critical-infrastructure-protection-and-energy-security-cipes_en"
+    }
+   ],
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
+  },
+  {
+   "id": "38781031f1791c47",
+   "ids": [
+    "38781031f1791c47"
+   ],
+   "title": "Project Officer Land Capabilities - (2 posts)",
+   "company": "European Defence Agency (EDA)",
+   "location": "Brussels, Belgium",
+   "locationClass": "abroad",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-05",
+   "deadline": "2026-11-26",
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": "EU grade AD 8",
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 54,
+   "parts": {
+    "relevance": 30,
+    "experience": 3,
+    "workMode": 4,
+    "level": 10,
+    "location": 2,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "eucareers",
+     "label": "EU Careers",
+     "url": "https://eu-careers.europa.eu/jobs/project-officer-land-capabilities_en"
+    }
+   ],
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
+  },
+  {
+   "id": "bab75e50512d1e02",
+   "ids": [
+    "bab75e50512d1e02"
+   ],
+   "title": "Project Officer Transition",
+   "company": "European Defence Agency (EDA)",
+   "location": "Brussels, Belgium",
+   "locationClass": "abroad",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-05",
+   "deadline": "2026-11-26",
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": "EU grade FG IV",
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 54,
+   "parts": {
+    "relevance": 30,
+    "experience": 3,
+    "workMode": 4,
+    "level": 10,
+    "location": 2,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "eucareers",
+     "label": "EU Careers",
+     "url": "https://eu-careers.europa.eu/jobs/project-officer-transition_en"
+    }
+   ],
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
+  },
+  {
+   "id": "8aa49777540b40b6",
+   "ids": [
+    "8aa49777540b40b6"
+   ],
+   "title": "Project Officer Experimentation",
+   "company": "European Defence Agency (EDA)",
+   "location": "Brussels, Belgium",
+   "locationClass": "abroad",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-05",
+   "deadline": "2026-11-26",
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": "EU grade FG IV",
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 54,
+   "parts": {
+    "relevance": 30,
+    "experience": 3,
+    "workMode": 4,
+    "level": 10,
+    "location": 2,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "warn",
+     "text": "Delo v tujini (zahteva selitev)"
+    },
+    {
+     "kind": "fit",
+     "text": "Mednarodna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "eucareers",
+     "label": "EU Careers",
+     "url": "https://eu-careers.europa.eu/jobs/project-officer-experimentation-0_en"
+    }
+   ],
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
   },
   {
    "id": "8068e715523911b1",
@@ -1627,7 +1992,7 @@
      "url": "https://eu-careers.europa.eu/jobs/project-officer-medical_en"
     }
    ],
-   "firstSeenAt": "2026-11-04T17:00:22.623Z"
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
   },
   {
    "id": "2dd7a82fddcdbbfb",
@@ -1681,7 +2046,7 @@
      "url": "https://eu-careers.europa.eu/jobs/bravetech-eu-project-officer-ai-emerging-technologies_en"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "52f0ffef101b575c",
@@ -1735,7 +2100,7 @@
      "url": "https://eu-careers.europa.eu/jobs/project-officer-communication-and-information-systems-cis-support-operations_en"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "b64e9c2e84ad747b",
@@ -1793,35 +2158,35 @@
      "url": "https://jobs.rapporteur.com/jobs/policy-analyst-on-gender-equality-brussels-on-site-foundation-for-european-progressive-studies-feps/"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
-   "id": "3d0980843b50ec43",
+   "id": "2027cad2591a8a5d",
    "ids": [
-    "3d0980843b50ec43"
+    "2027cad2591a8a5d"
    ],
-   "title": "STROKOVNI SODELAVEC VII/2 (II) ZA OPRAVLJANJE NALOG NA PROJEKTU:  »CITYRES CLIMATE RESILIENT CITIES THROUGH LOCAL DIGITAL TWINS« - M/Ž",
-   "company": "OBČINA KOČEVJE",
-   "location": "KOČEVJE",
+   "title": "D017013 - STROKOVNI SODELAVEC PRI PEDAGOŠKEM PROCESU NA UNIVERZI VII/2,LABORATORIJ ZA NAČRTOVANJE SISTEMOV, FERI UM - M/Ž",
+   "company": "UM; UM FERI",
+   "location": "MARIBOR",
    "locationClass": "slovenia",
    "workMode": "onsite",
    "employmentType": "fixed-term",
-   "postedAt": "2026-10-26",
-   "deadline": "2026-11-05",
-   "experience": "3 leta",
-   "minYears": 3,
-   "seniority": "mid",
-   "salary": null,
-   "area": "projects",
+   "postedAt": "2026-11-05",
+   "deadline": "2026-11-10",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": "2.424,22 EUR bruto mesečno",
+   "area": "related",
    "areas": [
-    "projects"
+    "related"
    ],
    "score": 52,
    "parts": {
     "relevance": 24,
-    "experience": 7,
+    "experience": 5,
     "workMode": 4,
-    "level": 13,
+    "level": 15,
     "location": 4,
     "organisation": 0,
     "penalty": 0
@@ -1829,21 +2194,21 @@
    "reasons": [
     {
      "kind": "fit",
-     "text": "Delo spada na področje »Projekti in koordinacija«"
+     "text": "Delo spada na področje »Druge sorodne pozicije«"
     },
     {
      "kind": "fit",
-     "text": "Zahtevane izkušnje (3 leta) ustrezajo tvojemu profilu"
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
     }
    ],
    "sources": [
     {
      "source": "zrsz",
      "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3497509/#/pdm/3497509"
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3501833/#/pdm/3501833"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
   },
   {
    "id": "b5d9f5fb2a69ca40",
@@ -1909,7 +2274,7 @@
      "url": "https://jobs.rapporteur.com/jobs/policy-officer-brussels-on-site-supergrid-europe/"
     }
    ],
-   "firstSeenAt": "2026-11-03T21:33:40.461Z"
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
   },
   {
    "id": "5b2692d2c2d4b835",
@@ -1959,7 +2324,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3497955/#/pdm/3497955"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "10606ebbded7fc54",
@@ -1967,7 +2332,7 @@
     "10606ebbded7fc54"
    ],
    "title": "Manager/in / Advisor/in European Affairs (w/m/d)",
-   "company": "Zvei",
+   "company": "ZVEI e.V. – Verband der Elektro- und Digitalindustrie",
    "location": "Brussels, Belgium",
    "locationClass": "abroad",
    "workMode": "hybrid",
@@ -2029,7 +2394,7 @@
      "url": "https://jobs.rapporteur.com/jobs/manager-in-advisor-in-european-affairs-w-m-d-brussels-hybrid-zvei/"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "c19cc2a2c9e54b47",
@@ -2099,7 +2464,7 @@
      "url": "https://jobs.rapporteur.com/jobs/project-manager-m-f-d-brussels-brussels-on-site-giz-gmbh/"
     }
    ],
-   "firstSeenAt": "2026-11-04T17:00:22.623Z"
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
   },
   {
    "id": "f47ace8aa1bb3e19",
@@ -2165,7 +2530,7 @@
      "url": "https://jobs.rapporteur.com/jobs/manager-eu-agricultural-policy-brussels-hybrid-bayer/"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "1ada541108a1ed39",
@@ -2228,7 +2593,7 @@
      "url": "https://himalayas.app/companies/achieve-test-prep/jobs/trade-licensing-program-manager?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
    "id": "35d58b914106f55a",
@@ -2294,7 +2659,61 @@
      "url": "https://jobs.rapporteur.com/jobs/assistant-project-manager-m-f-d-brussels-on-site-giz-gmbh/"
     }
    ],
-   "firstSeenAt": "2026-11-02T10:03:47.196Z"
+   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+  },
+  {
+   "id": "46eeef9e8a9b43ff",
+   "ids": [
+    "46eeef9e8a9b43ff"
+   ],
+   "title": "STROKOVNI SODELAVEC ZA POSREDOVANJE DELOVNE SILE - M/Ž",
+   "company": "SN PERSONAL, posredovanje začasne delovne sile d.o.o.",
+   "location": "MURSKA SOBOTA",
+   "locationClass": "slovenia",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-06",
+   "deadline": "2026-12-06",
+   "experience": "2 leti",
+   "minYears": 2,
+   "seniority": "junior",
+   "salary": null,
+   "area": "ld",
+   "areas": [
+    "ld"
+   ],
+   "score": 40,
+   "parts": {
+    "relevance": 24,
+    "experience": 3,
+    "workMode": 4,
+    "level": 13,
+    "location": 1,
+    "organisation": 0,
+    "penalty": -5
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Izobraževanje in razvoj zaposlenih (L&D)«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (2 leti) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva nemščino"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3501894/#/pdm/3501894"
+    }
+   ],
+   "firstSeenAt": "2026-11-06T07:29:20.305Z"
   }
  ]
 }
