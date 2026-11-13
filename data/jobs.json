@@ -1,77 +1,77 @@
 {
- "generatedAt": "2026-11-10T21:12:55.786Z",
+ "generatedAt": "2026-11-13T09:18:27.714Z",
  "windowDays": 60,
  "sources": [
   {
    "name": "zrsz",
    "label": "Zavod RS za zaposlovanje",
    "ok": true,
-   "count": 3846,
-   "lastOkAt": "2026-11-10T21:12:55.786Z",
+   "count": 3712,
+   "lastOkAt": "2026-11-13T09:18:27.714Z",
    "error": null
   },
   {
    "name": "mojedelo",
    "label": "MojeDelo",
    "ok": true,
-   "count": 418,
-   "lastOkAt": "2026-11-10T21:12:55.786Z",
+   "count": 405,
+   "lastOkAt": "2026-11-13T09:18:27.714Z",
    "error": null
   },
   {
    "name": "optius",
    "label": "Optius",
    "ok": true,
-   "count": 207,
-   "lastOkAt": "2026-11-10T21:12:55.786Z",
+   "count": 215,
+   "lastOkAt": "2026-11-13T09:18:27.714Z",
    "error": null
   },
   {
    "name": "linkedin",
    "label": "LinkedIn",
    "ok": true,
-   "count": 112,
-   "lastOkAt": "2026-11-10T21:12:55.786Z",
+   "count": 125,
+   "lastOkAt": "2026-11-13T09:18:27.714Z",
    "error": null
   },
   {
    "name": "himalayas",
    "label": "Himalayas",
    "ok": true,
-   "count": 110,
-   "lastOkAt": "2026-11-10T21:12:55.786Z",
+   "count": 108,
+   "lastOkAt": "2026-11-13T09:18:27.714Z",
    "error": null
   },
   {
    "name": "eucareers",
    "label": "EU Careers",
    "ok": true,
-   "count": 123,
-   "lastOkAt": "2026-11-10T21:12:55.786Z",
+   "count": 121,
+   "lastOkAt": "2026-11-13T09:18:27.714Z",
    "error": null
   },
   {
    "name": "eurobrussels",
    "label": "EuroBrussels",
    "ok": true,
-   "count": 100,
-   "lastOkAt": "2026-11-10T21:12:55.786Z",
+   "count": 101,
+   "lastOkAt": "2026-11-13T09:18:27.714Z",
    "error": null
   },
   {
    "name": "euractiv",
    "label": "Euractiv Jobs",
    "ok": true,
-   "count": 27,
-   "lastOkAt": "2026-11-10T21:12:55.786Z",
+   "count": 28,
+   "lastOkAt": "2026-11-13T09:18:27.714Z",
    "error": null
   },
   {
    "name": "eures",
    "label": "EURES",
    "ok": true,
-   "count": 69,
-   "lastOkAt": "2026-11-10T21:12:55.786Z",
+   "count": 54,
+   "lastOkAt": "2026-11-13T09:18:27.714Z",
    "error": null
   }
  ],
@@ -1243,6 +1243,114 @@
    "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
+   "id": "525826bd3f006218",
+   "ids": [
+    "525826bd3f006218"
+   ],
+   "title": "SOCIALNI PEDAGOG VZGOJITELJ V STROKOVNEM CENTRU ZA ČVTM - M/Ž",
+   "company": "Strokovni center Višnja Gora",
+   "location": "GROSUPLJE",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-13",
+   "deadline": "2026-11-23",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 67,
+   "parts": {
+    "relevance": 35,
+    "experience": 3,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504972/#/pdm/3504972"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+  },
+  {
+   "id": "b121991f2bc4d1b9",
+   "ids": [
+    "b121991f2bc4d1b9"
+   ],
+   "title": "SOCIALNI PEDAGOG VZGOJITELJ V STROKOVNEM CENTRU ZA ČVTM - M/Ž",
+   "company": "Strokovni center Višnja Gora",
+   "location": "GROSUPLJE",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-13",
+   "deadline": "2026-11-23",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 67,
+   "parts": {
+    "relevance": 35,
+    "experience": 3,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504974/#/pdm/3504974"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+  },
+  {
    "id": "8ffe8ba61483987e",
    "ids": [
     "8ffe8ba61483987e"
@@ -1349,119 +1457,6 @@
     }
    ],
    "firstSeenAt": "2026-11-09T17:59:57.339Z"
-  },
-  {
-   "id": "9cecd7c8d2e9d7b4",
-   "ids": [
-    "9cecd7c8d2e9d7b4"
-   ],
-   "title": "STROKOVNI SODELAVEC NA CSD – MATERIALNE PRAVICE II - ENOTA VIČ-RUDNIK - M/Ž",
-   "company": "Center za socialno delo Ljubljana",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-04",
-   "deadline": "2026-11-12",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling",
-    "institutions"
-   ],
-   "score": 67,
-   "parts": {
-    "relevance": 28,
-    "experience": 5,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3500629/#/pdm/3500629"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
-  },
-  {
-   "id": "a5a016c12e60be7f",
-   "ids": [
-    "a5a016c12e60be7f"
-   ],
-   "title": "SVETOVALNI DELAVEC - M/Ž",
-   "company": "OSNOVNA ŠOLA LEDINA",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-04",
-   "deadline": "2026-11-12",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling"
-   ],
-   "score": 67,
-   "parts": {
-    "relevance": 35,
-    "experience": 3,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 0,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3501260/#/pdm/3501260"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
   },
   {
    "id": "d066e5001cf18ad0",
@@ -1630,6 +1625,185 @@
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
   },
   {
+   "id": "bd2d3df02ea5b73a",
+   "ids": [
+    "bd2d3df02ea5b73a"
+   ],
+   "title": "SVETOVALEC ZA DOLGOTRAJNO OSKRBO (VII/2) - SLUŽBA ZA DOLGOTRAJNO OSKRBO - M/Ž",
+   "company": "Center za socialno delo Ljubljana",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-12",
+   "deadline": "2026-11-20",
+   "experience": "3 leta",
+   "minYears": 3,
+   "seniority": "mid",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling",
+    "institutions"
+   ],
+   "score": 65,
+   "parts": {
+    "relevance": 28,
+    "experience": 5,
+    "workMode": 4,
+    "level": 13,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (3 leta) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504413/#/pdm/3504413"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+  },
+  {
+   "id": "855a1a5d1e9507a8",
+   "ids": [
+    "855a1a5d1e9507a8"
+   ],
+   "title": "STROKOVNI DELAVEC V VISOKOŠOLSKI DEJAVNOSTI VII/1-II V ORGANIZACIJSKI ENOTI ODDELEK ZA FILM IN TELEVIZIJO - M/Ž",
+   "company": "UNIVERZA V LJUBLJANI, AKADEMIJA ZA GLEDALIŠČE, RADIO, FILM IN TELEVIZIJO",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-11",
+   "deadline": "2026-11-22",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "institutions",
+   "areas": [
+    "institutions"
+   ],
+   "score": 65,
+   "parts": {
+    "relevance": 24,
+    "experience": 7,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ujema se s tvojimi izkušnjami: SAP"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3503709/#/pdm/3503709"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+  },
+  {
+   "id": "c5dfdb001f42215f",
+   "ids": [
+    "c5dfdb001f42215f"
+   ],
+   "title": "STROKOVNI SODELAVEC VII/2 (I) - D097170 - M/Ž",
+   "company": "CENTRALNA TEHNIŠKA KNJIŽNICA UNIVERZE V LJUBLJANI",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-11",
+   "deadline": "2026-11-18",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "institutions",
+   "areas": [
+    "institutions"
+   ],
+   "score": 65,
+   "parts": {
+    "relevance": 24,
+    "experience": 7,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3503604/#/pdm/3503604"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+  },
+  {
    "id": "80447a6feb07e1d9",
    "ids": [
     "80447a6feb07e1d9"
@@ -1692,64 +1866,6 @@
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
   },
   {
-   "id": "80ebf9571e18ecf6",
-   "ids": [
-    "80ebf9571e18ecf6"
-   ],
-   "title": "STROKOVNI DELAVEC V VISOKOŠOLSKI DEJAVNOSTI VII/2-I (D057021) - M/Ž",
-   "company": "UNIVERZA V LJUBLJANI, FAKULTETA ZA ELEKTROTEHNIKO",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-03",
-   "deadline": "2026-11-10",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "institutions"
-   ],
-   "score": 65,
-   "parts": {
-    "relevance": 24,
-    "experience": 7,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3500566/#/pdm/3500566"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
-  },
-  {
    "id": "a66ad8460e406677",
    "ids": [
     "a66ad8460e406677"
@@ -1805,9 +1921,9 @@
    "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
-   "id": "8f04b572dd44733a",
+   "id": "56e7bc9a685ae530",
    "ids": [
-    "8f04b572dd44733a"
+    "56e7bc9a685ae530"
    ],
    "title": "Izvršni poslovni asistent za projekte in AI",
    "company": "Ham d.o.o.",
@@ -1815,8 +1931,8 @@
    "locationClass": "ljubljana",
    "workMode": "onsite",
    "employmentType": "permanent",
-   "postedAt": "2026-11-10",
-   "deadline": "2026-12-08",
+   "postedAt": "2026-11-12",
+   "deadline": "2026-12-11",
    "experience": "5+ do 10 let",
    "minYears": 5,
    "seniority": "junior",
@@ -1857,10 +1973,10 @@
     {
      "source": "mojedelo",
      "label": "MojeDelo",
-     "url": "https://www.mojedelo.com/job-ad/izvrsni-poslovni-asistent-za-projekte-in-ai/151a40ac-10a0-406b-b9f2-43929f80c599"
+     "url": "https://www.mojedelo.com/job-ad/izvrsni-poslovni-asistent-za-projekte-in-ai/8a11137b-b7d5-45c3-b4b2-1d649be1aed8"
     }
    ],
-   "firstSeenAt": "2026-11-10T21:12:55.786Z"
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
   },
   {
    "id": "37966aee75df2297",
@@ -1911,6 +2027,123 @@
     }
    ],
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
+  },
+  {
+   "id": "0eae49d114235bcb",
+   "ids": [
+    "0eae49d114235bcb"
+   ],
+   "title": "SVETOVALEC ZA DOLGOTRAJNO OSKRBO (VII/1) - SLUŽBA ZA DOLGOTRAJNO OSKRBO - M/Ž",
+   "company": "Center za socialno delo Ljubljana",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-12",
+   "deadline": "2026-11-20",
+   "experience": "3 leta",
+   "minYears": 3,
+   "seniority": "mid",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling",
+    "institutions"
+   ],
+   "score": 63,
+   "parts": {
+    "relevance": 28,
+    "experience": 3,
+    "workMode": 4,
+    "level": 13,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (3 leta) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504410/#/pdm/3504410"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+  },
+  {
+   "id": "756a3b99c8bb3591",
+   "ids": [
+    "756a3b99c8bb3591"
+   ],
+   "title": "KOORDINATOR VII/1 (G097032) - M/Ž",
+   "company": "Muzej in galerije mesta Ljubljane",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-11",
+   "deadline": "2026-11-19",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": "2.030,25 EUR bruto mesečno",
+   "area": "institutions",
+   "areas": [
+    "institutions"
+   ],
+   "score": 63,
+   "parts": {
+    "relevance": 24,
+    "experience": 5,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3503990/#/pdm/3503990"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
   },
   {
    "id": "c420569f35d4604d",
@@ -2037,64 +2270,6 @@
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
   },
   {
-   "id": "ddbd146a0c61bdeb",
-   "ids": [
-    "ddbd146a0c61bdeb"
-   ],
-   "title": "KOORDINATOR VII/2 (E097118) ZA POTREBE OI, ODDELEK ZA RAZISKOVANJE IN IZOBRAŽEVANJE - M/Ž",
-   "company": "ONKOLOŠKI INŠTITUT LJUBLJANA",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-11-04",
-   "deadline": "2026-11-12",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "projects",
-   "areas": [
-    "projects"
-   ],
-   "score": 63,
-   "parts": {
-    "relevance": 24,
-    "experience": 5,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Projekti in koordinacija«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3500963/#/pdm/3500963"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T07:29:20.305Z"
-  },
-  {
    "id": "d2807eeb393303dd",
    "ids": [
     "d2807eeb393303dd"
@@ -2151,6 +2326,226 @@
     }
    ],
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
+  },
+  {
+   "id": "a9a2fb68699352cc",
+   "ids": [
+    "a9a2fb68699352cc"
+   ],
+   "title": "STROKOVNI DELAVEC NA CSD I - ENOTA VRHNIKA - M/Ž",
+   "company": "Center za socialno delo Ljubljana",
+   "location": "VRHNIKA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-13",
+   "deadline": "2026-11-28",
+   "experience": "6 mes",
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling",
+    "institutions"
+   ],
+   "score": 62,
+   "parts": {
+    "relevance": 28,
+    "experience": 5,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505097/#/pdm/3505097"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+  },
+  {
+   "id": "723a91e1009803f4",
+   "ids": [
+    "723a91e1009803f4"
+   ],
+   "title": "STROKOVNI DELAVEC NA CSD I - ENOTA VIČ-RUDNIK - M/Ž",
+   "company": "Center za socialno delo Ljubljana",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-12",
+   "deadline": "2026-11-20",
+   "experience": "6 mes",
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling",
+    "institutions"
+   ],
+   "score": 62,
+   "parts": {
+    "relevance": 28,
+    "experience": 5,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504404/#/pdm/3504404"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+  },
+  {
+   "id": "722ca1759fdfd758",
+   "ids": [
+    "722ca1759fdfd758"
+   ],
+   "title": "STROKOVNI DELAVEC NA CSD I - ENOTA VIČ-RUDNIK - M/Ž",
+   "company": "Center za socialno delo Ljubljana",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-12",
+   "deadline": "2026-11-20",
+   "experience": "6 mes",
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling",
+    "institutions"
+   ],
+   "score": 62,
+   "parts": {
+    "relevance": 28,
+    "experience": 5,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504406/#/pdm/3504406"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+  },
+  {
+   "id": "881a1987e5b45ccb",
+   "ids": [
+    "881a1987e5b45ccb"
+   ],
+   "title": "STROKOVNI DELAVEC NA CSD II - ENOTA VIČ-RUDNIK - M/Ž",
+   "company": "Center za socialno delo Ljubljana",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-12",
+   "deadline": "2026-11-20",
+   "experience": "6 mes",
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling",
+    "institutions"
+   ],
+   "score": 62,
+   "parts": {
+    "relevance": 28,
+    "experience": 5,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504409/#/pdm/3504409"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
   },
   {
    "id": "755003c8265b6a9e",
@@ -2313,61 +2708,6 @@
      "source": "zrsz",
      "label": "Zavod RS za zaposlovanje",
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3502224/#/pdm/3502224"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
-  },
-  {
-   "id": "131b783b995b116d",
-   "ids": [
-    "131b783b995b116d"
-   ],
-   "title": "STROKOVNI DELAVEC NA CSD II - ENOTA LJUBLJANA ŠIŠKA - M/Ž",
-   "company": "Center za socialno delo Ljubljana",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-11-04",
-   "deadline": "2026-11-12",
-   "experience": "6 mes",
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling",
-    "institutions"
-   ],
-   "score": 62,
-   "parts": {
-    "relevance": 28,
-    "experience": 5,
-    "workMode": 4,
-    "level": 10,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3501460/#/pdm/3501460"
     }
    ],
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
@@ -2545,32 +2885,33 @@
    "firstSeenAt": "2026-11-10T21:12:55.786Z"
   },
   {
-   "id": "e7c84c0680bf14db",
+   "id": "0d7805599e9d5ee5",
    "ids": [
-    "e7c84c0680bf14db"
+    "0d7805599e9d5ee5"
    ],
-   "title": "SVETOVALEC PODROČJA I – PROJEKT JOINT INNOVATIVE EMPLOYMENT SUPPORT FOR DISPLACED PEOPLE FROM UKRAINE (JOINT-UA-EMPLOY), CENTRALNA SLUŽBA, DELOVNO PODROČJE ZA ZAPOSLOVANJE IN AKTIVNO POLITIKO ZAPOSLOVANJA, SLUŽBA ZA VSEŽIVLJENSJKO KARIERNO ORIENTACIJO - M/Ž",
-   "company": "ZAVOD REPUBLIKE SLOVENIJE ZA ZAPOSLOVANJE",
-   "location": "LJUBLJANA",
+   "title": "STROKOVNI DELAVEC V PROGRAMU - M/Ž",
+   "company": "Center za socialno delo Osrednja Slovenija - vzhod",
+   "location": "DOMŽALE",
    "locationClass": "ljubljana",
    "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-11-05",
-   "deadline": "2026-11-10",
-   "experience": "6 let",
-   "minYears": 6,
-   "seniority": "senior",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-13",
+   "deadline": "2026-11-21",
+   "experience": "6 mes",
+   "minYears": null,
+   "seniority": "unknown",
    "salary": null,
-   "area": "counselling",
+   "area": "institutions",
    "areas": [
-    "counselling"
+    "counselling",
+    "institutions"
    ],
    "score": 60,
    "parts": {
-    "relevance": 35,
+    "relevance": 28,
     "experience": 3,
     "workMode": 4,
-    "level": 3,
+    "level": 10,
     "location": 10,
     "organisation": 5,
     "penalty": 0
@@ -2578,11 +2919,7 @@
    "reasons": [
     {
      "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "warn",
-     "text": "Zahteva 6+ let izkušenj"
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
     },
     {
      "kind": "fit",
@@ -2597,10 +2934,10 @@
     {
      "source": "zrsz",
      "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3501735/#/pdm/3501735"
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504931/#/pdm/3504931"
     }
    ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
   },
   {
    "id": "05a50ff60b3da74d",
@@ -2651,6 +2988,114 @@
     }
    ],
    "firstSeenAt": "2026-11-02T09:36:45.885Z"
+  },
+  {
+   "id": "aed9199aa46b1c72",
+   "ids": [
+    "aed9199aa46b1c72"
+   ],
+   "title": "ŠIFRA DM:  D055009– STROKOVNI DELAVEC V VISOKOŠOLSKI DEJAVNOSTI V-I  - UPRAVNIK - M/Ž",
+   "company": "UNIVERZA V LJUBLJANI, FAKULTETA ZA MATEMATIKO IN FIZIKO",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-13",
+   "deadline": null,
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "institutions",
+   "areas": [
+    "institutions"
+   ],
+   "score": 59,
+   "parts": {
+    "relevance": 24,
+    "experience": 6,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505051/#/pdm/3505051"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+  },
+  {
+   "id": "ecf59cbfdfe2763a",
+   "ids": [
+    "ecf59cbfdfe2763a"
+   ],
+   "title": "STROKOVNI DELAVEC VI (III) ZA SPLOŠNE ZADEVE (ŠIFRA DM: G096034) - M/Ž (ŠTEVILKA RAZPISA: 29-3/2026)",
+   "company": "JAVNI ZAVOD REPUBLIKE SLOVENIJE ZA VARSTVO KULTURNE DEDIŠČINE",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-12",
+   "deadline": null,
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "institutions",
+   "areas": [
+    "institutions"
+   ],
+   "score": 59,
+   "parts": {
+    "relevance": 24,
+    "experience": 6,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504597/#/pdm/3504597"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
   },
   {
    "id": "7c3c8ef8986a2a2d",
@@ -2840,68 +3285,6 @@
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
   },
   {
-   "id": "d4279da2a7502e03",
-   "ids": [
-    "d4279da2a7502e03"
-   ],
-   "title": "SOCIALNI DELAVEC - M/Ž",
-   "company": "VARSTVENO DELOVNI CENTER KOPER - CENTRO DI ASSISTENZA E TERAPIA LAVORATIVA CAPODISTRIA",
-   "location": "KOPER",
-   "locationClass": "coast",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-05",
-   "deadline": "2026-11-12",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling"
-   ],
-   "score": 59,
-   "parts": {
-    "relevance": 35,
-    "experience": 5,
-    "workMode": 4,
-    "level": 15,
-    "location": 5,
-    "organisation": 0,
-    "penalty": -5
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: organizacija izobraževanj"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Koper ali Izola"
-    },
-    {
-     "kind": "warn",
-     "text": "Zahteva italijanščino"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3501821/#/pdm/3501821"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
-  },
-  {
    "id": "a69a846d67ee6632",
    "ids": [
     "a69a846d67ee6632"
@@ -3008,6 +3391,64 @@
     }
    ],
    "firstSeenAt": "2026-11-09T17:59:57.339Z"
+  },
+  {
+   "id": "2869e3041cb28fea",
+   "ids": [
+    "2869e3041cb28fea"
+   ],
+   "title": "H037008 SAMOSTOJNI STROKOVNI SVETOVALEC PODROČJA V RAZISKOVALNI DEJAVNOSTI VII/2-II, DM ŠT. 26 - M/Ž",
+   "company": "Znanstvenoraziskovalni center Slovenske akademije znanosti in umetnosti",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-13",
+   "deadline": "2026-11-27",
+   "experience": "4 leta",
+   "minYears": 4,
+   "seniority": "mid",
+   "salary": null,
+   "area": "institutions",
+   "areas": [
+    "institutions"
+   ],
+   "score": 58,
+   "parts": {
+    "relevance": 24,
+    "experience": 7,
+    "workMode": 4,
+    "level": 8,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva 4+ let izkušenj"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504970/#/pdm/3504970"
+    }
+   ],
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
   },
   {
    "id": "becac4e64d1de59e",
@@ -3130,72 +3571,18 @@
    "firstSeenAt": "2026-11-06T07:29:20.305Z"
   },
   {
-   "id": "5bdfb27b43a6f53b",
+   "id": "a6f5ece0258ce12d",
    "ids": [
-    "5bdfb27b43a6f53b"
+    "a6f5ece0258ce12d"
    ],
-   "title": "STROKOVNI SODELAVEC NA CSD – STORITVE, KRIZNE NAMESTITVE IN PROGRAMI II - M/Ž",
+   "title": "STROKOVNI DELAVEC NA CSD IV - M/Ž",
    "company": "Center za socialno delo Osrednja Slovenija - vzhod",
    "location": "DOMŽALE",
    "locationClass": "ljubljana",
    "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-11-04",
-   "deadline": "2026-11-12",
-   "experience": "9 mes",
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "institutions"
-   ],
-   "score": 56,
-   "parts": {
-    "relevance": 24,
-    "experience": 3,
-    "workMode": 4,
-    "level": 10,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3493115/#/pdm/3493115"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
-  },
-  {
-   "id": "b4c39ac5276b32c8",
-   "ids": [
-    "b4c39ac5276b32c8"
-   ],
-   "title": "STROKOVNI DELAVEC NA CSD – KRIZNE NAMESTITVE  (KRIZNI CENTER ZA MLADE) - M/Ž",
-   "company": "Center za socialno delo Ljubljana",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
    "employmentType": "permanent",
-   "postedAt": "2026-10-27",
-   "deadline": "2026-11-11",
+   "postedAt": "2026-11-11",
+   "deadline": "2026-11-19",
    "experience": "6 mes",
    "minYears": null,
    "seniority": "unknown",
@@ -3232,10 +3619,10 @@
     {
      "source": "zrsz",
      "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3497928/#/pdm/3497928"
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3503861/#/pdm/3503861"
     }
    ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
   },
   {
    "id": "d789ad31622ca8ee",
@@ -3287,276 +3674,6 @@
      "source": "zrsz",
      "label": "Zavod RS za zaposlovanje",
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3500327/#/pdm/3500327"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
-  },
-  {
-   "id": "8173a1c114d8bea3",
-   "ids": [
-    "8173a1c114d8bea3"
-   ],
-   "title": "STROKOVNI DELAVEC NA CSD I - M/Ž",
-   "company": "Center za socialno delo Južna Primorska",
-   "location": "KOPER",
-   "locationClass": "coast",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-10-26",
-   "deadline": "2026-11-10",
-   "experience": "9 mes",
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "institutions"
-   ],
-   "score": 54,
-   "parts": {
-    "relevance": 24,
-    "experience": 3,
-    "workMode": 4,
-    "level": 10,
-    "location": 8,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Koper ali Izola"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3479578/#/pdm/3479578"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
-  },
-  {
-   "id": "29666fd8da809918",
-   "ids": [
-    "29666fd8da809918"
-   ],
-   "title": "STROKOVNI DELAVEC NA CSD II - M/Ž",
-   "company": "Center za socialno delo Južna Primorska",
-   "location": "KOPER",
-   "locationClass": "coast",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-10-26",
-   "deadline": "2026-11-10",
-   "experience": "9 mes",
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "institutions"
-   ],
-   "score": 54,
-   "parts": {
-    "relevance": 24,
-    "experience": 3,
-    "workMode": 4,
-    "level": 10,
-    "location": 8,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Koper ali Izola"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3497436/#/pdm/3497436"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
-  },
-  {
-   "id": "deb62054d611e2d8",
-   "ids": [
-    "deb62054d611e2d8"
-   ],
-   "title": "STROKOVNI SODELAVEC NA CSD - STORITVE, KRIZNE NAMESTITVE IN PROGRAMI III - M/Ž",
-   "company": "Center za socialno delo Južna Primorska",
-   "location": "KOPER",
-   "locationClass": "coast",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-10-26",
-   "deadline": "2026-11-10",
-   "experience": "9 mes",
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "institutions"
-   ],
-   "score": 54,
-   "parts": {
-    "relevance": 24,
-    "experience": 3,
-    "workMode": 4,
-    "level": 10,
-    "location": 8,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Koper ali Izola"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3497441/#/pdm/3497441"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
-  },
-  {
-   "id": "fde7aeeb2e33e502",
-   "ids": [
-    "fde7aeeb2e33e502"
-   ],
-   "title": "STROKOVNI DELAVEC V PROGRAMU - M/Ž",
-   "company": "Center za socialno delo Južna Primorska",
-   "location": "KOPER",
-   "locationClass": "coast",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-10-26",
-   "deadline": "2026-11-10",
-   "experience": "9 mes",
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "institutions"
-   ],
-   "score": 54,
-   "parts": {
-    "relevance": 24,
-    "experience": 3,
-    "workMode": 4,
-    "level": 10,
-    "location": 8,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Koper ali Izola"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3497420/#/pdm/3497420"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
-  },
-  {
-   "id": "b087ba33abae1591",
-   "ids": [
-    "b087ba33abae1591"
-   ],
-   "title": "STROKOVNI DELAVEC NA CSD I - M/Ž",
-   "company": "Center za socialno delo Južna Primorska",
-   "location": "IZOLA",
-   "locationClass": "coast",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-10-26",
-   "deadline": "2026-11-10",
-   "experience": "9 mes",
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "institutions"
-   ],
-   "score": 54,
-   "parts": {
-    "relevance": 24,
-    "experience": 3,
-    "workMode": 4,
-    "level": 10,
-    "location": 8,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Koper ali Izola"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3497378/#/pdm/3497378"
     }
    ],
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
@@ -3621,62 +3738,62 @@
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
   },
   {
-   "id": "fd302caeaf5b2a9d",
+   "id": "f0459c9635ee3857",
    "ids": [
-    "fd302caeaf5b2a9d"
+    "f0459c9635ee3857"
    ],
-   "title": "STROKOVNI SODELAVEC - PROJEKTNI VODJA - M/Ž",
-   "company": "ŠENT - SLOVENSKO ZDRUŽENJE ZA DUŠEVNO ZDRAVJE",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-11-04",
-   "deadline": "2026-11-10",
-   "experience": "2 leti",
-   "minYears": 2,
-   "seniority": "junior",
+   "title": "Education Practitioner - Learning & Assessment Specialist",
+   "company": "micro1",
+   "location": "Worldwide",
+   "locationClass": "remote",
+   "workMode": "remote",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-11",
+   "deadline": null,
+   "experience": "Mid-level",
+   "minYears": null,
+   "seniority": "unknown",
    "salary": null,
-   "area": "counselling",
+   "area": "digital",
    "areas": [
-    "counselling"
+    "digital"
    ],
-   "score": 51,
+   "score": 49,
    "parts": {
-    "relevance": 24,
-    "experience": 5,
-    "workMode": 4,
-    "level": 8,
-    "location": 10,
-    "organisation": 0,
+    "relevance": 10,
+    "experience": 3,
+    "workMode": 15,
+    "level": 10,
+    "location": 9,
+    "organisation": 2,
     "penalty": 0
    },
    "reasons": [
     {
      "kind": "fit",
-     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+     "text": "Vsebina dela se navezuje na področje »Digitalno izobraževanje in EdTech«"
     },
     {
      "kind": "fit",
-     "text": "Zahtevane izkušnje (2 leti) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "warn",
-     "text": "Naziv nakazuje vodstveno ali višjo pozicijo"
+     "text": "Delo na daljavo"
     },
     {
      "kind": "fit",
-     "text": "Ljubljana z okolico"
+     "text": "Odprto za kandidate iz Slovenije"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: digitalizacija izobraževanja"
     }
    ],
    "sources": [
     {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3498540/#/pdm/3498540"
+     "source": "himalayas",
+     "label": "Himalayas",
+     "url": "https://himalayas.app/companies/micro1/jobs/education-practitioner-learning-assessment-specialist?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
+   "firstSeenAt": "2026-11-13T09:18:27.714Z"
   },
   {
    "id": "1ada541108a1ed39",
