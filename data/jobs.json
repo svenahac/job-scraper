@@ -1,37 +1,37 @@
 {
- "generatedAt": "2026-11-16T06:43:46.708Z",
+ "generatedAt": "2026-11-17T17:51:21.250Z",
  "windowDays": 60,
  "sources": [
   {
    "name": "zrsz",
    "label": "Zavod RS za zaposlovanje",
    "ok": true,
-   "count": 3176,
-   "lastOkAt": "2026-11-16T06:43:46.708Z",
+   "count": 3748,
+   "lastOkAt": "2026-11-17T17:51:21.250Z",
    "error": null
   },
   {
    "name": "mojedelo",
    "label": "MojeDelo",
    "ok": true,
-   "count": 378,
-   "lastOkAt": "2026-11-16T06:43:46.708Z",
+   "count": 405,
+   "lastOkAt": "2026-11-17T17:51:21.250Z",
    "error": null
   },
   {
    "name": "optius",
    "label": "Optius",
    "ok": true,
-   "count": 193,
-   "lastOkAt": "2026-11-16T06:43:46.708Z",
+   "count": 211,
+   "lastOkAt": "2026-11-17T17:51:21.250Z",
    "error": null
   },
   {
    "name": "linkedin",
    "label": "LinkedIn",
    "ok": true,
-   "count": 125,
-   "lastOkAt": "2026-11-16T06:43:46.708Z",
+   "count": 117,
+   "lastOkAt": "2026-11-17T17:51:21.250Z",
    "error": null
   },
   {
@@ -39,23 +39,23 @@
    "label": "Himalayas",
    "ok": true,
    "count": 110,
-   "lastOkAt": "2026-11-16T06:43:46.708Z",
+   "lastOkAt": "2026-11-17T17:51:21.250Z",
    "error": null
   },
   {
    "name": "eucareers",
    "label": "EU Careers",
    "ok": true,
-   "count": 115,
-   "lastOkAt": "2026-11-16T06:43:46.708Z",
+   "count": 117,
+   "lastOkAt": "2026-11-17T17:51:21.250Z",
    "error": null
   },
   {
    "name": "eurobrussels",
    "label": "EuroBrussels",
    "ok": true,
-   "count": 86,
-   "lastOkAt": "2026-11-16T06:43:46.708Z",
+   "count": 91,
+   "lastOkAt": "2026-11-17T17:51:21.250Z",
    "error": null
   },
   {
@@ -63,15 +63,15 @@
    "label": "Euractiv Jobs",
    "ok": true,
    "count": 23,
-   "lastOkAt": "2026-11-16T06:43:46.708Z",
+   "lastOkAt": "2026-11-17T17:51:21.250Z",
    "error": null
   },
   {
    "name": "eures",
    "label": "EURES",
    "ok": true,
-   "count": 66,
-   "lastOkAt": "2026-11-16T06:43:46.708Z",
+   "count": 87,
+   "lastOkAt": "2026-11-17T17:51:21.250Z",
    "error": null
   }
  ],
@@ -107,67 +107,71 @@
  ],
  "jobs": [
   {
-   "id": "a799e20c2d876c06",
+   "id": "c5c0c87e71ad8e10",
    "ids": [
-    "a799e20c2d876c06"
+    "c5c0c87e71ad8e10"
    ],
-   "title": "Talent Development & Learning Specialist (f/m/d)",
-   "company": "Harris",
-   "location": "Europe",
-   "locationClass": "remote",
-   "workMode": "remote",
-   "employmentType": "unknown",
-   "postedAt": "2026-11-01",
-   "deadline": null,
-   "experience": "Mid-level",
-   "minYears": null,
-   "seniority": "unknown",
+   "title": "SAMOSTOJNI STROKOVNI SVETOVALEC PODROČJA V VISOKOŠOLSKI DEJAVNOSTI VII/2-II – ZA RAZVOJNE PROJEKTE; D057022 - M/Ž",
+   "company": "UNIVERZA V LJUBLJANI",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-17",
+   "deadline": "2026-11-20",
+   "experience": "3 leta",
+   "minYears": 3,
+   "seniority": "mid",
    "salary": null,
-   "area": "ld",
+   "area": "projects",
    "areas": [
-    "ld",
-    "digital"
+    "projects",
+    "institutions"
    ],
-   "score": 87,
+   "score": 78,
    "parts": {
     "relevance": 35,
-    "experience": 13,
-    "workMode": 15,
-    "level": 10,
-    "location": 9,
-    "organisation": 5,
+    "experience": 9,
+    "workMode": 4,
+    "level": 13,
+    "location": 10,
+    "organisation": 7,
     "penalty": 0
    },
    "reasons": [
     {
      "kind": "fit",
-     "text": "Naziv ustreza področju »Izobraževanje in razvoj zaposlenih (L&D)«"
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
     },
     {
      "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: Workday, e-učenje, andragogika, razvoj zaposlenih"
+     "text": "Ujema se s tvojimi izkušnjami: EU-projekti"
     },
     {
      "kind": "fit",
-     "text": "Delo na daljavo"
+     "text": "Zahtevane izkušnje (3 leta) ustrezajo tvojemu profilu"
     },
     {
      "kind": "fit",
-     "text": "Odprto za kandidate iz Slovenije"
+     "text": "Ljubljana z okolico"
     },
     {
      "kind": "fit",
-     "text": "Tematika: vseživljenjsko učenje, digitalizacija izobraževanja, mednarodno okolje"
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: EU-projekti"
     }
    ],
    "sources": [
     {
-     "source": "himalayas",
-     "label": "Himalayas",
-     "url": "https://himalayas.app/companies/harris/jobs/talent-development-learning-specialist-f-m-d?utm_source=api"
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505672/#/pdm/3505672"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-17T17:51:21.250Z"
   },
   {
    "id": "27bf72859c498daa",
@@ -227,77 +231,6 @@
      "source": "himalayas",
      "label": "Himalayas",
      "url": "https://himalayas.app/companies/airalo/jobs/training-specialist?utm_source=api"
-    }
-   ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
-  },
-  {
-   "id": "4a41d4e1a88357dc",
-   "ids": [
-    "4a41d4e1a88357dc"
-   ],
-   "title": "OD & Learning Solutions Associate",
-   "company": "Able Ventures",
-   "location": "Worldwide",
-   "locationClass": "remote",
-   "workMode": "remote",
-   "employmentType": "unknown",
-   "postedAt": "2026-10-06",
-   "deadline": null,
-   "experience": "Mid-level",
-   "minYears": 5,
-   "seniority": "junior",
-   "salary": null,
-   "area": "ld",
-   "areas": [
-    "ld",
-    "digital"
-   ],
-   "score": 78,
-   "parts": {
-    "relevance": 28,
-    "experience": 9,
-    "workMode": 15,
-    "level": 15,
-    "location": 9,
-    "organisation": 2,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Izobraževanje in razvoj zaposlenih (L&D)«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: LMS, e-učenje, razvoj zaposlenih"
-    },
-    {
-     "kind": "fit",
-     "text": "Delo na daljavo"
-    },
-    {
-     "kind": "fit",
-     "text": "Začetna / junior pozicija"
-    },
-    {
-     "kind": "warn",
-     "text": "Zahteva 5+ let izkušenj"
-    },
-    {
-     "kind": "fit",
-     "text": "Odprto za kandidate iz Slovenije"
-    },
-    {
-     "kind": "fit",
-     "text": "Tematika: digitalizacija izobraževanja"
-    }
-   ],
-   "sources": [
-    {
-     "source": "himalayas",
-     "label": "Himalayas",
-     "url": "https://himalayas.app/companies/able-ventures/jobs/od-learning-solutions-associate?utm_source=api"
     }
    ],
    "firstSeenAt": "2026-11-02T09:36:45.885Z"
@@ -518,60 +451,6 @@
      "source": "linkedin",
      "label": "LinkedIn",
      "url": "https://es.linkedin.com/jobs/view/clinical-education-specialist-emea-at-align-technology-4483877628"
-    }
-   ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
-  },
-  {
-   "id": "b18537d533de7246",
-   "ids": [
-    "b18537d533de7246"
-   ],
-   "title": "Retail Training Coordinator - Europe",
-   "company": "XPENG",
-   "location": "Diemen, North Holland, Netherlands",
-   "locationClass": "remote",
-   "workMode": "remote",
-   "employmentType": "unknown",
-   "postedAt": "2026-10-12",
-   "deadline": null,
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "ld",
-   "areas": [
-    "ld"
-   ],
-   "score": 75,
-   "parts": {
-    "relevance": 35,
-    "experience": 6,
-    "workMode": 15,
-    "level": 10,
-    "location": 9,
-    "organisation": 0,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Izobraževanje in razvoj zaposlenih (L&D)«"
-    },
-    {
-     "kind": "fit",
-     "text": "Delo na daljavo"
-    },
-    {
-     "kind": "fit",
-     "text": "Odprto za kandidate iz Slovenije"
-    }
-   ],
-   "sources": [
-    {
-     "source": "linkedin",
-     "label": "LinkedIn",
-     "url": "https://nl.linkedin.com/jobs/view/retail-training-coordinator-europe-at-xpeng-4478536026"
     }
    ],
    "firstSeenAt": "2026-11-02T09:36:45.885Z"
@@ -935,6 +814,64 @@
    "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
+   "id": "593abd5a3df5549a",
+   "ids": [
+    "593abd5a3df5549a"
+   ],
+   "title": "SVETOVALNI DELAVEC - M/Ž",
+   "company": "Strokovni izobraževalni center Ljubljana",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-17",
+   "deadline": "2026-11-25",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 72,
+   "parts": {
+    "relevance": 35,
+    "experience": 3,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3489817/#/pdm/3489817"
+    }
+   ],
+   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+  },
+  {
    "id": "83792f03bb4d801c",
    "ids": [
     "83792f03bb4d801c"
@@ -1059,6 +996,64 @@
    "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
+   "id": "7698504583f86506",
+   "ids": [
+    "7698504583f86506"
+   ],
+   "title": "KOORDINATOR PROJEKTOV VII/2, D097094 - M/Ž",
+   "company": "BIOTEHNIŠKI IZOBRAŽEVALNI CENTER LJUBLJANA",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-17",
+   "deadline": "2026-11-27",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 71,
+   "parts": {
+    "relevance": 30,
+    "experience": 7,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3506183/#/pdm/3506183"
+    }
+   ],
+   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+  },
+  {
    "id": "d07e5fc4f20bb997",
    "ids": [
     "d07e5fc4f20bb997"
@@ -1113,32 +1108,32 @@
    "firstSeenAt": "2026-11-10T21:12:55.786Z"
   },
   {
-   "id": "e51a4fae4cb0e69f",
+   "id": "5045792152f789d3",
    "ids": [
-    "e51a4fae4cb0e69f"
+    "5045792152f789d3"
    ],
-   "title": "Samostojni skrbnik za razvoj kadrov (m/ž)",
-   "company": "NLB Lease&Go d.o.o.",
-   "location": "Ljubljana",
+   "title": "SVETOVALNI DELAVEC - M/Ž",
+   "company": "VRTEC HANSA CHRISTIANA ANDERSENA",
+   "location": "LJUBLJANA",
    "locationClass": "ljubljana",
    "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-10-30",
-   "deadline": "2026-11-16",
-   "experience": "3+ do 5 let",
-   "minYears": 3,
-   "seniority": "mid",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-17",
+   "deadline": "2026-11-20",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
    "salary": null,
-   "area": "ld",
+   "area": "counselling",
    "areas": [
-    "ld"
+    "counselling"
    ],
-   "score": 69,
+   "score": 67,
    "parts": {
     "relevance": 35,
-    "experience": 7,
+    "experience": 3,
     "workMode": 4,
-    "level": 13,
+    "level": 15,
     "location": 10,
     "organisation": 0,
     "penalty": 0
@@ -1146,15 +1141,11 @@
    "reasons": [
     {
      "kind": "fit",
-     "text": "Naziv ustreza področju »Izobraževanje in razvoj zaposlenih (L&D)«"
+     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
     },
     {
      "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: razvoj zaposlenih"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (3+ do 5 let) ustrezajo tvojemu profilu"
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
     },
     {
      "kind": "fit",
@@ -1163,12 +1154,12 @@
    ],
    "sources": [
     {
-     "source": "mojedelo",
-     "label": "MojeDelo",
-     "url": "https://www.mojedelo.com/job-ad/samostojni-skrbnik-za-razvoj-kadrov-m-z/1b97c489-5ebd-4abb-bf97-66dc1ca05ef7"
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505718/#/pdm/3505718"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-17T17:51:21.250Z"
   },
   {
    "id": "525826bd3f006218",
@@ -1795,68 +1786,6 @@
    "firstSeenAt": "2026-11-02T09:36:45.885Z"
   },
   {
-   "id": "1ff2e6d67fffc7e9",
-   "ids": [
-    "1ff2e6d67fffc7e9"
-   ],
-   "title": "Strokovni sodelavec za kadre in organizacijo (m/ž)",
-   "company": "Telekom Slovenije, d. d.",
-   "location": "Ljubljana",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-11-13",
-   "deadline": "2026-11-16",
-   "experience": "1+ do 3 leta",
-   "minYears": 1,
-   "seniority": "junior",
-   "salary": null,
-   "area": "ld",
-   "areas": [
-    "ld"
-   ],
-   "score": 64,
-   "parts": {
-    "relevance": 24,
-    "experience": 9,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 2,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Izobraževanje in razvoj zaposlenih (L&D)«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: SAP"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (1+ do 3 leta) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Tematika: digitalizacija izobraževanja"
-    }
-   ],
-   "sources": [
-    {
-     "source": "mojedelo",
-     "label": "MojeDelo",
-     "url": "https://www.mojedelo.com/job-ad/strokovni-sodelavec-za-kadre-in-organizacijo-m-z/2a5b4ae0-2b07-4a49-9a30-c1deccd2425d"
-    }
-   ],
-   "firstSeenAt": "2026-11-16T06:43:46.708Z"
-  },
-  {
    "id": "56e7bc9a685ae530",
    "ids": [
     "56e7bc9a685ae530"
@@ -1963,6 +1892,64 @@
     }
    ],
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
+  },
+  {
+   "id": "8d4a997d81339b31",
+   "ids": [
+    "8d4a997d81339b31"
+   ],
+   "title": "STROKOVNI DELAVEC V PROGRAMU TERAPEVTSKA SKUPNOST ZA ZASVOJENE S PRIDRUŽENIMI TEŽAVAMI V DUŠEVNEM ZDRAVJU - DELOVNO MESTO JE V LJUBLJANI, PODUTIŠKA CESTA 62 - M/Ž",
+   "company": "ZAVOD PELIKAN - KARITAS ZAVOD ZA SOCIALNO VARSTVENO, PREVENTIVNO, VZGOJNO IZOBRAŽEVALNO IN ZDRAVSTVENO DELO",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-16",
+   "deadline": "2026-11-24",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "institutions",
+   "areas": [
+    "institutions"
+   ],
+   "score": 63,
+   "parts": {
+    "relevance": 24,
+    "experience": 5,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505184/#/pdm/3505184"
+    }
+   ],
+   "firstSeenAt": "2026-11-17T17:51:21.250Z"
   },
   {
    "id": "0eae49d114235bcb",
@@ -2138,6 +2125,61 @@
     }
    ],
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
+  },
+  {
+   "id": "8cf4774b24f8265a",
+   "ids": [
+    "8cf4774b24f8265a"
+   ],
+   "title": "STROKOVNI DELAVEC NA CSD II, ENOTA LJUBLJANA CENTER - M/Ž",
+   "company": "Center za socialno delo Ljubljana",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-17",
+   "deadline": "2026-11-27",
+   "experience": "6 mes",
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling",
+    "institutions"
+   ],
+   "score": 62,
+   "parts": {
+    "relevance": 28,
+    "experience": 5,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505966/#/pdm/3505966"
+    }
+   ],
+   "firstSeenAt": "2026-11-17T17:51:21.250Z"
   },
   {
    "id": "a9a2fb68699352cc",
@@ -2470,59 +2512,70 @@
    "firstSeenAt": "2026-11-10T21:12:55.786Z"
   },
   {
-   "id": "5190a0722f432a1b",
+   "id": "c892da41ae39850a",
    "ids": [
-    "5190a0722f432a1b"
+    "c892da41ae39850a"
    ],
-   "title": "STROKOVNI DELAVEC NA CSD III  - ENOTA LJUBLJANA ŠIŠKA -- M/Ž - M/Ž",
-   "company": "Center za socialno delo Ljubljana",
+   "title": "SAMOSTOJNI SVETOVALEC PODROČJA III – PROJEKT  RAZVOJ IN VZPOSTAVITEV NOVEGA STORITVENEGA MODELA ZRSZ S KREPITVIJO DIGITALNEGA POSLOVANJA – NSM (NOVI STORITVENI MODEL), CS, DELOVNO PODROČJE ZA ZAPOSLOVANJE IN AKTIVNO POLITIKO ZAPOSLOVANJA, SLUŽBA ZA VSEŽIVLJENJSKO KARIERNO ORIENTACIJO - M/Ž",
+   "company": "ZAVOD REPUBLIKE SLOVENIJE ZA ZAPOSLOVANJE",
    "location": "LJUBLJANA",
    "locationClass": "ljubljana",
    "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-06",
-   "deadline": "2026-11-16",
-   "experience": "6 mes",
-   "minYears": null,
-   "seniority": "unknown",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-16",
+   "deadline": "2026-12-01",
+   "experience": "5 let",
+   "minYears": 5,
+   "seniority": "mid",
    "salary": null,
    "area": "counselling",
    "areas": [
-    "counselling",
-    "institutions"
+    "counselling"
    ],
-   "score": 62,
+   "score": 61,
    "parts": {
-    "relevance": 28,
+    "relevance": 35,
     "experience": 5,
     "workMode": 4,
-    "level": 10,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
+    "level": 8,
+    "location": 7,
+    "organisation": 7,
+    "penalty": -5
    },
    "reasons": [
     {
      "kind": "fit",
-     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva 5+ let izkušenj"
     },
     {
      "kind": "fit",
      "text": "Ljubljana z okolico"
     },
     {
+     "kind": "warn",
+     "text": "Zahteva nemščino"
+    },
+    {
      "kind": "fit",
      "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: vseživljenjsko učenje"
     }
    ],
    "sources": [
     {
      "source": "zrsz",
      "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3502224/#/pdm/3502224"
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505654/#/pdm/3505654"
     }
    ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
+   "firstSeenAt": "2026-11-17T17:51:21.250Z"
   },
   {
    "id": "9f5705109638c33c",
@@ -3207,6 +3260,168 @@
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
   },
   {
+   "id": "778736302181abf5",
+   "ids": [
+    "778736302181abf5"
+   ],
+   "title": "PISARNIŠKI REFERENT V (I) IN STROKOVNI SODELAVEC NA CSD – MATERIALNE PRAVICE IV (M/Ž)(VSAKO DELOVNO MESTO PO 1/2 DELOVNEGA ČASA) - M/Ž",
+   "company": "Center za socialno delo Osrednja Slovenija - vzhod",
+   "location": "LITIJA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-17",
+   "deadline": "2026-11-25",
+   "experience": "6 mes",
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "institutions",
+   "areas": [
+    "institutions"
+   ],
+   "score": 56,
+   "parts": {
+    "relevance": 24,
+    "experience": 3,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505774/#/pdm/3505774"
+    }
+   ],
+   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+  },
+  {
+   "id": "1828b143d74e0dee",
+   "ids": [
+    "1828b143d74e0dee"
+   ],
+   "title": "MENTOR V STANOVANJSKI SKUPINI - M/Ž",
+   "company": "ŠENT - SLOVENSKO ZDRUŽENJE ZA DUŠEVNO ZDRAVJE",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-16",
+   "deadline": "2026-11-22",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 56,
+   "parts": {
+    "relevance": 24,
+    "experience": 3,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505627/#/pdm/3505627"
+    }
+   ],
+   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+  },
+  {
+   "id": "d464911ac56b2408",
+   "ids": [
+    "d464911ac56b2408"
+   ],
+   "title": "STROKOVNI SODELAVEC V STANOVANJSKI SKUPINI - M/Ž",
+   "company": "ŠENT - SLOVENSKO ZDRUŽENJE ZA DUŠEVNO ZDRAVJE",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-16",
+   "deadline": "2026-11-24",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 56,
+   "parts": {
+    "relevance": 24,
+    "experience": 3,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3492402/#/pdm/3492402"
+    }
+   ],
+   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+  },
+  {
    "id": "a6f5ece0258ce12d",
    "ids": [
     "a6f5ece0258ce12d"
@@ -3375,6 +3590,64 @@
     }
    ],
    "firstSeenAt": "2026-11-06T08:06:38.987Z"
+  },
+  {
+   "id": "09283084532c245e",
+   "ids": [
+    "09283084532c245e"
+   ],
+   "title": "AI Native Creative Strategist - EdTech (French fluent 🇫🇷)",
+   "company": "Paradox EN",
+   "location": "Slovenia",
+   "locationClass": "slovenia",
+   "workMode": "onsite",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-16",
+   "deadline": null,
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "digital",
+   "areas": [
+    "digital"
+   ],
+   "score": 53,
+   "parts": {
+    "relevance": 35,
+    "experience": 6,
+    "workMode": 4,
+    "level": 10,
+    "location": 1,
+    "organisation": 2,
+    "penalty": -5
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Digitalno izobraževanje in EdTech«"
+    },
+    {
+     "kind": "warn",
+     "text": "Kraj dela ni naveden – preveri, ali je v Ljubljani"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva francoščino"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: digitalizacija izobraževanja"
+    }
+   ],
+   "sources": [
+    {
+     "source": "linkedin",
+     "label": "LinkedIn",
+     "url": "https://si.linkedin.com/jobs/view/ai-native-creative-strategist-edtech-french-fluent-%F0%9F%87%AB%F0%9F%87%B7-at-paradox-en-4489780961"
+    }
+   ],
+   "firstSeenAt": "2026-11-17T17:51:21.250Z"
   },
   {
    "id": "5b026f6abea618e7",
