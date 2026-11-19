@@ -1,21 +1,21 @@
 {
- "generatedAt": "2026-11-19T13:00:47.445Z",
+ "generatedAt": "2026-11-19T17:34:28.151Z",
  "windowDays": 60,
  "sources": [
   {
    "name": "zrsz",
    "label": "Zavod RS za zaposlovanje",
    "ok": true,
-   "count": 3894,
-   "lastOkAt": "2026-11-19T13:00:47.445Z",
+   "count": 3892,
+   "lastOkAt": "2026-11-19T17:34:28.151Z",
    "error": null
   },
   {
    "name": "mojedelo",
    "label": "MojeDelo",
    "ok": true,
-   "count": 416,
-   "lastOkAt": "2026-11-19T13:00:47.445Z",
+   "count": 421,
+   "lastOkAt": "2026-11-19T17:34:28.151Z",
    "error": null
   },
   {
@@ -23,39 +23,39 @@
    "label": "Optius",
    "ok": true,
    "count": 221,
-   "lastOkAt": "2026-11-19T13:00:47.445Z",
+   "lastOkAt": "2026-11-19T17:34:28.151Z",
    "error": null
   },
   {
    "name": "linkedin",
    "label": "LinkedIn",
    "ok": true,
-   "count": 50,
-   "lastOkAt": "2026-11-19T13:00:47.445Z",
+   "count": 110,
+   "lastOkAt": "2026-11-19T17:34:28.151Z",
    "error": null
   },
   {
    "name": "himalayas",
    "label": "Himalayas",
    "ok": true,
-   "count": 114,
-   "lastOkAt": "2026-11-19T13:00:47.445Z",
+   "count": 113,
+   "lastOkAt": "2026-11-19T17:34:28.151Z",
    "error": null
   },
   {
    "name": "eucareers",
    "label": "EU Careers",
    "ok": true,
-   "count": 118,
-   "lastOkAt": "2026-11-19T13:00:47.445Z",
+   "count": 122,
+   "lastOkAt": "2026-11-19T17:34:28.151Z",
    "error": null
   },
   {
    "name": "eurobrussels",
    "label": "EuroBrussels",
    "ok": true,
-   "count": 96,
-   "lastOkAt": "2026-11-19T13:00:47.445Z",
+   "count": 98,
+   "lastOkAt": "2026-11-19T17:34:28.151Z",
    "error": null
   },
   {
@@ -63,7 +63,7 @@
    "label": "Euractiv Jobs",
    "ok": true,
    "count": 27,
-   "lastOkAt": "2026-11-19T13:00:47.445Z",
+   "lastOkAt": "2026-11-19T17:34:28.151Z",
    "error": null
   },
   {
@@ -71,7 +71,7 @@
    "label": "EURES",
    "ok": true,
    "count": 80,
-   "lastOkAt": "2026-11-19T13:00:47.445Z",
+   "lastOkAt": "2026-11-19T17:34:28.151Z",
    "error": null
   }
  ],
@@ -174,74 +174,7 @@
      "url": "https://www.mojedelo.com/job-ad/mednarodna-projektna-pisarna-u6-instituta-jozef-stefan-vabi-v-svojo-ekipo-novo-sodelavko-ali-sodelavca/c20fc9ea-9127-4565-bb05-ff240aa38352"
     }
    ],
-   "firstSeenAt": "2026-11-19T13:00:47.445Z"
-  },
-  {
-   "id": "c5c0c87e71ad8e10",
-   "ids": [
-    "c5c0c87e71ad8e10"
-   ],
-   "title": "SAMOSTOJNI STROKOVNI SVETOVALEC PODROČJA V VISOKOŠOLSKI DEJAVNOSTI VII/2-II – ZA RAZVOJNE PROJEKTE; D057022 - M/Ž",
-   "company": "UNIVERZA V LJUBLJANI",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-17",
-   "deadline": "2026-11-20",
-   "experience": "3 leta",
-   "minYears": 3,
-   "seniority": "mid",
-   "salary": null,
-   "area": "projects",
-   "areas": [
-    "projects",
-    "institutions"
-   ],
-   "score": 78,
-   "parts": {
-    "relevance": 35,
-    "experience": 9,
-    "workMode": 4,
-    "level": 13,
-    "location": 10,
-    "organisation": 7,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Projekti in koordinacija«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: EU-projekti"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (3 leta) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    },
-    {
-     "kind": "fit",
-     "text": "Tematika: EU-projekti"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505672/#/pdm/3505672"
-    }
-   ],
-   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "27bf72859c498daa",
@@ -303,7 +236,65 @@
      "url": "https://himalayas.app/companies/airalo/jobs/training-specialist?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
+  },
+  {
+   "id": "e9ef6fbb317c0f80",
+   "ids": [
+    "e9ef6fbb317c0f80"
+   ],
+   "title": "Creative Marketing Project Coordinator",
+   "company": "CapsLock",
+   "location": "Slovenia",
+   "locationClass": "remote",
+   "workMode": "remote",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-19",
+   "deadline": null,
+   "experience": "Mid-level",
+   "minYears": 2,
+   "seniority": "junior",
+   "salary": null,
+   "area": "projects",
+   "areas": [
+    "projects"
+   ],
+   "score": 75,
+   "parts": {
+    "relevance": 30,
+    "experience": 7,
+    "workMode": 15,
+    "level": 13,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ujema se s tvojimi izkušnjami: koordinacija projektov"
+    },
+    {
+     "kind": "fit",
+     "text": "Delo na daljavo"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (Mid-level) ustrezajo tvojemu profilu"
+    }
+   ],
+   "sources": [
+    {
+     "source": "himalayas",
+     "label": "Himalayas",
+     "url": "https://himalayas.app/companies/capslock/jobs/creative-marketing-project-coordinator-3540695164?utm_source=api"
+    }
+   ],
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "d099fade5434af7e",
@@ -357,119 +348,7 @@
      "url": "https://es.linkedin.com/jobs/view/technical-curriculum-developer-platform-emea-at-clickhouse-4487991809"
     }
    ],
-   "firstSeenAt": "2026-11-10T21:12:55.786Z"
-  },
-  {
-   "id": "e9ef6fbb317c0f80",
-   "ids": [
-    "e9ef6fbb317c0f80"
-   ],
-   "title": "Creative Marketing Project Coordinator",
-   "company": "CapsLock",
-   "location": "Slovenia",
-   "locationClass": "remote",
-   "workMode": "remote",
-   "employmentType": "unknown",
-   "postedAt": "2026-11-05",
-   "deadline": null,
-   "experience": "Mid-level",
-   "minYears": 2,
-   "seniority": "junior",
-   "salary": null,
-   "area": "projects",
-   "areas": [
-    "projects"
-   ],
-   "score": 75,
-   "parts": {
-    "relevance": 30,
-    "experience": 7,
-    "workMode": 15,
-    "level": 13,
-    "location": 10,
-    "organisation": 0,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Projekti in koordinacija«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: koordinacija projektov"
-    },
-    {
-     "kind": "fit",
-     "text": "Delo na daljavo"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (Mid-level) ustrezajo tvojemu profilu"
-    }
-   ],
-   "sources": [
-    {
-     "source": "himalayas",
-     "label": "Himalayas",
-     "url": "https://himalayas.app/companies/capslock/jobs/creative-marketing-project-coordinator-3540695164?utm_source=api"
-    }
-   ],
-   "firstSeenAt": "2026-11-06T07:29:20.305Z"
-  },
-  {
-   "id": "b6b87ea0cf231546",
-   "ids": [
-    "b6b87ea0cf231546"
-   ],
-   "title": "Global Technical Instructional Designer",
-   "company": "Hitachi Energy",
-   "location": "Sevlievo, Gabrovo, Bulgaria",
-   "locationClass": "remote",
-   "workMode": "remote",
-   "employmentType": "unknown",
-   "postedAt": "2026-11-04",
-   "deadline": null,
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "digital",
-   "areas": [
-    "digital"
-   ],
-   "score": 75,
-   "parts": {
-    "relevance": 35,
-    "experience": 6,
-    "workMode": 15,
-    "level": 10,
-    "location": 9,
-    "organisation": 0,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Digitalno izobraževanje in EdTech«"
-    },
-    {
-     "kind": "fit",
-     "text": "Delo na daljavo"
-    },
-    {
-     "kind": "fit",
-     "text": "Odprto za kandidate iz Slovenije"
-    }
-   ],
-   "sources": [
-    {
-     "source": "linkedin",
-     "label": "LinkedIn",
-     "url": "https://bg.linkedin.com/jobs/view/global-technical-instructional-designer-at-hitachi-energy-4460313793"
-    }
-   ],
-   "firstSeenAt": "2026-11-09T17:59:57.339Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "d2da734582134ddc",
@@ -523,7 +402,7 @@
      "url": "https://es.linkedin.com/jobs/view/clinical-education-specialist-emea-at-align-technology-4483877628"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "ccac5b3e60870838",
@@ -581,7 +460,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3506334/#/pdm/3506334"
     }
    ],
-   "firstSeenAt": "2026-11-19T13:00:47.445Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "3ec16f3886aeab2b",
@@ -639,65 +518,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3478072/#/pdm/3478072"
     }
    ],
-   "firstSeenAt": "2026-11-10T21:12:55.786Z"
-  },
-  {
-   "id": "a5ac48ba01f5871e",
-   "ids": [
-    "a5ac48ba01f5871e"
-   ],
-   "title": "Socialni delavec II (m/ž)",
-   "company": "Univerzitetni klinični center Ljubljana",
-   "location": "Ljubljana",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-10",
-   "deadline": "2026-11-23",
-   "experience": "1+ do 3 leta",
-   "minYears": 1,
-   "seniority": "junior",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling"
-   ],
-   "score": 74,
-   "parts": {
-    "relevance": 35,
-    "experience": 5,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (1+ do 3 leta) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "mojedelo",
-     "label": "MojeDelo",
-     "url": "https://www.mojedelo.com/job-ad/socialni-delavec-ii-m-z/5db909f5-a7e8-4b5a-aa4a-0786385a4300"
-    }
-   ],
-   "firstSeenAt": "2026-11-10T21:12:55.786Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "54e4c6269f0aaa18",
@@ -755,23 +576,22 @@
      "url": "https://www.mojedelo.com/job-ad/socialni-delavec-iii-m-z/3347770e-5544-4ec7-a8fc-133dd475fee0"
     }
    ],
-   "firstSeenAt": "2026-11-10T21:12:55.786Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
-   "id": "89565c5be2977d0e",
+   "id": "a5ac48ba01f5871e",
    "ids": [
-    "89565c5be2977d0e",
-    "a3cc0c82aabf10be"
+    "a5ac48ba01f5871e"
    ],
-   "title": "Socialni delavec II (m/ž) Supas, služba za socialne zadeve",
-   "company": "UNIVERZITETNI KLINIČNI CENTER LJUBLJANA",
+   "title": "Socialni delavec II (m/ž)",
+   "company": "Univerzitetni klinični center Ljubljana",
    "location": "Ljubljana",
    "locationClass": "ljubljana",
    "workMode": "onsite",
    "employmentType": "permanent",
    "postedAt": "2026-11-10",
    "deadline": "2026-11-23",
-   "experience": "1 - 3 let",
+   "experience": "1+ do 3 leta",
    "minYears": 1,
    "seniority": "junior",
    "salary": null,
@@ -796,7 +616,7 @@
     },
     {
      "kind": "fit",
-     "text": "Zahtevane izkušnje (1 - 3 let) ustrezajo tvojemu profilu"
+     "text": "Zahtevane izkušnje (1+ do 3 leta) ustrezajo tvojemu profilu"
     },
     {
      "kind": "fit",
@@ -809,17 +629,12 @@
    ],
    "sources": [
     {
-     "source": "optius",
-     "label": "Optius",
-     "url": "https://www.optius.com/iskalci/prosta-delovna-mesta/socialni-delavec-ii-mz-supas-sluzba-za-socialne-zadeve-966348-966348/"
-    },
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3478060/#/pdm/3478060"
+     "source": "mojedelo",
+     "label": "MojeDelo",
+     "url": "https://www.mojedelo.com/job-ad/socialni-delavec-ii-m-z/5db909f5-a7e8-4b5a-aa4a-0786385a4300"
     }
    ],
-   "firstSeenAt": "2026-11-10T21:12:55.786Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "0b1e5f7569907901",
@@ -877,7 +692,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3485344/#/pdm/3485344"
     }
    ],
-   "firstSeenAt": "2026-11-09T17:59:57.339Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "979e3d915830742c",
@@ -939,7 +754,66 @@
      "url": "https://himalayas.app/companies/canonical/jobs/organisational-development-associate?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
+  },
+  {
+   "id": "c5c0c87e71ad8e10",
+   "ids": [
+    "c5c0c87e71ad8e10"
+   ],
+   "title": "SAMOSTOJNI STROKOVNI SVETOVALEC PODROČJA V VISOKOŠOLSKI DEJAVNOSTI VII/2-II – ZA RAZVOJNE PROJEKTE; D057022 - M/Ž",
+   "company": "UNIVERZA V LJUBLJANI",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-17",
+   "deadline": "2026-11-20",
+   "experience": "3 leta",
+   "minYears": 3,
+   "seniority": "mid",
+   "salary": null,
+   "area": "projects",
+   "areas": [
+    "projects",
+    "institutions"
+   ],
+   "score": 72,
+   "parts": {
+    "relevance": 35,
+    "experience": 5,
+    "workMode": 4,
+    "level": 13,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (3 leta) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505672/#/pdm/3505672"
+    }
+   ],
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "593abd5a3df5549a",
@@ -997,7 +871,71 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3489817/#/pdm/3489817"
     }
    ],
-   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
+  },
+  {
+   "id": "89565c5be2977d0e",
+   "ids": [
+    "a3cc0c82aabf10be",
+    "89565c5be2977d0e"
+   ],
+   "title": "SOCIALNI DELAVEC II, (E047068), ZA POTREBE SUPAS, SLUŽBA ZA SOCIALNE ZADEVE - M/Ž",
+   "company": "UNIVERZITETNI KLINIČNI CENTER LJUBLJANA",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-10",
+   "deadline": "2026-11-24",
+   "experience": "2 leti",
+   "minYears": 2,
+   "seniority": "junior",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 72,
+   "parts": {
+    "relevance": 35,
+    "experience": 5,
+    "workMode": 4,
+    "level": 13,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (2 leti) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3478060/#/pdm/3478060"
+    },
+    {
+     "source": "optius",
+     "label": "Optius",
+     "url": "https://www.optius.com/iskalci/prosta-delovna-mesta/socialni-delavec-ii-mz-supas-sluzba-za-socialne-zadeve-966348-966348/"
+    }
+   ],
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "8c17287a879011e8",
@@ -1063,7 +1001,7 @@
      "url": "https://www.eurobrussels.com/job_display/298149/EU_Affairs_Manager_CATF_Clean_Air_Task_Force_Brussels_Belgium"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "7698504583f86506",
@@ -1121,7 +1059,61 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3506183/#/pdm/3506183"
     }
    ],
-   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
+  },
+  {
+   "id": "d07e5fc4f20bb997",
+   "ids": [
+    "d07e5fc4f20bb997"
+   ],
+   "title": "Socialni delavec III (m/ž) Supas, služba za socialne zadeva",
+   "company": "UNIVERZITETNI KLINIČNI CENTER LJUBLJANA",
+   "location": "Ljubljana",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-10",
+   "deadline": "2026-11-23",
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 70,
+   "parts": {
+    "relevance": 35,
+    "experience": 6,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "optius",
+     "label": "Optius",
+     "url": "https://www.optius.com/iskalci/prosta-delovna-mesta/socialni-delavec-iii-mz-supas-sluzba-za-socialne-zadeva-966347-966347/"
+    }
+   ],
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "56104ca24e724087",
@@ -1175,61 +1167,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3507178/#/pdm/3507178"
     }
    ],
-   "firstSeenAt": "2026-11-19T13:00:47.445Z"
-  },
-  {
-   "id": "d07e5fc4f20bb997",
-   "ids": [
-    "d07e5fc4f20bb997"
-   ],
-   "title": "Socialni delavec III (m/ž) Supas, služba za socialne zadeva",
-   "company": "UNIVERZITETNI KLINIČNI CENTER LJUBLJANA",
-   "location": "Ljubljana",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-10",
-   "deadline": "2026-11-23",
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling"
-   ],
-   "score": 69,
-   "parts": {
-    "relevance": 35,
-    "experience": 5,
-    "workMode": 4,
-    "level": 10,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "optius",
-     "label": "Optius",
-     "url": "https://www.optius.com/iskalci/prosta-delovna-mesta/socialni-delavec-iii-mz-supas-sluzba-za-socialne-zadeva-966347-966347/"
-    }
-   ],
-   "firstSeenAt": "2026-11-10T21:12:55.786Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "09283084532c245e",
@@ -1297,7 +1235,7 @@
      "url": "https://si.linkedin.com/jobs/view/ai-native-creative-strategist-edtech-french-fluent-%F0%9F%87%AB%F0%9F%87%B7-at-paradox-en-4489780961"
     }
    ],
-   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "9f3c025295bb0c96",
@@ -1351,7 +1289,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3507020/#/pdm/3507020"
     }
    ],
-   "firstSeenAt": "2026-11-19T13:00:47.445Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "46369ce35761b09b",
@@ -1405,7 +1343,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3506155/#/pdm/3506155"
     }
    ],
-   "firstSeenAt": "2026-11-19T13:00:47.445Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "5045792152f789d3",
@@ -1459,61 +1397,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505718/#/pdm/3505718"
     }
    ],
-   "firstSeenAt": "2026-11-17T17:51:21.250Z"
-  },
-  {
-   "id": "525826bd3f006218",
-   "ids": [
-    "525826bd3f006218"
-   ],
-   "title": "SOCIALNI PEDAGOG VZGOJITELJ V STROKOVNEM CENTRU ZA ČVTM - M/Ž",
-   "company": "Strokovni center Višnja Gora",
-   "location": "GROSUPLJE",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-11-13",
-   "deadline": "2026-11-23",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling"
-   ],
-   "score": 67,
-   "parts": {
-    "relevance": 35,
-    "experience": 3,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 0,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504972/#/pdm/3504972"
-    }
-   ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "b121991f2bc4d1b9",
@@ -1567,61 +1451,61 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504974/#/pdm/3504974"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
-   "id": "52c62b208b68ca9d",
+   "id": "525826bd3f006218",
    "ids": [
-    "52c62b208b68ca9d"
+    "525826bd3f006218"
    ],
-   "title": "Project Coordinator",
-   "company": "Doxim",
-   "location": "150 countries incl. Slovenia",
-   "locationClass": "remote",
-   "workMode": "remote",
-   "employmentType": "unknown",
-   "postedAt": "2026-11-01",
-   "deadline": null,
-   "experience": "Mid-level",
-   "minYears": null,
-   "seniority": "unknown",
+   "title": "SOCIALNI PEDAGOG VZGOJITELJ V STROKOVNEM CENTRU ZA ČVTM - M/Ž",
+   "company": "Strokovni center Višnja Gora",
+   "location": "GROSUPLJE",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-13",
+   "deadline": "2026-11-23",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
    "salary": null,
-   "area": "projects",
+   "area": "counselling",
    "areas": [
-    "projects"
+    "counselling"
    ],
    "score": 67,
    "parts": {
-    "relevance": 30,
+    "relevance": 35,
     "experience": 3,
-    "workMode": 15,
-    "level": 10,
-    "location": 9,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
     "organisation": 0,
     "penalty": 0
    },
    "reasons": [
     {
      "kind": "fit",
-     "text": "Naziv ustreza področju »Projekti in koordinacija«"
+     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
     },
     {
      "kind": "fit",
-     "text": "Delo na daljavo"
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
     },
     {
      "kind": "fit",
-     "text": "Odprto za kandidate iz Slovenije"
+     "text": "Ljubljana z okolico"
     }
    ],
    "sources": [
     {
-     "source": "himalayas",
-     "label": "Himalayas",
-     "url": "https://himalayas.app/companies/doxim/jobs/project-coordinator?utm_source=api"
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504972/#/pdm/3504972"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "67d9b687aefccaa5",
@@ -1679,7 +1563,7 @@
      "url": "https://himalayas.app/companies/sudan-vision-2030/jobs/pmo-coordinator-8924475224?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "bd2d3df02ea5b73a",
@@ -1738,7 +1622,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504413/#/pdm/3504413"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "855a1a5d1e9507a8",
@@ -1800,7 +1684,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3503709/#/pdm/3503709"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "80447a6feb07e1d9",
@@ -1862,62 +1746,65 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3501866/#/pdm/3501866"
     }
    ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
-   "id": "a66ad8460e406677",
+   "id": "e49517194f7c8b21",
    "ids": [
-    "a66ad8460e406677"
+    "e49517194f7c8b21"
    ],
-   "title": "Pedagog andragog VII/2 -II v Prevzgojnem domu Radeče (šifra DM 8085) | Uprava Republike Slovenije za izvrševanje kazenskih sankcij (Ministrstvo za pravosodje)",
-   "company": "Vlada Republike Slovenije",
-   "location": "Ljubljana, Ljubljana, Slovenia",
+   "title": "Poslovna sekretarka / koordinatorka projektov (m/ž)",
+   "company": "Rinz Ros d.o.o.",
+   "location": "Medvode",
    "locationClass": "ljubljana",
    "workMode": "onsite",
    "employmentType": "unknown",
-   "postedAt": "2026-10-22",
-   "deadline": null,
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
+   "postedAt": "2026-11-19",
+   "deadline": "2026-12-18",
+   "experience": "1+ do 3 leta",
+   "minYears": 1,
+   "seniority": "junior",
    "salary": null,
-   "area": "education",
+   "area": "projects",
    "areas": [
-    "education",
-    "counselling"
+    "projects"
    ],
-   "score": 65,
+   "score": 64,
    "parts": {
-    "relevance": 35,
-    "experience": 6,
+    "relevance": 30,
+    "experience": 3,
     "workMode": 4,
-    "level": 10,
+    "level": 15,
     "location": 10,
-    "organisation": 0,
+    "organisation": 2,
     "penalty": 0
    },
    "reasons": [
     {
      "kind": "fit",
-     "text": "Naziv ustreza področju »Izobraževanje odraslih in izobraževalni programi«"
+     "text": "Naziv ustreza področju »Projekti in koordinacija«"
     },
     {
      "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: andragogika"
+     "text": "Zahtevane izkušnje (1+ do 3 leta) ustrezajo tvojemu profilu"
     },
     {
      "kind": "fit",
      "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: mednarodno okolje"
     }
    ],
    "sources": [
     {
-     "source": "linkedin",
-     "label": "LinkedIn",
-     "url": "https://si.linkedin.com/jobs/view/pedagog-andragog-vii-2-ii-v-prevzgojnem-domu-rade%C4%8De-%C5%A1ifra-dm-8085-uprava-republike-slovenije-za-izvr%C5%A1evanje-kazenskih-sankcij-ministrstvo-za-pravosodje-at-vlada-republike-slovenije-4482447967"
+     "source": "mojedelo",
+     "label": "MojeDelo",
+     "url": "https://www.mojedelo.com/job-ad/poslovna-sekretarka-koordinatorka-projektov-m-z/d62b2881-9c7e-4009-8234-baa3783b7af5"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "56e7bc9a685ae530",
@@ -1975,7 +1862,7 @@
      "url": "https://www.mojedelo.com/job-ad/izvrsni-poslovni-asistent-za-projekte-in-ai/8a11137b-b7d5-45c3-b4b2-1d649be1aed8"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "37966aee75df2297",
@@ -2025,7 +1912,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3494450/#/pdm/3494450"
     }
    ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "8d4a997d81339b31",
@@ -2083,7 +1970,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505184/#/pdm/3505184"
     }
    ],
-   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "0eae49d114235bcb",
@@ -2142,7 +2029,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504410/#/pdm/3504410"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "756a3b99c8bb3591",
@@ -2200,7 +2087,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3503990/#/pdm/3503990"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "be3d1276d16a219f",
@@ -2258,7 +2145,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3501825/#/pdm/3501825"
     }
    ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "e20e199f0747e607",
@@ -2313,7 +2200,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3506702/#/pdm/3506702"
     }
    ],
-   "firstSeenAt": "2026-11-19T13:00:47.445Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "8cf4774b24f8265a",
@@ -2368,7 +2255,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505966/#/pdm/3505966"
     }
    ],
-   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "a9a2fb68699352cc",
@@ -2423,7 +2310,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505097/#/pdm/3505097"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "723a91e1009803f4",
@@ -2478,7 +2365,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504404/#/pdm/3504404"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "722ca1759fdfd758",
@@ -2533,7 +2420,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504406/#/pdm/3504406"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "881a1987e5b45ccb",
@@ -2588,7 +2475,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504409/#/pdm/3504409"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "755003c8265b6a9e",
@@ -2643,7 +2530,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3503018/#/pdm/3503018"
     }
    ],
-   "firstSeenAt": "2026-11-10T21:12:55.786Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "9340afee1eb8b48c",
@@ -2698,7 +2585,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3502961/#/pdm/3502961"
     }
    ],
-   "firstSeenAt": "2026-11-10T21:12:55.786Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "c892da41ae39850a",
@@ -2764,7 +2651,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505654/#/pdm/3505654"
     }
    ],
-   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "5df01cba3296b688",
@@ -2826,7 +2713,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3506052/#/pdm/3506052"
     }
    ],
-   "firstSeenAt": "2026-11-19T13:00:47.445Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "0d7805599e9d5ee5",
@@ -2881,57 +2768,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504931/#/pdm/3504931"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
-  },
-  {
-   "id": "05a50ff60b3da74d",
-   "ids": [
-    "05a50ff60b3da74d"
-   ],
-   "title": "Koordinator projektov za inovacije in digitalne produkte",
-   "company": "A1 Slovenija d.d.",
-   "location": "Ljubljana, Ljubljana, Slovenia",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "unknown",
-   "postedAt": "2026-11-04",
-   "deadline": null,
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "projects",
-   "areas": [
-    "projects"
-   ],
-   "score": 60,
-   "parts": {
-    "relevance": 30,
-    "experience": 6,
-    "workMode": 4,
-    "level": 10,
-    "location": 10,
-    "organisation": 0,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Projekti in koordinacija«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    }
-   ],
-   "sources": [
-    {
-     "source": "linkedin",
-     "label": "LinkedIn",
-     "url": "https://si.linkedin.com/jobs/view/koordinator-projektov-za-inovacije-in-digitalne-produkte-at-a1-slovenija-d-d-4481903364"
-    }
-   ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "aed9199aa46b1c72",
@@ -2985,7 +2822,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505051/#/pdm/3505051"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "ecf59cbfdfe2763a",
@@ -3039,7 +2876,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504597/#/pdm/3504597"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "7c3c8ef8986a2a2d",
@@ -3101,7 +2938,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3503362/#/pdm/3503362"
     }
    ],
-   "firstSeenAt": "2026-11-10T21:12:55.786Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "c33269fbd65a9434",
@@ -3115,7 +2952,7 @@
    "workMode": "remote",
    "employmentType": "permanent",
    "postedAt": "2026-11-09",
-   "deadline": "2026-11-30",
+   "deadline": null,
    "experience": "7-10 Years",
    "minYears": 7,
    "seniority": "senior",
@@ -3172,7 +3009,7 @@
      "url": "https://jobs.rapporteur.com/jobs/eu-policy-officer-brussels-remote-cesia-center-for-ai-security/"
     }
    ],
-   "firstSeenAt": "2026-11-10T21:12:55.786Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "c7b57deb193463bd",
@@ -3226,7 +3063,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3502161/#/pdm/3502161"
     }
    ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "a69a846d67ee6632",
@@ -3280,61 +3117,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3500687/#/pdm/3500687"
     }
    ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
-  },
-  {
-   "id": "38816751e7877f0b",
-   "ids": [
-    "38816751e7877f0b"
-   ],
-   "title": "STROKOVNI DELAVEC_KA JAVNEGA SOCIALNO VARSTVENEGA PROGRAMA",
-   "company": "Zveza prijateljev mladine Slovenije / Slovenian Association of Friends of Youth (SAFY)/ZPMS",
-   "location": "Ljubljana, Ljubljana, Slovenia",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "unknown",
-   "postedAt": "2026-10-29",
-   "deadline": null,
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "institutions"
-   ],
-   "score": 59,
-   "parts": {
-    "relevance": 24,
-    "experience": 6,
-    "workMode": 4,
-    "level": 10,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "linkedin",
-     "label": "LinkedIn",
-     "url": "https://si.linkedin.com/jobs/view/strokovni-delavec-ka-javnega-socialno-varstvenega-programa-at-zveza-prijateljev-mladine-slovenije-slovenian-association-of-friends-of-youth-safy-zpms-4483032817"
-    }
-   ],
-   "firstSeenAt": "2026-11-09T17:59:57.339Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "2869e3041cb28fea",
@@ -3392,7 +3175,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504970/#/pdm/3504970"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "778736302181abf5",
@@ -3446,7 +3229,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505774/#/pdm/3505774"
     }
    ],
-   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "1828b143d74e0dee",
@@ -3500,7 +3283,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505627/#/pdm/3505627"
     }
    ],
-   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "d464911ac56b2408",
@@ -3554,7 +3337,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3492402/#/pdm/3492402"
     }
    ],
-   "firstSeenAt": "2026-11-17T17:51:21.250Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "a6f5ece0258ce12d",
@@ -3608,69 +3391,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3503861/#/pdm/3503861"
     }
    ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
-  },
-  {
-   "id": "3f25216954b7cc32",
-   "ids": [
-    "3f25216954b7cc32"
-   ],
-   "title": "Expert Talent Pool, Agents and Reinforcement Learning",
-   "company": "Clera",
-   "location": "Worldwide",
-   "locationClass": "remote",
-   "workMode": "remote",
-   "employmentType": "unknown",
-   "postedAt": "2026-11-16",
-   "deadline": null,
-   "experience": "Senior",
-   "minYears": 5,
-   "seniority": "mid",
-   "salary": "80–200 USD/hour",
-   "area": "ld",
-   "areas": [
-    "ld"
-   ],
-   "score": 54,
-   "parts": {
-    "relevance": 24,
-    "experience": 3,
-    "workMode": 15,
-    "level": 3,
-    "location": 9,
-    "organisation": 0,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Izobraževanje in razvoj zaposlenih (L&D)«"
-    },
-    {
-     "kind": "fit",
-     "text": "Delo na daljavo"
-    },
-    {
-     "kind": "warn",
-     "text": "Zahteva 5+ let izkušenj"
-    },
-    {
-     "kind": "warn",
-     "text": "Naziv nakazuje vodstveno ali višjo pozicijo"
-    },
-    {
-     "kind": "fit",
-     "text": "Odprto za kandidate iz Slovenije"
-    }
-   ],
-   "sources": [
-    {
-     "source": "himalayas",
-     "label": "Himalayas",
-     "url": "https://himalayas.app/companies/clera/jobs/expert-talent-pool-agents-and-reinforcement-learning?utm_source=api"
-    }
-   ],
-   "firstSeenAt": "2026-11-16T06:43:46.708Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "5b026f6abea618e7",
@@ -3729,65 +3450,7 @@
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3496306/#/pdm/3496306"
     }
    ],
-   "firstSeenAt": "2026-11-06T08:06:38.987Z"
-  },
-  {
-   "id": "f0459c9635ee3857",
-   "ids": [
-    "f0459c9635ee3857"
-   ],
-   "title": "Education Practitioner - Learning & Assessment Specialist",
-   "company": "micro1",
-   "location": "Worldwide",
-   "locationClass": "remote",
-   "workMode": "remote",
-   "employmentType": "unknown",
-   "postedAt": "2026-11-11",
-   "deadline": null,
-   "experience": "Mid-level",
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "digital",
-   "areas": [
-    "digital"
-   ],
-   "score": 49,
-   "parts": {
-    "relevance": 10,
-    "experience": 3,
-    "workMode": 15,
-    "level": 10,
-    "location": 9,
-    "organisation": 2,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Vsebina dela se navezuje na področje »Digitalno izobraževanje in EdTech«"
-    },
-    {
-     "kind": "fit",
-     "text": "Delo na daljavo"
-    },
-    {
-     "kind": "fit",
-     "text": "Odprto za kandidate iz Slovenije"
-    },
-    {
-     "kind": "fit",
-     "text": "Tematika: digitalizacija izobraževanja"
-    }
-   ],
-   "sources": [
-    {
-     "source": "himalayas",
-     "label": "Himalayas",
-     "url": "https://himalayas.app/companies/micro1/jobs/education-practitioner-learning-assessment-specialist?utm_source=api"
-    }
-   ],
-   "firstSeenAt": "2026-11-13T09:18:27.714Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "1ada541108a1ed39",
@@ -3850,7 +3513,7 @@
      "url": "https://himalayas.app/companies/achieve-test-prep/jobs/trade-licensing-program-manager?utm_source=api"
     }
    ],
-   "firstSeenAt": "2026-11-02T09:36:45.885Z"
+   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   }
  ]
 }
