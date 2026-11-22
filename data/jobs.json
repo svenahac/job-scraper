@@ -1,45 +1,45 @@
 {
- "generatedAt": "2026-11-21T17:00:18.834Z",
+ "generatedAt": "2026-11-22T17:00:15.309Z",
  "windowDays": 60,
  "sources": [
   {
    "name": "zrsz",
    "label": "Zavod RS za zaposlovanje",
    "ok": true,
-   "count": 3598,
-   "lastOkAt": "2026-11-21T17:00:18.834Z",
+   "count": 3367,
+   "lastOkAt": "2026-11-22T17:00:15.309Z",
    "error": null
   },
   {
    "name": "mojedelo",
    "label": "MojeDelo",
    "ok": true,
-   "count": 397,
-   "lastOkAt": "2026-11-21T17:00:18.834Z",
+   "count": 381,
+   "lastOkAt": "2026-11-22T17:00:15.309Z",
    "error": null
   },
   {
    "name": "optius",
    "label": "Optius",
    "ok": true,
-   "count": 212,
-   "lastOkAt": "2026-11-21T17:00:18.834Z",
+   "count": 201,
+   "lastOkAt": "2026-11-22T17:00:15.309Z",
    "error": null
   },
   {
    "name": "linkedin",
    "label": "LinkedIn",
    "ok": true,
-   "count": 111,
-   "lastOkAt": "2026-11-21T17:00:18.834Z",
+   "count": 114,
+   "lastOkAt": "2026-11-22T17:00:15.309Z",
    "error": null
   },
   {
    "name": "himalayas",
    "label": "Himalayas",
    "ok": true,
-   "count": 117,
-   "lastOkAt": "2026-11-21T17:00:18.834Z",
+   "count": 121,
+   "lastOkAt": "2026-11-22T17:00:15.309Z",
    "error": null
   },
   {
@@ -47,23 +47,23 @@
    "label": "EU Careers",
    "ok": true,
    "count": 117,
-   "lastOkAt": "2026-11-21T17:00:18.834Z",
+   "lastOkAt": "2026-11-22T17:00:15.309Z",
    "error": null
   },
   {
    "name": "eurobrussels",
    "label": "EuroBrussels",
    "ok": true,
-   "count": 90,
-   "lastOkAt": "2026-11-21T17:00:18.834Z",
+   "count": 88,
+   "lastOkAt": "2026-11-22T17:00:15.309Z",
    "error": null
   },
   {
    "name": "euractiv",
    "label": "Euractiv Jobs",
    "ok": true,
-   "count": 25,
-   "lastOkAt": "2026-11-21T17:00:18.834Z",
+   "count": 23,
+   "lastOkAt": "2026-11-22T17:00:15.309Z",
    "error": null
   },
   {
@@ -71,7 +71,7 @@
    "label": "EURES",
    "ok": true,
    "count": 82,
-   "lastOkAt": "2026-11-21T17:00:18.834Z",
+   "lastOkAt": "2026-11-22T17:00:15.309Z",
    "error": null
   }
  ],
@@ -1260,7 +1260,7 @@
    "locationClass": "remote",
    "workMode": "remote",
    "employmentType": "part-time",
-   "postedAt": "2026-11-19",
+   "postedAt": "2026-11-21",
    "deadline": null,
    "experience": "Senior",
    "minYears": null,
@@ -1818,64 +1818,6 @@
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
-   "id": "be3d1276d16a219f",
-   "ids": [
-    "be3d1276d16a219f"
-   ],
-   "title": "KOORDINATORKA PODROČJA - M/Ž",
-   "company": "DRUŠTVO ZA NENASILNO KOMUNIKACIJO",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-11-06",
-   "deadline": "2026-11-21",
-   "experience": "1 leto",
-   "minYears": 1,
-   "seniority": "junior",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "institutions"
-   ],
-   "score": 63,
-   "parts": {
-    "relevance": 24,
-    "experience": 5,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (1 leto) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3501825/#/pdm/3501825"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
-  },
-  {
    "id": "e20e199f0747e607",
    "ids": [
     "e20e199f0747e607"
@@ -2169,61 +2111,6 @@
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
-   "id": "0d7805599e9d5ee5",
-   "ids": [
-    "0d7805599e9d5ee5"
-   ],
-   "title": "STROKOVNI DELAVEC V PROGRAMU - M/Ž",
-   "company": "Center za socialno delo Osrednja Slovenija - vzhod",
-   "location": "DOMŽALE",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-13",
-   "deadline": "2026-11-21",
-   "experience": "6 mes",
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "counselling",
-    "institutions"
-   ],
-   "score": 60,
-   "parts": {
-    "relevance": 28,
-    "experience": 3,
-    "workMode": 4,
-    "level": 10,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504931/#/pdm/3504931"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
-  },
-  {
    "id": "bd7dea0c52c0cf16",
    "ids": [
     "bd7dea0c52c0cf16"
@@ -2468,60 +2355,6 @@
      "source": "euractiv",
      "label": "Euractiv Jobs",
      "url": "https://jobs.rapporteur.com/jobs/eu-policy-officer-brussels-remote-cesia-center-for-ai-security/"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
-  },
-  {
-   "id": "c7b57deb193463bd",
-   "ids": [
-    "c7b57deb193463bd"
-   ],
-   "title": "STROKOVNI DELAVEC V VISOKOŠOLSKI DEJAVNOSTI IV-I, ŠIFRA DM D054004 - M/Ž",
-   "company": "UNIVERZA V LJUBLJANI, Zdravstvena fakulteta",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-06",
-   "deadline": null,
-   "experience": null,
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "institutions"
-   ],
-   "score": 59,
-   "parts": {
-    "relevance": 24,
-    "experience": 6,
-    "workMode": 4,
-    "level": 10,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3502161/#/pdm/3502161"
     }
    ],
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
