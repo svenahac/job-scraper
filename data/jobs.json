@@ -1,61 +1,61 @@
 {
- "generatedAt": "2026-11-23T20:28:21.158Z",
+ "generatedAt": "2026-11-24T18:30:36.237Z",
  "windowDays": 60,
  "sources": [
   {
    "name": "zrsz",
    "label": "Zavod RS za zaposlovanje",
    "ok": true,
-   "count": 3587,
-   "lastOkAt": "2026-11-23T20:28:21.158Z",
+   "count": 3706,
+   "lastOkAt": "2026-11-24T18:30:36.237Z",
    "error": null
   },
   {
    "name": "mojedelo",
    "label": "MojeDelo",
    "ok": true,
-   "count": 410,
-   "lastOkAt": "2026-11-23T20:28:21.158Z",
+   "count": 423,
+   "lastOkAt": "2026-11-24T18:30:36.237Z",
    "error": null
   },
   {
    "name": "optius",
    "label": "Optius",
    "ok": true,
-   "count": 197,
-   "lastOkAt": "2026-11-23T20:28:21.158Z",
+   "count": 200,
+   "lastOkAt": "2026-11-24T18:30:36.237Z",
    "error": null
   },
   {
    "name": "linkedin",
    "label": "LinkedIn",
    "ok": true,
-   "count": 124,
-   "lastOkAt": "2026-11-23T20:28:21.158Z",
+   "count": 96,
+   "lastOkAt": "2026-11-24T18:30:36.237Z",
    "error": null
   },
   {
    "name": "himalayas",
    "label": "Himalayas",
    "ok": true,
-   "count": 122,
-   "lastOkAt": "2026-11-23T20:28:21.158Z",
+   "count": 127,
+   "lastOkAt": "2026-11-24T18:30:36.237Z",
    "error": null
   },
   {
    "name": "eucareers",
    "label": "EU Careers",
    "ok": true,
-   "count": 116,
-   "lastOkAt": "2026-11-23T20:28:21.158Z",
+   "count": 118,
+   "lastOkAt": "2026-11-24T18:30:36.237Z",
    "error": null
   },
   {
    "name": "eurobrussels",
    "label": "EuroBrussels",
    "ok": true,
-   "count": 88,
-   "lastOkAt": "2026-11-23T20:28:21.158Z",
+   "count": 91,
+   "lastOkAt": "2026-11-24T18:30:36.237Z",
    "error": null
   },
   {
@@ -63,16 +63,16 @@
    "label": "Euractiv Jobs",
    "ok": true,
    "count": 24,
-   "lastOkAt": "2026-11-23T20:28:21.158Z",
+   "lastOkAt": "2026-11-24T18:30:36.237Z",
    "error": null
   },
   {
    "name": "eures",
    "label": "EURES",
-   "ok": true,
-   "count": 68,
+   "ok": false,
+   "count": 0,
    "lastOkAt": "2026-11-23T20:28:21.158Z",
-   "error": null
+   "error": "POST https://europa.eu/eures/api/jv-searchengine/public/jv-search/search failed: 403 Forbidden"
   }
  ],
  "areas": [
@@ -467,64 +467,6 @@
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
-   "id": "ccac5b3e60870838",
-   "ids": [
-    "ccac5b3e60870838"
-   ],
-   "title": "SVETOVALNI DELAVEC - M/Ž",
-   "company": "Strokovni izobraževalni center Ljubljana",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-18",
-   "deadline": "2026-11-23",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling"
-   ],
-   "score": 74,
-   "parts": {
-    "relevance": 35,
-    "experience": 5,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3506334/#/pdm/3506334"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
-  },
-  {
    "id": "3ec16f3886aeab2b",
    "ids": [
     "3ec16f3886aeab2b"
@@ -578,122 +520,6 @@
      "source": "zrsz",
      "label": "Zavod RS za zaposlovanje",
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3478072/#/pdm/3478072"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
-  },
-  {
-   "id": "54e4c6269f0aaa18",
-   "ids": [
-    "54e4c6269f0aaa18"
-   ],
-   "title": "Socialni delavec III (m/ž)",
-   "company": "Univerzitetni klinični center Ljubljana",
-   "location": "Ljubljana",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-10",
-   "deadline": "2026-11-23",
-   "experience": "0 do 1 leto",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling"
-   ],
-   "score": 74,
-   "parts": {
-    "relevance": 35,
-    "experience": 5,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (0 do 1 leto) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "mojedelo",
-     "label": "MojeDelo",
-     "url": "https://www.mojedelo.com/job-ad/socialni-delavec-iii-m-z/3347770e-5544-4ec7-a8fc-133dd475fee0"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
-  },
-  {
-   "id": "a5ac48ba01f5871e",
-   "ids": [
-    "a5ac48ba01f5871e"
-   ],
-   "title": "Socialni delavec II (m/ž)",
-   "company": "Univerzitetni klinični center Ljubljana",
-   "location": "Ljubljana",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-10",
-   "deadline": "2026-11-23",
-   "experience": "1+ do 3 leta",
-   "minYears": 1,
-   "seniority": "junior",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling"
-   ],
-   "score": 74,
-   "parts": {
-    "relevance": 35,
-    "experience": 5,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (1+ do 3 leta) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "mojedelo",
-     "label": "MojeDelo",
-     "url": "https://www.mojedelo.com/job-ad/socialni-delavec-ii-m-z/5db909f5-a7e8-4b5a-aa4a-0786385a4300"
     }
    ],
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
@@ -1182,6 +1008,68 @@
    "firstSeenAt": "2026-11-20T17:09:49.786Z"
   },
   {
+   "id": "6a6b3fe0970eba5b",
+   "ids": [
+    "6a6b3fe0970eba5b"
+   ],
+   "title": "AI Native Right Hand of the CEO - EdTech (French fluent 🇫🇷)",
+   "company": "Paradox",
+   "location": "31 countries incl. Slovenia",
+   "locationClass": "remote",
+   "workMode": "remote",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-24",
+   "deadline": null,
+   "experience": "Executive",
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "digital",
+   "areas": [
+    "digital"
+   ],
+   "score": 68,
+   "parts": {
+    "relevance": 35,
+    "experience": 5,
+    "workMode": 15,
+    "level": 10,
+    "location": 6,
+    "organisation": 2,
+    "penalty": -5
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Digitalno izobraževanje in EdTech«"
+    },
+    {
+     "kind": "fit",
+     "text": "Delo na daljavo"
+    },
+    {
+     "kind": "fit",
+     "text": "Odprto za kandidate iz Slovenije"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva francoščino"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: digitalizacija izobraževanja"
+    }
+   ],
+   "sources": [
+    {
+     "source": "himalayas",
+     "label": "Himalayas",
+     "url": "https://himalayas.app/companies/paradox/jobs/ai-native-right-hand-of-the-ceo-edtech-french-fluent?utm_source=api"
+    }
+   ],
+   "firstSeenAt": "2026-11-24T18:30:36.237Z"
+  },
+  {
    "id": "09283084532c245e",
    "ids": [
     "80fcda7159c6fb1a",
@@ -1250,6 +1138,168 @@
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
+   "id": "f17e4dfd87027aa7",
+   "ids": [
+    "f17e4dfd87027aa7"
+   ],
+   "title": "SOCIALNI PEDAGOG VZGOJITELJ V STROKOVNEM CENTRU ZA ČVTM - M/Ž",
+   "company": "Strokovni center Višnja Gora",
+   "location": "GROSUPLJE",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-24",
+   "deadline": "2026-12-04",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 67,
+   "parts": {
+    "relevance": 35,
+    "experience": 3,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3508547/#/pdm/3508547"
+    }
+   ],
+   "firstSeenAt": "2026-11-24T18:30:36.237Z"
+  },
+  {
+   "id": "30735e08b19a8289",
+   "ids": [
+    "30735e08b19a8289"
+   ],
+   "title": "SVETOVALNI DELAVEC - M/Ž",
+   "company": "OSNOVNA ŠOLA PRESKA",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-24",
+   "deadline": "2026-12-04",
+   "experience": "1 leto",
+   "minYears": 1,
+   "seniority": "junior",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 67,
+   "parts": {
+    "relevance": 35,
+    "experience": 3,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (1 leto) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3508721/#/pdm/3508721"
+    }
+   ],
+   "firstSeenAt": "2026-11-24T18:30:36.237Z"
+  },
+  {
+   "id": "506341acfac2740d",
+   "ids": [
+    "506341acfac2740d"
+   ],
+   "title": "SVETOVALNI DELAVEC - M/Ž",
+   "company": "OSNOVNA ŠOLA DOBROVA",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-24",
+   "deadline": "2026-11-27",
+   "experience": "1 leto",
+   "minYears": 1,
+   "seniority": "junior",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 67,
+   "parts": {
+    "relevance": 35,
+    "experience": 3,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (1 leto) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3508707/#/pdm/3508707"
+    }
+   ],
+   "firstSeenAt": "2026-11-24T18:30:36.237Z"
+  },
+  {
    "id": "67d9b687aefccaa5",
    "ids": [
     "67d9b687aefccaa5"
@@ -1308,60 +1358,6 @@
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
-   "id": "9f3c025295bb0c96",
-   "ids": [
-    "9f3c025295bb0c96"
-   ],
-   "title": "SVETOVALNI DELAVEC - M/Ž",
-   "company": "VRTEC MLADI ROD",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-18",
-   "deadline": "2026-11-23",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling"
-   ],
-   "score": 67,
-   "parts": {
-    "relevance": 35,
-    "experience": 3,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 0,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3507020/#/pdm/3507020"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
-  },
-  {
    "id": "46369ce35761b09b",
    "ids": [
     "46369ce35761b09b"
@@ -1411,114 +1407,6 @@
      "source": "zrsz",
      "label": "Zavod RS za zaposlovanje",
      "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3506155/#/pdm/3506155"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
-  },
-  {
-   "id": "b121991f2bc4d1b9",
-   "ids": [
-    "b121991f2bc4d1b9"
-   ],
-   "title": "SOCIALNI PEDAGOG VZGOJITELJ V STROKOVNEM CENTRU ZA ČVTM - M/Ž",
-   "company": "Strokovni center Višnja Gora",
-   "location": "GROSUPLJE",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-11-13",
-   "deadline": "2026-11-23",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling"
-   ],
-   "score": 67,
-   "parts": {
-    "relevance": 35,
-    "experience": 3,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 0,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504974/#/pdm/3504974"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
-  },
-  {
-   "id": "525826bd3f006218",
-   "ids": [
-    "525826bd3f006218"
-   ],
-   "title": "SOCIALNI PEDAGOG VZGOJITELJ V STROKOVNEM CENTRU ZA ČVTM - M/Ž",
-   "company": "Strokovni center Višnja Gora",
-   "location": "GROSUPLJE",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "fixed-term",
-   "postedAt": "2026-11-13",
-   "deadline": "2026-11-23",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling"
-   ],
-   "score": 67,
-   "parts": {
-    "relevance": 35,
-    "experience": 3,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 0,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3504972/#/pdm/3504972"
     }
    ],
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
@@ -1638,6 +1526,65 @@
     }
    ],
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
+  },
+  {
+   "id": "a1f6f02e81bd2f96",
+   "ids": [
+    "a1f6f02e81bd2f96"
+   ],
+   "title": "STROKOVNI SODELAVEC PRI PEDAGOŠKEM PROCESU NA UNIVERZI VII/1 - M/Ž",
+   "company": "UNIVERZA V LJUBLJANI, FAKULTETA ZA GRADBENIŠTVO IN GEODEZIJO",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-24",
+   "deadline": "2026-12-04",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": "2.285,06 EUR bruto mesečno",
+   "area": "institutions",
+   "areas": [
+    "institutions",
+    "related"
+   ],
+   "score": 63,
+   "parts": {
+    "relevance": 24,
+    "experience": 5,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3508745/#/pdm/3508745"
+    }
+   ],
+   "firstSeenAt": "2026-11-24T18:30:36.237Z"
   },
   {
    "id": "4686bd1bbb51006c",
@@ -2525,13 +2472,13 @@
     "c33269fbd65a9434"
    ],
    "title": "EU Policy Officer",
-   "company": null,
-   "location": "Brussels",
+   "company": "CeSIA (Center for AI Security)",
+   "location": "Brussels, Belgium",
    "locationClass": "remote",
    "workMode": "remote",
    "employmentType": "permanent",
    "postedAt": "2026-11-09",
-   "deadline": null,
+   "deadline": "2026-11-30",
    "experience": "7-10 Years",
    "minYears": 7,
    "seniority": "senior",
@@ -2591,6 +2538,60 @@
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
+   "id": "dca09f988297a67a",
+   "ids": [
+    "dca09f988297a67a"
+   ],
+   "title": "STROKOVNI DELAVEC NA CSD – KRIZNE NAMESTITVE - KCO PALČICA - M/Ž",
+   "company": "Center za socialno delo Ljubljana",
+   "location": "GROSUPLJE",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-24",
+   "deadline": "2026-12-14",
+   "experience": "6 mes",
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "institutions",
+   "areas": [
+    "institutions"
+   ],
+   "score": 58,
+   "parts": {
+    "relevance": 24,
+    "experience": 5,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3509142/#/pdm/3509142"
+    }
+   ],
+   "firstSeenAt": "2026-11-24T18:30:36.237Z"
+  },
+  {
    "id": "2869e3041cb28fea",
    "ids": [
     "2869e3041cb28fea"
@@ -2647,6 +2648,60 @@
     }
    ],
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
+  },
+  {
+   "id": "8cb1227243f5c24a",
+   "ids": [
+    "8cb1227243f5c24a"
+   ],
+   "title": "STROKOVNI SODELAVEC V STANOVANJSKI SKUPINI - M/Ž",
+   "company": "ŠENT - SLOVENSKO ZDRUŽENJE ZA DUŠEVNO ZDRAVJE",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-24",
+   "deadline": "2026-12-02",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 56,
+   "parts": {
+    "relevance": 24,
+    "experience": 3,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3509016/#/pdm/3509016"
+    }
+   ],
+   "firstSeenAt": "2026-11-24T18:30:36.237Z"
   },
   {
    "id": "0cfec82cc7bafaec",
@@ -3157,6 +3212,184 @@
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
+   "id": "7f0145c6df0f4e88",
+   "ids": [
+    "7f0145c6df0f4e88"
+   ],
+   "title": "STROKOVNI SODELAVEC - PROJEKTNI VODJA - M/Ž",
+   "company": "ŠENT - SLOVENSKO ZDRUŽENJE ZA DUŠEVNO ZDRAVJE",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-24",
+   "deadline": "2026-11-30",
+   "experience": "2 leti",
+   "minYears": 2,
+   "seniority": "junior",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 51,
+   "parts": {
+    "relevance": 24,
+    "experience": 5,
+    "workMode": 4,
+    "level": 8,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (2 leti) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "warn",
+     "text": "Naziv nakazuje vodstveno ali višjo pozicijo"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3509018/#/pdm/3509018"
+    }
+   ],
+   "firstSeenAt": "2026-11-24T18:30:36.237Z"
+  },
+  {
+   "id": "f0459c9635ee3857",
+   "ids": [
+    "f0459c9635ee3857"
+   ],
+   "title": "Education Practitioner - Learning & Assessment Specialist",
+   "company": "micro1",
+   "location": "Worldwide",
+   "locationClass": "remote",
+   "workMode": "remote",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-24",
+   "deadline": null,
+   "experience": "Mid-level",
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "digital",
+   "areas": [
+    "digital"
+   ],
+   "score": 49,
+   "parts": {
+    "relevance": 10,
+    "experience": 3,
+    "workMode": 15,
+    "level": 10,
+    "location": 9,
+    "organisation": 2,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Vsebina dela se navezuje na področje »Digitalno izobraževanje in EdTech«"
+    },
+    {
+     "kind": "fit",
+     "text": "Delo na daljavo"
+    },
+    {
+     "kind": "fit",
+     "text": "Odprto za kandidate iz Slovenije"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: digitalizacija izobraževanja"
+    }
+   ],
+   "sources": [
+    {
+     "source": "himalayas",
+     "label": "Himalayas",
+     "url": "https://himalayas.app/companies/micro1/jobs/education-practitioner-learning-assessment-specialist?utm_source=api"
+    }
+   ],
+   "firstSeenAt": "2026-11-24T18:30:36.237Z"
+  },
+  {
+   "id": "f431e0e8c0e858bd",
+   "ids": [
+    "f431e0e8c0e858bd"
+   ],
+   "title": "Strokovni delavec v zaposlitveni rehabilitaciji m/ž",
+   "company": "Želva d.o.o.",
+   "location": "Ljubljana",
+   "locationClass": "ljubljana",
+   "workMode": "hybrid",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-24",
+   "deadline": "2026-12-10",
+   "experience": "4 - 5 let",
+   "minYears": 4,
+   "seniority": "mid",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 48,
+   "parts": {
+    "relevance": 12,
+    "experience": 3,
+    "workMode": 13,
+    "level": 8,
+    "location": 10,
+    "organisation": 2,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Vsebina dela se navezuje na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Hibridno delo (delno od doma)"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva 4+ let izkušenj"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: socialno vključevanje"
+    }
+   ],
+   "sources": [
+    {
+     "source": "optius",
+     "label": "Optius",
+     "url": "https://www.optius.com/iskalci/prosta-delovna-mesta/strokovni-delavec-v-zaposlitveni-rehabilitaciji-mz-967937-967937/"
+    }
+   ],
+   "firstSeenAt": "2026-11-24T18:30:36.237Z"
+  },
+  {
    "id": "1ada541108a1ed39",
    "ids": [
     "1ada541108a1ed39"
@@ -3218,6 +3451,64 @@
     }
    ],
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
+  },
+  {
+   "id": "4041c25cc5df7b73",
+   "ids": [
+    "4041c25cc5df7b73"
+   ],
+   "title": "Strokovni delavec v zaposlitveni rehabilitaciji - delovni terapevt (m/ž)",
+   "company": "Želva d.o.o.",
+   "location": "Ljubljana",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-24",
+   "deadline": "2026-12-10",
+   "experience": "3+ do 5 let",
+   "minYears": 3,
+   "seniority": "mid",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 44,
+   "parts": {
+    "relevance": 12,
+    "experience": 3,
+    "workMode": 4,
+    "level": 13,
+    "location": 10,
+    "organisation": 2,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Vsebina dela se navezuje na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (3+ do 5 let) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Tematika: socialno vključevanje"
+    }
+   ],
+   "sources": [
+    {
+     "source": "mojedelo",
+     "label": "MojeDelo",
+     "url": "https://www.mojedelo.com/job-ad/strokovni-delavec-v-zaposlitveni-rehabilitaciji-delovni-terapevt-m-z/31cc279b-4d5c-4340-afaf-da89251f77e5"
+    }
+   ],
+   "firstSeenAt": "2026-11-24T18:30:36.237Z"
   }
  ]
 }
