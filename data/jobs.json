@@ -1,61 +1,61 @@
 {
- "generatedAt": "2026-11-25T18:47:43.648Z",
+ "generatedAt": "2026-11-26T18:35:25.619Z",
  "windowDays": 60,
  "sources": [
   {
    "name": "zrsz",
    "label": "Zavod RS za zaposlovanje",
    "ok": true,
-   "count": 3983,
-   "lastOkAt": "2026-11-25T18:47:43.648Z",
+   "count": 3796,
+   "lastOkAt": "2026-11-26T18:35:25.619Z",
    "error": null
   },
   {
    "name": "mojedelo",
    "label": "MojeDelo",
    "ok": true,
-   "count": 432,
-   "lastOkAt": "2026-11-25T18:47:43.648Z",
+   "count": 431,
+   "lastOkAt": "2026-11-26T18:35:25.619Z",
    "error": null
   },
   {
    "name": "optius",
    "label": "Optius",
    "ok": true,
-   "count": 210,
-   "lastOkAt": "2026-11-25T18:47:43.648Z",
+   "count": 218,
+   "lastOkAt": "2026-11-26T18:35:25.619Z",
    "error": null
   },
   {
    "name": "linkedin",
    "label": "LinkedIn",
    "ok": true,
-   "count": 114,
-   "lastOkAt": "2026-11-25T18:47:43.648Z",
+   "count": 110,
+   "lastOkAt": "2026-11-26T18:35:25.619Z",
    "error": null
   },
   {
    "name": "himalayas",
    "label": "Himalayas",
    "ok": true,
-   "count": 124,
-   "lastOkAt": "2026-11-25T18:47:43.648Z",
+   "count": 126,
+   "lastOkAt": "2026-11-26T18:35:25.619Z",
    "error": null
   },
   {
    "name": "eucareers",
    "label": "EU Careers",
    "ok": true,
-   "count": 132,
-   "lastOkAt": "2026-11-25T18:47:43.648Z",
+   "count": 135,
+   "lastOkAt": "2026-11-26T18:35:25.619Z",
    "error": null
   },
   {
    "name": "eurobrussels",
    "label": "EuroBrussels",
    "ok": true,
-   "count": 100,
-   "lastOkAt": "2026-11-25T18:47:43.648Z",
+   "count": 96,
+   "lastOkAt": "2026-11-26T18:35:25.619Z",
    "error": null
   },
   {
@@ -63,15 +63,15 @@
    "label": "Euractiv Jobs",
    "ok": true,
    "count": 25,
-   "lastOkAt": "2026-11-25T18:47:43.648Z",
+   "lastOkAt": "2026-11-26T18:35:25.619Z",
    "error": null
   },
   {
    "name": "eures",
    "label": "EURES",
    "ok": true,
-   "count": 68,
-   "lastOkAt": "2026-11-25T18:47:43.648Z",
+   "count": 71,
+   "lastOkAt": "2026-11-26T18:35:25.619Z",
    "error": null
   }
  ],
@@ -596,64 +596,6 @@
     }
    ],
    "firstSeenAt": "2026-11-20T17:09:49.786Z"
-  },
-  {
-   "id": "593abd5a3df5549a",
-   "ids": [
-    "593abd5a3df5549a"
-   ],
-   "title": "SVETOVALNI DELAVEC - M/Ž",
-   "company": "Strokovni izobraževalni center Ljubljana",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-17",
-   "deadline": "2026-11-25",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "counselling",
-   "areas": [
-    "counselling"
-   ],
-   "score": 72,
-   "parts": {
-    "relevance": 35,
-    "experience": 3,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3489817/#/pdm/3489817"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "8c17287a879011e8",
@@ -1823,6 +1765,61 @@
    "firstSeenAt": "2026-11-20T17:09:49.786Z"
   },
   {
+   "id": "6618a00e98f1b2ab",
+   "ids": [
+    "6618a00e98f1b2ab"
+   ],
+   "title": "STROKOVNI DELAVEC NA CSD II - ENOTA GROSUPLJE - M/Ž",
+   "company": "Center za socialno delo Ljubljana",
+   "location": "GROSUPLJE",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "permanent",
+   "postedAt": "2026-11-26",
+   "deadline": "2026-12-06",
+   "experience": "6 mes",
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling",
+    "institutions"
+   ],
+   "score": 62,
+   "parts": {
+    "relevance": 28,
+    "experience": 5,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3510101/#/pdm/3510101"
+    }
+   ],
+   "firstSeenAt": "2026-11-26T18:35:25.619Z"
+  },
+  {
    "id": "190e1541c2ec4830",
    "ids": [
     "190e1541c2ec4830"
@@ -2575,68 +2572,6 @@
    "firstSeenAt": "2026-11-20T17:09:49.786Z"
   },
   {
-   "id": "7c3c8ef8986a2a2d",
-   "ids": [
-    "7c3c8ef8986a2a2d"
-   ],
-   "title": "SAMOSTOJNI SVETOVALEC VII/2 - M/Ž",
-   "company": "NARODNA IN UNIVERZITETNA KNJIŽNICA",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-10",
-   "deadline": "2026-11-25",
-   "experience": "3 leta",
-   "minYears": 3,
-   "seniority": "mid",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "institutions"
-   ],
-   "score": 59,
-   "parts": {
-    "relevance": 24,
-    "experience": 7,
-    "workMode": 4,
-    "level": 13,
-    "location": 10,
-    "organisation": 5,
-    "penalty": -4
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (3 leta) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    },
-    {
-     "kind": "warn",
-     "text": "Vključuje tudi kadrovsko administracijo"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3503362/#/pdm/3503362"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
-  },
-  {
    "id": "c33269fbd65a9434",
    "ids": [
     "c33269fbd65a9434"
@@ -3101,60 +3036,6 @@
     }
    ],
    "firstSeenAt": "2026-11-20T17:09:49.786Z"
-  },
-  {
-   "id": "778736302181abf5",
-   "ids": [
-    "778736302181abf5"
-   ],
-   "title": "PISARNIŠKI REFERENT V (I) IN STROKOVNI SODELAVEC NA CSD – MATERIALNE PRAVICE IV (M/Ž)(VSAKO DELOVNO MESTO PO 1/2 DELOVNEGA ČASA) - M/Ž",
-   "company": "Center za socialno delo Osrednja Slovenija - vzhod",
-   "location": "LITIJA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-17",
-   "deadline": "2026-11-25",
-   "experience": "6 mes",
-   "minYears": null,
-   "seniority": "unknown",
-   "salary": null,
-   "area": "institutions",
-   "areas": [
-    "institutions"
-   ],
-   "score": 56,
-   "parts": {
-    "relevance": 24,
-    "experience": 3,
-    "workMode": 4,
-    "level": 10,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3505774/#/pdm/3505774"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
    "id": "b087ba33abae1591",
