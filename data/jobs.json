@@ -1,37 +1,37 @@
 {
- "generatedAt": "2026-11-26T18:35:25.619Z",
+ "generatedAt": "2026-11-27T18:23:25.919Z",
  "windowDays": 60,
  "sources": [
   {
    "name": "zrsz",
    "label": "Zavod RS za zaposlovanje",
    "ok": true,
-   "count": 3796,
-   "lastOkAt": "2026-11-26T18:35:25.619Z",
+   "count": 3744,
+   "lastOkAt": "2026-11-27T18:23:25.919Z",
    "error": null
   },
   {
    "name": "mojedelo",
    "label": "MojeDelo",
    "ok": true,
-   "count": 431,
-   "lastOkAt": "2026-11-26T18:35:25.619Z",
+   "count": 435,
+   "lastOkAt": "2026-11-27T18:23:25.919Z",
    "error": null
   },
   {
    "name": "optius",
    "label": "Optius",
    "ok": true,
-   "count": 218,
-   "lastOkAt": "2026-11-26T18:35:25.619Z",
+   "count": 216,
+   "lastOkAt": "2026-11-27T18:23:25.919Z",
    "error": null
   },
   {
    "name": "linkedin",
    "label": "LinkedIn",
    "ok": true,
-   "count": 110,
-   "lastOkAt": "2026-11-26T18:35:25.619Z",
+   "count": 95,
+   "lastOkAt": "2026-11-27T18:23:25.919Z",
    "error": null
   },
   {
@@ -39,39 +39,39 @@
    "label": "Himalayas",
    "ok": true,
    "count": 126,
-   "lastOkAt": "2026-11-26T18:35:25.619Z",
+   "lastOkAt": "2026-11-27T18:23:25.919Z",
    "error": null
   },
   {
    "name": "eucareers",
    "label": "EU Careers",
    "ok": true,
-   "count": 135,
-   "lastOkAt": "2026-11-26T18:35:25.619Z",
+   "count": 131,
+   "lastOkAt": "2026-11-27T18:23:25.919Z",
    "error": null
   },
   {
    "name": "eurobrussels",
    "label": "EuroBrussels",
    "ok": true,
-   "count": 96,
-   "lastOkAt": "2026-11-26T18:35:25.619Z",
+   "count": 91,
+   "lastOkAt": "2026-11-27T18:23:25.919Z",
    "error": null
   },
   {
    "name": "euractiv",
    "label": "Euractiv Jobs",
    "ok": true,
-   "count": 25,
-   "lastOkAt": "2026-11-26T18:35:25.619Z",
+   "count": 26,
+   "lastOkAt": "2026-11-27T18:23:25.919Z",
    "error": null
   },
   {
    "name": "eures",
    "label": "EURES",
    "ok": true,
-   "count": 71,
-   "lastOkAt": "2026-11-26T18:35:25.619Z",
+   "count": 65,
+   "lastOkAt": "2026-11-27T18:23:25.919Z",
    "error": null
   }
  ],
@@ -106,76 +106,6 @@
   }
  ],
  "jobs": [
-  {
-   "id": "281d187f419d52f1",
-   "ids": [
-    "281d187f419d52f1"
-   ],
-   "title": "Mednarodna projektna pisarna (U6) Instituta »Jožef Stefan« vabi v svojo ekipo novo sodelavko ali sodelavca!",
-   "company": "Institut \"Jožef Stefan\"",
-   "location": "Ljubljana",
-   "locationClass": "ljubljana",
-   "workMode": "hybrid",
-   "employmentType": "permanent",
-   "postedAt": "2026-11-19",
-   "deadline": "2026-11-26",
-   "experience": "3+ do 5 let",
-   "minYears": 3,
-   "seniority": "mid",
-   "salary": null,
-   "area": "projects",
-   "areas": [
-    "projects"
-   ],
-   "score": 87,
-   "parts": {
-    "relevance": 35,
-    "experience": 9,
-    "workMode": 13,
-    "level": 13,
-    "location": 10,
-    "organisation": 7,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Naziv ustreza področju »Projekti in koordinacija«"
-    },
-    {
-     "kind": "fit",
-     "text": "Ujema se s tvojimi izkušnjami: EU-projekti"
-    },
-    {
-     "kind": "fit",
-     "text": "Hibridno delo (delno od doma)"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (3+ do 5 let) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    },
-    {
-     "kind": "fit",
-     "text": "Tematika: EU-projekti"
-    }
-   ],
-   "sources": [
-    {
-     "source": "mojedelo",
-     "label": "MojeDelo",
-     "url": "https://www.mojedelo.com/job-ad/mednarodna-projektna-pisarna-u6-instituta-jozef-stefan-vabi-v-svojo-ekipo-novo-sodelavko-ali-sodelavca/c20fc9ea-9127-4565-bb05-ff240aa38352"
-    }
-   ],
-   "firstSeenAt": "2026-11-19T17:34:28.151Z"
-  },
   {
    "id": "b469609c020b623a",
    "ids": [
@@ -470,6 +400,68 @@
     }
    ],
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
+  },
+  {
+   "id": "600f3884f752b0ea",
+   "ids": [
+    "600f3884f752b0ea"
+   ],
+   "title": "VISOKOŠOLSKI UČITELJ – DOCENT (ŠIFRA DM: D019008) ALI VISOKOŠOLSKI UČITELJ – IZREDNI PROFESOR (ŠIFRA DM: D019007) ALI VISOKOŠOLSKI UČITELJ – REDNI PROFESOR (ŠIFRA DM: D019006) (M/Ž) NA ODDELKU ZA PEDAGOGIKO IN ANDRAGOGIKO (KATEDRA ZA PEDAGOŠKO METODOLOGIJO) - M/Ž",
+   "company": "UNIVERZA V LJUBLJANI, FILOZOFSKA FAKULTETA",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "part-time",
+   "postedAt": "2026-11-27",
+   "deadline": "2027-01-26",
+   "experience": "1 leto",
+   "minYears": 1,
+   "seniority": "junior",
+   "salary": null,
+   "area": "education",
+   "areas": [
+    "education"
+   ],
+   "score": 74,
+   "parts": {
+    "relevance": 35,
+    "experience": 5,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Izobraževanje odraslih in izobraževalni programi«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ujema se s tvojimi izkušnjami: andragogika"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (1 leto) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3510925/#/pdm/3510925"
+    }
+   ],
+   "firstSeenAt": "2026-11-27T18:23:25.919Z"
   },
   {
    "id": "979e3d915830742c",
@@ -1204,6 +1196,60 @@
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
+   "id": "3e9f5bde9000e451",
+   "ids": [
+    "3e9f5bde9000e451"
+   ],
+   "title": "SVETOVALNI DELAVEC - M/Ž",
+   "company": "Vrtec Zelena jama",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-27",
+   "deadline": "2026-12-02",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "counselling",
+   "areas": [
+    "counselling"
+   ],
+   "score": 67,
+   "parts": {
+    "relevance": 35,
+    "experience": 3,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Svetovalno in socialno delo«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3510488/#/pdm/3510488"
+    }
+   ],
+   "firstSeenAt": "2026-11-27T18:23:25.919Z"
+  },
+  {
    "id": "c35d58e9a6c9816d",
    "ids": [
     "c35d58e9a6c9816d"
@@ -1483,7 +1529,7 @@
     "46369ce35761b09b"
    ],
    "title": "SVETOVALEC - SOCIALNI DELAVEC (ŠIFRA DM 6197) V ZAVODU ZA PRESTAJANJE KAZNI ZAPORA LJUBLJANA, SEKTORJU ZA TRETMA, 2. ODDELKU - M/Ž",
-   "company": "UPRAVA RS ZA IZVRŠEVANJE KAZENSKIH SANKCIJ; UPRAVA RS ZA IZVRŠEVANJE KAZENSKIH SANKCIJ ZAVOD ZA PRESTAJANJE KAZNI ZAPORA LJUBLJANA",
+   "company": "UPRAVA RS ZA IZVRŠEVANJE KAZENSKIH SANKCIJ; ZAVOD ZA PRESTAJANJE KAZNI ZAPORA LJUBLJANA",
    "location": "LJUBLJANA",
    "locationClass": "ljubljana",
    "workMode": "onsite",
@@ -1530,6 +1576,56 @@
     }
    ],
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
+  },
+  {
+   "id": "aa921830db45ac9f",
+   "ids": [
+    "aa921830db45ac9f"
+   ],
+   "title": "Professional Medical Education Specialist - Orthopedics, CEE South",
+   "company": "Johnson & Johnson MedTech",
+   "location": "Ljubljana, Ljubljana, Slovenia",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "unknown",
+   "postedAt": "2026-11-27",
+   "deadline": null,
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "education",
+   "areas": [
+    "education"
+   ],
+   "score": 65,
+   "parts": {
+    "relevance": 35,
+    "experience": 6,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 0,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Naziv ustreza področju »Izobraževanje odraslih in izobraževalni programi«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    }
+   ],
+   "sources": [
+    {
+     "source": "linkedin",
+     "label": "LinkedIn",
+     "url": "https://si.linkedin.com/jobs/view/professional-medical-education-specialist-orthopedics-cee-south-at-johnson-johnson-medtech-4495832694"
+    }
+   ],
+   "firstSeenAt": "2026-11-27T18:23:25.919Z"
   },
   {
    "id": "56e7bc9a685ae530",
@@ -1647,64 +1743,6 @@
     }
    ],
    "firstSeenAt": "2026-11-24T18:30:36.237Z"
-  },
-  {
-   "id": "4686bd1bbb51006c",
-   "ids": [
-    "4686bd1bbb51006c"
-   ],
-   "title": "ŠIFRA DM: H017004, RAZISKOVALEC - M/Ž",
-   "company": "UNIVERZA V LJUBLJANI, FAKULTETA ZA MATEMATIKO IN FIZIKO",
-   "location": "LJUBLJANA",
-   "locationClass": "ljubljana",
-   "workMode": "onsite",
-   "employmentType": "part-time",
-   "postedAt": "2026-11-23",
-   "deadline": "2026-11-26",
-   "experience": "ni zahtevano",
-   "minYears": 0,
-   "seniority": "junior",
-   "salary": null,
-   "area": "related",
-   "areas": [
-    "related"
-   ],
-   "score": 63,
-   "parts": {
-    "relevance": 24,
-    "experience": 5,
-    "workMode": 4,
-    "level": 15,
-    "location": 10,
-    "organisation": 5,
-    "penalty": 0
-   },
-   "reasons": [
-    {
-     "kind": "fit",
-     "text": "Delo spada na področje »Druge sorodne pozicije«"
-    },
-    {
-     "kind": "fit",
-     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
-    },
-    {
-     "kind": "fit",
-     "text": "Ljubljana z okolico"
-    },
-    {
-     "kind": "fit",
-     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
-    }
-   ],
-   "sources": [
-    {
-     "source": "zrsz",
-     "label": "Zavod RS za zaposlovanje",
-     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3508392/#/pdm/3508392"
-    }
-   ],
-   "firstSeenAt": "2026-11-23T20:28:21.158Z"
   },
   {
    "id": "621966fb3c7c09c9",
@@ -2040,6 +2078,64 @@
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
+   "id": "14b01b4d5df8a09e",
+   "ids": [
+    "14b01b4d5df8a09e"
+   ],
+   "title": "H027020 PODROČNI SVETOVALEC I, DM. ŠT. 173 - M/Ž",
+   "company": "Znanstvenoraziskovalni center Slovenske akademije znanosti in umetnosti",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "part-time",
+   "postedAt": "2026-11-27",
+   "deadline": "2026-12-02",
+   "experience": "ni zahtevano",
+   "minYears": 0,
+   "seniority": "junior",
+   "salary": null,
+   "area": "institutions",
+   "areas": [
+    "institutions"
+   ],
+   "score": 61,
+   "parts": {
+    "relevance": 24,
+    "experience": 3,
+    "workMode": 4,
+    "level": 15,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
+    },
+    {
+     "kind": "fit",
+     "text": "Zahtevane izkušnje (ni zahtevano) ustrezajo tvojemu profilu"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3510585/#/pdm/3510585"
+    }
+   ],
+   "firstSeenAt": "2026-11-27T18:23:25.919Z"
+  },
+  {
    "id": "ec10d5c3c78ae44c",
    "ids": [
     "ec10d5c3c78ae44c"
@@ -2233,7 +2329,7 @@
     "5df01cba3296b688"
    ],
    "title": "VIŠJI SVETOVALEC - SOCIALNI DELAVEC (ŠIFRA DM 61941) V ZAVODU ZA PRESTAJANJE KAZNI ZAPORA LJUBLJANA, SEKTORJU ZA TRETMA, 1. ODDELKU - M/Ž",
-   "company": "UPRAVA RS ZA IZVRŠEVANJE KAZENSKIH SANKCIJ; UPRAVA RS ZA IZVRŠEVANJE KAZENSKIH SANKCIJ ZAVOD ZA PRESTAJANJE KAZNI ZAPORA LJUBLJANA",
+   "company": "UPRAVA RS ZA IZVRŠEVANJE KAZENSKIH SANKCIJ; ZAVOD ZA PRESTAJANJE KAZNI ZAPORA LJUBLJANA",
    "location": "LJUBLJANA",
    "locationClass": "ljubljana",
    "workMode": "onsite",
@@ -2288,6 +2384,60 @@
     }
    ],
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
+  },
+  {
+   "id": "511a7cf0937171e8",
+   "ids": [
+    "511a7cf0937171e8"
+   ],
+   "title": "STROKOVNI DELAVEC V VISOKOŠOLSKI DEJAVNOSTI VII/1-I (DM D057005) ZA PODROČJE ZDRAVSTVO - M/Ž",
+   "company": "UNIVERZA V LJUBLJANI, Zdravstvena fakulteta",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-27",
+   "deadline": null,
+   "experience": null,
+   "minYears": null,
+   "seniority": "unknown",
+   "salary": null,
+   "area": "institutions",
+   "areas": [
+    "institutions"
+   ],
+   "score": 59,
+   "parts": {
+    "relevance": 24,
+    "experience": 6,
+    "workMode": 4,
+    "level": 10,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Nevladne, kulturne in univerzitetne ustanove«"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3510684/#/pdm/3510684"
+    }
+   ],
+   "firstSeenAt": "2026-11-27T18:23:25.919Z"
   },
   {
    "id": "415638941d9ea397",
@@ -2863,6 +3013,64 @@
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
   },
   {
+   "id": "21c9bb7baba19f66",
+   "ids": [
+    "21c9bb7baba19f66"
+   ],
+   "title": "Strokovni sodelavec VII/2 (I) (m/ž) Klinični inštitut za medicino dela, prometa in športa",
+   "company": "UNIVERZITETNI KLINIČNI CENTER LJUBLJANA",
+   "location": "Ljubljana",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-27",
+   "deadline": "2026-12-05",
+   "experience": "4 - 5 let",
+   "minYears": 4,
+   "seniority": "mid",
+   "salary": null,
+   "area": "related",
+   "areas": [
+    "related"
+   ],
+   "score": 56,
+   "parts": {
+    "relevance": 24,
+    "experience": 5,
+    "workMode": 4,
+    "level": 8,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Druge sorodne pozicije«"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva 4+ let izkušenj"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "optius",
+     "label": "Optius",
+     "url": "https://www.optius.com/iskalci/prosta-delovna-mesta/strokovni-sodelavec-vii2-i-mz-klinicni-institut-za-medicino-dela-prometa-in-sporta-968364-968364/"
+    }
+   ],
+   "firstSeenAt": "2026-11-27T18:23:25.919Z"
+  },
+  {
    "id": "8cb1227243f5c24a",
    "ids": [
     "8cb1227243f5c24a"
@@ -3315,6 +3523,64 @@
     }
    ],
    "firstSeenAt": "2026-11-19T17:34:28.151Z"
+  },
+  {
+   "id": "f2d7fa70d60dffd3",
+   "ids": [
+    "f2d7fa70d60dffd3"
+   ],
+   "title": "STROKOVNI SODELAVEC VII/2 (I), (E097170), ZA POTREBE KLINIČNEGA INŠTITUTA ZA MEDICINO DELA, PROMETA IN ŠPORTA, ENOTA ZA RAZISKOVALNO DEJAVNOST IN IZOBRAŽEVANJE - M/Ž",
+   "company": "UNIVERZITETNI KLINIČNI CENTER LJUBLJANA",
+   "location": "LJUBLJANA",
+   "locationClass": "ljubljana",
+   "workMode": "onsite",
+   "employmentType": "fixed-term",
+   "postedAt": "2026-11-27",
+   "deadline": "2026-12-05",
+   "experience": "6 let",
+   "minYears": 6,
+   "seniority": "senior",
+   "salary": null,
+   "area": "related",
+   "areas": [
+    "related"
+   ],
+   "score": 51,
+   "parts": {
+    "relevance": 24,
+    "experience": 5,
+    "workMode": 4,
+    "level": 3,
+    "location": 10,
+    "organisation": 5,
+    "penalty": 0
+   },
+   "reasons": [
+    {
+     "kind": "fit",
+     "text": "Delo spada na področje »Druge sorodne pozicije«"
+    },
+    {
+     "kind": "warn",
+     "text": "Zahteva 6+ let izkušenj"
+    },
+    {
+     "kind": "fit",
+     "text": "Ljubljana z okolico"
+    },
+    {
+     "kind": "fit",
+     "text": "Izobraževalna, kulturna, javna ali nevladna organizacija"
+    }
+   ],
+   "sources": [
+    {
+     "source": "zrsz",
+     "label": "Zavod RS za zaposlovanje",
+     "url": "https://www.ess.gov.si/iskalci-zaposlitve/iskanje-zaposlitve/iskanje-dela/?idp=3510770/#/pdm/3510770"
+    }
+   ],
+   "firstSeenAt": "2026-11-27T18:23:25.919Z"
   },
   {
    "id": "7f0145c6df0f4e88",
